@@ -41,8 +41,8 @@ export type Format = 'normal' | 'deltaClassic' | 'deltaVc'
 
 export const FORMAT_LABELS: Record<Format, string> = {
   normal: 'Normal',
-  deltaClassic: 'Delta (Classic)',
-  deltaVc: 'Delta (VC)',
+  deltaClassic: 'Delta',
+  deltaVc: 'Delta (VC customs)',
 }
 
 export interface Player {

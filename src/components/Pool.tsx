@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { unitIndex } from '../lib/data'
+import { useMemo, useState, type CSSProperties } from 'react'
+import { unitImages, unitIndex } from '../lib/data'
 import { checkUnit, costOf, remainingCount } from '../lib/draft'
 import type { DraftState, Unit } from '../lib/types'
 
@@ -18,8 +18,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
   const [type, setType] = useState('')
   const [rarity, setRarity] = useState('')
   const [general, setGeneral] = useState('')
-  const [draftableOnly, setDraftableOnly] = useState(false)
-  const [hideGone, setHideGone] = useState(true)
+  const [showUndraftable, setShowUndraftable] = useState(false)
   const [sort, setSort] = useState<SortKey>('name')
   const [expanded, setExpanded] = useState<string | null>(null)
 
@@ -35,9 +34,8 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
       left: remainingCount(state, unit.id),
       check: playerId ? checkUnit(state, playerId, unit, unitIndex) : ({ ok: false, reason: '' } as const),
     }))
-    .filter(({ unit, left, check }) => {
-      if (hideGone && left <= 0) return false
-      if (draftableOnly && !check.ok) return false
+    .filter(({ unit, check }) => {
+      if (!showUndraftable && !check.ok) return false
       if (type && unit.type !== type) return false
       if (rarity === 'Unique' && unit.rarity !== 'Unique') return false
       if (rarity === 'Common' && unit.rarity === 'Unique') return false
@@ -82,13 +80,9 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
           <option value="costDesc">Sort: cost high → low</option>
           <option value="costAsc">Sort: cost low → high</option>
         </select>
-        <label className="check">
-          <input type="checkbox" checked={draftableOnly} onChange={(e) => setDraftableOnly(e.target.checked)} />
-          Draftable only
-        </label>
-        <label className="check">
-          <input type="checkbox" checked={hideGone} onChange={(e) => setHideGone(e.target.checked)} />
-          Hide drafted
+        <label className="check" title="Include units you can't afford, already have, or that are all drafted">
+          <input type="checkbox" checked={showUndraftable} onChange={(e) => setShowUndraftable(e.target.checked)} />
+          Show undraftable
         </label>
       </div>
 
@@ -97,8 +91,13 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
       <ul className="unit-list">
         {rows.map(({ unit, cost, left, check }) => {
           const open = expanded === unit.id
+          const image = unitImages[unit.id]
           return (
-            <li key={unit.id} className={`unit-row ${check.ok ? '' : 'blocked'} ${left <= 0 ? 'gone' : ''}`}>
+            <li
+              key={unit.id}
+              className={`unit-row ${check.ok ? '' : 'blocked'} ${left <= 0 ? 'gone' : ''} ${image ? 'has-image' : ''}`}
+              style={image ? ({ '--unit-image': `url("${image}")` } as CSSProperties) : undefined}
+            >
               <button type="button" className="unit-summary" onClick={() => setExpanded(open ? null : unit.id)} aria-expanded={open}>
                 <span className="unit-cost">{cost}</span>
                 <span className="unit-main">
@@ -159,6 +158,14 @@ function Stat({ label, value }: { label: string; value: number }) {
 export function UnitDetails({ unit }: { unit: Unit }) {
   return (
     <div className="unit-details">
+      {unitImages[unit.id] ? (
+        <img className="unit-photo" src={unitImages[unit.id]} alt={unit.name} />
+      ) : (
+        <div className="unit-photo placeholder" title={`Add src/assets/units/${unit.id}.jpg`}>
+          <span>{unit.name}</span>
+          <span className="muted">No photo yet</span>
+        </div>
+      )}
       <p className="muted">
         {unit.species} {unit.unitClass} · {unit.personality} · {unit.size} {unit.height} · {unit.homeworld} · {unit.set}
       </p>

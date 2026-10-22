@@ -519,3 +519,43 @@ button.primary:hover:not(:disabled) {
   cursor: pointer;
   box-shadow: var(--shadow);
 }
+
+/* Unit photos */
+
+.unit-row {
+  position: relative;
+  overflow: hidden;
+}
+.unit-row > * {
+  position: relative;
+  z-index: 1;
+}
+.unit-row.has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 50%;
+  background: var(--unit-image) center / cover no-repeat;
+  opacity: 0.35;
+  -webkit-mask-image: linear-gradient(to left, #000 20%, transparent);
+  mask-image: linear-gradient(to left, #000 20%, transparent);
+  pointer-events: none;
+}
+.unit-photo {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.unit-photo.placeholder {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 4px;
+  border: 2px dashed var(--border);
+  background: var(--panel);
+  font-weight: 600;
+}

@@ -3,7 +3,8 @@ import { ALL_GROUPS, DEFAULT_GROUPS, collections, unitIndex } from '../lib/data'
 import { buildPool, costOf } from '../lib/draft'
 import { FORMAT_LABELS, type DraftSettings, type Format, type Player } from '../lib/types'
 
-const POINT_PRESETS = [300, 400, 500, 550, 600]
+const CUSTOM_GROUPS = ['C3V', 'SoV']
+const POINT_PRESETS =[300, 400, 500, 550, 600]
 const TIMER_OPTIONS: { label: string; value: number | null }[] = [
   { label: 'No timer', value: null },
   { label: '30 seconds', value: 30 },
@@ -59,7 +60,11 @@ export function Lobby({ initial, onStart }: Props) {
   const namesOk = players.every((p) => p.name.trim()) && new Set(players.map((p) => p.name.trim())).size === players.length
   const canStart = players.length >= 2 && namesOk && pointsTotal > 0 && poolCards > 0
 
-  const toggleGroup = (g: string) => setGroups((gs) => (gs.includes(g) ? gs.filter((x) => x !== g) : [...gs, g]))
+  // Delta VC prices only matter once Valhalla Customs units are in the pool.
+  const customsOn = groups.some((g) => CUSTOM_GROUPS.includes(g))
+  const formats = (Object.keys(FORMAT_LABELS) as Format[]).filter((f) => f !== 'deltaVc' || customsOn || format === 'deltaVc')
+
+  const toggleGroup =(g: string) => setGroups((gs) => (gs.includes(g) ? gs.filter((x) => x !== g) : [...gs, g]))
   const renamePlayer = (id: string, name: string) => setPlayers((ps) => ps.map((p) => (p.id === id ? { ...p, name } : p)))
   const movePlayer = (index: number, delta: number) =>
     setPlayers((ps) => {
@@ -82,7 +87,7 @@ export function Lobby({ initial, onStart }: Props) {
           <label className="field">
             <span>Pricing</span>
             <select value={format} onChange={(e) => setFormat(e.target.value as Format)}>
-              {(Object.keys(FORMAT_LABELS) as Format[]).map((f) => (
+              {formats.map((f) => (
                 <option key={f} value={f}>
                   {FORMAT_LABELS[f]}
                 </option>

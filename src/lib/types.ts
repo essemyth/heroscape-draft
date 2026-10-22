@@ -86,3 +86,21 @@ export interface DraftState {
   /** When the current turn started (ms since epoch), for the pick timer. */
   turnStartedAt: number
 }
+
+/** Settings the host edits in the lobby; player list comes from who joined. */
+export interface LobbySettings {
+  format: Format
+  pointsTotal: number
+  groups: string[]
+  timerSeconds: number | null
+  collectionId: string
+  /** User ids in first-round pick order. Joined players missing from it go last. */
+  playerOrder: string[]
+}
+
+export type DraftAction =
+  | { type: 'start' }
+  | { type: 'pick'; unitId: string }
+  | { type: 'pass' }
+  | { type: 'timeout' }
+  | { type: 'undo' }

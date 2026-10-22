@@ -1,7 +1,7 @@
 // Pure draft rules. No React or browser APIs here so this can later run server-side
 // to validate picks.
 
-import type { DraftSettings, DraftState, Pick, PickKind, Player, Unit } from './types'
+import type { DraftSettings, DraftState, Pick, PickKind, Player, Unit } from './types.ts'
 
 export type UnitIndex = Map<string, Unit>
 
@@ -187,5 +187,5 @@ export function undoLast(state: DraftState, units: UnitIndex, now: number): Draf
 export function timeLeft(state: DraftState, now: number): number | null {
   const { timerSeconds } = state.settings
   if (timerSeconds === null || state.status !== 'drafting') return null
-  return Math.max(0, timerSeconds - Math.floor((now - state.turnStartedAt) / 1000))
+  return Math.min(timerSeconds, Math.max(0, timerSeconds - Math.floor((now - state.turnStartedAt) / 1000)))
 }

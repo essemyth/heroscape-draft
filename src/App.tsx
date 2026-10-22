@@ -1,63 +1,44 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { DraftBoard } from './components/DraftBoard'
+import { Home } from './components/Home'
 import { Lobby } from './components/Lobby'
-import { unitIndex } from './lib/data'
-import { DraftError, currentPlayer, makePick, passDraft, startDraft, timeoutPick, undoLast } from './lib/draft'
-import type { DraftSettings, DraftState } from './lib/types'
+import { sendAction, useDraftRoom } from './lib/online'
+import { supabaseConfigured, useSession } from './lib/supabase'
+import type { DraftAction } from './lib/types'
 
-const STORAGE_KEY = 'heroscape-draft:state'
-
-function loadDraft(): DraftState | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    return raw ? (JSON.parse(raw) as DraftState) : null
-  } catch {
-    return null
-  }
+function usePath(): [string, (path: string) => void] {
+  const [path, setPath] = useState(window.location.pathname)
+  useEffect(() => {
+    const onPop = () => setPath(window.location.pathname)
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+  const navigate = useCallback((to: string) => {
+    window.history.pushState(null, '', to)
+    setPath(to)
+    window.scrollTo(0, 0)
+  }, [])
+  return [path, navigate]
 }
 
 export default function App() {
-  const [draft, setDraft] = useState<DraftState | null>(loadDraft)
-  const [lastSettings, setLastSettings] = useState<DraftSettings | undefined>(draft?.settings)
+  const { session, error: authError } = useSession()
+  const [path, navigate] = usePath()
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    try {
-      if (draft) localStorage.setItem(STORAGE_KEY, JSON.stringify(draft))
-      else localStorage.removeItem(STORAGE_KEY)
-    } catch {
-      // Storage unavailable (private window etc.); the draft just won't survive a refresh.
-    }
-  }, [draft])
-
-  // Applies a draft action, surfacing rule violations instead of crashing.
-  const act = useCallback(
-    (fn: (s: DraftState) => DraftState) => {
-      if (!draft) return
-      try {
-        setDraft(fn(draft))
-        setError(null)
-      } catch (e) {
-        if (!(e instanceof DraftError)) throw e
-        setError(e.message)
-      }
-    },
-    [draft],
-  )
-
-  const onTimeout = useCallback(() => act((s) => timeoutPick(s, unitIndex, Date.now())), [act])
-
-  if (!draft) {
+  if (!supabaseConfigured) {
     return (
-      <Lobby
-        initial={lastSettings}
-        onStart={(settings, pool) => {
-          setLastSettings(settings)
-          setDraft(startDraft(settings, pool, unitIndex, Date.now()))
-        }}
-      />
+      <Message title="Not connected">
+        Add <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code> to <code>.env.local</code> and restart the dev
+        server.
+      </Message>
     )
   }
+  if (authError) return <Message title="Couldn't sign in">{authError}</Message>
+  if (!session) return <Message title="Connecting…" />
+
+  const me = session.user.id
+  const draftId = path.match(/^\/d\/([0-9a-f-]{36})\/?$/)?.[1]
 
   return (
     <>
@@ -66,14 +47,57 @@ export default function App() {
           {error}
         </div>
       )}
-      <DraftBoard
-        state={draft}
-        onPick={(unitId) => act((s) => makePick(s, currentPlayer(s)!.id, unitId, unitIndex, Date.now()))}
-        onPass={() => act((s) => passDraft(s, currentPlayer(s)!.id, unitIndex, Date.now()))}
-        onTimeout={onTimeout}
-        onUndo={() => act((s) => undoLast(s, unitIndex, Date.now()))}
-        onNewDraft={() => setDraft(null)}
-      />
+      {draftId ? (
+        <DraftRoom key={draftId} draftId={draftId} me={me} navigate={navigate} onError={setError} />
+      ) : (
+        <Home me={me} navigate={navigate} onError={setError} />
+      )}
     </>
+  )
+}
+
+function DraftRoom({ draftId, me, navigate, onError }: { draftId: string; me: string; navigate: (p: string) => void; onError: (m: string) => void }) {
+  const { draft, players, loading, missing, reload } = useDraftRoom(draftId)
+
+  const onAction = useCallback(
+    async (action: DraftAction, opts?: { quiet?: boolean }) => {
+      if (!draft) return
+      try {
+        await sendAction(draft, action)
+        onError('')
+      } catch (e) {
+        if (!opts?.quiet) onError(e instanceof Error ? e.message : 'Something went wrong')
+        // Our copy may be stale (e.g. someone else acted first); make sure we have the latest.
+        reload()
+      }
+    },
+    [draft, onError, reload],
+  )
+
+  if (loading) return <Message title="Loading draft…" />
+  if (missing || !draft) {
+    return (
+      <Message title="Draft not found">
+        <button type="button" onClick={() => navigate('/')}>
+          Home
+        </button>
+      </Message>
+    )
+  }
+
+  if (draft.status === 'lobby' || !draft.state) {
+    return <Lobby draft={draft} players={players} me={me} onStart={() => onAction({ type: 'start' })} onError={onError} />
+  }
+  return <DraftBoard state={draft.state} me={me} isHost={draft.host_id === me} onAction={onAction} onHome={() => navigate('/')} />
+}
+
+function Message({ title, children }: { title: string; children?: ReactNode }) {
+  return (
+    <div className="lobby">
+      <section className="panel">
+        <h2>{title}</h2>
+        {children && <div className="muted">{children}</div>}
+      </section>
+    </div>
   )
 }

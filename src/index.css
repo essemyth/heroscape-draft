@@ -559,3 +559,80 @@ button.primary:hover:not(:disabled) {
   background: var(--panel);
   font-weight: 600;
 }
+
+/* Online */
+
+fieldset.plain {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+fieldset.plain:disabled .chip:not(.on) {
+  display: none;
+}
+.invite {
+  margin-top: 12px;
+}
+.invite input,
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+.join .button-row input {
+  flex: 1;
+  min-width: 0;
+}
+.player-name {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 7px 0;
+  font-weight: 600;
+}
+.help {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+.help summary {
+  cursor: pointer;
+}
+.draft-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.draft-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+.turn-banner.mine {
+  border-color: var(--turn);
+  background: linear-gradient(90deg, var(--turn-soft), var(--panel) 70%);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+.turn-banner.mine h1 {
+  color: var(--turn);
+}
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 4px var(--turn-soft), var(--shadow);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .turn-banner.mine {
+    animation: none;
+  }
+}
+.army.me h3 {
+  color: var(--accent-strong);
+}
+code {
+  font-size: 0.9em;
+}

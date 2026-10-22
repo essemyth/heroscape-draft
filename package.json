@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "import-units": "node scripts/import-units.mjs",
-    "import-collection": "node scripts/import-collection.mjs"
+    "import-collection": "node scripts/import-collection.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
     "react": "^19.3.1",
@@ -22,6 +23,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "oxlint": "^1.88.0",
     "typescript": "~6.0.3",
-    "vite": "^8.3.4"
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
   }
 }

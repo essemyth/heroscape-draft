@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "import-units": "node scripts/import-units.mjs"
+    "import-units": "node scripts/import-units.mjs",
+    "import-collection": "node scripts/import-collection.mjs"
   },
   "dependencies": {
     "react": "^19.3.1",

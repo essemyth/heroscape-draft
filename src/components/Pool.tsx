@@ -117,11 +117,11 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
                   </span>
                 </span>
                 <span className="unit-stats" aria-label="Life, move, range, attack, defense">
-                  <Stat label="L" value={unit.life} />
-                  <Stat label="M" value={unit.move} />
-                  <Stat label="R" value={unit.range} />
-                  <Stat label="A" value={unit.attack} />
-                  <Stat label="D" value={unit.defense} />
+                  <Stat kind="life" label="Lif" value={unit.life} />
+                  <Stat kind="move" label="Mov" value={unit.move} />
+                  <Stat kind="range" label="Ran" value={unit.range} />
+                  <Stat kind="attack" label="Atk" value={unit.attack} />
+                  <Stat kind="defense" label="Def" value={unit.defense} />
                 </span>
                 <span className="unit-left" title="Copies left in the pool">
                   {left}/{state.pool[unit.id]}
@@ -156,9 +156,9 @@ function matches(unit: Unit, q: string): boolean {
   )
 }
 
-function Stat({ label, value }: { label: string; value: number }) {
+function Stat({ kind, label, value }: { kind: string; label: string; value: number }) {
   return (
-    <span className="stat">
+    <span className={`stat stat-${kind}`}>
       <span className="stat-label">{label}</span>
       {value}
     </span>

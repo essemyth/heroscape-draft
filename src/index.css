@@ -397,19 +397,46 @@ button.primary:hover:not(:disabled) {
 }
 .unit-stats {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   font-variant-numeric: tabular-nums;
+}
+/* Stat colors after the army cards; adjust here. */
+.stat-life {
+  --stat: #c8322f;
+}
+.stat-move {
+  --stat: #2f9a46;
+}
+.stat-range {
+  --stat: #e6b422;
+  --stat-text: #2a2008;
+}
+.stat-attack {
+  --stat: #e0711b;
+}
+.stat-defense {
+  --stat: #2f6fd0;
 }
 .stat {
   display: grid;
   text-align: center;
-  font-weight: 600;
-  min-width: 18px;
+  font-weight: 700;
+  min-width: 34px;
+  padding: 2px 4px 3px;
+  border-radius: 6px;
+  background: var(--stat);
+  color: var(--stat-text, #fff);
+  line-height: 1.15;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
 }
 .stat-label {
-  font-size: 0.65rem;
-  color: var(--muted);
+  font-size: 0.62rem;
   font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+.unit-row.blocked .stat {
+  filter: grayscale(0.85);
 }
 .unit-left {
   text-align: right;

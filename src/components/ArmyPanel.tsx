@@ -1,6 +1,7 @@
 import { unitIndex } from '../lib/data'
 import { armyOf, costOf, figuresOf, pointsOf } from '../lib/draft'
 import type { DraftState, Player } from '../lib/types'
+import { GeneralBadge } from './GeneralBadge'
 
 interface Props {
   state: DraftState
@@ -39,7 +40,10 @@ export function ArmyPanel({ state, player, isTurn, isMe }: Props) {
         <ul className="army-list">
           {army.map((u, i) => (
             <li key={`${u.id}-${i}`}>
-              <span>{u.name}</span>
+              <span className="army-unit">
+                <GeneralBadge general={u.general} size={18} />
+                {u.name}
+              </span>
               <span className="muted">{costOf(u, format)}</span>
             </li>
           ))}

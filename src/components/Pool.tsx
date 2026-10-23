@@ -1,6 +1,8 @@
 import { useMemo, useState, type CSSProperties } from 'react'
 import { unitImages, unitIndex } from '../lib/data'
 import { checkUnit, costOf, remainingCount } from '../lib/draft'
+import { generalStyle } from '../lib/generals'
+import { GeneralBadge } from './GeneralBadge'
 import type { DraftState, Unit } from '../lib/types'
 
 type SortKey = 'name' | 'costDesc' | 'costAsc'
@@ -96,10 +98,16 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
             <li
               key={unit.id}
               className={`unit-row ${check.ok ? '' : 'blocked'} ${left <= 0 ? 'gone' : ''} ${image ? 'has-image' : ''}`}
-              style={image ? ({ '--unit-image': `url("${image}")` } as CSSProperties) : undefined}
+              style={
+                {
+                  '--general': generalStyle(unit.general).color,
+                  ...(image ? { '--unit-image': `url("${image}")` } : {}),
+                } as CSSProperties
+              }
             >
               <button type="button" className="unit-summary" onClick={() => setExpanded(open ? null : unit.id)} aria-expanded={open}>
                 <span className="unit-cost">{cost}</span>
+                <GeneralBadge general={unit.general} />
                 <span className="unit-main">
                   <span className="unit-name">{unit.name}</span>
                   <span className="unit-meta">

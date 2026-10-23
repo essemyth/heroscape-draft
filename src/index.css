@@ -402,20 +402,19 @@ button.primary:hover:not(:disabled) {
 }
 /* Stat colors after the army cards; adjust here. */
 .stat-life {
-  --stat: #c8322f;
+  --stat: #8e1515; /* blood red */
 }
 .stat-move {
-  --stat: #2f9a46;
+  --stat: #2c6a2f; /* forest green */
 }
 .stat-range {
-  --stat: #e6b422;
-  --stat-text: #2a2008;
+  --stat: #63666b; /* gray */
 }
 .stat-attack {
-  --stat: #e0711b;
+  --stat: #be2026; /* red */
 }
 .stat-defense {
-  --stat: #2f6fd0;
+  --stat: #2b3f9c; /* royal blue */
 }
 .stat {
   display: grid;
@@ -424,8 +423,10 @@ button.primary:hover:not(:disabled) {
   min-width: 34px;
   padding: 2px 4px 3px;
   border-radius: 6px;
-  background: var(--stat);
-  color: var(--stat-text, #fff);
+  /* Slight sheen like the card bands. */
+  background: linear-gradient(180deg, color-mix(in srgb, var(--stat) 80%, #fff), var(--stat) 55%);
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
   line-height: 1.15;
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
 }

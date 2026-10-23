@@ -677,3 +677,11 @@ code {
   gap: 6px;
   min-width: 0;
 }
+.general-badge.light {
+  color: #2a2620;
+  text-shadow: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--general) 60%, #000 15%);
+}
+.general-badge.light img {
+  filter: brightness(0) opacity(0.75);
+}

@@ -35,7 +35,7 @@ const GENERALS: Record<string, string> = {
 // Row colors that differ from the badge color.
 const ROW_COLORS: Record<string, { color?: string; tint?: number; stripe?: string }> = {
   Vydar: { color: '#7f9fd2', tint: 30 }, // light steel blue
-  Jandar: { stripe: '#ffffff' }, // blue row, white stripe
+  Jandar: { tint: 32, stripe: '#ffffff' }, // strong blue row, white stripe
   Einar: { color: '#e2bd25', tint: 24 }, // yellow
   Aquilla: { color: '#1c2f5e', tint: 32 }, // dark navy
 }

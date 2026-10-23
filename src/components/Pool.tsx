@@ -5,7 +5,17 @@ import { generalStyle } from '../lib/generals'
 import { GeneralBadge } from './GeneralBadge'
 import type { DraftState, Unit } from '../lib/types'
 
-type SortKey = 'name' | 'costDesc' | 'costAsc'
+type SortKey = 'name' | 'cost' | 'life' | 'move' | 'range' | 'attack' | 'defense'
+
+const SORT_LABELS: Record<SortKey, string> = {
+  name: 'Name',
+  cost: 'Cost',
+  life: 'Life',
+  move: 'Move',
+  range: 'Range',
+  attack: 'Attack',
+  defense: 'Defense',
+}
 
 interface Props {
   state: DraftState
@@ -22,6 +32,12 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
   const [general, setGeneral] = useState('')
   const [showUndraftable, setShowUndraftable] = useState(false)
   const [sort, setSort] = useState<SortKey>('name')
+  // Names read best A→Z; cost and stats are most useful high→low first.
+  const [descending, setDescending] = useState(false)
+  const chooseSort = (key: SortKey) => {
+    setSort(key)
+    setDescending(key !== 'name')
+  }
   const [expanded, setExpanded] = useState<string | null>(null)
 
   const format = state.settings.format
@@ -46,9 +62,12 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
       return true
     })
     .sort((a, b) => {
-      if (sort === 'costDesc') return b.cost - a.cost || a.unit.name.localeCompare(b.unit.name)
-      if (sort === 'costAsc') return a.cost - b.cost || a.unit.name.localeCompare(b.unit.name)
-      return a.unit.name.localeCompare(b.unit.name)
+      const byName = a.unit.name.localeCompare(b.unit.name)
+      if (sort === 'name') return descending ? -byName : byName
+      const value = (r: typeof a) => (sort === 'cost' ? r.cost : r.unit[sort])
+      const diff = value(a) - value(b)
+      // Ties stay alphabetical either way.
+      return (descending ? -diff : diff) || byName
     })
 
   return (
@@ -77,11 +96,24 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
             <option key={g}>{g}</option>
           ))}
         </select>
-        <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Sort">
-          <option value="name">Sort: name</option>
-          <option value="costDesc">Sort: cost high → low</option>
-          <option value="costAsc">Sort: cost low → high</option>
-        </select>
+        <span className="sort-control">
+          <select value={sort} onChange={(e) => chooseSort(e.target.value as SortKey)} aria-label="Sort by">
+            {(Object.keys(SORT_LABELS) as SortKey[]).map((k) => (
+              <option key={k} value={k}>
+                Sort: {SORT_LABELS[k]}
+              </option>
+            ))}
+          </select>
+          <button
+            type="button"
+            className="icon-btn"
+            onClick={() => setDescending((d) => !d)}
+            title={sort === 'name' ? (descending ? 'Z to A' : 'A to Z') : descending ? 'Highest first' : 'Lowest first'}
+            aria-label={`Sort direction: ${descending ? 'descending' : 'ascending'}`}
+          >
+            {descending ? '↓' : '↑'}
+          </button>
+        </span>
         <label className="check" title="Include units you can't afford, already have, or that are all drafted">
           <input type="checkbox" checked={showUndraftable} onChange={(e) => setShowUndraftable(e.target.checked)} />
           Show undraftable
@@ -117,11 +149,11 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
                   </span>
                 </span>
                 <span className="unit-stats" aria-label="Life, move, range, attack, defense">
-                  <Stat kind="life" label="Lif" value={unit.life} />
-                  <Stat kind="move" label="Mov" value={unit.move} />
-                  <Stat kind="range" label="Ran" value={unit.range} />
-                  <Stat kind="attack" label="Atk" value={unit.attack} />
-                  <Stat kind="defense" label="Def" value={unit.defense} />
+                  <Stat kind="life" label="Lif" value={unit.life} active={sort === 'life'} />
+                  <Stat kind="move" label="Mov" value={unit.move} active={sort === 'move'} />
+                  <Stat kind="range" label="Ran" value={unit.range} active={sort === 'range'} />
+                  <Stat kind="attack" label="Atk" value={unit.attack} active={sort === 'attack'} />
+                  <Stat kind="defense" label="Def" value={unit.defense} active={sort === 'defense'} />
                 </span>
                 <span className="unit-left" title="Copies left in the pool">
                   {left}/{state.pool[unit.id]}
@@ -156,9 +188,9 @@ function matches(unit: Unit, q: string): boolean {
   )
 }
 
-function Stat({ kind, label, value }: { kind: string; label: string; value: number }) {
+function Stat({ kind, label, value, active }: { kind: string; label: string; value: number; active: boolean }) {
   return (
-    <span className={`stat stat-${kind}`}>
+    <span className={`stat stat-${kind} ${active ? 'sorted' : ''}`}>
       <span className="stat-label">{label}</span>
       {value}
     </span>

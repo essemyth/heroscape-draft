@@ -29,3 +29,7 @@ supabase/functions/_shared/
 
 # Local Netlify folder
 .netlify
+
+# Raw figure photos (large); the resized copies in src/assets/units are committed
+photos/*
+!photos/CHECKLIST.md

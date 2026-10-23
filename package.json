@@ -14,7 +14,8 @@
     "sync-shared": "node scripts/sync-shared.mjs",
     "deploy:db": "supabase db push",
     "deploy:functions": "node scripts/sync-shared.mjs && supabase functions deploy draft-action --use-api",
-    "deploy:site": "npm run build && npx netlify-cli deploy --prod --dir dist"
+    "deploy:site": "npm run build && npx netlify-cli deploy --prod --dir dist",
+    "photos": "node scripts/photos.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
@@ -27,6 +28,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "oxlint": "^1.88.0",
+    "sharp": "^0.35.5",
     "supabase": "^2.121.0",
     "typescript": "~6.0.3",
     "vite": "^8.3.4",

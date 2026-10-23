@@ -32,8 +32,10 @@ const GENERALS: Record<string, string> = {
 
 // Row colors that differ from the badge color.
 const ROW_COLORS: Record<string, { color: string; tint: number }> = {
-  Vydar: { color: '#8fa9c9', tint: 30 }, // light steel blue
-  Jandar: { color: '#a7acb4', tint: 34 }, // silver
+  Vydar: { color: '#7f9fd2', tint: 30 }, // light steel blue
+  Jandar: { color: '#9eabc0', tint: 34 }, // blue-tinged silver
+  Einar: { color: '#e2bd25', tint: 24 }, // yellow
+  Aquilla: { color: '#1c2f5e', tint: 32 }, // dark navy
 }
 
 const LIGHT_GENERALS = new Set(['Revna', 'Volarak'])

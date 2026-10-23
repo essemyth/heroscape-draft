@@ -13,7 +13,8 @@
     "test": "vitest run",
     "sync-shared": "node scripts/sync-shared.mjs",
     "deploy:db": "supabase db push",
-    "deploy:functions": "node scripts/sync-shared.mjs && supabase functions deploy draft-action --use-api"
+    "deploy:functions": "node scripts/sync-shared.mjs && supabase functions deploy draft-action --use-api",
+    "deploy:site": "npm run build && npx netlify-cli deploy --prod --dir dist"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

@@ -6,8 +6,13 @@
 
 export interface GeneralStyle {
   slug: string
+  /** Badge color. */
   color: string
   light: boolean
+  /** Pool row color; defaults to the badge color. */
+  rowColor: string
+  /** How strongly the row is tinted, in percent. Pale colors need more. */
+  rowTint: number
 }
 
 const GENERALS: Record<string, string> = {
@@ -25,6 +30,12 @@ const GENERALS: Record<string, string> = {
   Cobra: '#2b3f8f',
 }
 
+// Row colors that differ from the badge color.
+const ROW_COLORS: Record<string, { color: string; tint: number }> = {
+  Vydar: { color: '#8fa9c9', tint: 30 }, // light steel blue
+  Jandar: { color: '#a7acb4', tint: 34 }, // silver
+}
+
 const LIGHT_GENERALS = new Set(['Revna', 'Volarak'])
 
 const NEUTRAL = '#7a7266'
@@ -34,7 +45,15 @@ export function slugOf(general: string): string {
 }
 
 export function generalStyle(general: string): GeneralStyle {
-  return { slug: slugOf(general), color: GENERALS[general] ?? NEUTRAL, light: LIGHT_GENERALS.has(general) }
+  const color = GENERALS[general] ?? NEUTRAL
+  const row = ROW_COLORS[general]
+  return {
+    slug: slugOf(general),
+    color,
+    light: LIGHT_GENERALS.has(general),
+    rowColor: row?.color ?? color,
+    rowTint: row?.tint ?? 13,
+  }
 }
 
 const symbolFiles = import.meta.glob<string>('../assets/generals/*.{svg,png,webp}', {

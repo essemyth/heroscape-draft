@@ -1,7 +1,7 @@
 // Turns raw figure photos into web-sized images the app uses.
 //
 // 1. Put photos in photos/ named after the unit id, e.g. photos/agent-carr-10.jpg
-//    (any of jpg, jpeg, png, webp, heic; case doesn't matter).
+//    (jpg, jpeg, png or webp; iPhone HEIC photos need converting to JPG first).
 // 2. Run `npm run photos`.
 //
 // Each photo is cropped to 8:5, resized to 800x500 and saved as src/assets/units/<id>.webp.

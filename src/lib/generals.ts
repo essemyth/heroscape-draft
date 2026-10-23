@@ -16,9 +16,9 @@ const GENERALS: Record<string, string> = {
   Vydar: '#8a8f99', // gray
   Einar: '#8248c2', // purple
   Aquilla: '#d9a514', // gold
-  Valkrill: '#9a6435', // brown
-  Revna: '#1f9a9a', // teal
-  Volarak: '#e0711b', // orange
+  Valkrill: '#9a6435', // rusty bronze
+  Revna: '#6b7a2a', // olive, like Valkrill's cards (unconfirmed)
+  Volarak: '#e0711b', // orange (unconfirmed)
   Marvel: '#b02a52',
   'G.I. Joe': '#5b7a32',
   Cobra: '#2b3f8f',

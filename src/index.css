@@ -664,14 +664,11 @@ code {
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--general) 35%, transparent);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
 }
-.general-badge.has-symbol {
-  background: none;
-  box-shadow: none;
-}
 .general-badge img {
-  width: 100%;
-  height: 100%;
+  width: 68%;
+  height: 68%;
   object-fit: contain;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
 }
 
 .army-unit {

@@ -642,7 +642,7 @@ code {
 .unit-row:not(.blocked) {
   background: color-mix(in srgb, var(--general) var(--row-tint, 13%), var(--panel-2));
   border-color: color-mix(in srgb, var(--general) 45%, var(--border));
-  box-shadow: inset 5px 0 0 var(--general);
+  box-shadow: inset 5px 0 0 var(--row-stripe, var(--general));
   padding-left: 11px;
 }
 .unit-row:not(.blocked):hover {

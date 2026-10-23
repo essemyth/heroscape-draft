@@ -102,6 +102,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
                 {
                   '--general': generalStyle(unit.general).rowColor,
                   '--row-tint': `${generalStyle(unit.general).rowTint}%`,
+                  '--row-stripe': generalStyle(unit.general).stripe,
                   ...(image ? { '--unit-image': `url("${image}")` } : {}),
                 } as CSSProperties
               }

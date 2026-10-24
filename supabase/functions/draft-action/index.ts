@@ -104,6 +104,10 @@ Deno.serve(async (req) => {
           if (before.picks.length === 0) throw new DraftError('Nothing to undo')
           state = undoLast(before, units, now)
           break
+        case 'end':
+          if (!isHost) throw new DraftError('Only the host can end the draft')
+          state = { ...before, status: 'complete' }
+          break
         default:
           throw new DraftError('Unknown action')
       }

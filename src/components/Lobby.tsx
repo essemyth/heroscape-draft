@@ -40,10 +40,11 @@ interface Props {
   players: PlayerRow[]
   me: string
   onStart: () => Promise<void>
+  onDelete: () => Promise<void>
   onError: (message: string) => void
 }
 
-export function Lobby({ draft, players, me, onStart, onError }: Props) {
+export function Lobby({ draft, players, me, onStart, onDelete, onError }: Props) {
   const isHost = draft.host_id === me
   const settings = draft.settings
   const seated = orderedPlayers(settings, players)
@@ -260,6 +261,16 @@ export function Lobby({ draft, players, me, onStart, onError }: Props) {
           }}
         >
           {seated.length < 2 ? 'Waiting for players…' : starting ? 'Starting…' : 'Start draft'}
+        </button>
+      )}
+
+      {isHost && (
+        <button
+          type="button"
+          className="danger"
+          onClick={() => window.confirm("Delete this draft for everyone? This can't be undone.") && onDelete()}
+        >
+          Delete draft
         </button>
       )}
     </div>

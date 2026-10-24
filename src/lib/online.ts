@@ -68,6 +68,13 @@ export async function myDrafts(userId: string) {
     .sort((a, b) => b.created_at.localeCompare(a.created_at))
 }
 
+/** Host only (enforced by row-level security). Players and the webhook go with it. */
+export async function deleteDraft(draftId: string): Promise<void> {
+  const { data, error } = await supabase.from('drafts').delete().eq('id', draftId).select('id')
+  if (error) throw error
+  if (!data?.length) throw new Error('Only the host can delete this draft')
+}
+
 export async function sendAction(draft: DraftRow, action: DraftAction): Promise<void> {
   const { error } = await supabase.functions.invoke('draft-action', {
     body: { draftId: draft.id, version: draft.version, action, link: window.location.href },
@@ -98,14 +105,16 @@ export function useDraftRoom(draftId: string) {
 
     const channel = supabase
       .channel(`draft:${draftId}`)
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'drafts', filter: `id=eq.${draftId}` }, (payload) => {
-        if (payload.eventType === 'DELETE') {
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'drafts', filter: `id=eq.${draftId}` }, (payload) => {
+        // Ignore stale events that arrive out of order.
+        const next = payload.new as DraftRow
+        setDraft((cur) => (cur && cur.version > next.version ? cur : next))
+      })
+      // Realtime can't filter deletes, so check the id ourselves.
+      .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'drafts' }, (payload) => {
+        if ((payload.old as { id?: string }).id === draftId) {
           setDraft(null)
           setMissing(true)
-        } else {
-          // Ignore stale events that arrive out of order.
-          const next = payload.new as DraftRow
-          setDraft((cur) => (cur && cur.version > next.version ? cur : next))
         }
       })
       .on('postgres_changes', { event: '*', schema: 'public', table: 'draft_players', filter: `draft_id=eq.${draftId}` }, () => {

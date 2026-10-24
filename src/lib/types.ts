@@ -104,3 +104,5 @@ export type DraftAction =
   | { type: 'pass' }
   | { type: 'timeout' }
   | { type: 'undo' }
+  /** Host stops the draft early; armies stay as they are. */
+  | { type: 'end' }

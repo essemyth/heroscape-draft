@@ -11,9 +11,10 @@ interface Props {
   isHost: boolean
   onAction: (action: DraftAction, opts?: { quiet?: boolean }) => Promise<void>
   onHome: () => void
+  onDelete: () => Promise<void>
 }
 
-export function DraftBoard({ state, me, isHost, onAction, onHome }: Props) {
+export function DraftBoard({ state, me, isHost, onAction, onHome, onDelete }: Props) {
   const { settings } = state
   const player = currentPlayer(state)
   const myTurn = player?.id === me
@@ -95,6 +96,24 @@ export function DraftBoard({ state, me, isHost, onAction, onHome }: Props) {
           {!player && (
             <button type="button" onClick={copyArmies}>
               {copied ? 'Copied!' : 'Copy armies'}
+            </button>
+          )}
+          {isHost && player && (
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => window.confirm('End the draft now? Everyone keeps the army they have so far.') && act({ type: 'end' })}
+            >
+              End draft
+            </button>
+          )}
+          {isHost && (
+            <button
+              type="button"
+              className="danger"
+              onClick={() => window.confirm("Delete this draft for everyone? This can't be undone.") && onDelete()}
+            >
+              Delete draft
             </button>
           )}
           <NotifyButton />

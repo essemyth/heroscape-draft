@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { DraftBoard } from './components/DraftBoard'
 import { Home } from './components/Home'
 import { Lobby } from './components/Lobby'
-import { sendAction, useDraftRoom } from './lib/online'
+import { deleteDraft, sendAction, useDraftRoom } from './lib/online'
 import { supabaseConfigured, useSession } from './lib/supabase'
 import type { DraftAction } from './lib/types'
 
@@ -74,10 +74,20 @@ function DraftRoom({ draftId, me, navigate, onError }: { draftId: string; me: st
     [draft, onError, reload],
   )
 
+  const onDelete = async () => {
+    try {
+      await deleteDraft(draftId)
+      navigate('/')
+    } catch (e) {
+      onError(e instanceof Error ? e.message : 'Could not delete the draft')
+    }
+  }
+
   if (loading) return <Message title="Loading draft…" />
   if (missing || !draft) {
     return (
       <Message title="Draft not found">
+        <p>It may have been deleted by the host.</p>
         <button type="button" onClick={() => navigate('/')}>
           Home
         </button>
@@ -86,9 +96,9 @@ function DraftRoom({ draftId, me, navigate, onError }: { draftId: string; me: st
   }
 
   if (draft.status === 'lobby' || !draft.state) {
-    return <Lobby draft={draft} players={players} me={me} onStart={() => onAction({ type: 'start' })} onError={onError} />
+    return <Lobby draft={draft} players={players} me={me} onStart={() => onAction({ type: 'start' })} onDelete={onDelete} onError={onError} />
   }
-  return <DraftBoard state={draft.state} me={me} isHost={draft.host_id === me} onAction={onAction} onHome={() => navigate('/')} />
+  return <DraftBoard state={draft.state} me={me} isHost={draft.host_id === me} onAction={onAction} onHome={() => navigate('/')} onDelete={onDelete} />
 }
 
 function Message({ title, children }: { title: string; children?: ReactNode }) {

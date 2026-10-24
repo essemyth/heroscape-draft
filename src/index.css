@@ -721,3 +721,18 @@ code {
   display: inline-flex;
   gap: 4px;
 }
+button.danger {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 45%, var(--border));
+}
+button.danger:hover:not(:disabled) {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, var(--panel-2));
+}
+button.small {
+  padding: 3px 10px;
+  font-size: 0.85rem;
+}
+.lobby > button.danger {
+  justify-self: center;
+}

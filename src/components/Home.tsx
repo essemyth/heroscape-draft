@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { createDraft, myDrafts, saveName, savedName, type DraftRow } from '../lib/online'
+import { createDraft, deleteDraft, myDrafts, saveName, savedName, type DraftRow } from '../lib/online'
 import { FORMAT_LABELS } from '../lib/types'
 
 type DraftSummary = Pick<DraftRow, 'id' | 'status' | 'created_at' | 'host_id' | 'settings'>
@@ -26,6 +26,17 @@ export function Home({ me, navigate, onError }: Props) {
       .then(setDrafts)
       .catch((e) => onError(e.message))
   }, [me, onError])
+
+  const remove = async (d: DraftSummary) => {
+    const what = d.status === 'drafting' ? 'This draft is still in progress. Delete it for everyone?' : 'Delete this draft for everyone?'
+    if (!window.confirm(`${what} This can't be undone.`)) return
+    try {
+      await deleteDraft(d.id)
+      setDrafts((ds) => ds?.filter((x) => x.id !== d.id) ?? null)
+    } catch (e) {
+      onError(e instanceof Error ? e.message : 'Could not delete the draft')
+    }
+  }
 
   const create = async () => {
     setBusy(true)
@@ -75,6 +86,11 @@ export function Home({ me, navigate, onError }: Props) {
                   {STATUS_LABELS[d.status]}
                   {d.host_id === me ? ' · you host' : ''} · {new Date(d.created_at).toLocaleDateString()}
                 </span>
+                {d.host_id === me && (
+                  <button type="button" className="danger small" onClick={() => remove(d)}>
+                    Delete
+                  </button>
+                )}
               </li>
             ))}
           </ul>

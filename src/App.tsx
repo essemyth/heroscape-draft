@@ -60,15 +60,17 @@ function DraftRoom({ draftId, me, navigate, onError }: { draftId: string; me: st
   const { draft, players, loading, missing, reload } = useDraftRoom(draftId)
 
   const onAction = useCallback(
-    async (action: DraftAction, opts?: { quiet?: boolean }) => {
-      if (!draft) return
+    async (action: DraftAction, opts?: { quiet?: boolean }): Promise<boolean> => {
+      if (!draft) return false
       try {
         await sendAction(draft, action)
         onError('')
+        return true
       } catch (e) {
         if (!opts?.quiet) onError(e instanceof Error ? e.message : 'Something went wrong')
         // Our copy may be stale (e.g. someone else acted first); make sure we have the latest.
         reload()
+        return false
       }
     },
     [draft, onError, reload],
@@ -96,7 +98,9 @@ function DraftRoom({ draftId, me, navigate, onError }: { draftId: string; me: st
   }
 
   if (draft.status === 'lobby' || !draft.state) {
-    return <Lobby draft={draft} players={players} me={me} onStart={() => onAction({ type: 'start' })} onDelete={onDelete} onError={onError} />
+    return <Lobby draft={draft} players={players} me={me} onStart={async () => {
+          await onAction({ type: 'start' })
+        }} onDelete={onDelete} onError={onError} />
   }
   return <DraftBoard state={draft.state} me={me} isHost={draft.host_id === me} onAction={onAction} onHome={() => navigate('/')} onDelete={onDelete} />
 }

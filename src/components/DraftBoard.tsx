@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { unitIndex } from '../lib/data'
 import { armyText, currentPlayer, roundOfSlot, timeLeft } from '../lib/draft'
 import { FORMAT_LABELS, type DraftAction, type DraftState } from '../lib/types'
+import { isMuted, playDraftFanfare, playTurnChime, setMuted } from '../lib/sounds'
 import { ArmyPanel } from './ArmyPanel'
 import { Pool } from './Pool'
 
@@ -9,7 +10,8 @@ interface Props {
   state: DraftState
   me: string
   isHost: boolean
-  onAction: (action: DraftAction, opts?: { quiet?: boolean }) => Promise<void>
+  /** Resolves true if the server accepted the action. */
+  onAction: (action: DraftAction, opts?: { quiet?: boolean }) => Promise<boolean>
   onHome: () => void
   onDelete: () => Promise<void>
 }
@@ -25,8 +27,9 @@ export function DraftBoard({ state, me, isHost, onAction, onHome, onDelete }: Pr
 
   const act = async (action: DraftAction) => {
     setBusy(true)
-    await onAction(action)
+    const ok = await onAction(action)
     setBusy(false)
+    if (ok && action.type === 'pick') playDraftFanfare()
   }
 
   // Any open client may report an expired timer; the server checks the time and ignores duplicates.
@@ -61,67 +64,70 @@ export function DraftBoard({ state, me, isHost, onAction, onHome, onDelete }: Pr
 
   return (
     <div className="board">
-      <header className={`turn-banner ${myTurn ? 'mine' : player ? 'active' : 'complete'}`}>
-        <div className="turn-main">
-          {player ? (
-            <>
-              <span className="turn-label">Round {roundOfSlot(players, state.slot)}</span>
-              <h1>{myTurn ? 'Your pick!' : `Waiting on ${player.name}…`}</h1>
-            </>
-          ) : (
-            <h1>Draft complete</h1>
-          )}
-          <span className="muted">{summary(state)}</span>
-        </div>
-        {secondsLeft !== null && (
-          <div className={`timer ${secondsLeft <= 10 ? 'urgent' : ''}`} aria-live="polite">
-            {formatTime(secondsLeft)}
+      <div className="banner-shell">
+        <header className={`turn-banner ${myTurn ? 'mine' : player ? 'active' : 'complete'}`}>
+          <div className="turn-main">
+            {player ? (
+              <>
+                <span className="turn-label">Round {roundOfSlot(players, state.slot)}</span>
+                <h1>{myTurn ? 'Your pick!' : `Waiting on ${player.name}…`}</h1>
+              </>
+            ) : (
+              <h1>Draft complete</h1>
+            )}
+            <span className="muted">{summary(state)}</span>
           </div>
-        )}
-        <div className="button-row">
-          {myTurn && (
-            <button
-              type="button"
-              disabled={busy}
-              onClick={() => window.confirm('Finish drafting? Your army will be final.') && act({ type: 'pass' })}
-            >
-              I'm done drafting
-            </button>
+          {secondsLeft !== null && (
+            <div className={`timer ${secondsLeft <= 10 ? 'urgent' : ''}`} aria-live="polite">
+              {formatTime(secondsLeft)}
+            </div>
           )}
-          {isHost && player && (
-            <button type="button" disabled={busy || state.picks.length === 0} onClick={() => window.confirm('Undo the last pick?') && act({ type: 'undo' })}>
-              Undo last
+          <div className="button-row">
+            {myTurn && (
+              <button
+                type="button"
+                disabled={busy}
+                onClick={() => window.confirm('Finish drafting? Your army will be final.') && act({ type: 'pass' })}
+              >
+                I'm done drafting
+              </button>
+            )}
+            {isHost && player && (
+              <button type="button" disabled={busy || state.picks.length === 0} onClick={() => window.confirm('Undo the last pick?') && act({ type: 'undo' })}>
+                Undo last
+              </button>
+            )}
+            {!player && (
+              <button type="button" onClick={copyArmies}>
+                {copied ? 'Copied!' : 'Copy armies'}
+              </button>
+            )}
+            {isHost && player && (
+              <button
+                type="button"
+                disabled={busy}
+                onClick={() => window.confirm('End the draft now? Everyone keeps the army they have so far.') && act({ type: 'end' })}
+              >
+                End draft
+              </button>
+            )}
+            {isHost && (
+              <button
+                type="button"
+                className="danger"
+                onClick={() => window.confirm("Delete this draft for everyone? This can't be undone.") && onDelete()}
+              >
+                Delete draft
+              </button>
+            )}
+            <SoundButton />
+            <NotifyButton />
+            <button type="button" onClick={onHome}>
+              Home
             </button>
-          )}
-          {!player && (
-            <button type="button" onClick={copyArmies}>
-              {copied ? 'Copied!' : 'Copy armies'}
-            </button>
-          )}
-          {isHost && player && (
-            <button
-              type="button"
-              disabled={busy}
-              onClick={() => window.confirm('End the draft now? Everyone keeps the army they have so far.') && act({ type: 'end' })}
-            >
-              End draft
-            </button>
-          )}
-          {isHost && (
-            <button
-              type="button"
-              className="danger"
-              onClick={() => window.confirm("Delete this draft for everyone? This can't be undone.") && onDelete()}
-            >
-              Delete draft
-            </button>
-          )}
-          <NotifyButton />
-          <button type="button" onClick={onHome}>
-            Home
-          </button>
-        </div>
-      </header>
+          </div>
+        </header>
+      </div>
 
       <div className="board-grid">
         <Pool
@@ -165,7 +171,7 @@ function useTurnAlert(myTurn: boolean, currentName: string | null) {
   useEffect(() => {
     document.title = myTurn ? '⚔ Your pick! · HeroScape Draft' : currentName ? `${currentName}'s pick · HeroScape Draft` : 'Draft complete · HeroScape Draft'
     if (myTurn && !wasMyTurn.current) {
-      chime()
+      playTurnChime()
       if (document.hidden && 'Notification' in window && Notification.permission === 'granted') {
         new Notification('Your pick!', { body: "It's your turn in the HeroScape draft.", tag: 'heroscape-draft-turn' })
       }
@@ -186,27 +192,23 @@ function useTurnAlert(myTurn: boolean, currentName: string | null) {
   }, [myTurn])
 }
 
-function chime() {
-  try {
-    const ctx = new AudioContext()
-    const notes = [660, 880]
-    notes.forEach((freq, i) => {
-      const osc = ctx.createOscillator()
-      const gain = ctx.createGain()
-      osc.frequency.value = freq
-      osc.type = 'triangle'
-      const t = ctx.currentTime + i * 0.18
-      gain.gain.setValueAtTime(0.0001, t)
-      gain.gain.exponentialRampToValueAtTime(0.25, t + 0.02)
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.3)
-      osc.connect(gain).connect(ctx.destination)
-      osc.start(t)
-      osc.stop(t + 0.32)
-    })
-    setTimeout(() => ctx.close(), 1000)
-  } catch {
-    // Audio blocked until the user interacts with the page; the banner still shows.
-  }
+function SoundButton() {
+  const [muted, setMutedState] = useState(isMuted)
+  return (
+    <button
+      type="button"
+      className="icon-btn"
+      onClick={() => {
+        setMuted(!muted)
+        setMutedState(!muted)
+      }}
+      title={muted ? 'Sound is off' : 'Sound is on'}
+      aria-label={muted ? 'Turn sound on' : 'Turn sound off'}
+      aria-pressed={!muted}
+    >
+      {muted ? '🔇' : '🔊'}
+    </button>
+  )
 }
 
 function NotifyButton() {

@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { unitImages, unitIndex } from '../lib/data'
 import { armyOf, checkUnit, costOf, remainingCount } from '../lib/draft'
 import { linkedInArmy, synergiesFor } from '../lib/synergy'
@@ -41,6 +41,29 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
     setDescending(key !== 'name')
   }
   const [expanded, setExpanded] = useState<string | null>(null)
+  const [flash, setFlash] = useState<string | null>(null)
+
+  /** Opens another unit from a synergy link: clears any filter hiding it, expands it and scrolls to it. */
+  const jumpTo = (id: string) => {
+    const unit = unitIndex.get(id)
+    if (!unit) return
+    if (q && !matches(unit, q)) setSearch('')
+    if (type && unit.type !== type) setType('')
+    if (rarity === 'Unique' ? unit.rarity !== 'Unique' : rarity === 'Common' && unit.rarity === 'Unique') setRarity('')
+    if (general && unit.general !== general) setGeneral('')
+    if (synergyOnly && linkedInArmy(unit, myArmy).length === 0) setSynergyOnly(false)
+    if (!(playerId && checkUnit(state, playerId, unit, unitIndex).ok)) setShowUndraftable(true)
+    setExpanded(id)
+    setFlash(id)
+  }
+
+  // Scroll once the row has rendered with its new filters, then fade the highlight.
+  useEffect(() => {
+    if (!flash) return
+    document.getElementById(`unit-${flash}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const t = setTimeout(() => setFlash(null), 1800)
+    return () => clearTimeout(t)
+  }, [flash])
 
   const format = state.settings.format
   const poolUnits = useMemo(() => Object.keys(state.pool).map((id) => unitIndex.get(id)!), [state.pool])
@@ -140,7 +163,8 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
           return (
             <li
               key={unit.id}
-              className={`unit-row ${check.ok ? '' : 'blocked'} ${left <= 0 ? 'gone' : ''} ${image ? 'has-image' : ''}`}
+              id={`unit-${unit.id}`}
+              className={`unit-row ${check.ok ? '' : 'blocked'} ${left <= 0 ? 'gone' : ''} ${image ? 'has-image' : ''} ${flash === unit.id ? 'flash' : ''}`}
               style={
                 {
                   '--general': generalStyle(unit.general).rowColor,
@@ -185,7 +209,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
                 Draft
               </button>
               {!check.ok && check.reason && left > 0 && <span className="unit-reason">{check.reason}</span>}
-              {open && <UnitDetails unit={unit} state={state} playerId={playerId} />}
+              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} />}
             </li>
           )
         })}
@@ -213,7 +237,14 @@ function Stat({ kind, label, value, active }: { kind: string; label: string; val
   )
 }
 
-export function UnitDetails({ unit, state, playerId }: { unit: Unit; state: DraftState; playerId: string | null }) {
+interface DetailsProps {
+  unit: Unit
+  state: DraftState
+  playerId: string | null
+  onJump: (unitId: string) => void
+}
+
+export function UnitDetails({ unit, state, playerId, onJump }: DetailsProps) {
   return (
     <div className="unit-details">
       {unitImages[unit.id] ? (
@@ -232,7 +263,7 @@ export function UnitDetails({ unit, state, playerId }: { unit: Unit; state: Draf
           <strong>{p.name}</strong> {p.text}
         </p>
       ))}
-      <Synergies unit={unit} state={state} playerId={playerId} />
+      <Synergies unit={unit} state={state} playerId={playerId} onJump={onJump} />
       {unit.heroscapersUrl && (
         <a href={unit.heroscapersUrl} target="_blank" rel="noreferrer">
           Heroscapers book →
@@ -245,7 +276,7 @@ export function UnitDetails({ unit, state, playerId }: { unit: Unit; state: Draf
 const MAX_CHIPS = 10
 
 /** What this unit's powers help, and whose powers help it, among units in this draft's pool. */
-function Synergies({ unit, state, playerId }: { unit: Unit; state: DraftState; playerId: string | null }) {
+function Synergies({ unit, state, playerId, onJump }: DetailsProps) {
   const pool = Object.keys(state.pool).map((id) => unitIndex.get(id)!)
   const { boosts, boostedBy } = synergiesFor(unit, pool)
   const mine = new Set(playerId ? armyOf(state, playerId, unitIndex).map((u) => u.id) : [])
@@ -263,11 +294,11 @@ function Synergies({ unit, state, playerId }: { unit: Unit; state: DraftState; p
           const status = ['mine', 'open', 'taken'][rank(u)]
           const title = status === 'mine' ? 'In your army' : status === 'taken' ? `Taken by ${takenBy(u.id)}` : 'Still in the pool'
           return (
-            <span key={u.id} className={`syn-unit ${status}`} title={title}>
+            <button key={u.id} type="button" className={`syn-unit ${status}`} title={`${title}. Click to view.`} onClick={() => onJump(u.id)}>
               <GeneralBadge general={u.general} size={16} />
               {u.name}
               {status === 'mine' && <span className="syn-tag">yours</span>}
-            </span>
+            </button>
           )
         })}
         {sorted.length > MAX_CHIPS && <span className="muted">+{sorted.length - MAX_CHIPS} more</span>}

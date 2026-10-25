@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { unitIndex } from '../lib/data'
 import { armyText, currentPlayer, roundOfSlot, timeLeft } from '../lib/draft'
 import { FORMAT_LABELS, type DraftAction, type DraftState } from '../lib/types'
+import { usePhotoEditor } from '../lib/photos'
 import { isMuted, playDraftFanfare, playTurnChime, setMuted } from '../lib/sounds'
 import { ArmyPanel } from './ArmyPanel'
 import { Pool } from './Pool'
@@ -24,6 +25,7 @@ export function DraftBoard({ state, me, isHost, onAction, onHome, onDelete }: Pr
   const now = useNow(settings.timerSeconds !== null && state.status === 'drafting')
   const secondsLeft = timeLeft(state, now)
   const [busy, setBusy] = useState(false)
+  const [canEditPhotos] = usePhotoEditor(me)
 
   const act = async (action: DraftAction) => {
     setBusy(true)
@@ -135,6 +137,7 @@ export function DraftBoard({ state, me, isHost, onAction, onHome, onDelete }: Pr
           playerId={amPlaying ? me : (player?.id ?? null)}
           canPick={myTurn && !busy}
           onPick={(unitId) => act({ type: 'pick', unitId })}
+          canEditPhotos={canEditPhotos}
         />
         <aside className="sidebar">
           {order.map((p) => (

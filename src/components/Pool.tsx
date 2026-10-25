@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
-import { unitImages, unitIndex } from '../lib/data'
+import { unitIndex } from '../lib/data'
+import { useUnitPhotos } from '../lib/photos'
+import { UnitPhotoView, UnitThumb } from './PhotoControls'
 import { armyOf, checkUnit, costOf, remainingCount } from '../lib/draft'
 import { linkedInArmy, synergiesFor } from '../lib/synergy'
 import { generalStyle } from '../lib/generals'
@@ -24,9 +26,12 @@ interface Props {
   playerId: string | null
   canPick: boolean
   onPick: (unitId: string) => void
+  /** This device may add and replace unit photos. */
+  canEditPhotos: boolean
 }
 
-export function Pool({ state, playerId, canPick, onPick }: Props) {
+export function Pool({ state, playerId, canPick, onPick, canEditPhotos }: Props) {
+  const photoOf = useUnitPhotos()
   const [search, setSearch] = useState('')
   const [type, setType] = useState('')
   const [rarity, setRarity] = useState('')
@@ -159,7 +164,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
       <ul className="unit-list">
         {rows.map(({ unit, cost, left, check, linked }) => {
           const open = expanded === unit.id
-          const image = unitImages[unit.id]
+          const image = photoOf(unit.id)?.url
           return (
             <li
               key={unit.id}
@@ -188,6 +193,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
                     )}
                   </span>
                 </span>
+                <UnitThumb unit={unit} />
                 <span className="unit-stats" aria-label="Life, move, range, attack, defense">
                   <Stat kind="life" label="Lif" value={unit.life} active={sort === 'life'} />
                   <Stat kind="move" label="Mov" value={unit.move} active={sort === 'move'} />
@@ -209,7 +215,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
                 Draft
               </button>
               {!check.ok && check.reason && left > 0 && <span className="unit-reason">{check.reason}</span>}
-              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} />}
+              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} canEditPhotos={canEditPhotos} />}
             </li>
           )
         })}
@@ -242,19 +248,13 @@ interface DetailsProps {
   state: DraftState
   playerId: string | null
   onJump: (unitId: string) => void
+  canEditPhotos?: boolean
 }
 
-export function UnitDetails({ unit, state, playerId, onJump }: DetailsProps) {
+export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = false }: DetailsProps) {
   return (
     <div className="unit-details">
-      {unitImages[unit.id] ? (
-        <img className="unit-photo" src={unitImages[unit.id]} alt={unit.name} />
-      ) : (
-        <div className="unit-photo placeholder" title={`Add src/assets/units/${unit.id}.jpg`}>
-          <span>{unit.name}</span>
-          <span className="muted">No photo yet</span>
-        </div>
-      )}
+      <UnitPhotoView unit={unit} canEdit={canEditPhotos} />
       <p className="muted">
         {unit.species} {unit.unitClass} · {unit.personality} · {unit.size} {unit.height} · {unit.homeworld} · {unit.set}
       </p>

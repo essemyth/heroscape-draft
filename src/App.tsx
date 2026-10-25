@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { DraftBoard } from './components/DraftBoard'
 import { Home } from './components/Home'
 import { Lobby } from './components/Lobby'
+import { PhotosPage } from './components/PhotosPage'
 import { deleteDraft, sendAction, useDraftRoom } from './lib/online'
 import { supabaseConfigured, useSession } from './lib/supabase'
 import type { DraftAction } from './lib/types'
@@ -49,6 +50,8 @@ export default function App() {
       )}
       {draftId ? (
         <DraftRoom key={draftId} draftId={draftId} me={me} navigate={navigate} onError={setError} />
+      ) : path.startsWith('/photos') ? (
+        <PhotosPage me={me} navigate={navigate} />
       ) : (
         <Home me={me} navigate={navigate} onError={setError} />
       )}

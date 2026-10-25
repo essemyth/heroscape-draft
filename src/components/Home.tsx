@@ -67,6 +67,14 @@ export function Home({ me, navigate, onError }: Props) {
         <p className="muted">You'll get an invite link to send your friends.</p>
       </section>
 
+      <section className="panel">
+        <h2>Unit photos</h2>
+        <p className="muted">See which of your units still need a photo, and take them with your phone.</p>
+        <button type="button" onClick={() => navigate('/photos')}>
+          📷 Unit photos
+        </button>
+      </section>
+
       {drafts && drafts.length > 0 && (
         <section className="panel">
           <h2>Your drafts</h2>

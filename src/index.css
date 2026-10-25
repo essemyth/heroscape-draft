@@ -919,3 +919,18 @@ button.link-btn {
   font-weight: 600;
   min-width: 0;
 }
+/* Shimmer while a photo is still loading. */
+img.loading {
+  background: linear-gradient(100deg, var(--panel-2) 30%, var(--border) 50%, var(--panel-2) 70%) 0 0 / 300% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: -150% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  img.loading {
+    animation: none;
+  }
+}

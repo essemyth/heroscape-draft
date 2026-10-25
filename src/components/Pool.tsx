@@ -164,7 +164,8 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos }: Props)
       <ul className="unit-list">
         {rows.map(({ unit, cost, left, check, linked }) => {
           const open = expanded === unit.id
-          const image = photoOf(unit.id)?.url
+          // The faded row background uses the small thumbnail; the full photo only loads when expanded.
+          const image = photoOf(unit.id)?.thumbUrl
           return (
             <li
               key={unit.id}

@@ -72,6 +72,18 @@ for (const { hshId, quantity } of owned) {
   else unmatched.push({ hshId, name: hsh?.name ?? null, quantity })
 }
 
+// Units owned but missing from HeroScape Helper: src/data/collection-extras/<username>.json,
+// { "<unit-id>": <copies> }. Added on top of what HeroScape Helper lists.
+const extrasFile = new URL(`../src/data/collection-extras/${username}.json`, import.meta.url)
+const extras = await readFile(extrasFile, 'utf8').then(JSON.parse, () => ({}))
+for (const [id, qty] of Object.entries(extras)) {
+  if (!units.some((u) => u.id === id)) {
+    console.warn(`Extra unit "${id}" isn't a known unit id; skipped`)
+    continue
+  }
+  collection[id] = (collection[id] ?? 0) + qty
+}
+
 await mkdir(new URL('.', outFile), { recursive: true })
 await writeFile(
   outFile,

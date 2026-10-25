@@ -1,0 +1,3839 @@
+{
+ "10th-regiment-of-foot": [
+  {
+   "power": "MELEE DEFENSE 1",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  },
+  {
+   "power": "BAYONET ATTACK 1",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "12th-caucasus-rifles": [
+  {
+   "power": "GAS GRENADE SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "4th-massachusetts-line": [
+  {
+   "power": "VALIANT ARMY DEFENSE BONUS",
+   "kind": "terms",
+   "label": "Valiant",
+   "terms": {
+    "personality": "Valiant"
+   }
+  }
+ ],
+ "8th-infantry-pathfinder": [
+  {
+   "power": "MARCHING ORDERS",
+   "kind": "terms",
+   "label": "Soldier Jandar",
+   "terms": {
+    "unitClass": "Soldier",
+    "general": "Jandar"
+   }
+  },
+  {
+   "power": "MARCHING ORDERS",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "acolarh": [
+  {
+   "power": "LEAF OF THE HOME TREE AURA",
+   "kind": "terms",
+   "label": "Elf",
+   "terms": {
+    "species": "Elf"
+   }
+  },
+  {
+   "power": "LEAF OF THE HOME TREE AURA",
+   "kind": "terms",
+   "label": "Ullar Valkyrie",
+   "terms": {
+    "general": "Ullar",
+    "species": "Valkyrie"
+   }
+  },
+  {
+   "power": "LEAF OF THE HOME TREE AURA",
+   "kind": "terms",
+   "label": "Ullar",
+   "terms": {
+    "general": "Ullar"
+   }
+  },
+  {
+   "power": "ULLAR'S AMULET",
+   "kind": "terms",
+   "label": "Ullar",
+   "terms": {
+    "general": "Ullar"
+   }
+  }
+ ],
+ "acolytes-of-vorganund": [
+  {
+   "power": "BLOOD SUMMONING",
+   "kind": "terms",
+   "label": "Demon",
+   "terms": {
+    "species": "Demon"
+   }
+  }
+ ],
+ "admiral-ej-1m": [
+  {
+   "power": "ADMIRAL'S ORDERS",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  },
+  {
+   "power": "ADMIRAL'S ORDERS",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
+   }
+  },
+  {
+   "power": "BOARDING PARTY SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  },
+  {
+   "power": "BOARDING PARTY SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
+   }
+  }
+ ],
+ "aetherion-city-guard": [
+  {
+   "power": "WARDEN STRATEGIC BONDING",
+   "kind": "terms",
+   "label": "Warden",
+   "terms": {
+    "unitClass": "Warden"
+   }
+  },
+  {
+   "power": "WARDEN STRATEGIC BONDING",
+   "kind": "terms",
+   "label": "Guards",
+   "terms": {
+    "unitClass": "Guards"
+   }
+  },
+  {
+   "power": "MAGICK RESTRAINTS",
+   "kind": "terms",
+   "label": "Guards",
+   "terms": {
+    "unitClass": "Guards"
+   }
+  }
+ ],
+ "agent-si-4x": [
+  {
+   "power": "PHANTOM PROTOCOLS",
+   "kind": "terms",
+   "label": "Revna",
+   "terms": {
+    "general": "Revna"
+   }
+  },
+  {
+   "power": "PHANTOM PROTOCOLS",
+   "kind": "terms",
+   "label": "Vydar",
+   "terms": {
+    "general": "Vydar"
+   }
+  }
+ ],
+ "agent-skahen": [
+  {
+   "power": "COVER FIRE",
+   "kind": "terms",
+   "label": "Tricky Vydar",
+   "terms": {
+    "personality": "Tricky",
+    "general": "Vydar"
+   }
+  }
+ ],
+ "air-marshal-zed-nesbitt": [
+  {
+   "power": "SKYHOOK",
+   "kind": "terms",
+   "label": "Vorid",
+   "terms": {
+    "species": "Vorid"
+   }
+  }
+ ],
+ "amberhive-protectors": [
+  {
+   "power": "INSECT STRATEGIC BONDING",
+   "kind": "terms",
+   "label": "Insect",
+   "terms": {
+    "species": "Insect"
+   }
+  },
+  {
+   "power": "SACRIFICIAL STING SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Insect",
+   "terms": {
+    "species": "Insect"
+   }
+  }
+ ],
+ "ana-karithon": [
+  {
+   "power": "TURN UNDEAD SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
+   }
+  },
+  {
+   "power": "PROTECTION FROM EVIL AURA",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  }
+ ],
+ "arkmer": [
+  {
+   "power": "STAFF OF LERKINTIN",
+   "kind": "terms",
+   "label": "Elf",
+   "terms": {
+    "species": "Elf"
+   }
+  }
+ ],
+ "arktos": [
+  {
+   "power": "HUNTER ATTACK ENHANCEMENT",
+   "kind": "terms",
+   "label": "Hunter",
+   "terms": {
+    "unitClass": "Hunter"
+   }
+  }
+ ],
+ "armoc-vipers": [
+  {
+   "power": "ULLAR WARLORD BONDING",
+   "kind": "terms",
+   "label": "Warlord Ullar",
+   "terms": {
+    "unitClass": "Warlord",
+    "general": "Ullar"
+   }
+  }
+ ],
+ "arrow-gruts": [
+  {
+   "power": "BEAST BONDING",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  }
+ ],
+ "associates-of-volarak": [
+  {
+   "power": "FOLLOW THE PROFIT",
+   "kind": "terms",
+   "label": "Profiteer",
+   "terms": {
+    "unitClass": "Profiteer"
+   }
+  }
+ ],
+ "ataraxis-the-starlich": [
+  {
+   "power": "NECROTIZING WORMHOLE",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
+   }
+  }
+ ],
+ "atlaga-the-kyrie-warrior": [
+  {
+   "power": "KYRIE LEADERSHIP",
+   "kind": "terms",
+   "label": "Kyrie",
+   "terms": {
+    "species": "Kyrie"
+   }
+  }
+ ],
+ "baroness": [
+  {
+   "power": "INTELLIGENCE CHIEF",
+   "kind": "terms",
+   "label": "Agent",
+   "terms": {
+    "unitClass": "Agent"
+   }
+  }
+ ],
+ "beakface-rogue": [
+  {
+   "power": "EVASIVE 2",
+   "kind": "terms",
+   "label": "Rogue",
+   "terms": {
+    "unitClass": "Rogue"
+   }
+  }
+ ],
+ "beakface-sneaks": [
+  {
+   "power": "FLOCKING",
+   "kind": "terms",
+   "label": "Raptorian",
+   "terms": {
+    "species": "Raptorian"
+   }
+  }
+ ],
+ "beorn-boltcutter": [
+  {
+   "power": "UPGRADE",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  }
+ ],
+ "betacron": [
+  {
+   "power": "OMNICRON PATROL",
+   "kind": "terms",
+   "label": "Soulborg Jandar",
+   "terms": {
+    "species": "Soulborg",
+    "general": "Jandar"
+   }
+  }
+ ],
+ "black-wyrmling": [
+  {
+   "power": "WYRMLING BONDING",
+   "kind": "terms",
+   "label": "Wyrmling",
+   "terms": {
+    "unitClass": "Wyrmling"
+   }
+  }
+ ],
+ "blade-gruts": [
+  {
+   "power": "ORC CHAMPION BONDING",
+   "kind": "terms",
+   "label": "Orc Champion",
+   "terms": {
+    "species": "Orc",
+    "unitClass": "Champion"
+   }
+  }
+ ],
+ "blastatrons": [
+  {
+   "power": "GLADIATRON MOVEMENT BONDING",
+   "kind": "units",
+   "label": "Gladiatrons",
+   "ids": [
+    "gladiatrons"
+   ]
+  },
+  {
+   "power": "HOMING DEVICE",
+   "kind": "terms",
+   "label": "Soulborg Vydar",
+   "terms": {
+    "species": "Soulborg",
+    "general": "Vydar"
+   }
+  }
+ ],
+ "bloodburst-thrall": [
+  {
+   "power": "MINDLESS PACK",
+   "kind": "terms",
+   "label": "Thrall",
+   "terms": {
+    "unitClass": "Thrall"
+   }
+  }
+ ],
+ "blue-wyrmling": [
+  {
+   "power": "WYRMLING BONDING",
+   "kind": "terms",
+   "label": "Wyrmling",
+   "terms": {
+    "unitClass": "Wyrmling"
+   }
+  }
+ ],
+ "bok-bur-na": [
+  {
+   "power": "INTIMIDATE",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
+   }
+  },
+  {
+   "power": "INTIMIDATE",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  }
+ ],
+ "brave-arrow": [
+  {
+   "power": "SCOUT MELEE ATTACK ENHANCEMENT",
+   "kind": "terms",
+   "label": "Scout",
+   "terms": {
+    "unitClass": "Scout"
+   }
+  }
+ ],
+ "brute-gruts": [
+  {
+   "power": "BERSERKER FRENZY",
+   "kind": "terms",
+   "label": "Berserker",
+   "terms": {
+    "unitClass": "Berserker"
+   }
+  }
+ ],
+ "bugbear-basher": [
+  {
+   "power": "EXPENDABLE RABBLE",
+   "kind": "terms",
+   "label": "Goblin",
+   "terms": {
+    "species": "Goblin"
+   }
+  },
+  {
+   "power": "GOBLIN MELEE ATTACK ENHANCEMENT",
+   "kind": "terms",
+   "label": "Goblin",
+   "terms": {
+    "species": "Goblin"
+   }
+  }
+ ],
+ "cainak-private-eye": [
+  {
+   "power": "PICK UP THE TRAIL",
+   "kind": "terms",
+   "label": "Lawman",
+   "terms": {
+    "unitClass": "Lawman"
+   }
+  }
+ ],
+ "capt-john-varan": [
+  {
+   "power": "PURPLE HEART",
+   "kind": "terms",
+   "label": "Human Jandar",
+   "terms": {
+    "species": "Human",
+    "general": "Jandar"
+   }
+  }
+ ],
+ "capuan-gladiators": [
+  {
+   "power": "HUMAN GLADIATOR HERO BONDING",
+   "kind": "terms",
+   "label": "Human Gladiator",
+   "terms": {
+    "species": "Human",
+    "unitClass": "Gladiator"
+   }
+  },
+  {
+   "power": "INITIATIVE ADVANTAGE",
+   "kind": "terms",
+   "label": "Gladiator",
+   "terms": {
+    "unitClass": "Gladiator"
+   }
+  }
+ ],
+ "chain-gruts": [
+  {
+   "power": "GUILD BOSS BONDING",
+   "kind": "terms",
+   "label": "Champion",
+   "terms": {
+    "unitClass": "Champion"
+   }
+  },
+  {
+   "power": "GUILD BOSS BONDING",
+   "kind": "terms",
+   "label": "Orc",
+   "terms": {
+    "species": "Orc"
+   }
+  },
+  {
+   "power": "GUILD BOSS BONDING",
+   "kind": "terms",
+   "label": "Volarak",
+   "terms": {
+    "general": "Volarak"
+   }
+  }
+ ],
+ "chana-the-zenithwing": [
+  {
+   "power": "RENEW 12",
+   "kind": "terms",
+   "label": "Wizard",
+   "terms": {
+    "unitClass": "Wizard"
+   }
+  },
+  {
+   "power": "RENEW 12",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  }
+ ],
+ "chardris": [
+  {
+   "power": "FIRE STRIKE SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Elf Wizard",
+   "terms": {
+    "species": "Elf",
+    "unitClass": "Wizard"
+   }
+  }
+ ],
+ "clawfoot-interceptor": [
+  {
+   "power": "CLAW GRAB",
+   "kind": "terms",
+   "label": "Raptorian",
+   "terms": {
+    "species": "Raptorian"
+   }
+  }
+ ],
+ "clayton-pierce": [
+  {
+   "power": "SHERIFF'S POSSE",
+   "kind": "terms",
+   "label": "Lawman",
+   "terms": {
+    "unitClass": "Lawman"
+   }
+  },
+  {
+   "power": "SHOOTOUT",
+   "kind": "terms",
+   "label": "Lawman",
+   "terms": {
+    "unitClass": "Lawman"
+   }
+  }
+ ],
+ "cobra-flight-pod": [
+  {
+   "power": "BATTLE READY",
+   "kind": "terms",
+   "label": "Cobra",
+   "terms": {
+    "general": "Cobra"
+   }
+  }
+ ],
+ "cobra-troopers": [
+  {
+   "power": "VILLAINOUS BONDING",
+   "kind": "terms",
+   "label": "Warlord",
+   "terms": {
+    "unitClass": "Warlord"
+   }
+  },
+  {
+   "power": "VILLAINOUS BONDING",
+   "kind": "terms",
+   "label": "Profiteer",
+   "terms": {
+    "unitClass": "Profiteer"
+   }
+  },
+  {
+   "power": "COILS OF COBRA",
+   "kind": "terms",
+   "label": "Cobra",
+   "terms": {
+    "general": "Cobra"
+   }
+  }
+ ],
+ "command-courier": [
+  {
+   "power": "COMMAND DISPATCH",
+   "kind": "terms",
+   "label": "Vydar",
+   "terms": {
+    "general": "Vydar"
+   }
+  }
+ ],
+ "concan-the-kyrie-warrior-10": [
+  {
+   "power": "KNIGHT AND SENTINEL ENHANCEMENT",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
+  },
+  {
+   "power": "KNIGHT AND SENTINEL ENHANCEMENT",
+   "kind": "terms",
+   "label": "Sentinel",
+   "terms": {
+    "unitClass": "Sentinel"
+   }
+  }
+ ],
+ "concan-the-kyrie-warrior-20": [
+  {
+   "power": "MIGHT OF BLEAKEWOODE",
+   "kind": "terms",
+   "label": "Jandar",
+   "terms": {
+    "general": "Jandar"
+   }
+  },
+  {
+   "power": "MIGHT OF BLEAKEWOODE",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  },
+  {
+   "power": "VIGILANCE OF NASTRALUND",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  },
+  {
+   "power": "VIGILANCE OF NASTRALUND",
+   "kind": "terms",
+   "label": "Jandar",
+   "terms": {
+    "general": "Jandar"
+   }
+  }
+ ],
+ "cornelius-breech-the-derelict-prince": [
+  {
+   "power": "FIRST ASSAULT 2",
+   "kind": "terms",
+   "label": "Prince",
+   "terms": {
+    "unitClass": "Prince"
+   }
+  },
+  {
+   "power": "MUTINY",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
+   }
+  },
+  {
+   "power": "MUTINY",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  }
+ ],
+ "corvynn-the-rotbeak": [
+  {
+   "power": "EYES IN THE SKY",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
+   }
+  },
+  {
+   "power": "EYES IN THE SKY",
+   "kind": "terms",
+   "label": "Wizard",
+   "terms": {
+    "unitClass": "Wizard"
+   }
+  }
+ ],
+ "count-raymond": [
+  {
+   "power": "MANEUVER 9",
+   "kind": "terms",
+   "label": "Einar",
+   "terms": {
+    "general": "Einar"
+   }
+  }
+ ],
+ "courtney-cover-girl-kreiger": [
+  {
+   "power": "G.I. JOE IS THERE",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "crimson-widow": [
+  {
+   "power": "HIRE CREW",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  },
+  {
+   "power": "PIRATE COMMANDER",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  },
+  {
+   "power": "MIDNIGHT RAID",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  }
+ ],
+ "crypt-guardian": [
+  {
+   "power": "CURSE OF THE MUMMY",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
+   }
+  },
+  {
+   "power": "ROYAL ESCORT",
+   "kind": "terms",
+   "label": "Guard",
+   "terms": {
+    "unitClass": "Guard"
+   }
+  },
+  {
+   "power": "ROYAL ESCORT",
+   "kind": "terms",
+   "label": "Queen",
+   "terms": {
+    "unitClass": "Queen"
+   }
+  }
+ ],
+ "cyprien-esenwein": [
+  {
+   "power": "CHILLING TOUCH",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  }
+ ],
+ "darkprowl-thrall": [
+  {
+   "power": "MINDLESS PACK",
+   "kind": "terms",
+   "label": "Thrall",
+   "terms": {
+    "unitClass": "Thrall"
+   }
+  },
+  {
+   "power": "POUNCE SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Thrall",
+   "terms": {
+    "unitClass": "Thrall"
+   }
+  },
+  {
+   "power": "STEALTHY 4",
+   "kind": "terms",
+   "label": "Thrall",
+   "terms": {
+    "unitClass": "Thrall"
+   }
+  }
+ ],
+ "deathcommander-mark-3": [
+  {
+   "power": "HEAVY SUPPORT COMMAND BEACON",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  },
+  {
+   "power": "HEAVY SUPPORT COMMAND BEACON",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  },
+  {
+   "power": "MARKED FOR DESTRUCTION",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  },
+  {
+   "power": "MARKED FOR DESTRUCTION",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  }
+ ],
+ "deathstrike-thrall": [
+  {
+   "power": "MINDLESS PACK",
+   "kind": "terms",
+   "label": "Thrall",
+   "terms": {
+    "unitClass": "Thrall"
+   }
+  }
+ ],
+ "deathwalker-10000": [
+  {
+   "power": "PLATING OPTIMIZATION",
+   "kind": "terms",
+   "label": "Utgar Soulborg",
+   "terms": {
+    "general": "Utgar",
+    "species": "Soulborg"
+   }
+  }
+ ],
+ "deathwalker-9000": [
+  {
+   "power": "RANGE ENHANCEMENT",
+   "kind": "terms",
+   "label": "Soulborg Guards",
+   "terms": {
+    "species": "Soulborg",
+    "unitClass": "Guards"
+   }
+  }
+ ],
+ "dr-harlan-eisen": [
+  {
+   "power": "PROTOTYPE INJECTION",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  },
+  {
+   "power": "PROTOTYPE INJECTION",
+   "kind": "terms",
+   "label": "Vorid",
+   "terms": {
+    "species": "Vorid"
+   }
+  },
+  {
+   "power": "PROTOTYPE INJECTION",
+   "kind": "terms",
+   "label": "Scientist",
+   "terms": {
+    "unitClass": "Scientist"
+   }
+  }
+ ],
+ "dr-torvik-morinstein": [
+  {
+   "power": "GRAVEROBBER",
+   "kind": "terms",
+   "label": "Scientist",
+   "terms": {
+    "unitClass": "Scientist"
+   }
+  },
+  {
+   "power": "GRAVEROBBER",
+   "kind": "terms",
+   "label": "Wizard",
+   "terms": {
+    "unitClass": "Wizard"
+   }
+  },
+  {
+   "power": "IT'S ALIVE!",
+   "kind": "units",
+   "label": "Morinstein's Masterpiece",
+   "ids": [
+    "morinsteins-masterpiece"
+   ]
+  }
+ ],
+ "dr-valentina-lockhart": [
+  {
+   "power": "SCHEMES FROM SPACE",
+   "kind": "terms",
+   "label": "Revna",
+   "terms": {
+    "general": "Revna"
+   }
+  },
+  {
+   "power": "SCHEMES FROM SPACE",
+   "kind": "terms",
+   "label": "Vydar",
+   "terms": {
+    "general": "Vydar"
+   }
+  },
+  {
+   "power": "COORDINATED DEPLOYMENT 3",
+   "kind": "terms",
+   "label": "Scout",
+   "terms": {
+    "unitClass": "Scout"
+   }
+  },
+  {
+   "power": "COORDINATED DEPLOYMENT 3",
+   "kind": "terms",
+   "label": "Scientist",
+   "terms": {
+    "unitClass": "Scientist"
+   }
+  }
+ ],
+ "dreadgul-raiders": [
+  {
+   "power": "WILD STRATEGIC BONDING",
+   "kind": "terms",
+   "label": "Human",
+   "terms": {
+    "species": "Human"
+   }
+  },
+  {
+   "power": "WILD STRATEGIC BONDING",
+   "kind": "terms",
+   "label": "Giant",
+   "terms": {
+    "species": "Giant"
+   }
+  }
+ ],
+ "dreadnoughts-of-caraway-cavern": [
+  {
+   "power": "THE CAPTAIN'S WAY",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
+   }
+  },
+  {
+   "power": "CAPTAIN'S ORDERS",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  }
+ ],
+ "duke": [
+  {
+   "power": "YO, JOE!",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  },
+  {
+   "power": "LEAD BY EXAMPLE",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "dumutef-guard": [
+  {
+   "power": "DEVOURER ATTACK ENHANCEMENT",
+   "kind": "terms",
+   "label": "Devourer",
+   "terms": {
+    "unitClass": "Devourer"
+   }
+  }
+ ],
+ "durgeth-ravagers": [
+  {
+   "power": "SAVAGE CRY",
+   "kind": "terms",
+   "label": "Savage",
+   "terms": {
+    "unitClass": "Savage"
+   }
+  }
+ ],
+ "ebon-armor": [
+  {
+   "power": "ANIMATED MATERIEL",
+   "kind": "terms",
+   "label": "Human",
+   "terms": {
+    "species": "Human"
+   }
+  },
+  {
+   "power": "ETERNAL WAR",
+   "kind": "terms",
+   "label": "Human",
+   "terms": {
+    "species": "Human"
+   }
+  }
+ ],
+ "elite-onyx-vipers": [
+  {
+   "power": "EVASIVE 8",
+   "kind": "terms",
+   "label": "Viper",
+   "terms": {
+    "species": "Viper"
+   }
+  }
+ ],
+ "elites-of-ullar": [
+  {
+   "power": "BLADE DANCE",
+   "kind": "terms",
+   "label": "Ullar Kyrie",
+   "terms": {
+    "general": "Ullar",
+    "species": "Kyrie"
+   }
+  },
+  {
+   "power": "ULLAR'S PACT",
+   "kind": "terms",
+   "label": "Kyrie Ullar",
+   "terms": {
+    "species": "Kyrie",
+    "general": "Ullar"
+   }
+  }
+ ],
+ "emirroon": [
+  {
+   "power": "ELVEN SUMMONING SPELL",
+   "kind": "terms",
+   "label": "Elf",
+   "terms": {
+    "species": "Elf"
+   }
+  }
+ ],
+ "emperor-andask": [
+  {
+   "power": "KYRIE SUPREMACY",
+   "kind": "terms",
+   "label": "Kyrie",
+   "terms": {
+    "species": "Kyrie"
+   }
+  }
+ ],
+ "empress-kiova": [
+  {
+   "power": "GIFT OF THE EMPRESS AURA",
+   "kind": "terms",
+   "label": "Kyrie Einar",
+   "terms": {
+    "species": "Kyrie",
+    "general": "Einar"
+   }
+  }
+ ],
+ "estivara": [
+  {
+   "power": "VENOM RAY SPECIAL ATTACK",
+   "kind": "units",
+   "label": "Venom",
+   "ids": [
+    "venom"
+   ]
+  },
+  {
+   "power": "LOLTH'S JUDGEMENT AURA",
+   "kind": "terms",
+   "label": "Arachnid",
+   "terms": {
+    "species": "Arachnid"
+   }
+  }
+ ],
+ "ewashia-master-of-tides": [
+  {
+   "power": "COMMAND FAMILIAR",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  }
+ ],
+ "executioner-616": [
+  {
+   "power": "REMOTE DETONATION",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  }
+ ],
+ "father-caylus": [
+  {
+   "power": "BRUTAL TASKMASTER",
+   "kind": "terms",
+   "label": "Cleric",
+   "terms": {
+    "unitClass": "Cleric"
+   }
+  }
+ ],
+ "festering-honor-guard": [
+  {
+   "power": "MOTHERLESS RAGE",
+   "kind": "units",
+   "label": "Queen Maladrix the Conqueror",
+   "ids": [
+    "queen-maladrix-the-conqueror"
+   ]
+  },
+  {
+   "power": "MOTHERLESS RAGE",
+   "kind": "terms",
+   "label": "Queen",
+   "terms": {
+    "unitClass": "Queen"
+   }
+  }
+ ],
+ "flint": [
+  {
+   "power": "TACTICAL ACUMEN",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "frostclaw-paladins": [
+  {
+   "power": "JANDAR CHAMPION BONDING",
+   "kind": "terms",
+   "label": "Champion Jandar",
+   "terms": {
+    "unitClass": "Champion",
+    "general": "Jandar"
+   }
+  }
+ ],
+ "fyorlag-spiders": [
+  {
+   "power": "PREDATOR BONDING",
+   "kind": "terms",
+   "label": "Predator",
+   "terms": {
+    "unitClass": "Predator"
+   }
+  }
+ ],
+ "garrett-burns": [
+  {
+   "power": "FIGHT THE LAW",
+   "kind": "terms",
+   "label": "Lawman",
+   "terms": {
+    "unitClass": "Lawman"
+   }
+  }
+ ],
+ "gelryie-vanguards": [
+  {
+   "power": "TIDAL ADVANCE",
+   "kind": "terms",
+   "label": "Fierce",
+   "terms": {
+    "personality": "Fierce"
+   }
+  },
+  {
+   "power": "TIDAL ADVANCE",
+   "kind": "terms",
+   "label": "Unfathomable",
+   "terms": {
+    "personality": "Unfathomable"
+   }
+  }
+ ],
+ "gen-simon-fraser": [
+  {
+   "power": "PREPARE THE CHARGE",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "girushia-grove-keeper": [
+  {
+   "power": "COMMAND FAMILIAR",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  }
+ ],
+ "gnarlfur-raiders": [
+  {
+   "power": "MIGHTY HERO BONDING",
+   "kind": "terms",
+   "label": "Valiant heroes of Jandar",
+   "terms": {
+    "personality": "Valiant",
+    "general": "Jandar",
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "MIGHTY HERO BONDING",
+   "kind": "terms",
+   "label": "Valiant heroes of Utgar",
+   "terms": {
+    "personality": "Valiant",
+    "general": "Utgar",
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "MIGHTY HERO BONDING",
+   "kind": "terms",
+   "label": "Relentless heroes of Jandar",
+   "terms": {
+    "personality": "Relentless",
+    "general": "Jandar",
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "MIGHTY HERO BONDING",
+   "kind": "terms",
+   "label": "Relentless heroes of Utgar",
+   "terms": {
+    "personality": "Relentless",
+    "general": "Utgar",
+    "type": "Hero"
+   }
+  }
+ ],
+ "gorillitroopers": [
+  {
+   "power": "PRIMADON STRATEGIC ATTACK BONDING",
+   "kind": "terms",
+   "label": "Primadon",
+   "terms": {
+    "species": "Primadon"
+   }
+  }
+ ],
+ "gothlok": [
+  {
+   "power": "VALKRILL CHARGE",
+   "kind": "terms",
+   "label": "Valkrill Valkyrie",
+   "terms": {
+    "general": "Valkrill",
+    "species": "Valkyrie"
+   }
+  },
+  {
+   "power": "VALKRILL CHARGE",
+   "kind": "terms",
+   "label": "Valkrill",
+   "terms": {
+    "general": "Valkrill"
+   }
+  }
+ ],
+ "grave-grim": [
+  {
+   "power": "GUIDE OF THE DEAD",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
+   }
+  },
+  {
+   "power": "GUIDE OF THE DEAD",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  }
+ ],
+ "greenscale-warriors": [
+  {
+   "power": "LOYALTY TO THE LIZARD KING",
+   "kind": "terms",
+   "label": "Lizardfolk",
+   "terms": {
+    "species": "Lizardfolk"
+   }
+  },
+  {
+   "power": "LOYALTY TO THE LIZARD KING",
+   "kind": "terms",
+   "label": "Dragon",
+   "terms": {
+    "species": "Dragon"
+   }
+  },
+  {
+   "power": "LOYALTY TO THE LIZARD KING",
+   "kind": "terms",
+   "label": "King",
+   "terms": {
+    "unitClass": "King"
+   }
+  },
+  {
+   "power": "LIZARD KING BONDING",
+   "kind": "terms",
+   "label": "King",
+   "terms": {
+    "unitClass": "King"
+   }
+  }
+ ],
+ "greenshirts": [
+  {
+   "power": "WHEREVER THERE'S TROUBLE",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "grimnak": [
+  {
+   "power": "ORC WARRIOR ENHANCEMENT",
+   "kind": "terms",
+   "label": "Orc Warrior",
+   "terms": {
+    "species": "Orc",
+    "unitClass": "Warrior"
+   }
+  }
+ ],
+ "grok-riders": [
+  {
+   "power": "MARRO WARLORD BONDING",
+   "kind": "terms",
+   "label": "Marro Warlord",
+   "terms": {
+    "species": "Marro",
+    "unitClass": "Warlord"
+   }
+  },
+  {
+   "power": "MARK OF THE WARLORD",
+   "kind": "terms",
+   "label": "Marro Warlord",
+   "terms": {
+    "species": "Marro",
+    "unitClass": "Warlord"
+   }
+  }
+ ],
+ "guilty-mccreech-20": [
+  {
+   "power": "DEPUTIZE",
+   "kind": "terms",
+   "label": "Sniper",
+   "terms": {
+    "unitClass": "Sniper"
+   }
+  },
+  {
+   "power": "DEPUTIZE",
+   "kind": "terms",
+   "label": "Einar",
+   "terms": {
+    "general": "Einar"
+   }
+  },
+  {
+   "power": "DEPUTIZE",
+   "kind": "terms",
+   "label": "Volarak",
+   "terms": {
+    "general": "Volarak"
+   }
+  },
+  {
+   "power": "DEPUTIZE",
+   "kind": "terms",
+   "label": "Lawman",
+   "terms": {
+    "unitClass": "Lawman"
+   }
+  },
+  {
+   "power": "LONG ARM OF THE LAW",
+   "kind": "terms",
+   "label": "Lawman",
+   "terms": {
+    "unitClass": "Lawman"
+   }
+  }
+ ],
+ "haduc": [
+  {
+   "power": "AEGIS OF THE CRIMSON SIGIL",
+   "kind": "terms",
+   "label": "Elf Wizard",
+   "terms": {
+    "species": "Elf",
+    "unitClass": "Wizard"
+   }
+  },
+  {
+   "power": "ELVEN SUPREMACY",
+   "kind": "terms",
+   "label": "Elf",
+   "terms": {
+    "species": "Elf"
+   }
+  }
+ ],
+ "haluchott-corruptor-of-beasts": [
+  {
+   "power": "COMMAND OF THE WILD",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  },
+  {
+   "power": "CALM THE BEAST",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  }
+ ],
+ "halushia-scion-of-the-wild": [
+  {
+   "power": "COMMAND FAMILIAR",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  }
+ ],
+ "hatamoto-taro-10": [
+  {
+   "power": "HEROIC DEFENSE AURA",
+   "kind": "terms",
+   "label": "Samurai",
+   "terms": {
+    "unitClass": "Samurai"
+   }
+  },
+  {
+   "power": "HEROIC DEFENSE AURA",
+   "kind": "terms",
+   "label": "Ashigaru",
+   "terms": {
+    "unitClass": "Ashigaru"
+   }
+  },
+  {
+   "power": "HEROIC DEFENSE AURA",
+   "kind": "terms",
+   "label": "Einar Valkyrie",
+   "terms": {
+    "general": "Einar",
+    "species": "Valkyrie"
+   }
+  },
+  {
+   "power": "HEROIC DEFENSE AURA",
+   "kind": "terms",
+   "label": "Einar",
+   "terms": {
+    "general": "Einar"
+   }
+  },
+  {
+   "power": "ADJACENT TOUGH 1",
+   "kind": "terms",
+   "label": "Einar",
+   "terms": {
+    "general": "Einar"
+   }
+  }
+ ],
+ "hatamoto-taro-20": [
+  {
+   "power": "STALWART DEFENSE AURA",
+   "kind": "terms",
+   "label": "Einar",
+   "terms": {
+    "general": "Einar"
+   }
+  },
+  {
+   "power": "STALWART DEFENSE AURA",
+   "kind": "terms",
+   "label": "Einar Valkyrie",
+   "terms": {
+    "general": "Einar",
+    "species": "Valkyrie"
+   }
+  },
+  {
+   "power": "ADJACENT EINAR RESOLVE 1",
+   "kind": "terms",
+   "label": "Einar",
+   "terms": {
+    "general": "Einar"
+   }
+  }
+ ],
+ "head-of-hrungnir": [
+  {
+   "power": "UNITED BODY",
+   "kind": "terms",
+   "label": "Relic",
+   "terms": {
+    "unitClass": "Relic"
+   }
+  },
+  {
+   "power": "GIANT EVIL EYE",
+   "kind": "terms",
+   "label": "Relic",
+   "terms": {
+    "unitClass": "Relic"
+   }
+  }
+ ],
+ "head-warden-lermek": [
+  {
+   "power": "GUARDS! GUARDS!",
+   "kind": "terms",
+   "label": "Guards",
+   "terms": {
+    "unitClass": "Guards"
+   }
+  }
+ ],
+ "heart-of-hrungnir": [
+  {
+   "power": "THUNDEROUS HEARRTBEAT SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Relic",
+   "terms": {
+    "unitClass": "Relic"
+   }
+  },
+  {
+   "power": "BOUND BY THE OLD MAGIC",
+   "kind": "terms",
+   "label": "Relic",
+   "terms": {
+    "unitClass": "Relic"
+   }
+  }
+ ],
+ "heavy-gruts": [
+  {
+   "power": "ORC CHAMPION BONDING",
+   "kind": "terms",
+   "label": "Orc Champion",
+   "terms": {
+    "species": "Orc",
+    "unitClass": "Champion"
+   }
+  }
+ ],
+ "hellforge-mandukor": [
+  {
+   "power": "FEED THE FORGE 15",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  },
+  {
+   "power": "FEED THE FORGE 15",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  },
+  {
+   "power": "EISENEK ADVANCE",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  }
+ ],
+ "honor-guard-of-the-blasted-lands": [
+  {
+   "power": "ARC LANCES",
+   "kind": "terms",
+   "label": "Guards",
+   "terms": {
+    "unitClass": "Guards"
+   }
+  },
+  {
+   "power": "ARC LANCES",
+   "kind": "terms",
+   "label": "Guard",
+   "terms": {
+    "unitClass": "Guard"
+   }
+  },
+  {
+   "power": "PROTECTIVE REPOSITIONING",
+   "kind": "terms",
+   "label": "Guard",
+   "terms": {
+    "unitClass": "Guard"
+   }
+  },
+  {
+   "power": "PROTECTIVE REPOSITIONING",
+   "kind": "terms",
+   "label": "Guards",
+   "terms": {
+    "unitClass": "Guards"
+   }
+  }
+ ],
+ "hoplitron": [
+  {
+   "power": "MELEE SOULBORG BONDING",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  }
+ ],
+ "horned-skull-brutes": [
+  {
+   "power": "EXPENDABLE RABBLE",
+   "kind": "terms",
+   "label": "Goblin",
+   "terms": {
+    "species": "Goblin"
+   }
+  }
+ ],
+ "hrognak-10": [
+  {
+   "power": "ORC MOVEMENT AURA",
+   "kind": "terms",
+   "label": "Orc",
+   "terms": {
+    "species": "Orc"
+   }
+  }
+ ],
+ "hrognak-20": [
+  {
+   "power": "ORC MOVEMENT AURA",
+   "kind": "terms",
+   "label": "Orc",
+   "terms": {
+    "species": "Orc"
+   }
+  }
+ ],
+ "iron-lich-viscerot": [
+  {
+   "power": "VILE INJECTION",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  },
+  {
+   "power": "IRONCLAD PUPPETEER",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  }
+ ],
+ "isamu-10": [
+  {
+   "power": "DISHONORABLE ATTACK",
+   "kind": "terms",
+   "label": "Jandar",
+   "terms": {
+    "general": "Jandar"
+   }
+  }
+ ],
+ "iskra-esenwein": [
+  {
+   "power": "SUMMON THE RECHETS OF BOGDAN",
+   "kind": "units",
+   "label": "Rechets of Bogdan",
+   "ids": [
+    "rechets-of-bogdan"
+   ]
+  }
+ ],
+ "jeanne-darc-vc": [
+  {
+   "power": "JEANNE'S COMMAND",
+   "kind": "terms",
+   "label": "Human Knight",
+   "terms": {
+    "species": "Human",
+    "unitClass": "Knight"
+   }
+  },
+  {
+   "power": "JEANNE'S COMMAND",
+   "kind": "terms",
+   "label": "Fighter",
+   "terms": {
+    "unitClass": "Fighter"
+   }
+  },
+  {
+   "power": "LOYAL ENHANCEMENT",
+   "kind": "terms",
+   "label": "Loyal",
+   "terms": {
+    "personality": "Loyal"
+   }
+  }
+ ],
+ "jim-whitecloud": [
+  {
+   "power": "LAW OF THE LAND",
+   "kind": "terms",
+   "label": "Lawman",
+   "terms": {
+    "unitClass": "Lawman"
+   }
+  },
+  {
+   "power": "LAW OF THE LAND",
+   "kind": "terms",
+   "label": "Outlaw",
+   "terms": {
+    "unitClass": "Outlaw"
+   }
+  }
+ ],
+ "jinx-and-kamakura": [
+  {
+   "power": "LEARN FROM THE MASTER",
+   "kind": "terms",
+   "label": "Ninja",
+   "terms": {
+    "unitClass": "Ninja"
+   }
+  },
+  {
+   "power": "COORDINATED TAKEDOWN",
+   "kind": "terms",
+   "label": "Ninja",
+   "terms": {
+    "unitClass": "Ninja"
+   }
+  }
+ ],
+ "jorhdawn": [
+  {
+   "power": "RAIN OF FLAME SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Elf Wizard",
+   "terms": {
+    "species": "Elf",
+    "unitClass": "Wizard"
+   }
+  }
+ ],
+ "kaijaax": [
+  {
+   "power": "SCAVENGER MOVEMENT COORDINATION",
+   "kind": "terms",
+   "label": "Scavenger",
+   "terms": {
+    "unitClass": "Scavenger"
+   }
+  }
+ ],
+ "kantono-daishi": [
+  {
+   "power": "DISHONORABLE LEADERSHIP",
+   "kind": "terms",
+   "label": "Ninja",
+   "terms": {
+    "unitClass": "Ninja"
+   }
+  }
+ ],
+ "kato-katsuro-10": [
+  {
+   "power": "KATO KATSURO'S COMMAND",
+   "kind": "units",
+   "label": "Ashigaru Harquebus",
+   "ids": [
+    "ashigaru-harquebus"
+   ]
+  },
+  {
+   "power": "KATO KATSURO'S COMMAND",
+   "kind": "units",
+   "label": "Ashigaru Yari",
+   "ids": [
+    "ashigaru-yari"
+   ]
+  },
+  {
+   "power": "KATO KATSURO'S COMMAND",
+   "kind": "terms",
+   "label": "Samurai",
+   "terms": {
+    "unitClass": "Samurai"
+   }
+  }
+ ],
+ "kato-katsuro-20": [
+  {
+   "power": "DAIMYO'S COMMAND",
+   "kind": "terms",
+   "label": "Samurai",
+   "terms": {
+    "unitClass": "Samurai"
+   }
+  }
+ ],
+ "kee-mo-shi": [
+  {
+   "power": "TOXIC SKIN",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  }
+ ],
+ "knaves-of-the-silver-scimitar": [
+  {
+   "power": "THE CAPTAIN'S WAY",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
+   }
+  },
+  {
+   "power": "CAPTAIN'S ORDERS",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
+   }
+  },
+  {
+   "power": "CAPTAIN'S ORDERS",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  }
+ ],
+ "knights-of-scaeda": [
+  {
+   "power": "DRACONIC STRATEGIC BONDING",
+   "kind": "terms",
+   "label": "Dragon",
+   "terms": {
+    "species": "Dragon"
+   }
+  },
+  {
+   "power": "DRACONIC STRATEGIC BONDING",
+   "kind": "terms",
+   "label": "Dragonborn",
+   "terms": {
+    "species": "Dragonborn"
+   }
+  }
+ ],
+ "knights-of-weston": [
+  {
+   "power": "HUMAN CHAMPION BONDING",
+   "kind": "terms",
+   "label": "Human Champion",
+   "terms": {
+    "species": "Human",
+    "unitClass": "Champion"
+   }
+  }
+ ],
+ "kolbjorn": [
+  {
+   "power": "FEARSOME STALKER",
+   "kind": "terms",
+   "label": "Tribesman",
+   "terms": {
+    "unitClass": "Tribesman"
+   }
+  },
+  {
+   "power": "CALL TO THE HUNT",
+   "kind": "terms",
+   "label": "Hunter",
+   "terms": {
+    "unitClass": "Hunter"
+   }
+  }
+ ],
+ "kurrok-the-elementalist": [
+  {
+   "power": "SUMMON ELEMENTAL",
+   "kind": "terms",
+   "label": "Elemental",
+   "terms": {
+    "species": "Elemental"
+   }
+  },
+  {
+   "power": "MASTER OF THE ELEMENTS",
+   "kind": "terms",
+   "label": "Elemental",
+   "terms": {
+    "species": "Elemental"
+   }
+  }
+ ],
+ "kuthnak": [
+  {
+   "power": "INCANTATION OF BOILING BLOOD",
+   "kind": "terms",
+   "label": "Orc",
+   "terms": {
+    "species": "Orc"
+   }
+  }
+ ],
+ "kyntela-gwyn": [
+  {
+   "power": "STRENGTH OF OAK AURA 1",
+   "kind": "terms",
+   "label": "Elf",
+   "terms": {
+    "species": "Elf"
+   }
+  }
+ ],
+ "laglor": [
+  {
+   "power": "VYDAR'S RANGE ENHANCEMENT AURA",
+   "kind": "terms",
+   "label": "Vydar",
+   "terms": {
+    "general": "Vydar"
+   }
+  },
+  {
+   "power": "AUTOLOAD SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Vydar Valkyrie",
+   "terms": {
+    "general": "Vydar",
+    "species": "Valkyrie"
+   }
+  },
+  {
+   "power": "AUTOLOAD SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Vydar",
+   "terms": {
+    "general": "Vydar"
+   }
+  }
+ ],
+ "loviatak-the-kyrie-warrior": [
+  {
+   "power": "BRUTALITY AURA",
+   "kind": "terms",
+   "label": "Kyrie Warrior",
+   "terms": {
+    "species": "Kyrie",
+    "unitClass": "Warrior"
+   }
+  },
+  {
+   "power": "DYNASTIC LEADERSHIP",
+   "kind": "terms",
+   "label": "Kyrie Utgar",
+   "terms": {
+    "species": "Kyrie",
+    "general": "Utgar"
+   }
+  },
+  {
+   "power": "DYNASTIC LEADERSHIP",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  }
+ ],
+ "m-43-resistance-fighters": [
+  {
+   "power": "GUERRILLA TACTICS",
+   "kind": "terms",
+   "label": "Mariedian",
+   "terms": {
+    "species": "Mariedian"
+   }
+  }
+ ],
+ "macdirk-warriors": [
+  {
+   "power": "HIGHLAND FURY",
+   "kind": "terms",
+   "label": "Human Champion",
+   "terms": {
+    "species": "Human",
+    "unitClass": "Champion"
+   }
+  },
+  {
+   "power": "HUMAN CHAMPION BONDING",
+   "kind": "terms",
+   "label": "Human Champion",
+   "terms": {
+    "species": "Human",
+    "unitClass": "Champion"
+   }
+  }
+ ],
+ "maekor": [
+  {
+   "power": "LIZARDFOLK WAR CRY",
+   "kind": "terms",
+   "label": "Lizardfolk",
+   "terms": {
+    "species": "Lizardfolk"
+   }
+  },
+  {
+   "power": "MERCENARY DEFENSIVE FORMATION",
+   "kind": "terms",
+   "label": "Mercenary",
+   "terms": {
+    "unitClass": "Mercenary"
+   }
+  }
+ ],
+ "makwa-tribesman": [
+  {
+   "power": "HUNT OF THE MAKWA",
+   "kind": "terms",
+   "label": "Hunter",
+   "terms": {
+    "unitClass": "Hunter"
+   }
+  }
+ ],
+ "marachott-mind-whisperer": [
+  {
+   "power": "COMMAND FAMILIAR",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  }
+ ],
+ "marcus-decimus-gallus": [
+  {
+   "power": "SOLDIER LEADERSHIP",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  },
+  {
+   "power": "SOLDIER ATTACK ENHANCEMENT",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "mariedian-resistance": [
+  {
+   "power": "GUERRILLA DEFENSE",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "marrden-nagrubs": [
+  {
+   "power": "HIVELORD LIFE BONDING",
+   "kind": "terms",
+   "label": "Hivelord",
+   "terms": {
+    "unitClass": "Hivelord"
+   }
+  }
+ ],
+ "masha-shingai": [
+  {
+   "power": "FIERY RETRIBUTION 13",
+   "kind": "terms",
+   "label": "Samurai",
+   "terms": {
+    "unitClass": "Samurai"
+   }
+  },
+  {
+   "power": "FIERY RETRIBUTION 13",
+   "kind": "terms",
+   "label": "Yokai",
+   "terms": {
+    "species": "Yokai"
+   }
+  }
+ ],
+ "master-lao-xin": [
+  {
+   "power": "SIFU",
+   "kind": "terms",
+   "label": "Monk",
+   "terms": {
+    "unitClass": "Monk"
+   }
+  }
+ ],
+ "master-win-chiu-woo": [
+  {
+   "power": "MASTER'S INFLUENCE",
+   "kind": "terms",
+   "label": "Monk",
+   "terms": {
+    "unitClass": "Monk"
+   }
+  }
+ ],
+ "mellifera": [
+  {
+   "power": "FRENZIED SWARM 14",
+   "kind": "terms",
+   "label": "Insect",
+   "terms": {
+    "species": "Insect"
+   }
+  }
+ ],
+ "millerson": [
+  {
+   "power": "HONOR AMONG THIEVES",
+   "kind": "terms",
+   "label": "Rogue",
+   "terms": {
+    "unitClass": "Rogue"
+   }
+  }
+ ],
+ "minions-of-utgar": [
+  {
+   "power": "UTGAR'S ORDERS",
+   "kind": "terms",
+   "label": "Kyrie Warrior Utgar",
+   "terms": {
+    "species": "Kyrie",
+    "unitClass": "Warrior",
+    "general": "Utgar"
+   }
+  }
+ ],
+ "misaerx-the-kyrie-warrior": [
+  {
+   "power": "LIFE DRAIN SPIRIT",
+   "kind": "terms",
+   "label": "Warrior Revna",
+   "terms": {
+    "unitClass": "Warrior",
+    "general": "Revna"
+   }
+  }
+ ],
+ "mohican-river-tribe": [
+  {
+   "power": "BATTLE FURY",
+   "kind": "terms",
+   "label": "Tribesman",
+   "terms": {
+    "unitClass": "Tribesman"
+   }
+  },
+  {
+   "power": "WAR CRY",
+   "kind": "terms",
+   "label": "Tribesman",
+   "terms": {
+    "unitClass": "Tribesman"
+   }
+  },
+  {
+   "power": "CONCEALMENT 19",
+   "kind": "terms",
+   "label": "Tribesman",
+   "terms": {
+    "unitClass": "Tribesman"
+   }
+  }
+ ],
+ "mok": [
+  {
+   "power": "DWARVEN GUNNERS",
+   "kind": "terms",
+   "label": "Dwarf",
+   "terms": {
+    "species": "Dwarf"
+   }
+  },
+  {
+   "power": "GUNNER CASUALTIES",
+   "kind": "terms",
+   "label": "Dwarf",
+   "terms": {
+    "species": "Dwarf"
+   }
+  },
+  {
+   "power": "GUNNER SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Dwarf",
+   "terms": {
+    "species": "Dwarf"
+   }
+  }
+ ],
+ "morgoloth": [
+  {
+   "power": "SWARMING VERMIN",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  },
+  {
+   "power": "SWARMING VERMIN",
+   "kind": "terms",
+   "label": "Valkrill",
+   "terms": {
+    "general": "Valkrill"
+   }
+  },
+  {
+   "power": "DEMON LEADERSHIP",
+   "kind": "terms",
+   "label": "Demon",
+   "terms": {
+    "species": "Demon"
+   }
+  }
+ ],
+ "morinsteins-masterpiece": [
+  {
+   "power": "UNBELIEVABLE RAGE",
+   "kind": "terms",
+   "label": "Scientist",
+   "terms": {
+    "unitClass": "Scientist"
+   }
+  },
+  {
+   "power": "UNBELIEVABLE RAGE",
+   "kind": "terms",
+   "label": "Wizard",
+   "terms": {
+    "unitClass": "Wizard"
+   }
+  }
+ ],
+ "nakita-agents": [
+  {
+   "power": "GORILLINATOR MOVEMENT BONDING",
+   "kind": "units",
+   "label": "Gorillinators",
+   "ids": [
+    "gorillinators"
+   ]
+  }
+ ],
+ "necrotech-reavers": [
+  {
+   "power": "NECROTIC NETWORK",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  },
+  {
+   "power": "SCAVENGED PARTS",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  }
+ ],
+ "nerak-the-glacian-swog-rider": [
+  {
+   "power": "ORC DEFENSE AURA 1",
+   "kind": "terms",
+   "label": "Orc",
+   "terms": {
+    "species": "Orc"
+   }
+  }
+ ],
+ "nhah-scirh-cultists": [
+  {
+   "power": "DRAGONKIND ENMITY",
+   "kind": "terms",
+   "label": "Dragon",
+   "terms": {
+    "species": "Dragon"
+   }
+  }
+ ],
+ "nicholas-esenwein": [
+  {
+   "power": "BLOODBORN RISING",
+   "kind": "terms",
+   "label": "Thrall",
+   "terms": {
+    "unitClass": "Thrall"
+   }
+  }
+ ],
+ "nishi-souta": [
+  {
+   "power": "SAMURAI HERO BONDING",
+   "kind": "terms",
+   "label": "Samurai",
+   "terms": {
+    "unitClass": "Samurai"
+   }
+  },
+  {
+   "power": "CALL FOR BACKUP",
+   "kind": "terms",
+   "label": "Lawman",
+   "terms": {
+    "unitClass": "Lawman"
+   }
+  }
+ ],
+ "nordlung": [
+  {
+   "power": "SHOCK RIFLE SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  },
+  {
+   "power": "SHOCK RIFLE SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Jandar",
+   "terms": {
+    "general": "Jandar"
+   }
+  }
+ ],
+ "nottingham-brigand": [
+  {
+   "power": "ROGUE HERO BONDING",
+   "kind": "terms",
+   "label": "Rogue",
+   "terms": {
+    "unitClass": "Rogue"
+   }
+  }
+ ],
+ "oberon": [
+  {
+   "power": "SEELIE KING",
+   "kind": "terms",
+   "label": "Dwarf",
+   "terms": {
+    "species": "Dwarf"
+   }
+  },
+  {
+   "power": "SEELIE KING",
+   "kind": "terms",
+   "label": "Elf",
+   "terms": {
+    "species": "Elf"
+   }
+  },
+  {
+   "power": "SEELIE KING",
+   "kind": "terms",
+   "label": "Fey",
+   "terms": {
+    "species": "Fey"
+   }
+  },
+  {
+   "power": "WELCOME, WANDERER",
+   "kind": "terms",
+   "label": "Dwarf",
+   "terms": {
+    "species": "Dwarf"
+   }
+  },
+  {
+   "power": "WELCOME, WANDERER",
+   "kind": "terms",
+   "label": "Elf",
+   "terms": {
+    "species": "Elf"
+   }
+  },
+  {
+   "power": "WELCOME, WANDERER",
+   "kind": "terms",
+   "label": "Fey",
+   "terms": {
+    "species": "Fey"
+   }
+  }
+ ],
+ "omegacron": [
+  {
+   "power": "OMNICRON MOBILIZATION",
+   "kind": "terms",
+   "label": "Soulborg Jandar",
+   "terms": {
+    "species": "Soulborg",
+    "general": "Jandar"
+   }
+  },
+  {
+   "power": "DIRECTED FIRE",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  },
+  {
+   "power": "DIRECTED FIRE",
+   "kind": "terms",
+   "label": "Jandar",
+   "terms": {
+    "general": "Jandar"
+   }
+  }
+ ],
+ "omnicron-repulsors": [
+  {
+   "power": "CIRCUITRY OVERLOAD",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  },
+  {
+   "power": "TARGETING BEACON",
+   "kind": "terms",
+   "label": "Soulborg Jandar",
+   "terms": {
+    "species": "Soulborg",
+    "general": "Jandar"
+   }
+  },
+  {
+   "power": "EMP RESPONSE",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  }
+ ],
+ "orangunators": [
+  {
+   "power": "HEIMDALL STATION COORDINATORS",
+   "kind": "terms",
+   "label": "Agent",
+   "terms": {
+    "unitClass": "Agent"
+   }
+  },
+  {
+   "power": "HEIMDALL STATION COORDINATORS",
+   "kind": "terms",
+   "label": "Scientist",
+   "terms": {
+    "unitClass": "Scientist"
+   }
+  }
+ ],
+ "ornak": [
+  {
+   "power": "RED FLAG OF FURY AURA",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  },
+  {
+   "power": "ORC BATTLE CRY AURA",
+   "kind": "terms",
+   "label": "Orc Warrior",
+   "terms": {
+    "species": "Orc",
+    "unitClass": "Warrior"
+   }
+  },
+  {
+   "power": "ORC BATTLE CRY AURA",
+   "kind": "terms",
+   "label": "Utgar Valkyrie",
+   "terms": {
+    "general": "Utgar",
+    "species": "Valkyrie"
+   }
+  },
+  {
+   "power": "ORC BATTLE CRY AURA",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  }
+ ],
+ "parmenio": [
+  {
+   "power": "SACRED BAND DEFY DEATH 15",
+   "kind": "units",
+   "label": "Sacred Band",
+   "ids": [
+    "sacred-band"
+   ]
+  }
+ ],
+ "pelloth": [
+  {
+   "power": "LOLTH'S WRATH SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Drow",
+   "terms": {
+    "species": "Drow"
+   }
+  }
+ ],
+ "preyblood-thrall": [
+  {
+   "power": "MINDLESS PACK",
+   "kind": "terms",
+   "label": "Thrall",
+   "terms": {
+    "unitClass": "Thrall"
+   }
+  }
+ ],
+ "priscus": [
+  {
+   "power": "TASTE OF FREEDOM",
+   "kind": "terms",
+   "label": "Gladiator",
+   "terms": {
+    "unitClass": "Gladiator"
+   }
+  }
+ ],
+ "quasatch-hunters": [
+  {
+   "power": "TECHNO HATRED",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  }
+ ],
+ "queen-maladrix-the-conqueror": [
+  {
+   "power": "FESTERING HONOR GUARD BONDING",
+   "kind": "units",
+   "label": "Festering Honor Guard",
+   "ids": [
+    "festering-honor-guard"
+   ]
+  },
+  {
+   "power": "INFESTATION 9",
+   "kind": "units",
+   "label": "Festering Honor Guard",
+   "ids": [
+    "festering-honor-guard"
+   ]
+  }
+ ],
+ "raakchott-steward-of-death": [
+  {
+   "power": "COMMAND FAMILIAR",
+   "kind": "terms",
+   "label": "Beast",
+   "terms": {
+    "unitClass": "Beast"
+   }
+  }
+ ],
+ "raelin-the-kyrie-warrior-40": [
+  {
+   "power": "VENGEFUL SWOOP 8",
+   "kind": "terms",
+   "label": "Vengeful",
+   "terms": {
+    "personality": "Vengeful"
+   }
+  }
+ ],
+ "ranjit-singh": [
+  {
+   "power": "LION OF PUNJAB",
+   "kind": "terms",
+   "label": "Valkyrie",
+   "terms": {
+    "species": "Valkyrie"
+   }
+  }
+ ],
+ "ranoc-vipers": [
+  {
+   "power": "HYPNOSIS",
+   "kind": "terms",
+   "label": "Viper",
+   "terms": {
+    "species": "Viper"
+   }
+  }
+ ],
+ "rechets-of-bogdan": [
+  {
+   "power": "ISKRA'S SUMMONING",
+   "kind": "units",
+   "label": "Iskra Esenwein",
+   "ids": [
+    "iskra-esenwein"
+   ]
+  }
+ ],
+ "red-mantis-blade-dancers": [
+  {
+   "power": "STEALTH LEAP",
+   "kind": "terms",
+   "label": "Blade Dancer",
+   "terms": {
+    "unitClass": "Blade Dancer"
+   }
+  }
+ ],
+ "red-wyrmling": [
+  {
+   "power": "WYRMLING BONDING",
+   "kind": "terms",
+   "label": "Wyrmling",
+   "terms": {
+    "unitClass": "Wyrmling"
+   }
+  }
+ ],
+ "revenants-of-revna": [
+  {
+   "power": "BLOOD FOR BLOOD",
+   "kind": "terms",
+   "label": "Warrior",
+   "terms": {
+    "unitClass": "Warrior"
+   }
+  },
+  {
+   "power": "BLOOD FOR BLOOD",
+   "kind": "terms",
+   "label": "Scourge Revna",
+   "terms": {
+    "unitClass": "Scourge",
+    "general": "Revna"
+   }
+  },
+  {
+   "power": "OCCULT BONDING",
+   "kind": "terms",
+   "label": "Warrior",
+   "terms": {
+    "unitClass": "Warrior"
+   }
+  },
+  {
+   "power": "OCCULT BONDING",
+   "kind": "terms",
+   "label": "Scourge Revna",
+   "terms": {
+    "unitClass": "Scourge",
+    "general": "Revna"
+   }
+  }
+ ],
+ "revnan-acolytes": [
+  {
+   "power": "HERO WORSHIP",
+   "kind": "terms",
+   "label": "Revna",
+   "terms": {
+    "general": "Revna"
+   }
+  },
+  {
+   "power": "RISEN BY REVNA",
+   "kind": "terms",
+   "label": "Revna",
+   "terms": {
+    "general": "Revna"
+   }
+  }
+ ],
+ "roman-legionnaires": [
+  {
+   "power": "WARLORD BONDING",
+   "kind": "terms",
+   "label": "Warlord",
+   "terms": {
+    "unitClass": "Warlord"
+   }
+  }
+ ],
+ "sacred-band": [
+  {
+   "power": "EINAR WARLORD BONDING",
+   "kind": "terms",
+   "label": "Warlord Einar",
+   "terms": {
+    "unitClass": "Warlord",
+    "general": "Einar"
+   }
+  }
+ ],
+ "scarlett": [
+  {
+   "power": "NOW YOU KNOW",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  }
+ ],
+ "scions-of-icaria": [
+  {
+   "power": "CLEAVE TO THE MIGHTY",
+   "kind": "terms",
+   "label": "Archmage",
+   "terms": {
+    "unitClass": "Archmage"
+   }
+  },
+  {
+   "power": "CLEAVE TO THE MIGHTY",
+   "kind": "terms",
+   "label": "Dragon",
+   "terms": {
+    "species": "Dragon"
+   }
+  },
+  {
+   "power": "CLEAVE TO THE MIGHTY",
+   "kind": "terms",
+   "label": "King",
+   "terms": {
+    "unitClass": "King"
+   }
+  },
+  {
+   "power": "CLEAVE TO THE MIGHTY",
+   "kind": "terms",
+   "label": "Queen",
+   "terms": {
+    "unitClass": "Queen"
+   }
+  }
+ ],
+ "seelie-courtiers": [
+  {
+   "power": "TEENY-TINY",
+   "kind": "terms",
+   "label": "Courtier",
+   "terms": {
+    "unitClass": "Courtier"
+   }
+  }
+ ],
+ "seleena": [
+  {
+   "power": "FERAL SWIPE",
+   "kind": "terms",
+   "label": "Hybrid",
+   "terms": {
+    "species": "Hybrid"
+   }
+  }
+ ],
+ "shaolin-monks": [
+  {
+   "power": "STEALTH LEAP",
+   "kind": "terms",
+   "label": "Monk",
+   "terms": {
+    "unitClass": "Monk"
+   }
+  }
+ ],
+ "sir-dupuis": [
+  {
+   "power": "KNIGHT'S COURAGE",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
+  }
+ ],
+ "sir-gilbert": [
+  {
+   "power": "JANDAR'S DISPATCH",
+   "kind": "terms",
+   "label": "Jandar Valkyrie",
+   "terms": {
+    "general": "Jandar",
+    "species": "Valkyrie"
+   }
+  },
+  {
+   "power": "JANDAR'S DISPATCH",
+   "kind": "terms",
+   "label": "Jandar",
+   "terms": {
+    "general": "Jandar"
+   }
+  }
+ ],
+ "sir-orrick": [
+  {
+   "power": "A BROTHER'S CALL",
+   "kind": "terms",
+   "label": "Human Jandar",
+   "terms": {
+    "species": "Human",
+    "general": "Jandar"
+   }
+  }
+ ],
+ "skeletons-of-annellintia": [
+  {
+   "power": "NECROMANCY",
+   "kind": "units",
+   "label": "Duke",
+   "ids": [
+    "duke"
+   ]
+  },
+  {
+   "power": "NECROMANCY",
+   "kind": "terms",
+   "label": "Lord",
+   "terms": {
+    "unitClass": "Lord"
+   }
+  },
+  {
+   "power": "NECROMANCY",
+   "kind": "terms",
+   "label": "Lady",
+   "terms": {
+    "unitClass": "Lady"
+   }
+  },
+  {
+   "power": "NECROMANCY",
+   "kind": "terms",
+   "label": "Duchess",
+   "terms": {
+    "unitClass": "Duchess"
+   }
+  }
+ ],
+ "skordyre-infantry": [
+  {
+   "power": "PHEROMONE COORDINATION",
+   "kind": "terms",
+   "label": "Insect",
+   "terms": {
+    "species": "Insect"
+   }
+  },
+  {
+   "power": "TEEMING",
+   "kind": "terms",
+   "label": "Insect",
+   "terms": {
+    "species": "Insect"
+   }
+  },
+  {
+   "power": "TEEMING",
+   "kind": "terms",
+   "label": "Soldier",
+   "terms": {
+    "unitClass": "Soldier"
+   }
+  },
+  {
+   "power": "INSECTOID SWARM",
+   "kind": "terms",
+   "label": "Insect",
+   "terms": {
+    "species": "Insect"
+   }
+  }
+ ],
+ "skull-demon": [
+  {
+   "power": "VALKRILL ATTACK AURA 1",
+   "kind": "terms",
+   "label": "Valkrill",
+   "terms": {
+    "general": "Valkrill"
+   }
+  }
+ ],
+ "sonlen-10": [
+  {
+   "power": "DRAGON HEALING",
+   "kind": "terms",
+   "label": "Dragon",
+   "terms": {
+    "species": "Dragon"
+   }
+  }
+ ],
+ "sonya-esenwein": [
+  {
+   "power": "ETERNAL STRENGH",
+   "kind": "units",
+   "label": "Cyprien Esenwein",
+   "ids": [
+    "cyprien-esenwein"
+   ]
+  },
+  {
+   "power": "ETERNAL HEARTBREAK",
+   "kind": "units",
+   "label": "Cyprien Esenwein",
+   "ids": [
+    "cyprien-esenwein"
+   ]
+  }
+ ],
+ "soontir-van": [
+  {
+   "power": "MARIEDIAN MOVE ENHANCEMENT",
+   "kind": "terms",
+   "label": "Mariedian",
+   "terms": {
+    "species": "Mariedian"
+   }
+  }
+ ],
+ "spartacus": [
+  {
+   "power": "GLADIATOR INSPIRATION",
+   "kind": "terms",
+   "label": "Gladiator",
+   "terms": {
+    "unitClass": "Gladiator"
+   }
+  }
+ ],
+ "su-bak-na": [
+  {
+   "power": "HIVE SUPREMACY",
+   "kind": "terms",
+   "label": "Marro",
+   "terms": {
+    "species": "Marro"
+   }
+  },
+  {
+   "power": "HIVE SUPREMACY",
+   "kind": "terms",
+   "label": "Wulsinu",
+   "terms": {
+    "species": "Wulsinu"
+   }
+  }
+ ],
+ "sudema-20": [
+  {
+   "power": "QUEEN OF THE CRYPT",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
+   }
+  },
+  {
+   "power": "QUEEN OF THE CRYPT",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   }
+  }
+ ],
+ "swog-rider": [
+  {
+   "power": "ORC ARCHER ENHANCEMENT",
+   "kind": "terms",
+   "label": "Orc Archer",
+   "terms": {
+    "species": "Orc",
+    "unitClass": "Archer"
+   }
+  }
+ ],
+ "taelord-the-kyrie-warrior-20": [
+  {
+   "power": "ONSLAUGHT AURA",
+   "kind": "terms",
+   "label": "Gladiator",
+   "terms": {
+    "unitClass": "Gladiator"
+   }
+  }
+ ],
+ "talingul": [
+  {
+   "power": "MASTER OF GREAT CONSTRUCTS",
+   "kind": "terms",
+   "label": "Construct",
+   "terms": {
+    "unitClass": "Construct"
+   }
+  }
+ ],
+ "tanuki-tricksters": [
+  {
+   "power": "TANUKI ARUKI",
+   "kind": "terms",
+   "label": "Vorid",
+   "terms": {
+    "species": "Vorid"
+   }
+  },
+  {
+   "power": "TANUKI ARUKI",
+   "kind": "terms",
+   "label": "Ninja",
+   "terms": {
+    "unitClass": "Ninja"
+   }
+  }
+ ],
+ "teeth-of-the-makwa": [
+  {
+   "power": "HUNTING PARTY",
+   "kind": "terms",
+   "label": "Scout",
+   "terms": {
+    "unitClass": "Scout"
+   }
+  },
+  {
+   "power": "HUNTING PARTY",
+   "kind": "terms",
+   "label": "Tribesman",
+   "terms": {
+    "unitClass": "Tribesman"
+   }
+  }
+ ],
+ "templar-cavalry": [
+  {
+   "power": "GALLOPING CHARGE",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
+  },
+  {
+   "power": "DISMISS THE RABBLE",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
+  },
+  {
+   "power": "RIGHTEOUS SMITE",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
+  }
+ ],
+ "the-alder-knights": [
+  {
+   "power": "OATH OF PROTECTION 9",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
+  },
+  {
+   "power": "OATH OF PROTECTION 9",
+   "kind": "terms",
+   "label": "Fighter",
+   "terms": {
+    "unitClass": "Fighter"
+   }
+  }
+ ],
+ "the-axegrinders-of-burning-forge": [
+  {
+   "power": "DWARVEN STRATEGIC BONDING",
+   "kind": "terms",
+   "label": "Dwarf",
+   "terms": {
+    "species": "Dwarf"
+   }
+  }
+ ],
+ "the-einar-imperium": [
+  {
+   "power": "DOUBLE ATTACK",
+   "kind": "terms",
+   "label": "Einar",
+   "terms": {
+    "general": "Einar"
+   }
+  },
+  {
+   "power": "STEALTH FLYING",
+   "kind": "terms",
+   "label": "Einar",
+   "terms": {
+    "general": "Einar"
+   }
+  }
+ ],
+ "the-eisen-expedition": [
+  {
+   "power": "EXPEDITIONARY FORCE",
+   "kind": "terms",
+   "label": "Vorid",
+   "terms": {
+    "species": "Vorid"
+   }
+  },
+  {
+   "power": "EXPEDITIONARY FORCE",
+   "kind": "terms",
+   "label": "Scientist",
+   "terms": {
+    "unitClass": "Scientist"
+   }
+  }
+ ],
+ "the-kraken": [
+  {
+   "power": "SUMMON THE KRAKEN",
+   "kind": "terms",
+   "label": "Unfathomable",
+   "terms": {
+    "personality": "Unfathomable"
+   }
+  },
+  {
+   "power": "COMMAND THE KRAKEN",
+   "kind": "terms",
+   "label": "Unfathomable",
+   "terms": {
+    "personality": "Unfathomable"
+   }
+  }
+ ],
+ "the-varja": [
+  {
+   "power": "LIVING STORM",
+   "kind": "terms",
+   "label": "Varja",
+   "terms": {
+    "species": "Varja"
+   }
+  }
+ ],
+ "thormun": [
+  {
+   "power": "PIRATE KING",
+   "kind": "terms",
+   "label": "Pirate",
+   "terms": {
+    "unitClass": "Pirate"
+   }
+  },
+  {
+   "power": "PIRATE KING",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
+   }
+  },
+  {
+   "power": "PIRATE KING",
+   "kind": "terms",
+   "label": "King",
+   "terms": {
+    "unitClass": "King"
+   }
+  }
+ ],
+ "thunderhoof-cavalry": [
+  {
+   "power": "GALLANT BONDING",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
+  },
+  {
+   "power": "GALLANT BONDING",
+   "kind": "terms",
+   "label": "Dwarf",
+   "terms": {
+    "species": "Dwarf"
+   }
+  },
+  {
+   "power": "DWARVEN FURY",
+   "kind": "terms",
+   "label": "Dwarf",
+   "terms": {
+    "species": "Dwarf"
+   }
+  },
+  {
+   "power": "KNIGHT'S VALOR",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
+  }
+ ],
+ "tomb-skeleton-archers": [
+  {
+   "power": "SKELETAL FORM",
+   "kind": "terms",
+   "label": "Wizard",
+   "terms": {
+    "unitClass": "Wizard"
+   }
+  }
+ ],
+ "tomb-skeletons": [
+  {
+   "power": "SKELETAL FORM",
+   "kind": "terms",
+   "label": "Wizard",
+   "terms": {
+    "unitClass": "Wizard"
+   }
+  }
+ ],
+ "tombstone-gunslinger": [
+  {
+   "power": "OUTLAW BAND",
+   "kind": "terms",
+   "label": "Outlaw",
+   "terms": {
+    "unitClass": "Outlaw"
+   }
+  },
+  {
+   "power": "HIGH NOON",
+   "kind": "terms",
+   "label": "Outlaw",
+   "terms": {
+    "unitClass": "Outlaw"
+   }
+  }
+ ],
+ "tomoe-gozen": [
+  {
+   "power": "SAMURAI LIFE DEBT",
+   "kind": "terms",
+   "label": "Samurai",
+   "terms": {
+    "unitClass": "Samurai"
+   }
+  },
+  {
+   "power": "DEFENSIVE FORMATION",
+   "kind": "terms",
+   "label": "Samurai",
+   "terms": {
+    "unitClass": "Samurai"
+   }
+  }
+ ],
+ "torin": [
+  {
+   "power": "EVIL EYE PROTECTION",
+   "kind": "terms",
+   "label": "Utgar",
+   "terms": {
+    "general": "Utgar"
+   }
+  }
+ ],
+ "tornak": [
+  {
+   "power": "ORC WARRIOR ENHANCEMENT",
+   "kind": "terms",
+   "label": "Orc Warrior",
+   "terms": {
+    "species": "Orc",
+    "unitClass": "Warrior"
+   }
+  }
+ ],
+ "tul-bak-ra": [
+  {
+   "power": "TELEPORT REINFORCEMENTS",
+   "kind": "terms",
+   "label": "Marro",
+   "terms": {
+    "species": "Marro"
+   }
+  }
+ ],
+ "twilight-clan-riders": [
+  {
+   "power": "NINJA CARRY",
+   "kind": "terms",
+   "label": "Ninja",
+   "terms": {
+    "unitClass": "Ninja"
+   }
+  }
+ ],
+ "ulginesh": [
+  {
+   "power": "MIND LINK",
+   "kind": "terms",
+   "label": "Elf Wizard",
+   "terms": {
+    "species": "Elf",
+    "unitClass": "Wizard"
+   }
+  }
+ ],
+ "uma-the-cecaelia": [
+  {
+   "power": "BRINGER OF FLOODS",
+   "kind": "terms",
+   "label": "Wizard",
+   "terms": {
+    "unitClass": "Wizard"
+   }
+  }
+ ],
+ "urk": [
+  {
+   "power": "MOB SWARM",
+   "kind": "terms",
+   "label": "Goblin",
+   "terms": {
+    "species": "Goblin"
+   }
+  },
+  {
+   "power": "GOBLIN SNEAK ATTACK",
+   "kind": "terms",
+   "label": "Goblin",
+   "terms": {
+    "species": "Goblin"
+   }
+  }
+ ],
+ "uzog": [
+  {
+   "power": "GRUESOME DISPLAY",
+   "kind": "terms",
+   "label": "Durgeth",
+   "terms": {
+    "species": "Durgeth"
+   }
+  }
+ ],
+ "valguard": [
+  {
+   "power": "BERSERKER CHARGE ENHANCEMENT",
+   "kind": "terms",
+   "label": "Berserker",
+   "terms": {
+    "unitClass": "Berserker"
+   }
+  }
+ ],
+ "van-nessing": [
+  {
+   "power": "SILVER BOLTS SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Lycanthrope",
+   "terms": {
+    "species": "Lycanthrope"
+   }
+  },
+  {
+   "power": "SILVER BOLTS SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Hybrid",
+   "terms": {
+    "species": "Hybrid"
+   }
+  },
+  {
+   "power": "DIVINE MISSION",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
+   }
+  }
+ ],
+ "varkaanan-darkclaws": [
+  {
+   "power": "WOLF PACK",
+   "kind": "terms",
+   "label": "Wolf",
+   "terms": {
+    "species": "Wolf"
+   }
+  }
+ ],
+ "varkaanan-greyspears": [
+  {
+   "power": "WOLF PACK",
+   "kind": "terms",
+   "label": "Wolf",
+   "terms": {
+    "species": "Wolf"
+   }
+  }
+ ],
+ "varkaanan-quickblades": [
+  {
+   "power": "WOLF PACK",
+   "kind": "terms",
+   "label": "Wolf",
+   "terms": {
+    "species": "Wolf"
+   }
+  }
+ ],
+ "varkaanan-swiftfangs": [
+  {
+   "power": "WOLF PACK",
+   "kind": "terms",
+   "label": "Wolf",
+   "terms": {
+    "species": "Wolf"
+   }
+  }
+ ],
+ "venoc-warlord": [
+  {
+   "power": "SCOUT LEADERSHIP",
+   "kind": "terms",
+   "label": "Scout",
+   "terms": {
+    "unitClass": "Scout"
+   }
+  }
+ ],
+ "veterans-of-orleans": [
+  {
+   "power": "A BROTHER'S CALL",
+   "kind": "terms",
+   "label": "Human Jandar",
+   "terms": {
+    "species": "Human",
+    "general": "Jandar"
+   }
+  }
+ ],
+ "warden-816": [
+  {
+   "power": "GUARD LEADERSHIP",
+   "kind": "terms",
+   "label": "Guards",
+   "terms": {
+    "unitClass": "Guards"
+   }
+  }
+ ],
+ "werewolf-lord": [
+  {
+   "power": "LYCANTHROPY",
+   "kind": "terms",
+   "label": "Hybrid",
+   "terms": {
+    "species": "Hybrid"
+   }
+  },
+  {
+   "power": "LYCANTHROPY",
+   "kind": "terms",
+   "label": "Hunter",
+   "terms": {
+    "unitClass": "Hunter"
+   }
+  },
+  {
+   "power": "LYCANTHROPY",
+   "kind": "terms",
+   "label": "Tormented",
+   "terms": {
+    "personality": "Tormented"
+   }
+  },
+  {
+   "power": "LYCANTHROPY",
+   "kind": "terms",
+   "label": "Construct",
+   "terms": {
+    "unitClass": "Construct"
+   }
+  },
+  {
+   "power": "LYCANTHROPY",
+   "kind": "terms",
+   "label": "Lycanthrope",
+   "terms": {
+    "species": "Lycanthrope"
+   }
+  },
+  {
+   "power": "LYCANTHROPY",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   }
+  },
+  {
+   "power": "MOON FRENZY",
+   "kind": "terms",
+   "label": "Hybrid",
+   "terms": {
+    "species": "Hybrid"
+   }
+  }
+ ],
+ "white-wyrmling": [
+  {
+   "power": "WYRMLING BONDING",
+   "kind": "terms",
+   "label": "Wyrmling",
+   "terms": {
+    "unitClass": "Wyrmling"
+   }
+  }
+ ],
+ "wildwood-monarch": [
+  {
+   "power": "SEEDLING",
+   "kind": "terms",
+   "label": "Monarch",
+   "terms": {
+    "unitClass": "Monarch"
+   }
+  }
+ ],
+ "wolves-of-badru": [
+  {
+   "power": "DARKLORD BONDING",
+   "kind": "terms",
+   "label": "Darklord",
+   "terms": {
+    "unitClass": "Darklord"
+   }
+  },
+  {
+   "power": "POUNCE SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Wolf",
+   "terms": {
+    "species": "Wolf"
+   }
+  }
+ ],
+ "xiamara-the-kyrie-warrior": [
+  {
+   "power": "AMULET OF PAIVATAR",
+   "kind": "terms",
+   "label": "Kyrie Ullar",
+   "terms": {
+    "species": "Kyrie",
+    "general": "Ullar"
+   }
+  }
+ ],
+ "xundar": [
+  {
+   "power": "SHADOW CAST SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Shadow",
+   "terms": {
+    "species": "Shadow"
+   }
+  },
+  {
+   "power": "MASTER OF SHADOWS",
+   "kind": "terms",
+   "label": "Shadow",
+   "terms": {
+    "species": "Shadow"
+   }
+  }
+ ],
+ "zaeus": [
+  {
+   "power": "GORILLINATOR ATTACK BONDING",
+   "kind": "units",
+   "label": "Gorillinators",
+   "ids": [
+    "gorillinators"
+   ]
+  }
+ ],
+ "zettian-infantry": [
+  {
+   "power": "UTGAR SOULBORG BONDING",
+   "kind": "terms",
+   "label": "Soulborg Utgar",
+   "terms": {
+    "species": "Soulborg",
+    "general": "Utgar"
+   }
+  },
+  {
+   "power": "CIRCUITRY REPLACEMENT",
+   "kind": "terms",
+   "label": "Soulborg Utgar",
+   "terms": {
+    "species": "Soulborg",
+    "general": "Utgar"
+   }
+  }
+ ],
+ "zombie-hulk": [
+  {
+   "power": "HORDE SHRIEK",
+   "kind": "terms",
+   "label": "Undead Savage",
+   "terms": {
+    "species": "Undead",
+    "unitClass": "Savage"
+   }
+  },
+  {
+   "power": "PARALYZING FEAR",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
+   }
+  },
+  {
+   "power": "ZOMBIE RISES AGAIN",
+   "kind": "terms",
+   "label": "Undead Savage",
+   "terms": {
+    "species": "Undead",
+    "unitClass": "Savage"
+   }
+  }
+ ]
+}

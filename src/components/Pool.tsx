@@ -1,6 +1,7 @@
 import { useMemo, useState, type CSSProperties } from 'react'
 import { unitImages, unitIndex } from '../lib/data'
-import { checkUnit, costOf, remainingCount } from '../lib/draft'
+import { armyOf, checkUnit, costOf, remainingCount } from '../lib/draft'
+import { linkedInArmy, synergiesFor } from '../lib/synergy'
 import { generalStyle } from '../lib/generals'
 import { GeneralBadge } from './GeneralBadge'
 import type { DraftState, Unit } from '../lib/types'
@@ -31,6 +32,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
   const [rarity, setRarity] = useState('')
   const [general, setGeneral] = useState('')
   const [showUndraftable, setShowUndraftable] = useState(false)
+  const [synergyOnly, setSynergyOnly] = useState(false)
   const [sort, setSort] = useState<SortKey>('name')
   // Names read best A→Z; cost and stats are most useful high→low first.
   const [descending, setDescending] = useState(false)
@@ -43,6 +45,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
   const format = state.settings.format
   const poolUnits = useMemo(() => Object.keys(state.pool).map((id) => unitIndex.get(id)!), [state.pool])
   const generals = useMemo(() => [...new Set(poolUnits.map((u) => u.general))].sort(), [poolUnits])
+  const myArmy = playerId ? [...new Map(armyOf(state, playerId, unitIndex).map((u) => [u.id, u])).values()] : []
 
   const q = search.trim().toLowerCase()
   const rows = poolUnits
@@ -51,9 +54,11 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
       cost: costOf(unit, format) ?? 0,
       left: remainingCount(state, unit.id),
       check: playerId ? checkUnit(state, playerId, unit, unitIndex) : ({ ok: false, reason: '' } as const),
+      linked: linkedInArmy(unit, myArmy),
     }))
-    .filter(({ unit, check }) => {
+    .filter(({ unit, check, linked }) => {
       if (!showUndraftable && !check.ok) return false
+      if (synergyOnly && linked.length === 0) return false
       if (type && unit.type !== type) return false
       if (rarity === 'Unique' && unit.rarity !== 'Unique') return false
       if (rarity === 'Common' && unit.rarity === 'Unique') return false
@@ -118,12 +123,18 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
           <input type="checkbox" checked={showUndraftable} onChange={(e) => setShowUndraftable(e.target.checked)} />
           Show undraftable
         </label>
+        {myArmy.length > 0 && (
+          <label className="check" title="Only units whose powers work with units in your army, or the other way round">
+            <input type="checkbox" checked={synergyOnly} onChange={(e) => setSynergyOnly(e.target.checked)} />
+            Synergy with my army
+          </label>
+        )}
       </div>
 
       <div className="pool-count muted">{rows.length} shown</div>
 
       <ul className="unit-list">
-        {rows.map(({ unit, cost, left, check }) => {
+        {rows.map(({ unit, cost, left, check, linked }) => {
           const open = expanded === unit.id
           const image = unitImages[unit.id]
           return (
@@ -146,6 +157,11 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
                   <span className="unit-name">{unit.name}</span>
                   <span className="unit-meta">
                     {unit.rarity} {unit.type} · {unit.general} · {unit.figures} fig
+                    {linked.length > 0 && (
+                      <span className="synergy-chip" title={`Synergy with ${linked.map((u) => u.name).join(', ')}`}>
+                        ⚡ {linked.length}
+                      </span>
+                    )}
                   </span>
                 </span>
                 <span className="unit-stats" aria-label="Life, move, range, attack, defense">
@@ -169,7 +185,7 @@ export function Pool({ state, playerId, canPick, onPick }: Props) {
                 Draft
               </button>
               {!check.ok && check.reason && left > 0 && <span className="unit-reason">{check.reason}</span>}
-              {open && <UnitDetails unit={unit} />}
+              {open && <UnitDetails unit={unit} state={state} playerId={playerId} />}
             </li>
           )
         })}
@@ -197,7 +213,7 @@ function Stat({ kind, label, value, active }: { kind: string; label: string; val
   )
 }
 
-export function UnitDetails({ unit }: { unit: Unit }) {
+export function UnitDetails({ unit, state, playerId }: { unit: Unit; state: DraftState; playerId: string | null }) {
   return (
     <div className="unit-details">
       {unitImages[unit.id] ? (
@@ -216,11 +232,68 @@ export function UnitDetails({ unit }: { unit: Unit }) {
           <strong>{p.name}</strong> {p.text}
         </p>
       ))}
+      <Synergies unit={unit} state={state} playerId={playerId} />
       {unit.heroscapersUrl && (
         <a href={unit.heroscapersUrl} target="_blank" rel="noreferrer">
           Heroscapers book →
         </a>
       )}
+    </div>
+  )
+}
+
+const MAX_CHIPS = 10
+
+/** What this unit's powers help, and whose powers help it, among units in this draft's pool. */
+function Synergies({ unit, state, playerId }: { unit: Unit; state: DraftState; playerId: string | null }) {
+  const pool = Object.keys(state.pool).map((id) => unitIndex.get(id)!)
+  const { boosts, boostedBy } = synergiesFor(unit, pool)
+  const mine = new Set(playerId ? armyOf(state, playerId, unitIndex).map((u) => u.id) : [])
+  const names = new Map(state.settings.players.map((p) => [p.id, p.name]))
+  const takenBy = (id: string) =>
+    [...new Set(state.picks.filter((p) => p.kind === 'pick' && p.unitId === id).map((p) => names.get(p.playerId)))].join(', ')
+
+  // Yours first, then still available, then taken.
+  const rank = (u: Unit) => (mine.has(u.id) ? 0 : remainingCount(state, u.id) > 0 ? 1 : 2)
+  const chips = (units: Unit[]) => {
+    const sorted = [...units].sort((a, b) => rank(a) - rank(b) || a.name.localeCompare(b.name))
+    return (
+      <>
+        {sorted.slice(0, MAX_CHIPS).map((u) => {
+          const status = ['mine', 'open', 'taken'][rank(u)]
+          const title = status === 'mine' ? 'In your army' : status === 'taken' ? `Taken by ${takenBy(u.id)}` : 'Still in the pool'
+          return (
+            <span key={u.id} className={`syn-unit ${status}`} title={title}>
+              <GeneralBadge general={u.general} size={16} />
+              {u.name}
+              {status === 'mine' && <span className="syn-tag">yours</span>}
+            </span>
+          )
+        })}
+        {sorted.length > MAX_CHIPS && <span className="muted">+{sorted.length - MAX_CHIPS} more</span>}
+      </>
+    )
+  }
+
+  return (
+    <div className="synergies">
+      <h4>Synergies in this pool</h4>
+      {boosts.length === 0 && boostedBy.length === 0 && <p className="muted">None found.</p>}
+      {boosts.map((b) => (
+        <div key={b.power + b.label} className="syn-line">
+          <span className="syn-label">
+            <strong>{b.power}</strong> helps {b.label}:
+          </span>
+          {chips(b.units)}
+        </div>
+      ))}
+      {boostedBy.length > 0 && (
+        <div className="syn-line">
+          <span className="syn-label">Helped by:</span>
+          {chips(boostedBy.map((b) => b.unit))}
+        </div>
+      )}
+      <p className="muted syn-note">Found from power text, so a few may be missed or misread.</p>
     </div>
   )
 }

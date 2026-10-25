@@ -8,14 +8,15 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "import-units": "node scripts/import-units.mjs",
+    "import-units": "node scripts/import-units.mjs && node scripts/build-synergies.mjs",
     "import-collection": "node scripts/import-collection.mjs",
     "test": "vitest run",
     "sync-shared": "node scripts/sync-shared.mjs",
     "deploy:db": "supabase db push",
     "deploy:functions": "node scripts/sync-shared.mjs && supabase functions deploy draft-action --use-api",
     "deploy:site": "npm run build && npx netlify-cli deploy --prod --dir dist",
-    "photos": "node scripts/photos.mjs"
+    "photos": "node scripts/photos.mjs",
+    "synergies": "node scripts/build-synergies.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

@@ -33,6 +33,21 @@ describe('synergies from real power text', () => {
     expect(synergiesFor(marro, [marro, ...others]).boosts).toEqual([])
   })
 
+  it('ignores powers describing the unit itself ("a Soldier in the 10th Regiment of Foot")', () => {
+    const tenth = byName('10th Regiment of Foot')
+    const soldiers = units.filter((u) => u.unitClass === 'Soldier' && u.id !== tenth.id)
+    expect(synergiesFor(tenth, [tenth, ...soldiers]).boosts).toEqual([])
+    // ...while a leader that boosts soldiers still counts.
+    const marcus = byName('Marcus Decimus Gallus')
+    expect(synergiesFor(tenth, [marcus]).boostedBy.map((b) => b.unit)).toEqual([marcus])
+  })
+
+  it('keeps references that reach other units ("a Unique Warrior Hero that follows Revna")', () => {
+    const misaerx = byName('Misaerx the Kyrie Warrior')
+    const targets = units.filter((u) => u.unitClass === 'Warrior' && u.general === 'Revna' && u.id !== misaerx.id)
+    expect(synergiesFor(misaerx, targets).boosts.length).toBeGreaterThan(0)
+  })
+
   it('ignores exclusions like "not affected by"', () => {
     const hounds = byName('Marrden Hounds')
     const wulsinu = units.filter((u) => u.species === 'Wulsinu')

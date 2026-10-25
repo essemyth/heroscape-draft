@@ -6,6 +6,7 @@
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Valiant heroes of Jandar", "terms": { "personality": "Valiant", "general": "Jandar", "type": "Hero" } },
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Valiant heroes of Utgar", "terms": { "personality": "Valiant", "general": "Utgar", "type": "Hero" } },
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Relentless heroes of Jandar", "terms": { "personality": "Relentless", "general": "Jandar", "type": "Hero" } },
-    { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Relentless heroes of Utgar", "terms": { "personality": "Relentless", "general": "Utgar", "type": "Hero" } }
+    { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Relentless heroes of Utgar", "terms": { "personality": "Relentless", "general": "Utgar", "type": "Hero" } },
+    { "unit": "nerak-the-glacian-swog-rider", "power": "ORC DEFENSE AURA 1", "label": "Orc", "terms": { "species": "Orc" } }
   ]
 }

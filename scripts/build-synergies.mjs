@@ -100,6 +100,31 @@ function blank(text, start, end) {
   return text.slice(0, start) + ' '.repeat(end - start) + text.slice(end)
 }
 
+// Words that show a power reaches past the unit itself.
+const REACHES_OTHERS = /\b(other|another|friendly|you control|your army|all|any|heroe?s?|squads?|army cards?|chosen figure|follows?)\b/i
+
+/**
+ * True when group words describe the unit itself, e.g. "a Soldier in the 10th Regiment of Foot
+ * adds 1 to his defense dice". We only want powers that help, or are helped by, other units.
+ */
+function isSelfReference(unit, text, terms, start, end) {
+  // "Soldier in the 10th Regiment of Foot", "Knight of Scaeda".
+  const own = baseName(unit.name)
+  const after = text.slice(end, end + own.length + 12)
+  if (new RegExp(`^\\s+(?:in|of|from)\\s+(?:the\\s+)?${esc(own)}`, 'i').test(after)) return true
+  // "Templar Cavalry Knights", "12th Caucasus Rifle Soldier".
+  const before = text.slice(Math.max(0, start - own.length - 2), start)
+  if (new RegExp(`(?:${esc(own)}|${esc(singular(own))})\\s+$`, 'i').test(before)) return true
+
+  // A group the unit belongs to, in a sentence that never looks beyond the unit.
+  const isOwnGroup = Object.entries(terms).every(([attr, value]) => splitValues(unit[attr]).includes(value))
+  if (!isOwnGroup) return false
+  const from = Math.max(text.lastIndexOf('.', start), text.lastIndexOf(';', start)) + 1
+  const stop = text.slice(end).search(/[.;]/)
+  const sentence = text.slice(from, stop < 0 ? undefined : end + stop)
+  return !REACHES_OTHERS.test(sentence)
+}
+
 function referencesIn(unit, power) {
   let text = power.text
   const refs = []
@@ -145,6 +170,9 @@ function referencesIn(unit, power) {
   for (const g of groups) {
     if (isExcluded(text, g[0].start)) continue
     const terms = Object.fromEntries(g.map((h) => [h.attr, h.value]))
+    if (isSelfReference(unit, power.text, terms, g[0].start, g.at(-1).end)) continue
+    // "roll Utgar Valkyrie dice", "each Einar symbol rolled" are about dice, not other units.
+    if (/^\s+(?:Valkyrie|symbols?|dice)\b/.test(text.slice(g.at(-1).end, g.at(-1).end + 12))) continue
     refs.push({ kind: 'terms', label: g.map((h) => h.value).join(' '), terms })
   }
 

@@ -1,32 +1,4 @@
 {
- "10th-regiment-of-foot": [
-  {
-   "power": "MELEE DEFENSE 1",
-   "kind": "terms",
-   "label": "Soldier",
-   "terms": {
-    "unitClass": "Soldier"
-   }
-  },
-  {
-   "power": "BAYONET ATTACK 1",
-   "kind": "terms",
-   "label": "Soldier",
-   "terms": {
-    "unitClass": "Soldier"
-   }
-  }
- ],
- "12th-caucasus-rifles": [
-  {
-   "power": "GAS GRENADE SPECIAL ATTACK",
-   "kind": "terms",
-   "label": "Soldier",
-   "terms": {
-    "unitClass": "Soldier"
-   }
-  }
- ],
  "4th-massachusetts-line": [
   {
    "power": "VALIANT ARMY DEFENSE BONUS",
@@ -63,23 +35,6 @@
    "label": "Elf",
    "terms": {
     "species": "Elf"
-   }
-  },
-  {
-   "power": "LEAF OF THE HOME TREE AURA",
-   "kind": "terms",
-   "label": "Ullar Valkyrie",
-   "terms": {
-    "general": "Ullar",
-    "species": "Valkyrie"
-   }
-  },
-  {
-   "power": "LEAF OF THE HOME TREE AURA",
-   "kind": "terms",
-   "label": "Ullar",
-   "terms": {
-    "general": "Ullar"
    }
   },
   {
@@ -314,16 +269,6 @@
    "label": "Agent",
    "terms": {
     "unitClass": "Agent"
-   }
-  }
- ],
- "beakface-rogue": [
-  {
-   "power": "EVASIVE 2",
-   "kind": "terms",
-   "label": "Rogue",
-   "terms": {
-    "unitClass": "Rogue"
    }
   }
  ],
@@ -829,22 +774,6 @@
    "terms": {
     "unitClass": "Thrall"
    }
-  },
-  {
-   "power": "POUNCE SPECIAL ATTACK",
-   "kind": "terms",
-   "label": "Thrall",
-   "terms": {
-    "unitClass": "Thrall"
-   }
-  },
-  {
-   "power": "STEALTHY 4",
-   "kind": "terms",
-   "label": "Thrall",
-   "terms": {
-    "unitClass": "Thrall"
-   }
   }
  ],
  "deathcommander-mark-3": [
@@ -1088,16 +1017,6 @@
    "label": "Human",
    "terms": {
     "species": "Human"
-   }
-  }
- ],
- "elite-onyx-vipers": [
-  {
-   "power": "EVASIVE 8",
-   "kind": "terms",
-   "label": "Viper",
-   "terms": {
-    "species": "Viper"
    }
   }
  ],
@@ -1358,14 +1277,6 @@
     "general": "Valkrill",
     "species": "Valkyrie"
    }
-  },
-  {
-   "power": "VALKRILL CHARGE",
-   "kind": "terms",
-   "label": "Valkrill",
-   "terms": {
-    "general": "Valkrill"
-   }
   }
  ],
  "grave-grim": [
@@ -1487,14 +1398,6 @@
    }
   },
   {
-   "power": "DEPUTIZE",
-   "kind": "terms",
-   "label": "Lawman",
-   "terms": {
-    "unitClass": "Lawman"
-   }
-  },
-  {
    "power": "LONG ARM OF THE LAW",
    "kind": "terms",
    "label": "Lawman",
@@ -1568,23 +1471,6 @@
    }
   },
   {
-   "power": "HEROIC DEFENSE AURA",
-   "kind": "terms",
-   "label": "Einar Valkyrie",
-   "terms": {
-    "general": "Einar",
-    "species": "Valkyrie"
-   }
-  },
-  {
-   "power": "HEROIC DEFENSE AURA",
-   "kind": "terms",
-   "label": "Einar",
-   "terms": {
-    "general": "Einar"
-   }
-  },
-  {
    "power": "ADJACENT TOUGH 1",
    "kind": "terms",
    "label": "Einar",
@@ -1600,15 +1486,6 @@
    "label": "Einar",
    "terms": {
     "general": "Einar"
-   }
-  },
-  {
-   "power": "STALWART DEFENSE AURA",
-   "kind": "terms",
-   "label": "Einar Valkyrie",
-   "terms": {
-    "general": "Einar",
-    "species": "Valkyrie"
    }
   },
   {
@@ -1678,14 +1555,6 @@
   }
  ],
  "hellforge-mandukor": [
-  {
-   "power": "FEED THE FORGE 15",
-   "kind": "terms",
-   "label": "Eisenek",
-   "terms": {
-    "species": "Eisenek"
-   }
-  },
   {
    "power": "FEED THE FORGE 15",
    "kind": "terms",
@@ -2069,23 +1938,6 @@
  "laglor": [
   {
    "power": "VYDAR'S RANGE ENHANCEMENT AURA",
-   "kind": "terms",
-   "label": "Vydar",
-   "terms": {
-    "general": "Vydar"
-   }
-  },
-  {
-   "power": "AUTOLOAD SPECIAL ATTACK",
-   "kind": "terms",
-   "label": "Vydar Valkyrie",
-   "terms": {
-    "general": "Vydar",
-    "species": "Valkyrie"
-   }
-  },
-  {
-   "power": "AUTOLOAD SPECIAL ATTACK",
    "kind": "terms",
    "label": "Vydar",
    "terms": {
@@ -2647,23 +2499,6 @@
     "species": "Orc",
     "unitClass": "Warrior"
    }
-  },
-  {
-   "power": "ORC BATTLE CRY AURA",
-   "kind": "terms",
-   "label": "Utgar Valkyrie",
-   "terms": {
-    "general": "Utgar",
-    "species": "Valkyrie"
-   }
-  },
-  {
-   "power": "ORC BATTLE CRY AURA",
-   "kind": "terms",
-   "label": "Utgar",
-   "terms": {
-    "general": "Utgar"
-   }
   }
  ],
  "parmenio": [
@@ -2744,16 +2579,6 @@
    }
   }
  ],
- "raelin-the-kyrie-warrior-40": [
-  {
-   "power": "VENGEFUL SWOOP 8",
-   "kind": "terms",
-   "label": "Vengeful",
-   "terms": {
-    "personality": "Vengeful"
-   }
-  }
- ],
  "ranjit-singh": [
   {
    "power": "LION OF PUNJAB",
@@ -2761,16 +2586,6 @@
    "label": "Valkyrie",
    "terms": {
     "species": "Valkyrie"
-   }
-  }
- ],
- "ranoc-vipers": [
-  {
-   "power": "HYPNOSIS",
-   "kind": "terms",
-   "label": "Viper",
-   "terms": {
-    "species": "Viper"
    }
   }
  ],
@@ -2923,36 +2738,6 @@
    }
   }
  ],
- "seelie-courtiers": [
-  {
-   "power": "TEENY-TINY",
-   "kind": "terms",
-   "label": "Courtier",
-   "terms": {
-    "unitClass": "Courtier"
-   }
-  }
- ],
- "seleena": [
-  {
-   "power": "FERAL SWIPE",
-   "kind": "terms",
-   "label": "Hybrid",
-   "terms": {
-    "species": "Hybrid"
-   }
-  }
- ],
- "shaolin-monks": [
-  {
-   "power": "STEALTH LEAP",
-   "kind": "terms",
-   "label": "Monk",
-   "terms": {
-    "unitClass": "Monk"
-   }
-  }
- ],
  "sir-dupuis": [
   {
    "power": "KNIGHT'S COURAGE",
@@ -2964,15 +2749,6 @@
   }
  ],
  "sir-gilbert": [
-  {
-   "power": "JANDAR'S DISPATCH",
-   "kind": "terms",
-   "label": "Jandar Valkyrie",
-   "terms": {
-    "general": "Jandar",
-    "species": "Valkyrie"
-   }
-  },
   {
    "power": "JANDAR'S DISPATCH",
    "kind": "terms",
@@ -3222,32 +2998,6 @@
    }
   }
  ],
- "templar-cavalry": [
-  {
-   "power": "GALLOPING CHARGE",
-   "kind": "terms",
-   "label": "Knight",
-   "terms": {
-    "unitClass": "Knight"
-   }
-  },
-  {
-   "power": "DISMISS THE RABBLE",
-   "kind": "terms",
-   "label": "Knight",
-   "terms": {
-    "unitClass": "Knight"
-   }
-  },
-  {
-   "power": "RIGHTEOUS SMITE",
-   "kind": "terms",
-   "label": "Knight",
-   "terms": {
-    "unitClass": "Knight"
-   }
-  }
- ],
  "the-alder-knights": [
   {
    "power": "OATH OF PROTECTION 9",
@@ -3277,14 +3027,6 @@
   }
  ],
  "the-einar-imperium": [
-  {
-   "power": "DOUBLE ATTACK",
-   "kind": "terms",
-   "label": "Einar",
-   "terms": {
-    "general": "Einar"
-   }
-  },
   {
    "power": "STEALTH FLYING",
    "kind": "terms",
@@ -3536,16 +3278,6 @@
    }
   }
  ],
- "uzog": [
-  {
-   "power": "GRUESOME DISPLAY",
-   "kind": "terms",
-   "label": "Durgeth",
-   "terms": {
-    "species": "Durgeth"
-   }
-  }
- ],
  "valguard": [
   {
    "power": "BERSERKER CHARGE ENHANCEMENT",
@@ -3563,14 +3295,6 @@
    "label": "Lycanthrope",
    "terms": {
     "species": "Lycanthrope"
-   }
-  },
-  {
-   "power": "SILVER BOLTS SPECIAL ATTACK",
-   "kind": "terms",
-   "label": "Hybrid",
-   "terms": {
-    "species": "Hybrid"
    }
   },
   {
@@ -3689,14 +3413,6 @@
   {
    "power": "LYCANTHROPY",
    "kind": "terms",
-   "label": "Lycanthrope",
-   "terms": {
-    "species": "Lycanthrope"
-   }
-  },
-  {
-   "power": "LYCANTHROPY",
-   "kind": "terms",
    "label": "Soulborg",
    "terms": {
     "species": "Soulborg"
@@ -3738,14 +3454,6 @@
    "label": "Darklord",
    "terms": {
     "unitClass": "Darklord"
-   }
-  },
-  {
-   "power": "POUNCE SPECIAL ATTACK",
-   "kind": "terms",
-   "label": "Wolf",
-   "terms": {
-    "species": "Wolf"
    }
   }
  ],

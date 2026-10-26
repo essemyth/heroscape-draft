@@ -1083,3 +1083,57 @@ img.loading {
     min-width: 0;
   }
 }
+
+/* Thumbnail cropper */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.6);
+}
+.modal {
+  width: min(520px, 100%);
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+  display: grid;
+  gap: 10px;
+}
+.modal h2 {
+  margin: 0;
+}
+.modal p {
+  margin: 0;
+}
+.crop-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.crop-frame:active {
+  cursor: grabbing;
+}
+.crop-frame img {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+.zoom-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.zoom-row input {
+  flex: 1;
+  padding: 0;
+}

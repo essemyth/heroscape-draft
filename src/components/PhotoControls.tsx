@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { uploadUnitPhoto, useUnitPhotos } from '../lib/photos'
+import { isUploaded, uploadUnitPhoto, useUnitPhotos } from '../lib/photos'
 import type { Unit } from '../lib/types'
+import { ThumbnailEditor } from './ThumbnailEditor'
 
 /** "Add photo" (opens the camera) plus "choose from library", with upload progress. */
 export function PhotoButtons({ unit, hasPhoto, compact = false }: { unit: Unit; hasPhoto: boolean; compact?: boolean }) {
@@ -8,6 +9,8 @@ export function PhotoButtons({ unit, hasPhoto, compact = false }: { unit: Unit; 
   const library = useRef<HTMLInputElement>(null)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [cropping, setCropping] = useState(false)
+  const photo = useUnitPhotos()(unit.id)
 
   const onFile = async (input: HTMLInputElement) => {
     const file = input.files?.[0]
@@ -34,7 +37,13 @@ export function PhotoButtons({ unit, hasPhoto, compact = false }: { unit: Unit; 
       <button type="button" className="link-btn" disabled={busy} onClick={() => library.current?.click()}>
         {compact ? 'Library' : 'or choose from library'}
       </button>
+      {photo && isUploaded(unit.id) && (
+        <button type="button" disabled={busy} onClick={() => setCropping(true)}>
+          ✂️ {compact ? 'Thumbnail' : 'Edit thumbnail'}
+        </button>
+      )}
       {error && <span className="warn photo-error">{error}</span>}
+      {cropping && photo && <ThumbnailEditor unit={unit} photoUrl={photo.url} onClose={() => setCropping(false)} />}
     </span>
   )
 }

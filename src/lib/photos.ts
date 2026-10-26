@@ -102,9 +102,9 @@ export async function claimPhotoEditor(code: string): Promise<boolean> {
 // --- Uploading ---------------------------------------------------------------------------------
 
 const PHOTO_SIZE = { width: 800, height: 500 }
-const THUMB_SIZE = { width: 160, height: 100 }
+// Twice the displayed size, so thumbnails stay sharp on high-density phone screens.
+const THUMB_SIZE = { width: 320, height: 200 }
 
-/** Center-crops to 8:5 and scales down, as WebP where the browser supports it, else JPEG. */
 type Source = { image: CanvasImageSource; width: number; height: number }
 
 /** Decodes a photo upright (browsers apply its EXIF rotation), falling back to an <img> where needed. */
@@ -121,6 +121,17 @@ async function decode(file: File): Promise<Source & { done: () => void }> {
   }
 }
 
+/** Encodes a canvas as WebP where the browser supports it, else JPEG. */
+async function encode(canvas: HTMLCanvasElement): Promise<Blob> {
+  const toBlob = (type: string) => new Promise<Blob | null>((res) => canvas.toBlob(res, type, 0.82))
+  const webp = await toBlob('image/webp')
+  if (webp && webp.type === 'image/webp') return webp
+  const jpeg = await toBlob('image/jpeg')
+  if (!jpeg) throw new Error('Could not process the photo')
+  return jpeg
+}
+
+/** Center-crops to 8:5 and scales down. */
 async function render(bitmap: Source, size: { width: number; height: number }): Promise<Blob> {
   const target = size.width / size.height
   let sw = bitmap.width
@@ -136,14 +147,11 @@ async function render(bitmap: Source, size: { width: number; height: number }): 
   const g = canvas.getContext('2d')!
   g.imageSmoothingQuality = 'high'
   g.drawImage(bitmap.image, sx, sy, sw, sh, 0, 0, size.width, size.height)
-
-  const toBlob = (type: string) => new Promise<Blob | null>((res) => canvas.toBlob(res, type, 0.82))
-  const webp = await toBlob('image/webp')
-  if (webp && webp.type === 'image/webp') return webp
-  const jpeg = await toBlob('image/jpeg')
-  if (!jpeg) throw new Error('Could not process the photo')
-  return jpeg
+  return encode(canvas)
 }
+
+const uploadError = (message: string) =>
+  new Error(message.includes('row-level security') ? 'This device is not allowed to change photos' : message)
 
 /** Shrinks a camera photo, uploads it and its thumbnail, and makes it the unit's photo. */
 export async function uploadUnitPhoto(unitId: string, file: File): Promise<void> {
@@ -162,7 +170,7 @@ export async function uploadUnitPhoto(unitId: string, file: File): Promise<void>
     [thumbPath, thumb],
   ] as const) {
     const { error } = await storage.upload(p, blob, { contentType: blob.type, cacheControl: '31536000' })
-    if (error) throw new Error(error.message.includes('row-level security') ? 'This device is not allowed to add photos' : error.message)
+    if (error) throw uploadError(error.message)
   }
 
   const previous = rowsByUnit[unitId]
@@ -177,4 +185,52 @@ export async function uploadUnitPhoto(unitId: string, file: File): Promise<void>
 
   // Tidy up the replaced files; harmless if it fails.
   if (previous) await storage.remove([previous.path, previous.thumb_path])
+}
+
+/** Part of the full photo to use as the thumbnail: center (0–1 across and down) and zoom (1 = whole photo). */
+export interface ThumbCrop {
+  cx: number
+  cy: number
+  zoom: number
+}
+
+/** Re-cuts a unit's thumbnail from its full photo, keeping the full photo as it is. */
+export async function saveThumbnailCrop(unitId: string, crop: ThumbCrop): Promise<void> {
+  const row = rowsByUnit[unitId]
+  if (!row) throw new Error('Add a photo first')
+
+  const img = new Image()
+  img.crossOrigin = 'anonymous' // storage allows it; needed to read the pixels back out
+  // Its own URL so Safari doesn't reuse a copy cached without CORS, which would block reading pixels.
+  img.src = `${publicUrl(row.path)}?crop=1`
+  await img.decode()
+
+  const sw = img.naturalWidth / crop.zoom
+  const sh = img.naturalHeight / crop.zoom
+  const canvas = document.createElement('canvas')
+  canvas.width = THUMB_SIZE.width
+  canvas.height = THUMB_SIZE.height
+  const g = canvas.getContext('2d')!
+  g.imageSmoothingQuality = 'high'
+  g.drawImage(img, crop.cx * img.naturalWidth - sw / 2, crop.cy * img.naturalHeight - sh / 2, sw, sh, 0, 0, canvas.width, canvas.height)
+  const thumb = await encode(canvas)
+
+  const thumbPath = `${unitId}/${Date.now()}-thumb.${thumb.type === 'image/webp' ? 'webp' : 'jpg'}`
+  const storage = supabase.storage.from(BUCKET)
+  const { error: upError } = await storage.upload(thumbPath, thumb, { contentType: thumb.type, cacheControl: '31536000' })
+  if (upError) throw uploadError(upError.message)
+  const { error } = await supabase
+    .from('unit_photos')
+    .update({ thumb_path: thumbPath, updated_at: new Date().toISOString() })
+    .eq('unit_id', unitId)
+  if (error) throw error
+
+  rowsByUnit[unitId] = { ...row, thumb_path: thumbPath }
+  emit()
+  await storage.remove([row.thumb_path])
+}
+
+/** Whether the unit has a photo uploaded in the app (bundled photos can't be re-cropped). */
+export function isUploaded(unitId: string): boolean {
+  return unitId in rowsByUnit
 }

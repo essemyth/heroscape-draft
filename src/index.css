@@ -934,3 +934,152 @@ img.loading {
     animation: none;
   }
 }
+
+/* ---------------------------------------------------------------------------------------
+   Phones: rows show only points, general, name and Draft; everything else is in the
+   expanded details. Kept last so it overrides the desktop layout above.
+   --------------------------------------------------------------------------------------- */
+
+.details-compact {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  :root {
+    font-size: 14px;
+  }
+  .board,
+  .lobby {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .board {
+    padding-top: 10px;
+    gap: 10px;
+  }
+  .panel {
+    padding: 10px;
+  }
+  .turn-banner {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .turn-main h1 {
+    font-size: 1.25rem;
+  }
+  .turn-banner .button-row button {
+    padding: 5px 9px;
+    font-size: 0.85rem;
+  }
+
+  /* Filters: search on its own line, the rest two to a line. */
+  .pool-filters {
+    gap: 6px;
+  }
+  .pool-filters .search {
+    flex: 1 1 100%;
+  }
+  .pool-filters > select,
+  .pool-filters .sort-control {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 0;
+  }
+  .pool-filters select,
+  .pool-filters input[type='search'],
+  .pool-filters .icon-btn {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+  .sort-control select {
+    flex: 1;
+    min-width: 0;
+  }
+  .pool-count {
+    margin: 6px 0 4px;
+  }
+
+  /* Compact rows. */
+  .unit-list {
+    gap: 4px;
+  }
+  .unit-row,
+  .unit-row:not(.blocked) {
+    padding: 4px 6px 4px 9px;
+    gap: 2px 6px;
+  }
+  .unit-summary {
+    grid-template-columns: 34px 22px minmax(0, 1fr) auto;
+    gap: 7px;
+    padding: 1px;
+  }
+  .unit-cost {
+    font-size: 0.95rem;
+    padding: 3px 0;
+  }
+  .unit-summary .general-badge {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 11px !important;
+  }
+  .unit-name {
+    font-size: 0.95rem;
+  }
+  .unit-meta {
+    display: block;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .unit-summary .unit-stats,
+  .unit-left {
+    display: none;
+  }
+  .unit-summary .unit-thumb {
+    width: 44px;
+    height: 28px;
+  }
+  .draft-btn {
+    padding: 6px 11px;
+    font-size: 0.85rem;
+  }
+  .unit-reason,
+  .unit-details {
+    padding-left: 2px;
+  }
+  .unit-row.has-image::before {
+    width: 40%;
+    opacity: 0.25;
+  }
+
+  .details-compact {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .details-compact .unit-stats {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* Small phones: drop the thumbnail to keep room for the name. */
+@media (max-width: 400px) {
+  .unit-summary .unit-thumb {
+    display: none;
+  }
+  .unit-summary {
+    grid-template-columns: 32px 22px minmax(0, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  /* Never let wide content stretch the page past the screen. */
+  .board-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .board > *,
+  .sidebar,
+  .pool {
+    min-width: 0;
+  }
+}

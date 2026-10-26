@@ -256,6 +256,19 @@ export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = fal
   return (
     <div className="unit-details">
       <UnitPhotoView unit={unit} canEdit={canEditPhotos} />
+      {/* On phones the row only has room for the essentials, so the rest shows here. */}
+      <div className="details-compact">
+        <span className="unit-stats">
+          <Stat kind="life" label="Lif" value={unit.life} active={false} />
+          <Stat kind="move" label="Mov" value={unit.move} active={false} />
+          <Stat kind="range" label="Ran" value={unit.range} active={false} />
+          <Stat kind="attack" label="Atk" value={unit.attack} active={false} />
+          <Stat kind="defense" label="Def" value={unit.defense} active={false} />
+        </span>
+        <span className="muted">
+          {unit.rarity} {unit.type} · {unit.general} · {unit.figures} fig · {remainingCount(state, unit.id)} of {state.pool[unit.id]} left
+        </span>
+      </div>
       <p className="muted">
         {unit.species} {unit.unitClass} · {unit.personality} · {unit.size} {unit.height} · {unit.homeworld} · {unit.set}
       </p>

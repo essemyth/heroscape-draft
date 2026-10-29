@@ -75,6 +75,30 @@ for (const [b, ids] of byBase) {
 // Longest names first so "Raelin the Kyrie Warrior" wins over "Raelin".
 nameRefs.sort((a, b) => b.re.source.length - a.re.source.length)
 
+// Powers named in other cards' text: "the Unleashed Fury power on any Army Card".
+// Trailing numbers are dropped so "Stealth Dodge" also matches "Stealth Dodge 2".
+const titleCase = (s) => s.toLowerCase().replace(/(^|\s)[a-z]/g, (c) => c.toUpperCase())
+const powerHolders = new Map() // normalized power name -> unit ids
+for (const u of units) {
+  for (const p of u.powers) {
+    const key = p.name.replace(/\s+\d+$/, '').trim().toLowerCase()
+    if (key.length < 4) continue
+    if (!powerHolders.has(key)) powerHolders.set(key, new Set())
+    powerHolders.get(key).add(u.id)
+  }
+}
+const powerRefs = [...powerHolders].map(([key, ids]) => ({
+  label: `${titleCase(key)} units`,
+  ids: [...ids],
+  re: new RegExp(`(?<![\\w-])${esc(key)}(?:\\s+\\d+)?\\s+(?:special\\s+)?powers?\\b`, 'gi'),
+}))
+
+// Personalities are sometimes written in lowercase: "a relentless personality".
+const personalityRefs = [...new Set(units.flatMap((u) => splitValues(u.personality)))].map((value) => ({
+  value,
+  re: new RegExp(`(?<![\\w-])${esc(value)}\\s+personalit(?:y|ies)\\b`, 'gi'),
+}))
+
 // --- Matching ---------------------------------------------------------------------------------
 
 /** True when the reference is about enemies or explicitly excluded, e.g. "non-Soulborg", "an opponent's Wizard". */
@@ -86,10 +110,15 @@ function isExcluded(text, index) {
   const end = text.slice(index).search(/[.;]/)
   const sentence = text.slice(start, end < 0 ? undefined : index + end)
   return (
-    // "that Knight" / "this Knight" points back at the unit itself.
-    /non-$|except\s+\S*\s*$|other than\s+\S*\s*$|\bnot\s+an?\s+$|\b(that|this)\s+$/i.test(before) ||
+    // "that Knight" / "this Knight" / "its Flying special power" point back at the unit itself.
+    /non-$|except\s+\S*\s*$|other than\s+\S*\s*$|\bnot\s+an?\s+$|\b(that|this|its|his|her)\s+$/i.test(before) ||
     /opponent|enemy|enemies|does not work against|cannot target|may not target/i.test(clause) ||
-    /not affected|cannot|can't|immune|may not (?:use|attack|target)/i.test(sentence)
+    /not affected|does not affect|cannot|can't|immune|may not (?:use|attack|target)/i.test(sentence) ||
+    // Targets of this unit's attacks are enemies: "attacking a figure that has Flying",
+    // "Figures with Lava Resistant ... when attacked by Racheim". Not when the group is
+    // yours: "adjacent to any Marro Warlord you control", "attacked by a Pirate you control".
+    (!/^[^.;]{0,40}\byou control\b/i.test(text.slice(index)) &&
+      /attacking an? (?:[\w-]+ )?(?:figure|hero|squad|unit)s? (?:that|who|with)\b|when attacked by/i.test(sentence))
   )
 }
 
@@ -147,6 +176,24 @@ function referencesIn(unit, power) {
     for (const m of text.matchAll(ref.re)) {
       // Other versions of the same hero (Drake 1.0 in Drake 2.0's text) aren't synergies.
       if (!isExcluded(text, m.index) && ref.label !== own) refs.push({ kind: 'units', label: ref.label, ids: ref.ids })
+      text = blank(text, m.index, m.index + m[0].length)
+    }
+  }
+
+  for (const ref of powerRefs) {
+    for (const m of text.matchAll(ref.re)) {
+      const ids = ref.ids.filter((id) => baseName(units.find((u) => u.id === id).name) !== own)
+      if (ids.length && !isExcluded(text, m.index)) refs.push({ kind: 'units', label: ref.label, ids })
+      text = blank(text, m.index, m.index + m[0].length)
+    }
+  }
+
+  for (const ref of personalityRefs) {
+    for (const m of text.matchAll(ref.re)) {
+      const terms = { personality: ref.value }
+      if (!isExcluded(text, m.index) && !isSelfReference(unit, power.text, terms, m.index, m.index + m[0].length)) {
+        refs.push({ kind: 'terms', label: ref.value, terms })
+      }
       text = blank(text, m.index, m.index + m[0].length)
     }
   }

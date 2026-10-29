@@ -651,6 +651,15 @@
   },
   {
    "power": "MUTINY",
+   "kind": "units",
+   "label": "The Captain's Way units",
+   "ids": [
+    "dreadnoughts-of-caraway-cavern",
+    "knaves-of-the-silver-scimitar"
+   ]
+  },
+  {
+   "power": "MUTINY",
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -686,6 +695,14 @@
  ],
  "count-raymond": [
   {
+   "power": "DEVOUT LEADERSHIP",
+   "kind": "terms",
+   "label": "Devout",
+   "terms": {
+    "personality": "Devout"
+   }
+  },
+  {
    "power": "MANEUVER 9",
    "kind": "terms",
    "label": "Einar",
@@ -702,6 +719,17 @@
    "terms": {
     "unitClass": "Soldier"
    }
+  },
+  {
+   "power": "ARMORED SUPPORT",
+   "kind": "units",
+   "label": "Battle Ready units",
+   "ids": [
+    "battle-copter",
+    "cobra-flight-pod",
+    "hiss-tank",
+    "mini-tank-armadillo"
+   ]
   }
  ],
  "crimson-widow": [
@@ -756,14 +784,14 @@
    }
   }
  ],
- "cyprien-esenwein": [
+ "cxurggyath": [
   {
-   "power": "CHILLING TOUCH",
-   "kind": "terms",
-   "label": "Soulborg",
-   "terms": {
-    "species": "Soulborg"
-   }
+   "power": "ENSLAVE ENHANCEMENT",
+   "kind": "units",
+   "label": "Enslave units",
+   "ids": [
+    "mind-flayer-mastermind"
+   ]
   }
  ],
  "darkprowl-thrall": [
@@ -1664,16 +1692,6 @@
    }
   }
  ],
- "isamu-10": [
-  {
-   "power": "DISHONORABLE ATTACK",
-   "kind": "terms",
-   "label": "Jandar",
-   "terms": {
-    "general": "Jandar"
-   }
-  }
- ],
  "iskra-esenwein": [
   {
    "power": "SUMMON THE RECHETS OF BOGDAN",
@@ -1824,6 +1842,24 @@
    }
   }
  ],
+ "khosumet-the-darklord": [
+  {
+   "power": "RELENTLESS ASSAULT",
+   "kind": "terms",
+   "label": "Relentless",
+   "terms": {
+    "personality": "Relentless"
+   }
+  },
+  {
+   "power": "UNLEASHED FURY ENHANCEMENT",
+   "kind": "units",
+   "label": "Unleashed Fury units",
+   "ids": [
+    "anubian-wolves"
+   ]
+  }
+ ],
  "knaves-of-the-silver-scimitar": [
   {
    "power": "THE CAPTAIN'S WAY",
@@ -1847,6 +1883,16 @@
    "label": "Pirate",
    "terms": {
     "unitClass": "Pirate"
+   }
+  }
+ ],
+ "knights-of-blackgaard": [
+  {
+   "power": "RELENTLESS ARMY ATTACK BONUS",
+   "kind": "terms",
+   "label": "Relentless",
+   "terms": {
+    "personality": "Relentless"
    }
   }
  ],
@@ -2110,6 +2156,18 @@
  "master-win-chiu-woo": [
   {
    "power": "MASTER'S INFLUENCE",
+   "kind": "units",
+   "label": "Stealth Leap units",
+   "ids": [
+    "lee-jun",
+    "master-lao-xin",
+    "red-mantis-blade-dancers",
+    "shaolin-monks",
+    "yi-feng"
+   ]
+  },
+  {
+   "power": "MASTER'S INFLUENCE",
    "kind": "terms",
    "label": "Monk",
    "terms": {
@@ -2209,6 +2267,16 @@
    "label": "Dwarf",
    "terms": {
     "species": "Dwarf"
+   }
+  }
+ ],
+ "morgans-riflemen": [
+  {
+   "power": "VALIANT ARMY DEFENSE BONUS",
+   "kind": "terms",
+   "label": "Valiant",
+   "terms": {
+    "personality": "Valiant"
    }
   }
  ],
@@ -2329,24 +2397,6 @@
    "label": "Lawman",
    "terms": {
     "unitClass": "Lawman"
-   }
-  }
- ],
- "nordlung": [
-  {
-   "power": "SHOCK RIFLE SPECIAL ATTACK",
-   "kind": "terms",
-   "label": "Soulborg",
-   "terms": {
-    "species": "Soulborg"
-   }
-  },
-  {
-   "power": "SHOCK RIFLE SPECIAL ATTACK",
-   "kind": "terms",
-   "label": "Jandar",
-   "terms": {
-    "general": "Jandar"
    }
   }
  ],
@@ -2498,6 +2548,16 @@
    "terms": {
     "species": "Orc",
     "unitClass": "Warrior"
+   }
+  }
+ ],
+ "otonashi": [
+  {
+   "power": "TRICKY SPEED 4",
+   "kind": "terms",
+   "label": "Tricky",
+   "terms": {
+    "personality": "Tricky"
    }
   }
  ],
@@ -2691,6 +2751,14 @@
    "terms": {
     "unitClass": "Warlord",
     "general": "Einar"
+   }
+  },
+  {
+   "power": "DISCIPLINED ARMY DEFENSE BONUS",
+   "kind": "terms",
+   "label": "Disciplined",
+   "terms": {
+    "personality": "Disciplined"
    }
   }
  ],
@@ -3281,11 +3349,12 @@
  "valguard": [
   {
    "power": "BERSERKER CHARGE ENHANCEMENT",
-   "kind": "terms",
-   "label": "Berserker",
-   "terms": {
-    "unitClass": "Berserker"
-   }
+   "kind": "units",
+   "label": "Berserker Charge units",
+   "ids": [
+    "dreadgul-raiders",
+    "tarn-viking-warriors"
+   ]
   }
  ],
  "van-nessing": [
@@ -3354,6 +3423,16 @@
    "terms": {
     "unitClass": "Scout"
    }
+  },
+  {
+   "power": "FRENZY ENHANCEMENT",
+   "kind": "units",
+   "label": "Frenzy units",
+   "ids": [
+    "aubrien-archers",
+    "elite-onyx-vipers",
+    "venoc-vipers"
+   ]
   }
  ],
  "veterans-of-orleans": [

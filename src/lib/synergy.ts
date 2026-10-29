@@ -11,7 +11,7 @@ export interface SynergyRef {
   /** What the power names, e.g. "Kyrie" or "Deathwalker 9000". */
   label: string
   ids?: string[]
-  terms?: Partial<Record<Attr, string>>
+  terms?: Partial<Record<Attr, string>> & { minRange?: number }
 }
 
 const refsByUnit = synergyData as Record<string, SynergyRef[]>
@@ -22,9 +22,22 @@ const values = (v: string) =>
     .map((s) => s.trim())
     .filter(Boolean)
 
+/** Singular, lowercase form, so "Soulborg Guards" in power text matches the class "Guard". */
+const norm = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/ies$/, 'y')
+    .replace(/ves$/, 'f')
+    .replace(/men$/, 'man')
+    .replace(/s$/, '')
+
 function refMatches(ref: SynergyRef, target: Unit): boolean {
   if (ref.kind === 'units') return ref.ids!.includes(target.id)
-  return Object.entries(ref.terms!).every(([attr, value]) => values(target[attr as Attr] ?? '').includes(value))
+  const { minRange, ...terms } = ref.terms!
+  if (minRange !== undefined && target.range < minRange) return false
+  return Object.entries(terms).every(([attr, value]) =>
+    values(target[attr as Attr] ?? '').some((v) => norm(v) === norm(String(value))),
+  )
 }
 
 export interface Boost {

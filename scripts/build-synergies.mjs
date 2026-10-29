@@ -220,7 +220,17 @@ function referencesIn(unit, power) {
     if (isSelfReference(unit, power.text, terms, g[0].start, g.at(-1).end)) continue
     // "roll Utgar Valkyrie dice", "each Einar symbol rolled" are about dice, not other units.
     if (/^\s+(?:Valkyrie|symbols?|dice)\b/.test(text.slice(g.at(-1).end, g.at(-1).end + 12))) continue
-    refs.push({ kind: 'terms', label: g.map((h) => h.value).join(' '), terms })
+    // "Any Soulborg Guards you control with a Range number of 4 or more" only helps long-range ones.
+    const from = Math.max(text.lastIndexOf('.', g[0].start), text.lastIndexOf(';', g[0].start)) + 1
+    const stop = text.slice(g.at(-1).end).search(/[.;]/)
+    const sentence = text.slice(from, stop < 0 ? undefined : g.at(-1).end + stop)
+    const range = sentence.match(/\bwith a range (?:number |value )?of (\d+) or (?:more|higher)/i)
+    let label = g.map((h) => h.value).join(' ')
+    if (range) {
+      terms.minRange = Number(range[1])
+      label += ` (Range ${range[1]}+)`
+    }
+    refs.push({ kind: 'terms', label, terms })
   }
 
   // One entry per distinct reference.

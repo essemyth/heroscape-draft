@@ -863,10 +863,11 @@
   {
    "power": "RANGE ENHANCEMENT",
    "kind": "terms",
-   "label": "Soulborg Guards",
+   "label": "Soulborg Guards (Range 4+)",
    "terms": {
     "species": "Soulborg",
-    "unitClass": "Guards"
+    "unitClass": "Guards",
+    "minRange": 4
    }
   }
  ],
@@ -1985,9 +1986,10 @@
   {
    "power": "VYDAR'S RANGE ENHANCEMENT AURA",
    "kind": "terms",
-   "label": "Vydar",
+   "label": "Vydar (Range 4+)",
    "terms": {
-    "general": "Vydar"
+    "general": "Vydar",
+    "minRange": 4
    }
   }
  ],
@@ -3214,9 +3216,10 @@
   {
    "power": "SKELETAL FORM",
    "kind": "terms",
-   "label": "Wizard",
+   "label": "Wizard (Range 4+)",
    "terms": {
-    "unitClass": "Wizard"
+    "unitClass": "Wizard",
+    "minRange": 4
    }
   }
  ],
@@ -3224,9 +3227,10 @@
   {
    "power": "SKELETAL FORM",
    "kind": "terms",
-   "label": "Wizard",
+   "label": "Wizard (Range 4+)",
    "terms": {
-    "unitClass": "Wizard"
+    "unitClass": "Wizard",
+    "minRange": 4
    }
   }
  ],

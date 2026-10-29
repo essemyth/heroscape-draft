@@ -11,12 +11,12 @@ const byName = (name: string) => {
 }
 
 describe('synergies from real power text', () => {
-  it('finds a named compound group (Deathwalker 9000 -> Soulborg Guards)', () => {
+  it('finds a named group, singular or plural, with its range condition (Deathwalker 9000 -> Soulborg Guards)', () => {
     const dw = byName('Deathwalker 9000')
-    const guards = units.filter((u) => u.species === 'Soulborg' && u.unitClass === 'Guards')
-    const other = byName('Agent Carr (1.0)')
-    const { boosts } = synergiesFor(dw, [dw, ...guards, other])
-    expect(boosts.flatMap((b) => b.units.map((u) => u.id)).sort()).toEqual(guards.map((u) => u.id).sort())
+    const candidates = ['Blastatrons', 'Zettian Guards', 'Deflectatron', 'Agent Carr (1.0)'].map(byName)
+    const helped = synergiesFor(dw, [dw, ...candidates]).boosts.flatMap((b) => b.units.map((u) => u.name))
+    // Deflectatron is a Soulborg Guard but has Range 1; the power needs Range 4 or more.
+    expect(helped.sort()).toEqual(['Blastatrons', 'Zettian Guards'])
   })
 
   it('works in both directions', () => {

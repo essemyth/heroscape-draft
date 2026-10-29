@@ -36,7 +36,8 @@ describe('synergies from real power text', () => {
   it('ignores powers describing the unit itself ("a Soldier in the 10th Regiment of Foot")', () => {
     const tenth = byName('10th Regiment of Foot')
     const soldiers = units.filter((u) => u.unitClass === 'Soldier' && u.id !== tenth.id)
-    expect(synergiesFor(tenth, [tenth, ...soldiers]).boosts).toEqual([])
+    const ownPowers = new Set(tenth.powers.map((p) => p.name))
+    expect(synergiesFor(tenth, [tenth, ...soldiers]).boosts.filter((b) => ownPowers.has(b.power))).toEqual([])
     // ...while a leader that boosts soldiers still counts.
     const marcus = byName('Marcus Decimus Gallus')
     expect(synergiesFor(tenth, [marcus]).boostedBy.map((b) => b.unit)).toEqual([marcus])
@@ -93,6 +94,21 @@ describe('synergies from real power text', () => {
     const greenscale = byName('Greenscale Warriors')
     expect(synergiesFor(scions, [greenscale]).boosts).toEqual([])
     expect(synergiesFor(greenscale, [scions]).boosts).toEqual([])
+  })
+
+  it('tags how a unit is helped', () => {
+    const bladeGruts = byName('Blade Gruts')
+    const helpers = synergiesFor(bladeGruts, ['Grimnak', 'Torin'].map(byName)).boostedBy
+    const how = Object.fromEntries(helpers.map((h) => [h.unit.name, h.powers.flatMap((p) => p.effects)]))
+    expect(how['Grimnak']).toEqual(['Atk boost', 'Def boost'])
+    expect(how['Torin']).toEqual(['Retaliation'])
+  })
+
+  it('flips powers where the bonus goes to the unit itself (Sir Dupuis gains from Knights)', () => {
+    const dupuis = byName('Sir Dupuis')
+    const knight = byName('Knights of Weston')
+    expect(synergiesFor(dupuis, [knight]).boostedBy.map((b) => b.unit)).toEqual([knight])
+    expect(synergiesFor(knight, [dupuis]).boosts.map((b) => [b.power, b.effects])).toEqual([["KNIGHT'S COURAGE", ['Atk boost']]])
   })
 
   it('ignores exclusions like "not affected by"', () => {

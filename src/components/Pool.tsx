@@ -317,25 +317,27 @@ function Synergies({ unit, state, playerId, onJump, browse = false }: DetailsPro
 
   // Yours first, then still available, then taken.
   const rank = (u: Unit) => (mine.has(u.id) ? 0 : remainingCount(state, u.id) > 0 ? 1 : 2)
+  const chip = (u: Unit) => {
+    const status = ['mine', 'open', 'taken'][rank(u)]
+    const title = status === 'mine' ? 'In your army' : status === 'taken' ? `Taken by ${takenBy(u.id)}` : 'Still in the pool'
+    return (
+      <button key={u.id} type="button" className={`syn-unit ${status}`} title={`${title}. Click to view.`} onClick={() => onJump(u.id)}>
+        <GeneralBadge general={u.general} size={16} />
+        {u.name}
+        {status === 'mine' && <span className="syn-tag">yours</span>}
+      </button>
+    )
+  }
   const chips = (units: Unit[]) => {
     const sorted = [...units].sort((a, b) => rank(a) - rank(b) || a.name.localeCompare(b.name))
     return (
       <>
-        {sorted.slice(0, MAX_CHIPS).map((u) => {
-          const status = ['mine', 'open', 'taken'][rank(u)]
-          const title = status === 'mine' ? 'In your army' : status === 'taken' ? `Taken by ${takenBy(u.id)}` : 'Still in the pool'
-          return (
-            <button key={u.id} type="button" className={`syn-unit ${status}`} title={`${title}. Click to view.`} onClick={() => onJump(u.id)}>
-              <GeneralBadge general={u.general} size={16} />
-              {u.name}
-              {status === 'mine' && <span className="syn-tag">yours</span>}
-            </button>
-          )
-        })}
+        {sorted.slice(0, MAX_CHIPS).map(chip)}
         {sorted.length > MAX_CHIPS && <span className="muted">+{sorted.length - MAX_CHIPS} more</span>}
       </>
     )
   }
+  const helpers = [...boostedBy].sort((a, b) => rank(a.unit) - rank(b.unit) || a.unit.name.localeCompare(b.unit.name))
 
   return (
     <div className="synergies">
@@ -344,18 +346,43 @@ function Synergies({ unit, state, playerId, onJump, browse = false }: DetailsPro
       {boosts.map((b) => (
         <div key={b.power + b.label} className="syn-line">
           <span className="syn-label">
-            <strong>{b.power}</strong> helps {b.label}:
+            <strong>{b.power}</strong> <EffectTags effects={b.effects} /> helps {b.label}:
           </span>
           {chips(b.units)}
         </div>
       ))}
-      {boostedBy.length > 0 && (
-        <div className="syn-line">
+      {helpers.length > 0 && (
+        <div className="syn-helped">
           <span className="syn-label">Helped by:</span>
-          {chips(boostedBy.map((b) => b.unit))}
+          <ul>
+            {helpers.map((h) => (
+              <li key={h.unit.id}>
+                {chip(h.unit)}
+                {h.powers.map((p) => (
+                  <span key={p.power} className="syn-how">
+                    <span className="syn-power">{p.power}</span>
+                    <EffectTags effects={p.effects} />
+                  </span>
+                ))}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
       <p className="muted syn-note">Found from power text, so a few may be missed or misread.</p>
     </div>
+  )
+}
+
+/** Little colored labels for what a power does: "Atk boost", "Bonding", ... */
+function EffectTags({ effects }: { effects: string[] }) {
+  return (
+    <span className="effect-tags">
+      {effects.map((e) => (
+        <span key={e} className={`effect-tag effect-${e.toLowerCase().replace(/[^a-z]+/g, '-').replace(/-$/, '')}`}>
+          {e}
+        </span>
+      ))}
+    </span>
   )
 }

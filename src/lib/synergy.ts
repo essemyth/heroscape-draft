@@ -14,6 +14,8 @@ export interface SynergyRef {
   terms?: Partial<Record<Attr, string>> & { minRange?: number; sizes?: string[] }
   /** The named units help this one, rather than the other way round (e.g. Feed the Forge). */
   reverse?: boolean
+  /** What the power does for the units it helps: "Atk boost", "Bonding", "Healing", ... */
+  effects?: string[]
 }
 
 const refsByUnit = synergyData as Record<string, SynergyRef[]>
@@ -46,13 +48,19 @@ function refMatches(ref: SynergyRef, target: Unit): boolean {
 
 export interface Boost {
   power: string
+  effects: string[]
   label: string
   units: Unit[]
 }
 
+export interface HelpingPower {
+  power: string
+  effects: string[]
+}
+
 export interface BoostedBy {
   unit: Unit
-  powers: string[]
+  powers: HelpingPower[]
 }
 
 /** How `unit` relates to the other `candidates`: whom its powers help, and whose powers help it. */
@@ -62,26 +70,26 @@ export function synergiesFor(unit: Unit, candidates: Unit[]): { boosts: Boost[];
   // This unit's powers that help others.
   const boosts: Boost[] = refsOf(unit.id)
     .filter((ref) => !ref.reverse)
-    .map((ref) => ({ power: ref.power, label: ref.label, units: others.filter((c) => refMatches(ref, c)) }))
+    .map((ref) => ({ power: ref.power, effects: ref.effects ?? [], label: ref.label, units: others.filter((c) => refMatches(ref, c)) }))
     .filter((b) => b.units.length > 0)
   // Others' powers that this unit feeds ("Feed the Forge": a destroyed Soulborg heals Hellforge).
   for (const c of others) {
     for (const ref of refsOf(c.id)) {
-      if (ref.reverse && refMatches(ref, unit)) boosts.push({ power: ref.power, label: c.name, units: [c] })
+      if (ref.reverse && refMatches(ref, unit)) boosts.push({ power: ref.power, effects: ref.effects ?? [], label: c.name, units: [c] })
     }
   }
 
   const helpers = new Map<string, BoostedBy>()
-  const add = (u: Unit, power: string) => {
+  const add = (u: Unit, ref: SynergyRef) => {
     const entry = helpers.get(u.id) ?? { unit: u, powers: [] }
-    if (!entry.powers.includes(power)) entry.powers.push(power)
+    if (!entry.powers.some((p) => p.power === ref.power)) entry.powers.push({ power: ref.power, effects: ref.effects ?? [] })
     helpers.set(u.id, entry)
   }
   for (const c of others) {
-    for (const ref of refsOf(c.id)) if (!ref.reverse && refMatches(ref, unit)) add(c, ref.power)
+    for (const ref of refsOf(c.id)) if (!ref.reverse && refMatches(ref, unit)) add(c, ref)
   }
   for (const ref of refsOf(unit.id)) {
-    if (ref.reverse) for (const c of others) if (refMatches(ref, c)) add(c, ref.power)
+    if (ref.reverse) for (const c of others) if (refMatches(ref, c)) add(c, ref)
   }
   return { boosts, boostedBy: [...helpers.values()] }
 }

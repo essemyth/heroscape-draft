@@ -2,6 +2,10 @@
  "4th-massachusetts-line": [
   {
    "power": "VALIANT ARMY DEFENSE BONUS",
+   "effects": [
+    "Def boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Valiant",
    "terms": {
@@ -12,6 +16,9 @@
  "8th-infantry-pathfinder": [
   {
    "power": "MARCHING ORDERS",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Unique Soldier Jandar",
    "terms": {
@@ -22,6 +29,9 @@
   },
   {
    "power": "MARCHING ORDERS",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Unique Soldier Hero",
    "terms": {
@@ -34,6 +44,9 @@
  "acolarh": [
   {
    "power": "LEAF OF THE HOME TREE AURA",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Elf",
    "terms": {
@@ -42,6 +55,10 @@
   },
   {
    "power": "ULLAR'S AMULET",
+   "effects": [
+    "Move boost",
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Ullar",
    "terms": {
@@ -52,6 +69,9 @@
  "acolytes-of-vorganund": [
   {
    "power": "BLOOD SUMMONING",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Unique Demon Hero",
    "terms": {
@@ -64,6 +84,9 @@
  "admiral-ej-1m": [
   {
    "power": "ADMIRAL'S ORDERS",
+   "effects": [
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Pirate",
    "terms": {
@@ -72,6 +95,9 @@
   },
   {
    "power": "ADMIRAL'S ORDERS",
+   "effects": [
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -80,6 +106,10 @@
   },
   {
    "power": "BOARDING PARTY SPECIAL ATTACK",
+   "effects": [
+    "Atk boost",
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Pirate",
    "terms": {
@@ -88,6 +118,10 @@
   },
   {
    "power": "BOARDING PARTY SPECIAL ATTACK",
+   "effects": [
+    "Atk boost",
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -98,6 +132,10 @@
  "aetherion-city-guard": [
   {
    "power": "WARDEN STRATEGIC BONDING",
+   "effects": [
+    "Bonding",
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Warden Hero",
    "terms": {
@@ -107,6 +145,10 @@
   },
   {
    "power": "WARDEN STRATEGIC BONDING",
+   "effects": [
+    "Bonding",
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Guards",
    "terms": {
@@ -115,6 +157,9 @@
   },
   {
    "power": "MAGICK RESTRAINTS",
+   "effects": [
+    "Enemy Def −"
+   ],
    "kind": "terms",
    "label": "Guards",
    "terms": {
@@ -125,6 +170,9 @@
  "agent-si-4x": [
   {
    "power": "PHANTOM PROTOCOLS",
+   "effects": [
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "Revna",
    "terms": {
@@ -133,6 +181,9 @@
   },
   {
    "power": "PHANTOM PROTOCOLS",
+   "effects": [
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "Vydar",
    "terms": {
@@ -143,6 +194,9 @@
  "agent-skahen": [
   {
    "power": "COVER FIRE",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Tricky Vydar",
    "terms": {
@@ -154,6 +208,10 @@
  "air-marshal-zed-nesbitt": [
   {
    "power": "SKYHOOK",
+   "effects": [
+    "Reposition",
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "small/medium Vorid",
    "terms": {
@@ -168,6 +226,9 @@
  "amberhive-protectors": [
   {
    "power": "INSECT STRATEGIC BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Insect Hero",
    "terms": {
@@ -177,6 +238,9 @@
   },
   {
    "power": "SACRIFICIAL STING SPECIAL ATTACK",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Insect Hero",
    "terms": {
@@ -188,6 +252,9 @@
  "ana-karithon": [
   {
    "power": "TURN UNDEAD SPECIAL ATTACK",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Undead",
    "terms": {
@@ -196,6 +263,9 @@
   },
   {
    "power": "PROTECTION FROM EVIL AURA",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Utgar",
    "terms": {
@@ -206,6 +276,9 @@
  "arkmer": [
   {
    "power": "STAFF OF LERKINTIN",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Elf",
    "terms": {
@@ -216,6 +289,9 @@
  "arktos": [
   {
    "power": "HUNTER ATTACK ENHANCEMENT",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Hunter",
    "terms": {
@@ -226,6 +302,9 @@
  "armoc-vipers": [
   {
    "power": "ULLAR WARLORD BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Warlord Ullar",
    "terms": {
@@ -237,6 +316,9 @@
  "arrow-gruts": [
   {
    "power": "BEAST BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Beast",
    "terms": {
@@ -247,6 +329,10 @@
  "associates-of-volarak": [
   {
    "power": "FOLLOW THE PROFIT",
+   "effects": [
+    "Bonding",
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Profiteer Hero",
    "terms": {
@@ -258,6 +344,9 @@
  "ataraxis-the-starlich": [
   {
    "power": "NECROTIZING WORMHOLE",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Undead",
    "terms": {
@@ -268,6 +357,9 @@
  "atlaga-the-kyrie-warrior": [
   {
    "power": "KYRIE LEADERSHIP",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Kyrie",
    "terms": {
@@ -278,6 +370,10 @@
  "baroness": [
   {
    "power": "INTELLIGENCE CHIEF",
+   "effects": [
+    "Bonding",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Agent Hero",
    "terms": {
@@ -289,6 +385,9 @@
  "beakface-sneaks": [
   {
    "power": "FLOCKING",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Raptorian",
    "terms": {
@@ -299,6 +398,10 @@
  "beorn-boltcutter": [
   {
    "power": "UPGRADE",
+   "effects": [
+    "Atk boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Unique Soulborg Hero",
    "terms": {
@@ -311,6 +414,9 @@
  "betacron": [
   {
    "power": "OMNICRON PATROL",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Soulborg Jandar",
    "terms": {
@@ -322,6 +428,9 @@
  "black-wyrmling": [
   {
    "power": "WYRMLING BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Wyrmling",
    "terms": {
@@ -332,6 +441,9 @@
  "blade-gruts": [
   {
    "power": "ORC CHAMPION BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Orc Champion",
    "terms": {
@@ -343,6 +455,9 @@
  "blastatrons": [
   {
    "power": "GLADIATRON MOVEMENT BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "units",
    "label": "Gladiatrons",
    "ids": [
@@ -351,6 +466,9 @@
   },
   {
    "power": "HOMING DEVICE",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Soulborg Vydar",
    "terms": {
@@ -362,6 +480,9 @@
  "bloodburst-thrall": [
   {
    "power": "MINDLESS PACK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Thrall",
    "terms": {
@@ -372,6 +493,9 @@
  "blue-wyrmling": [
   {
    "power": "WYRMLING BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Wyrmling",
    "terms": {
@@ -382,6 +506,9 @@
  "bok-bur-na": [
   {
    "power": "INTIMIDATE",
+   "effects": [
+    "Enemy Def −"
+   ],
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -390,6 +517,9 @@
   },
   {
    "power": "INTIMIDATE",
+   "effects": [
+    "Enemy Def −"
+   ],
    "kind": "terms",
    "label": "Pirate",
    "terms": {
@@ -400,6 +530,9 @@
  "brave-arrow": [
   {
    "power": "SCOUT MELEE ATTACK ENHANCEMENT",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Scout",
    "terms": {
@@ -410,6 +543,10 @@
  "brute-gruts": [
   {
    "power": "BERSERKER FRENZY",
+   "effects": [
+    "Atk boost",
+    "Enemy Def −"
+   ],
    "kind": "terms",
    "label": "Berserker",
    "terms": {
@@ -420,6 +557,9 @@
  "bugbear-basher": [
   {
    "power": "EXPENDABLE RABBLE",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "small Goblin",
    "terms": {
@@ -431,6 +571,9 @@
   },
   {
    "power": "GOBLIN MELEE ATTACK ENHANCEMENT",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Goblin",
    "terms": {
@@ -441,6 +584,9 @@
  "cainak-private-eye": [
   {
    "power": "PICK UP THE TRAIL",
+   "effects": [
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Lawman",
    "terms": {
@@ -451,6 +597,9 @@
  "capt-john-varan": [
   {
    "power": "PURPLE HEART",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Human Jandar",
    "terms": {
@@ -462,6 +611,9 @@
  "capuan-gladiators": [
   {
    "power": "HUMAN GLADIATOR HERO BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Human Gladiator Hero",
    "terms": {
@@ -472,6 +624,9 @@
   },
   {
    "power": "INITIATIVE ADVANTAGE",
+   "effects": [
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Gladiator",
    "terms": {
@@ -482,6 +637,9 @@
  "chain-gruts": [
   {
    "power": "GUILD BOSS BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Champion",
    "terms": {
@@ -490,6 +648,9 @@
   },
   {
    "power": "GUILD BOSS BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Orc",
    "terms": {
@@ -498,6 +659,9 @@
   },
   {
    "power": "GUILD BOSS BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Volarak",
    "terms": {
@@ -508,6 +672,9 @@
  "chana-the-zenithwing": [
   {
    "power": "RENEW 12",
+   "effects": [
+    "Healing"
+   ],
    "kind": "terms",
    "label": "Wizard",
    "terms": {
@@ -516,6 +683,9 @@
   },
   {
    "power": "RENEW 12",
+   "effects": [
+    "Healing"
+   ],
    "kind": "terms",
    "label": "Beast",
    "terms": {
@@ -526,6 +696,10 @@
  "chardris": [
   {
    "power": "FIRE STRIKE SPECIAL ATTACK",
+   "effects": [
+    "Atk boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Elf Wizard",
    "terms": {
@@ -537,6 +711,9 @@
  "clawfoot-interceptor": [
   {
    "power": "CLAW GRAB",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "medium Raptorian",
    "terms": {
@@ -550,6 +727,9 @@
  "clayton-pierce": [
   {
    "power": "SHERIFF'S POSSE",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Lawman",
    "terms": {
@@ -558,6 +738,9 @@
   },
   {
    "power": "SHOOTOUT",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Lawman Hero",
    "terms": {
@@ -569,6 +752,9 @@
  "cobra-troopers": [
   {
    "power": "VILLAINOUS BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Warlord",
    "terms": {
@@ -577,6 +763,9 @@
   },
   {
    "power": "VILLAINOUS BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Profiteer Hero",
    "terms": {
@@ -586,6 +775,9 @@
   },
   {
    "power": "COILS OF COBRA",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Unique Cobra",
    "terms": {
@@ -597,6 +789,9 @@
  "command-courier": [
   {
    "power": "COMMAND DISPATCH",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Vydar",
    "terms": {
@@ -607,6 +802,10 @@
  "concan-the-kyrie-warrior-10": [
   {
    "power": "KNIGHT AND SENTINEL ENHANCEMENT",
+   "effects": [
+    "Atk boost",
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Knight",
    "terms": {
@@ -615,6 +814,10 @@
   },
   {
    "power": "KNIGHT AND SENTINEL ENHANCEMENT",
+   "effects": [
+    "Atk boost",
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Sentinel",
    "terms": {
@@ -625,6 +828,9 @@
  "concan-the-kyrie-warrior-20": [
   {
    "power": "MIGHT OF BLEAKEWOODE",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Jandar",
    "terms": {
@@ -633,6 +839,9 @@
   },
   {
    "power": "MIGHT OF BLEAKEWOODE",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Utgar",
    "terms": {
@@ -641,6 +850,9 @@
   },
   {
    "power": "VIGILANCE OF NASTRALUND",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Utgar",
    "terms": {
@@ -649,6 +861,9 @@
   },
   {
    "power": "VIGILANCE OF NASTRALUND",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Jandar",
    "terms": {
@@ -659,6 +874,9 @@
  "cornelius-breech-the-derelict-prince": [
   {
    "power": "FIRST ASSAULT 2",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Prince",
    "terms": {
@@ -667,6 +885,9 @@
   },
   {
    "power": "MUTINY",
+   "effects": [
+    "Healing"
+   ],
    "kind": "units",
    "label": "The Captain's Way units",
    "ids": [
@@ -676,6 +897,9 @@
   },
   {
    "power": "MUTINY",
+   "effects": [
+    "Healing"
+   ],
    "kind": "terms",
    "label": "Unique Captain",
    "terms": {
@@ -685,6 +909,9 @@
   },
   {
    "power": "MUTINY",
+   "effects": [
+    "Healing"
+   ],
    "kind": "terms",
    "label": "Pirate Squad",
    "terms": {
@@ -694,6 +921,9 @@
   },
   {
    "power": "MUTINY",
+   "effects": [
+    "Healing"
+   ],
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -704,6 +934,9 @@
  "corvynn-the-rotbeak": [
   {
    "power": "EYES IN THE SKY",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Unique Undead",
    "terms": {
@@ -713,6 +946,9 @@
   },
   {
    "power": "EYES IN THE SKY",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Wizard Hero",
    "terms": {
@@ -722,6 +958,9 @@
   },
   {
    "power": "EYES IN THE SKY",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Undead",
    "terms": {
@@ -732,6 +971,9 @@
  "count-raymond": [
   {
    "power": "DEVOUT LEADERSHIP",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Devout",
    "terms": {
@@ -740,6 +982,9 @@
   },
   {
    "power": "MANEUVER 9",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Einar",
    "terms": {
@@ -750,6 +995,9 @@
  "courtney-cover-girl-kreiger": [
   {
    "power": "G.I. JOE IS THERE",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Soldier Hero",
    "terms": {
@@ -759,6 +1007,9 @@
   },
   {
    "power": "ARMORED SUPPORT",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "units",
    "label": "Battle Ready units",
    "ids": [
@@ -772,6 +1023,9 @@
  "crimson-widow": [
   {
    "power": "HIRE CREW",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Pirate",
    "terms": {
@@ -780,6 +1034,9 @@
   },
   {
    "power": "PIRATE COMMANDER",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Pirate",
    "terms": {
@@ -788,6 +1045,10 @@
   },
   {
    "power": "MIDNIGHT RAID",
+   "effects": [
+    "Reposition",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Pirate",
    "terms": {
@@ -798,6 +1059,9 @@
  "crypt-guardian": [
   {
    "power": "CURSE OF THE MUMMY",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Undead",
    "terms": {
@@ -806,6 +1070,9 @@
   },
   {
    "power": "ROYAL ESCORT",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Guard Hero",
    "terms": {
@@ -815,6 +1082,9 @@
   },
   {
    "power": "ROYAL ESCORT",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Queen Hero",
    "terms": {
@@ -826,6 +1096,9 @@
  "cxurggyath": [
   {
    "power": "ENSLAVE ENHANCEMENT",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "units",
    "label": "Enslave units",
    "ids": [
@@ -836,6 +1109,9 @@
  "darkprowl-thrall": [
   {
    "power": "MINDLESS PACK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Thrall",
    "terms": {
@@ -846,6 +1122,9 @@
  "deathcommander-mark-3": [
   {
    "power": "HEAVY SUPPORT COMMAND BEACON",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "large Soulborg Hero",
    "terms": {
@@ -858,6 +1137,9 @@
   },
   {
    "power": "HEAVY SUPPORT COMMAND BEACON",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Utgar",
    "terms": {
@@ -866,6 +1148,9 @@
   },
   {
    "power": "MARKED FOR DESTRUCTION",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Soulborg",
    "terms": {
@@ -874,6 +1159,9 @@
   },
   {
    "power": "MARKED FOR DESTRUCTION",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Utgar",
    "terms": {
@@ -884,6 +1172,9 @@
  "deathstrike-thrall": [
   {
    "power": "MINDLESS PACK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Thrall",
    "terms": {
@@ -894,6 +1185,9 @@
  "deathwalker-10000": [
   {
    "power": "PLATING OPTIMIZATION",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Unique Utgar Soulborg",
    "terms": {
@@ -906,6 +1200,9 @@
  "deathwalker-9000": [
   {
    "power": "RANGE ENHANCEMENT",
+   "effects": [
+    "Range boost"
+   ],
    "kind": "terms",
    "label": "Soulborg Guards (Range 4+)",
    "terms": {
@@ -918,6 +1215,11 @@
  "dr-harlan-eisen": [
   {
    "power": "PROTOTYPE INJECTION",
+   "effects": [
+    "Atk boost",
+    "Def boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Eisenek",
    "terms": {
@@ -926,6 +1228,11 @@
   },
   {
    "power": "PROTOTYPE INJECTION",
+   "effects": [
+    "Atk boost",
+    "Def boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Vorid",
    "terms": {
@@ -934,6 +1241,11 @@
   },
   {
    "power": "PROTOTYPE INJECTION",
+   "effects": [
+    "Atk boost",
+    "Def boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Scientist",
    "terms": {
@@ -944,6 +1256,9 @@
  "dr-torvik-morinstein": [
   {
    "power": "GRAVEROBBER",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Scientist",
    "terms": {
@@ -952,6 +1267,9 @@
   },
   {
    "power": "GRAVEROBBER",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Wizard",
    "terms": {
@@ -960,6 +1278,9 @@
   },
   {
    "power": "IT'S ALIVE!",
+   "effects": [
+    "Support"
+   ],
    "kind": "units",
    "label": "Morinstein's Masterpiece",
    "ids": [
@@ -970,6 +1291,9 @@
  "dr-valentina-lockhart": [
   {
    "power": "SCHEMES FROM SPACE",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Unique Revna",
    "terms": {
@@ -979,6 +1303,9 @@
   },
   {
    "power": "SCHEMES FROM SPACE",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Vydar",
    "terms": {
@@ -987,6 +1314,9 @@
   },
   {
    "power": "COORDINATED DEPLOYMENT 3",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Scout",
    "terms": {
@@ -995,6 +1325,9 @@
   },
   {
    "power": "COORDINATED DEPLOYMENT 3",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Scientist",
    "terms": {
@@ -1005,6 +1338,10 @@
  "dreadgul-raiders": [
   {
    "power": "WILD STRATEGIC BONDING",
+   "effects": [
+    "Bonding",
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Human",
    "terms": {
@@ -1013,6 +1350,10 @@
   },
   {
    "power": "WILD STRATEGIC BONDING",
+   "effects": [
+    "Bonding",
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Giant Hero",
    "terms": {
@@ -1024,6 +1365,9 @@
  "dreadnoughts-of-caraway-cavern": [
   {
    "power": "THE CAPTAIN'S WAY",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Unique Captain",
    "terms": {
@@ -1033,6 +1377,9 @@
   },
   {
    "power": "THE CAPTAIN'S WAY",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -1041,6 +1388,9 @@
   },
   {
    "power": "CAPTAIN'S ORDERS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Pirate Hero",
    "terms": {
@@ -1052,6 +1402,11 @@
  "drow-assassin": [
   {
    "power": "DROW AMBUSH",
+   "effects": [
+    "Bonding",
+    "Atk boost",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Common Drow",
    "terms": {
@@ -1061,6 +1416,10 @@
   },
   {
    "power": "SHADOW SHIFT",
+   "effects": [
+    "Reposition",
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "Drow",
    "terms": {
@@ -1071,6 +1430,10 @@
  "duke": [
   {
    "power": "YO, JOE!",
+   "effects": [
+    "Bonding",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Soldier Hero",
    "terms": {
@@ -1080,6 +1443,9 @@
   },
   {
    "power": "LEAD BY EXAMPLE",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Soldier",
    "terms": {
@@ -1090,6 +1456,9 @@
  "dumutef-guard": [
   {
    "power": "DEVOURER ATTACK ENHANCEMENT",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Devourer",
    "terms": {
@@ -1100,6 +1469,9 @@
  "durgeth-ravagers": [
   {
    "power": "SAVAGE CRY",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Savage Hero",
    "terms": {
@@ -1111,6 +1483,9 @@
  "ebon-armor": [
   {
    "power": "ANIMATED MATERIEL",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Unique Human",
    "terms": {
@@ -1120,6 +1495,9 @@
   },
   {
    "power": "ETERNAL WAR",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Unique Human Hero",
    "terms": {
@@ -1132,6 +1510,9 @@
  "elites-of-ullar": [
   {
    "power": "BLADE DANCE",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Unique Ullar Kyrie",
    "terms": {
@@ -1142,6 +1523,9 @@
   },
   {
    "power": "ULLAR'S PACT",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Kyrie Ullar",
    "terms": {
@@ -1153,6 +1537,9 @@
  "emirroon": [
   {
    "power": "ELVEN SUMMONING SPELL",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Elf",
    "terms": {
@@ -1163,6 +1550,9 @@
  "emperor-andask": [
   {
    "power": "KYRIE SUPREMACY",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Kyrie",
    "terms": {
@@ -1173,6 +1563,9 @@
  "empress-kiova": [
   {
    "power": "GIFT OF THE EMPRESS AURA",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Kyrie Einar",
    "terms": {
@@ -1184,6 +1577,9 @@
  "estivara": [
   {
    "power": "VENOM RAY SPECIAL ATTACK",
+   "effects": [
+    "Support"
+   ],
    "kind": "units",
    "label": "Venom",
    "ids": [
@@ -1192,6 +1588,9 @@
   },
   {
    "power": "LOLTH'S JUDGEMENT AURA",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Arachnid",
    "terms": {
@@ -1202,6 +1601,9 @@
  "ewashia-master-of-tides": [
   {
    "power": "COMMAND FAMILIAR",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium Beast",
    "terms": {
@@ -1216,6 +1618,9 @@
  "executioner-616": [
   {
    "power": "REMOTE DETONATION",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Soulborg",
    "terms": {
@@ -1226,6 +1631,10 @@
  "father-caylus": [
   {
    "power": "BRUTAL TASKMASTER",
+   "effects": [
+    "Atk boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Cleric",
    "terms": {
@@ -1236,6 +1645,10 @@
  "festering-honor-guard": [
   {
    "power": "MOTHERLESS RAGE",
+   "effects": [
+    "Atk boost",
+    "Order markers"
+   ],
    "kind": "units",
    "label": "Queen Maladrix the Conqueror",
    "ids": [
@@ -1244,6 +1657,10 @@
   },
   {
    "power": "MOTHERLESS RAGE",
+   "effects": [
+    "Atk boost",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Queen",
    "terms": {
@@ -1254,6 +1671,9 @@
  "flint": [
   {
    "power": "TACTICAL ACUMEN",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Soldier",
    "terms": {
@@ -1264,6 +1684,9 @@
  "frostclaw-paladins": [
   {
    "power": "JANDAR CHAMPION BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Champion Jandar",
    "terms": {
@@ -1275,6 +1698,9 @@
  "fyorlag-spiders": [
   {
    "power": "PREDATOR BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Predator",
    "terms": {
@@ -1285,6 +1711,9 @@
  "garrett-burns": [
   {
    "power": "FIGHT THE LAW",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Lawman",
    "terms": {
@@ -1295,6 +1724,10 @@
  "gelryie-vanguards": [
   {
    "power": "TIDAL ADVANCE",
+   "effects": [
+    "Reposition",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Fierce",
    "terms": {
@@ -1303,6 +1736,10 @@
   },
   {
    "power": "TIDAL ADVANCE",
+   "effects": [
+    "Reposition",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Unfathomable",
    "terms": {
@@ -1313,6 +1750,9 @@
  "gen-simon-fraser": [
   {
    "power": "PREPARE THE CHARGE",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Soldier",
    "terms": {
@@ -1323,6 +1763,9 @@
  "girushia-grove-keeper": [
   {
    "power": "COMMAND FAMILIAR",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium Beast",
    "terms": {
@@ -1343,7 +1786,10 @@
     "personality": "Valiant",
     "general": "Jandar",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   },
   {
    "power": "MIGHTY HERO BONDING",
@@ -1353,7 +1799,10 @@
     "personality": "Valiant",
     "general": "Utgar",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   },
   {
    "power": "MIGHTY HERO BONDING",
@@ -1363,7 +1812,10 @@
     "personality": "Relentless",
     "general": "Jandar",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   },
   {
    "power": "MIGHTY HERO BONDING",
@@ -1373,12 +1825,18 @@
     "personality": "Relentless",
     "general": "Utgar",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   }
  ],
  "goblin-slashers": [
   {
    "power": "YOU GOT THIS, BOSS!",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Goblin Hero",
    "terms": {
@@ -1390,6 +1848,9 @@
  "gorillitroopers": [
   {
    "power": "PRIMADON STRATEGIC ATTACK BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Primadon Hero",
    "terms": {
@@ -1398,20 +1859,12 @@
    }
   }
  ],
- "gothlok": [
-  {
-   "power": "VALKRILL CHARGE",
-   "kind": "terms",
-   "label": "Valkrill Valkyrie",
-   "terms": {
-    "general": "Valkrill",
-    "species": "Valkyrie"
-   }
-  }
- ],
  "grave-grim": [
   {
    "power": "GUIDE OF THE DEAD",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "small/medium/large Undead",
    "terms": {
@@ -1425,6 +1878,9 @@
   },
   {
    "power": "GUIDE OF THE DEAD",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Eisenek",
    "terms": {
@@ -1435,6 +1891,9 @@
  "greenscale-warriors": [
   {
    "power": "LOYALTY TO THE LIZARD KING",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Unique Lizardfolk Hero",
    "terms": {
@@ -1445,6 +1904,9 @@
   },
   {
    "power": "LOYALTY TO THE LIZARD KING",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Unique large/huge Dragon Hero",
    "terms": {
@@ -1461,6 +1923,9 @@
  "greenshirts": [
   {
    "power": "WHEREVER THERE'S TROUBLE",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Soldier Hero",
    "terms": {
@@ -1472,6 +1937,10 @@
  "grimnak": [
   {
    "power": "ORC WARRIOR ENHANCEMENT",
+   "effects": [
+    "Atk boost",
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Orc Warrior",
    "terms": {
@@ -1483,6 +1952,9 @@
  "grok-riders": [
   {
    "power": "MARRO WARLORD BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Marro Warlord",
    "terms": {
@@ -1492,6 +1964,9 @@
   },
   {
    "power": "MARK OF THE WARLORD",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Marro Warlord",
    "terms": {
@@ -1503,6 +1978,9 @@
  "guilty-mccreech-20": [
   {
    "power": "DEPUTIZE",
+   "effects": [
+    "Class link"
+   ],
    "kind": "terms",
    "label": "Sniper",
    "terms": {
@@ -1511,6 +1989,9 @@
   },
   {
    "power": "DEPUTIZE",
+   "effects": [
+    "Class link"
+   ],
    "kind": "terms",
    "label": "Einar",
    "terms": {
@@ -1519,6 +2000,9 @@
   },
   {
    "power": "DEPUTIZE",
+   "effects": [
+    "Class link"
+   ],
    "kind": "terms",
    "label": "Volarak",
    "terms": {
@@ -1527,6 +2011,9 @@
   },
   {
    "power": "LONG ARM OF THE LAW",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Unique Lawman Hero",
    "terms": {
@@ -1539,6 +2026,9 @@
  "haduc": [
   {
    "power": "AEGIS OF THE CRIMSON SIGIL",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Elf Wizard",
    "terms": {
@@ -1548,6 +2038,9 @@
   },
   {
    "power": "ELVEN SUPREMACY",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Elf",
    "terms": {
@@ -1558,6 +2051,9 @@
  "haluchott-corruptor-of-beasts": [
   {
    "power": "COMMAND OF THE WILD",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium/large Beast",
    "terms": {
@@ -1571,6 +2067,9 @@
   },
   {
    "power": "CALM THE BEAST",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Beast",
    "terms": {
@@ -1581,6 +2080,9 @@
  "halushia-scion-of-the-wild": [
   {
    "power": "COMMAND FAMILIAR",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium Beast",
    "terms": {
@@ -1595,6 +2097,9 @@
  "hatamoto-taro-10": [
   {
    "power": "HEROIC DEFENSE AURA",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Samurai",
    "terms": {
@@ -1603,6 +2108,9 @@
   },
   {
    "power": "HEROIC DEFENSE AURA",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Ashigaru",
    "terms": {
@@ -1611,6 +2119,10 @@
   },
   {
    "power": "ADJACENT TOUGH 1",
+   "effects": [
+    "Def boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Einar",
    "terms": {
@@ -1621,6 +2133,9 @@
  "hatamoto-taro-20": [
   {
    "power": "STALWART DEFENSE AURA",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Einar",
    "terms": {
@@ -1629,6 +2144,9 @@
   },
   {
    "power": "ADJACENT EINAR RESOLVE 1",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Einar",
    "terms": {
@@ -1639,6 +2157,9 @@
  "head-of-hrungnir": [
   {
    "power": "UNITED BODY",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Relic",
    "terms": {
@@ -1647,6 +2168,9 @@
   },
   {
    "power": "GIANT EVIL EYE",
+   "effects": [
+    "Retaliation"
+   ],
    "kind": "terms",
    "label": "Relic",
    "terms": {
@@ -1657,6 +2181,9 @@
  "head-warden-lermek": [
   {
    "power": "GUARDS! GUARDS!",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Guards",
    "terms": {
@@ -1667,6 +2194,9 @@
  "heart-of-hrungnir": [
   {
    "power": "THUNDEROUS HEARRTBEAT SPECIAL ATTACK",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Relic",
    "terms": {
@@ -1675,6 +2205,9 @@
   },
   {
    "power": "BOUND BY THE OLD MAGIC",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Relic",
    "terms": {
@@ -1685,6 +2218,9 @@
  "heavy-gruts": [
   {
    "power": "ORC CHAMPION BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Orc Champion",
    "terms": {
@@ -1696,6 +2232,9 @@
  "hellforge-mandukor": [
   {
    "power": "EISENEK ADVANCE",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Eisenek",
    "terms": {
@@ -1709,6 +2248,9 @@
    "terms": {
     "species": "Eisenek"
    },
+   "effects": [
+    "Healing"
+   ],
    "reverse": true
   },
   {
@@ -1718,12 +2260,18 @@
    "terms": {
     "species": "Soulborg"
    },
+   "effects": [
+    "Healing"
+   ],
    "reverse": true
   }
  ],
  "honor-guard-of-the-blasted-lands": [
   {
    "power": "ARC LANCES",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Guards",
    "terms": {
@@ -1732,6 +2280,9 @@
   },
   {
    "power": "ARC LANCES",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Guard",
    "terms": {
@@ -1740,6 +2291,9 @@
   },
   {
    "power": "PROTECTIVE REPOSITIONING",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Guard",
    "terms": {
@@ -1748,6 +2302,9 @@
   },
   {
    "power": "PROTECTIVE REPOSITIONING",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Guards",
    "terms": {
@@ -1758,6 +2315,9 @@
  "hoplitron": [
   {
    "power": "MELEE SOULBORG BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Soulborg Hero",
    "terms": {
@@ -1769,6 +2329,9 @@
  "horned-skull-brutes": [
   {
    "power": "EXPENDABLE RABBLE",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "small Goblin",
    "terms": {
@@ -1782,6 +2345,10 @@
  "hrognak-10": [
   {
    "power": "ORC MOVEMENT AURA",
+   "effects": [
+    "Move boost",
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Orc",
    "terms": {
@@ -1792,6 +2359,10 @@
  "hrognak-20": [
   {
    "power": "ORC MOVEMENT AURA",
+   "effects": [
+    "Move boost",
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Orc",
    "terms": {
@@ -1802,6 +2373,10 @@
  "iron-lich-viscerot": [
   {
    "power": "VILE INJECTION",
+   "effects": [
+    "Atk boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Eisenek",
    "terms": {
@@ -1810,6 +2385,9 @@
   },
   {
    "power": "IRONCLAD PUPPETEER",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Eisenek Hero",
    "terms": {
@@ -1822,6 +2400,10 @@
  "iskra-esenwein": [
   {
    "power": "SUMMON THE RECHETS OF BOGDAN",
+   "effects": [
+    "Bonding",
+    "Revive"
+   ],
    "kind": "units",
    "label": "Rechets of Bogdan",
    "ids": [
@@ -1832,6 +2414,9 @@
  "jeanne-darc-vc": [
   {
    "power": "JEANNE'S COMMAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Human Knight",
    "terms": {
@@ -1842,6 +2427,9 @@
   },
   {
    "power": "JEANNE'S COMMAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Fighter",
    "terms": {
@@ -1850,6 +2438,10 @@
   },
   {
    "power": "LOYAL ENHANCEMENT",
+   "effects": [
+    "Atk boost",
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Loyal",
    "terms": {
@@ -1860,6 +2452,9 @@
  "jim-whitecloud": [
   {
    "power": "LAW OF THE LAND",
+   "effects": [
+    "Class link"
+   ],
    "kind": "terms",
    "label": "Lawman",
    "terms": {
@@ -1868,6 +2463,9 @@
   },
   {
    "power": "LAW OF THE LAND",
+   "effects": [
+    "Class link"
+   ],
    "kind": "terms",
    "label": "Outlaw",
    "terms": {
@@ -1878,6 +2476,9 @@
  "jinx-and-kamakura": [
   {
    "power": "LEARN FROM THE MASTER",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Ninja Hero",
    "terms": {
@@ -1887,6 +2488,9 @@
   },
   {
    "power": "COORDINATED TAKEDOWN",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Ninja",
    "terms": {
@@ -1897,6 +2501,10 @@
  "jorhdawn": [
   {
    "power": "RAIN OF FLAME SPECIAL ATTACK",
+   "effects": [
+    "Atk boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Elf Wizard",
    "terms": {
@@ -1908,6 +2516,9 @@
  "kaijaax": [
   {
    "power": "SCAVENGER MOVEMENT COORDINATION",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Scavenger",
    "terms": {
@@ -1918,6 +2529,9 @@
  "kantono-daishi": [
   {
    "power": "DISHONORABLE LEADERSHIP",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Ninja Squad",
    "terms": {
@@ -1927,6 +2541,9 @@
   },
   {
    "power": "DISHONORABLE LEADERSHIP",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Ninja Hero",
    "terms": {
@@ -1938,6 +2555,9 @@
  "kato-katsuro-10": [
   {
    "power": "KATO KATSURO'S COMMAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "units",
    "label": "Ashigaru Harquebus",
    "ids": [
@@ -1946,6 +2566,9 @@
   },
   {
    "power": "KATO KATSURO'S COMMAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "units",
    "label": "Ashigaru Yari",
    "ids": [
@@ -1954,6 +2577,9 @@
   },
   {
    "power": "KATO KATSURO'S COMMAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Samurai Hero",
    "terms": {
@@ -1963,6 +2589,9 @@
   },
   {
    "power": "KATO KATSURO'S COMMAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Samurai Squad",
    "terms": {
@@ -1974,6 +2603,9 @@
  "kato-katsuro-20": [
   {
    "power": "DAIMYO'S COMMAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Samurai",
    "terms": {
@@ -1985,6 +2617,9 @@
  "kee-mo-shi": [
   {
    "power": "TOXIC SKIN",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Soulborg",
    "terms": {
@@ -1995,6 +2630,9 @@
  "khosumet-the-darklord": [
   {
    "power": "RELENTLESS ASSAULT",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Relentless",
    "terms": {
@@ -2003,6 +2641,9 @@
   },
   {
    "power": "UNLEASHED FURY ENHANCEMENT",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "units",
    "label": "Unleashed Fury units",
    "ids": [
@@ -2013,6 +2654,9 @@
  "knaves-of-the-silver-scimitar": [
   {
    "power": "THE CAPTAIN'S WAY",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Unique Captain",
    "terms": {
@@ -2022,6 +2666,9 @@
   },
   {
    "power": "THE CAPTAIN'S WAY",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -2030,6 +2677,9 @@
   },
   {
    "power": "CAPTAIN'S ORDERS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -2038,6 +2688,9 @@
   },
   {
    "power": "CAPTAIN'S ORDERS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Pirate Hero",
    "terms": {
@@ -2049,6 +2702,9 @@
  "knights-of-blackgaard": [
   {
    "power": "RELENTLESS ARMY ATTACK BONUS",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Relentless",
    "terms": {
@@ -2059,6 +2715,9 @@
  "knights-of-scaeda": [
   {
    "power": "DRACONIC STRATEGIC BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium/large Dragon",
    "terms": {
@@ -2072,6 +2731,9 @@
   },
   {
    "power": "DRACONIC STRATEGIC BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Dragonborn Hero",
    "terms": {
@@ -2083,6 +2745,9 @@
  "knights-of-weston": [
   {
    "power": "HUMAN CHAMPION BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Human Champion",
    "terms": {
@@ -2094,6 +2759,10 @@
  "kolbjorn": [
   {
    "power": "FEARSOME STALKER",
+   "effects": [
+    "Reposition",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Tribesman",
    "terms": {
@@ -2102,6 +2771,9 @@
   },
   {
    "power": "CALL TO THE HUNT",
+   "effects": [
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Hunter",
    "terms": {
@@ -2112,6 +2784,9 @@
  "kurrok-the-elementalist": [
   {
    "power": "SUMMON ELEMENTAL",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "small/medium Elemental",
    "terms": {
@@ -2124,6 +2799,9 @@
   },
   {
    "power": "MASTER OF THE ELEMENTS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium Elemental",
    "terms": {
@@ -2138,6 +2816,10 @@
  "kuthnak": [
   {
    "power": "INCANTATION OF BOILING BLOOD",
+   "effects": [
+    "Atk boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Common Orc Squad",
    "terms": {
@@ -2150,6 +2832,9 @@
  "kyntela-gwyn": [
   {
    "power": "STRENGTH OF OAK AURA 1",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Elf",
    "terms": {
@@ -2160,6 +2845,9 @@
  "laglor": [
   {
    "power": "VYDAR'S RANGE ENHANCEMENT AURA",
+   "effects": [
+    "Range boost"
+   ],
    "kind": "terms",
    "label": "Vydar (Range 4+)",
    "terms": {
@@ -2171,6 +2859,9 @@
  "loviatak-the-kyrie-warrior": [
   {
    "power": "BRUTALITY AURA",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Kyrie Warrior",
    "terms": {
@@ -2180,6 +2871,9 @@
   },
   {
    "power": "DYNASTIC LEADERSHIP",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Unique Kyrie Utgar",
    "terms": {
@@ -2190,6 +2884,9 @@
   },
   {
    "power": "DYNASTIC LEADERSHIP",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Utgar",
    "terms": {
@@ -2200,6 +2897,9 @@
  "m-43-resistance-fighters": [
   {
    "power": "GUERRILLA TACTICS",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Mariedian",
    "terms": {
@@ -2210,6 +2910,9 @@
  "macdirk-warriors": [
   {
    "power": "HIGHLAND FURY",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Human Champion",
    "terms": {
@@ -2219,6 +2922,9 @@
   },
   {
    "power": "HUMAN CHAMPION BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Human Champion",
    "terms": {
@@ -2230,6 +2936,9 @@
  "maekor": [
   {
    "power": "LIZARDFOLK WAR CRY",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Lizardfolk Hero",
    "terms": {
@@ -2240,6 +2949,9 @@
   },
   {
    "power": "MERCENARY DEFENSIVE FORMATION",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Mercenary",
    "terms": {
@@ -2250,6 +2962,9 @@
  "makwa-tribesman": [
   {
    "power": "HUNT OF THE MAKWA",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Hunter",
    "terms": {
@@ -2260,6 +2975,9 @@
  "marachott-mind-whisperer": [
   {
    "power": "COMMAND FAMILIAR",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium Beast",
    "terms": {
@@ -2274,6 +2992,9 @@
  "marcus-decimus-gallus": [
   {
    "power": "SOLDIER LEADERSHIP",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Soldier",
    "terms": {
@@ -2282,6 +3003,9 @@
   },
   {
    "power": "SOLDIER ATTACK ENHANCEMENT",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Soldier",
    "terms": {
@@ -2292,6 +3016,9 @@
  "mariedian-resistance": [
   {
    "power": "MARIEDIAN TARGETING",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Mariedian",
    "terms": {
@@ -2300,6 +3027,9 @@
   },
   {
    "power": "GUERRILLA DEFENSE",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Soldier",
    "terms": {
@@ -2310,6 +3040,10 @@
  "marrden-nagrubs": [
   {
    "power": "HIVELORD LIFE BONDING",
+   "effects": [
+    "Bonding",
+    "Healing"
+   ],
    "kind": "terms",
    "label": "Hivelord",
    "terms": {
@@ -2320,6 +3054,9 @@
  "marro-hive": [
   {
    "power": "HIVE MIND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Common small/medium Marro Squad",
    "terms": {
@@ -2334,6 +3071,9 @@
   },
   {
    "power": "MARRO REBIRTH",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Common Marro Squad",
    "terms": {
@@ -2346,6 +3086,10 @@
  "masha-shingai": [
   {
    "power": "FIERY RETRIBUTION 13",
+   "effects": [
+    "Wound save",
+    "Retaliation"
+   ],
    "kind": "terms",
    "label": "Samurai",
    "terms": {
@@ -2354,6 +3098,10 @@
   },
   {
    "power": "FIERY RETRIBUTION 13",
+   "effects": [
+    "Wound save",
+    "Retaliation"
+   ],
    "kind": "terms",
    "label": "Yokai",
    "terms": {
@@ -2364,6 +3112,9 @@
  "master-lao-xin": [
   {
    "power": "SIFU",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Monk Hero",
    "terms": {
@@ -2373,6 +3124,9 @@
   },
   {
    "power": "SIFU",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Monk Squad",
    "terms": {
@@ -2384,6 +3138,9 @@
  "master-win-chiu-woo": [
   {
    "power": "MASTER'S INFLUENCE",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "units",
    "label": "Stealth Leap units",
    "ids": [
@@ -2396,6 +3153,9 @@
   },
   {
    "power": "MASTER'S INFLUENCE",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Monk Squad",
    "terms": {
@@ -2405,6 +3165,9 @@
   },
   {
    "power": "MASTER'S INFLUENCE",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Monk",
    "terms": {
@@ -2415,6 +3178,9 @@
  "mellifera": [
   {
    "power": "FRENZIED SWARM 14",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Common Insect",
    "terms": {
@@ -2426,6 +3192,9 @@
  "millerson": [
   {
    "power": "HONOR AMONG THIEVES",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Rogue",
    "terms": {
@@ -2436,6 +3205,9 @@
  "minions-of-utgar": [
   {
    "power": "UTGAR'S ORDERS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Kyrie Warrior Utgar",
    "terms": {
@@ -2448,6 +3220,9 @@
  "misaerx-the-kyrie-warrior": [
   {
    "power": "LIFE DRAIN SPIRIT",
+   "effects": [
+    "Spirit"
+   ],
    "kind": "terms",
    "label": "Unique Warrior Revna",
    "terms": {
@@ -2460,6 +3235,9 @@
  "mohican-river-tribe": [
   {
    "power": "BATTLE FURY",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Tribesman",
    "terms": {
@@ -2468,6 +3246,9 @@
   },
   {
    "power": "WAR CRY",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Tribesman",
    "terms": {
@@ -2476,6 +3257,9 @@
   },
   {
    "power": "WAR CRY",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Tribesman Hero",
    "terms": {
@@ -2486,6 +3270,9 @@
   },
   {
    "power": "CONCEALMENT 19",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Tribesman",
    "terms": {
@@ -2496,6 +3283,9 @@
  "mok": [
   {
    "power": "DWARVEN GUNNERS",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Dwarf Squad",
    "terms": {
@@ -2505,6 +3295,9 @@
   },
   {
    "power": "DWARVEN GUNNERS",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Dwarf",
    "terms": {
@@ -2513,6 +3306,9 @@
   },
   {
    "power": "GUNNER CASUALTIES",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Dwarf",
    "terms": {
@@ -2521,6 +3317,9 @@
   },
   {
    "power": "GUNNER SPECIAL ATTACK",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Dwarf",
    "terms": {
@@ -2531,6 +3330,9 @@
  "morgans-riflemen": [
   {
    "power": "VALIANT ARMY DEFENSE BONUS",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Valiant",
    "terms": {
@@ -2541,6 +3343,9 @@
  "morgoloth": [
   {
    "power": "SWARMING VERMIN",
+   "effects": [
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "Utgar",
    "terms": {
@@ -2549,6 +3354,9 @@
   },
   {
    "power": "SWARMING VERMIN",
+   "effects": [
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "Valkrill",
    "terms": {
@@ -2557,6 +3365,9 @@
   },
   {
    "power": "DEMON LEADERSHIP",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Demon",
    "terms": {
@@ -2567,6 +3378,9 @@
  "morinsteins-masterpiece": [
   {
    "power": "UNBELIEVABLE RAGE",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Scientist",
    "terms": {
@@ -2575,6 +3389,9 @@
   },
   {
    "power": "UNBELIEVABLE RAGE",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Wizard Hero",
    "terms": {
@@ -2586,6 +3403,9 @@
  "nakita-agents": [
   {
    "power": "GORILLINATOR MOVEMENT BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "units",
    "label": "Gorillinators",
    "ids": [
@@ -2596,6 +3416,9 @@
  "necrotech-reavers": [
   {
    "power": "NECROTIC NETWORK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Eisenek Hero",
    "terms": {
@@ -2605,6 +3428,9 @@
   },
   {
    "power": "SCAVENGED PARTS",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Common medium Eisenek Hero",
    "terms": {
@@ -2624,12 +3450,18 @@
    "label": "Orc",
    "terms": {
     "species": "Orc"
-   }
+   },
+   "effects": [
+    "Def boost"
+   ]
   }
  ],
  "nhah-scirh-cultists": [
   {
    "power": "DRAGONKIND ENMITY",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Dragon",
    "terms": {
@@ -2640,6 +3472,10 @@
  "nicholas-esenwein": [
   {
    "power": "BLOODBORN RISING",
+   "effects": [
+    "Healing",
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Thrall",
    "terms": {
@@ -2650,6 +3486,9 @@
  "nishi-souta": [
   {
    "power": "SAMURAI HERO BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Samurai Hero",
    "terms": {
@@ -2659,6 +3498,9 @@
   },
   {
    "power": "CALL FOR BACKUP",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Lawman Hero",
    "terms": {
@@ -2670,6 +3512,9 @@
  "nottingham-brigand": [
   {
    "power": "ROGUE HERO BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Rogue Hero",
    "terms": {
@@ -2681,6 +3526,9 @@
  "oberon": [
   {
    "power": "SEELIE KING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Dwarf",
    "terms": {
@@ -2690,6 +3538,9 @@
   },
   {
    "power": "SEELIE KING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Elf",
    "terms": {
@@ -2698,6 +3549,9 @@
   },
   {
    "power": "SEELIE KING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Fey",
    "terms": {
@@ -2706,6 +3560,10 @@
   },
   {
    "power": "WELCOME, WANDERER",
+   "effects": [
+    "Reposition",
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "Dwarf",
    "terms": {
@@ -2714,6 +3572,10 @@
   },
   {
    "power": "WELCOME, WANDERER",
+   "effects": [
+    "Reposition",
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "Elf",
    "terms": {
@@ -2722,6 +3584,10 @@
   },
   {
    "power": "WELCOME, WANDERER",
+   "effects": [
+    "Reposition",
+    "Mobility"
+   ],
    "kind": "terms",
    "label": "Fey",
    "terms": {
@@ -2732,6 +3598,9 @@
  "omegacron": [
   {
    "power": "OMNICRON MOBILIZATION",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Soulborg Jandar",
    "terms": {
@@ -2741,6 +3610,9 @@
   },
   {
    "power": "DIRECTED FIRE",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Soulborg Squad",
    "terms": {
@@ -2750,6 +3622,9 @@
   },
   {
    "power": "DIRECTED FIRE",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Jandar",
    "terms": {
@@ -2760,6 +3635,9 @@
  "omnicron-repulsors": [
   {
    "power": "CIRCUITRY OVERLOAD",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Soulborg",
    "terms": {
@@ -2768,6 +3646,9 @@
   },
   {
    "power": "TARGETING BEACON",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Soulborg Jandar",
    "terms": {
@@ -2777,6 +3658,9 @@
   },
   {
    "power": "EMP RESPONSE",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Soulborg",
    "terms": {
@@ -2787,6 +3671,9 @@
  "orangunators": [
   {
    "power": "HEIMDALL STATION COORDINATORS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Agent",
    "terms": {
@@ -2795,6 +3682,9 @@
   },
   {
    "power": "HEIMDALL STATION COORDINATORS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Scientist Hero",
    "terms": {
@@ -2806,6 +3696,9 @@
  "ornak": [
   {
    "power": "RED FLAG OF FURY AURA",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Utgar",
    "terms": {
@@ -2814,6 +3707,9 @@
   },
   {
    "power": "ORC BATTLE CRY AURA",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Orc Warrior",
    "terms": {
@@ -2825,6 +3721,10 @@
  "otonashi": [
   {
    "power": "TRICKY SPEED 4",
+   "effects": [
+    "Move boost",
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Tricky",
    "terms": {
@@ -2835,6 +3735,9 @@
  "parmenio": [
   {
    "power": "SACRED BAND DEFY DEATH 15",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "units",
    "label": "Sacred Band",
    "ids": [
@@ -2845,6 +3748,9 @@
  "pelloth": [
   {
    "power": "LOLTH'S WRATH SPECIAL ATTACK",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Drow",
    "terms": {
@@ -2855,6 +3761,9 @@
  "preyblood-thrall": [
   {
    "power": "MINDLESS PACK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Thrall",
    "terms": {
@@ -2865,6 +3774,9 @@
  "priscus": [
   {
    "power": "TASTE OF FREEDOM",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Gladiator",
    "terms": {
@@ -2875,6 +3787,9 @@
  "quasatch-hunters": [
   {
    "power": "TECHNO HATRED",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Soulborg",
    "terms": {
@@ -2885,6 +3800,9 @@
  "queen-maladrix-the-conqueror": [
   {
    "power": "FESTERING HONOR GUARD BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "units",
    "label": "Festering Honor Guard",
    "ids": [
@@ -2893,6 +3811,9 @@
   },
   {
    "power": "INFESTATION 9",
+   "effects": [
+    "Revive"
+   ],
    "kind": "units",
    "label": "Festering Honor Guard",
    "ids": [
@@ -2903,6 +3824,9 @@
  "raakchott-steward-of-death": [
   {
    "power": "COMMAND FAMILIAR",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium Beast",
    "terms": {
@@ -2917,6 +3841,11 @@
  "ranjit-singh": [
   {
    "power": "LION OF PUNJAB",
+   "effects": [
+    "Atk boost",
+    "Move boost",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Valkyrie",
    "terms": {
@@ -2927,6 +3856,9 @@
  "rechets-of-bogdan": [
   {
    "power": "ISKRA'S SUMMONING",
+   "effects": [
+    "Revive"
+   ],
    "kind": "units",
    "label": "Iskra Esenwein",
    "ids": [
@@ -2937,6 +3869,9 @@
  "red-mantis-blade-dancers": [
   {
    "power": "STEALTH LEAP",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Blade Dancer",
    "terms": {
@@ -2947,6 +3882,9 @@
  "red-wyrmling": [
   {
    "power": "WYRMLING BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Wyrmling",
    "terms": {
@@ -2957,6 +3895,10 @@
  "revenants-of-revna": [
   {
    "power": "BLOOD FOR BLOOD",
+   "effects": [
+    "Atk boost",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Warrior",
    "terms": {
@@ -2965,6 +3907,10 @@
   },
   {
    "power": "BLOOD FOR BLOOD",
+   "effects": [
+    "Atk boost",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Scourge Revna",
    "terms": {
@@ -2974,6 +3920,9 @@
   },
   {
    "power": "OCCULT BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Warrior",
    "terms": {
@@ -2982,6 +3931,9 @@
   },
   {
    "power": "OCCULT BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Scourge Revna",
    "terms": {
@@ -2993,6 +3945,9 @@
  "revnan-acolytes": [
   {
    "power": "HERO WORSHIP",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Revna",
    "terms": {
@@ -3001,6 +3956,9 @@
   },
   {
    "power": "RISEN BY REVNA",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Revna",
    "terms": {
@@ -3011,6 +3969,9 @@
  "roman-legionnaires": [
   {
    "power": "WARLORD BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Warlord",
    "terms": {
@@ -3021,6 +3982,9 @@
  "sacred-band": [
   {
    "power": "EINAR WARLORD BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Warlord Einar",
    "terms": {
@@ -3030,6 +3994,10 @@
   },
   {
    "power": "DISCIPLINED ARMY DEFENSE BONUS",
+   "effects": [
+    "Def boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Disciplined",
    "terms": {
@@ -3040,6 +4008,9 @@
  "scarlett": [
   {
    "power": "NOW YOU KNOW",
+   "effects": [
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Soldier",
    "terms": {
@@ -3056,7 +4027,10 @@
     "unitClass": "Archmage",
     "rarity": "Unique",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   },
   {
    "power": "CLEAVE TO THE MIGHTY",
@@ -3066,7 +4040,10 @@
     "species": "Dragon",
     "rarity": "Unique",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   },
   {
    "power": "CLEAVE TO THE MIGHTY",
@@ -3076,7 +4053,10 @@
     "unitClass": "King",
     "rarity": "Unique",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   },
   {
    "power": "CLEAVE TO THE MIGHTY",
@@ -3086,12 +4066,18 @@
     "unitClass": "Queen",
     "rarity": "Unique",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   }
  ],
  "shadow-fiend": [
   {
    "power": "SHADOW SWOOP",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Shadow",
    "terms": {
@@ -3102,6 +4088,10 @@
  "shadow-hound": [
   {
    "power": "SHADOW HUNTING",
+   "effects": [
+    "Atk boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Shadow",
    "terms": {
@@ -3112,6 +4102,9 @@
  "shadow-wraith": [
   {
    "power": "SHADOW PHASE",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Shadow",
    "terms": {
@@ -3120,6 +4113,9 @@
   },
   {
    "power": "DEEPENED SHADOWS",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Shadow",
    "terms": {
@@ -3130,6 +4126,10 @@
  "sir-dupuis": [
   {
    "power": "KNIGHT'S COURAGE",
+   "effects": [
+    "Atk boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Knight",
    "terms": {
@@ -3140,6 +4140,9 @@
  "sir-gilbert": [
   {
    "power": "JANDAR'S DISPATCH",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Jandar",
    "terms": {
@@ -3150,6 +4153,10 @@
  "sir-orrick": [
   {
    "power": "A BROTHER'S CALL",
+   "effects": [
+    "Move boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Human Jandar",
    "terms": {
@@ -3161,6 +4168,9 @@
  "skeletons-of-annellintia": [
   {
    "power": "NECROMANCY",
+   "effects": [
+    "Revive"
+   ],
    "kind": "units",
    "label": "Duke",
    "ids": [
@@ -3169,6 +4179,9 @@
   },
   {
    "power": "NECROMANCY",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Unique Lord",
    "terms": {
@@ -3178,6 +4191,9 @@
   },
   {
    "power": "NECROMANCY",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Lady",
    "terms": {
@@ -3186,6 +4202,9 @@
   },
   {
    "power": "NECROMANCY",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Duchess",
    "terms": {
@@ -3196,6 +4215,9 @@
  "skordyre-infantry": [
   {
    "power": "PHEROMONE COORDINATION",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Skordyre",
    "terms": {
@@ -3204,6 +4226,9 @@
   },
   {
    "power": "PHEROMONE COORDINATION",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Insect",
    "terms": {
@@ -3212,6 +4237,9 @@
   },
   {
    "power": "TEEMING",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Common Skordyre",
    "terms": {
@@ -3221,6 +4249,9 @@
   },
   {
    "power": "TEEMING",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Insect",
    "terms": {
@@ -3229,6 +4260,9 @@
   },
   {
    "power": "TEEMING",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Skordyre Soldier",
    "terms": {
@@ -3238,6 +4272,9 @@
   },
   {
    "power": "INSECTOID SWARM",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Skordyre",
    "terms": {
@@ -3246,6 +4283,9 @@
   },
   {
    "power": "INSECTOID SWARM",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Insect",
    "terms": {
@@ -3256,6 +4296,9 @@
  "skull-demon": [
   {
    "power": "VALKRILL ATTACK AURA 1",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Valkrill",
    "terms": {
@@ -3266,6 +4309,9 @@
  "sonya-esenwein": [
   {
    "power": "ETERNAL STRENGH",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "units",
    "label": "Cyprien Esenwein",
    "ids": [
@@ -3274,6 +4320,9 @@
   },
   {
    "power": "ETERNAL HEARTBREAK",
+   "effects": [
+    "Support"
+   ],
    "kind": "units",
    "label": "Cyprien Esenwein",
    "ids": [
@@ -3284,6 +4333,10 @@
  "soontir-van": [
   {
    "power": "MARIEDIAN MOVE ENHANCEMENT",
+   "effects": [
+    "Move boost",
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Mariedian",
    "terms": {
@@ -3294,6 +4347,10 @@
  "spartacus": [
   {
    "power": "GLADIATOR INSPIRATION",
+   "effects": [
+    "Atk boost",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Gladiator",
    "terms": {
@@ -3304,6 +4361,9 @@
  "su-bak-na": [
   {
    "power": "HIVE SUPREMACY",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Marro",
    "terms": {
@@ -3312,6 +4372,9 @@
   },
   {
    "power": "HIVE SUPREMACY",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "terms",
    "label": "Wulsinu",
    "terms": {
@@ -3322,6 +4385,9 @@
  "sudema-20": [
   {
    "power": "QUEEN OF THE CRYPT",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Undead",
    "terms": {
@@ -3330,6 +4396,9 @@
   },
   {
    "power": "QUEEN OF THE CRYPT",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Eisenek Hero",
    "terms": {
@@ -3339,6 +4408,9 @@
   },
   {
    "power": "QUEEN OF THE CRYPT",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Eisenek",
    "terms": {
@@ -3349,6 +4421,10 @@
  "swog-rider": [
   {
    "power": "ORC ARCHER ENHANCEMENT",
+   "effects": [
+    "Atk boost",
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Orc Archer",
    "terms": {
@@ -3360,6 +4436,9 @@
  "taelord-the-kyrie-warrior-20": [
   {
    "power": "ONSLAUGHT AURA",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Gladiator",
    "terms": {
@@ -3370,6 +4449,9 @@
  "talingul": [
   {
    "power": "MASTER OF GREAT CONSTRUCTS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "large/huge Construct Hero",
    "terms": {
@@ -3385,6 +4467,9 @@
  "tanuki-tricksters": [
   {
    "power": "TANUKI ARUKI",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "small/medium Vorid",
    "terms": {
@@ -3397,6 +4482,9 @@
   },
   {
    "power": "TANUKI ARUKI",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Ninja",
    "terms": {
@@ -3407,6 +4495,9 @@
  "teeth-of-the-makwa": [
   {
    "power": "HUNTING PARTY",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Scout",
    "terms": {
@@ -3415,6 +4506,9 @@
   },
   {
    "power": "HUNTING PARTY",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Tribesman Hero",
    "terms": {
@@ -3426,6 +4520,9 @@
  "the-alder-knights": [
   {
    "power": "OATH OF PROTECTION 9",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Unique Knight",
    "terms": {
@@ -3435,6 +4532,9 @@
   },
   {
    "power": "OATH OF PROTECTION 9",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Fighter",
    "terms": {
@@ -3443,6 +4543,9 @@
   },
   {
    "power": "OATH OF PROTECTION 9",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Knight",
    "terms": {
@@ -3453,6 +4556,10 @@
  "the-axegrinders-of-burning-forge": [
   {
    "power": "DWARVEN STRATEGIC BONDING",
+   "effects": [
+    "Bonding",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Dwarf Hero",
    "terms": {
@@ -3464,6 +4571,9 @@
  "the-einar-imperium": [
   {
    "power": "STEALTH FLYING",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Einar",
    "terms": {
@@ -3474,6 +4584,10 @@
  "the-eisen-expedition": [
   {
    "power": "EXPEDITIONARY FORCE",
+   "effects": [
+    "Bonding",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Vorid",
    "terms": {
@@ -3482,6 +4596,10 @@
   },
   {
    "power": "EXPEDITIONARY FORCE",
+   "effects": [
+    "Bonding",
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Scientist Hero",
    "terms": {
@@ -3493,6 +4611,9 @@
  "the-kraken": [
   {
    "power": "SUMMON THE KRAKEN",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Unfathomable Hero",
    "terms": {
@@ -3502,6 +4623,9 @@
   },
   {
    "power": "COMMAND THE KRAKEN",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Unfathomable Hero",
    "terms": {
@@ -3513,6 +4637,9 @@
  "the-varja": [
   {
    "power": "LIVING STORM",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Varja",
    "terms": {
@@ -3523,6 +4650,9 @@
  "thormun": [
   {
    "power": "PIRATE KING",
+   "effects": [
+    "Class link"
+   ],
    "kind": "terms",
    "label": "Pirate",
    "terms": {
@@ -3531,6 +4661,9 @@
   },
   {
    "power": "PIRATE KING",
+   "effects": [
+    "Class link"
+   ],
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -3539,6 +4672,9 @@
   },
   {
    "power": "PIRATE KING",
+   "effects": [
+    "Class link"
+   ],
    "kind": "terms",
    "label": "King",
    "terms": {
@@ -3549,6 +4685,9 @@
  "thunderhoof-cavalry": [
   {
    "power": "GALLANT BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Knight",
    "terms": {
@@ -3557,6 +4696,9 @@
   },
   {
    "power": "GALLANT BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Dwarf Hero",
    "terms": {
@@ -3566,6 +4708,10 @@
   },
   {
    "power": "DWARVEN FURY",
+   "effects": [
+    "Atk boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Dwarf Hero",
    "terms": {
@@ -3575,6 +4721,10 @@
   },
   {
    "power": "KNIGHT'S VALOR",
+   "effects": [
+    "Def boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Knight Hero",
    "terms": {
@@ -3586,6 +4736,9 @@
  "tomb-skeleton-archers": [
   {
    "power": "SKELETAL FORM",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Wizard (Range 4+)",
    "terms": {
@@ -3597,6 +4750,9 @@
  "tomb-skeletons": [
   {
    "power": "SKELETAL FORM",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Wizard (Range 4+)",
    "terms": {
@@ -3608,6 +4764,9 @@
  "tombstone-gunslinger": [
   {
    "power": "OUTLAW BAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Outlaw Hero",
    "terms": {
@@ -3618,6 +4777,9 @@
   },
   {
    "power": "OUTLAW BAND",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Common Outlaw Hero",
    "terms": {
@@ -3628,6 +4790,10 @@
   },
   {
    "power": "HIGH NOON",
+   "effects": [
+    "Atk boost"
+   ],
+   "reverse": true,
    "kind": "terms",
    "label": "Unique Outlaw Hero",
    "terms": {
@@ -3640,6 +4806,9 @@
  "tomoe-gozen": [
   {
    "power": "SAMURAI LIFE DEBT",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Unique Samurai Squad",
    "terms": {
@@ -3650,6 +4819,9 @@
   },
   {
    "power": "SAMURAI LIFE DEBT",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Samurai",
    "terms": {
@@ -3658,6 +4830,9 @@
   },
   {
    "power": "DEFENSIVE FORMATION",
+   "effects": [
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Samurai",
    "terms": {
@@ -3668,6 +4843,9 @@
  "torin": [
   {
    "power": "EVIL EYE PROTECTION",
+   "effects": [
+    "Retaliation"
+   ],
    "kind": "terms",
    "label": "small/medium Utgar",
    "terms": {
@@ -3682,6 +4860,10 @@
  "tornak": [
   {
    "power": "ORC WARRIOR ENHANCEMENT",
+   "effects": [
+    "Atk boost",
+    "Def boost"
+   ],
    "kind": "terms",
    "label": "Orc Warrior",
    "terms": {
@@ -3693,6 +4875,10 @@
  "tul-bak-ra": [
   {
    "power": "TELEPORT REINFORCEMENTS",
+   "effects": [
+    "Wound save",
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Marro Squad",
    "terms": {
@@ -3704,6 +4890,9 @@
  "twilight-clan-riders": [
   {
    "power": "NINJA CARRY",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "small/medium Ninja",
    "terms": {
@@ -3718,6 +4907,9 @@
  "ulginesh": [
   {
    "power": "MIND LINK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Elf Wizard",
    "terms": {
@@ -3729,6 +4921,9 @@
  "uma-the-cecaelia": [
   {
    "power": "BRINGER OF FLOODS",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Wizard",
    "terms": {
@@ -3739,6 +4934,9 @@
  "urk": [
   {
    "power": "MOB SWARM",
+   "effects": [
+    "Reposition"
+   ],
    "kind": "terms",
    "label": "Common Goblin",
    "terms": {
@@ -3748,6 +4946,9 @@
   },
   {
    "power": "GOBLIN SNEAK ATTACK",
+   "effects": [
+    "Atk boost"
+   ],
    "kind": "terms",
    "label": "Common Goblin",
    "terms": {
@@ -3759,6 +4960,9 @@
  "valguard": [
   {
    "power": "BERSERKER CHARGE ENHANCEMENT",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "units",
    "label": "Berserker Charge units",
    "ids": [
@@ -3770,6 +4974,9 @@
  "van-nessing": [
   {
    "power": "SILVER BOLTS SPECIAL ATTACK",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Lycanthrope",
    "terms": {
@@ -3778,6 +4985,10 @@
   },
   {
    "power": "DIVINE MISSION",
+   "effects": [
+    "Atk boost",
+    "Order markers"
+   ],
    "kind": "terms",
    "label": "Undead",
    "terms": {
@@ -3788,6 +4999,9 @@
  "varkaanan-darkclaws": [
   {
    "power": "WOLF PACK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Wolf",
    "terms": {
@@ -3799,6 +5013,9 @@
  "varkaanan-greyspears": [
   {
    "power": "WOLF PACK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Wolf",
    "terms": {
@@ -3810,6 +5027,9 @@
  "varkaanan-quickblades": [
   {
    "power": "WOLF PACK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Wolf",
    "terms": {
@@ -3821,6 +5041,9 @@
  "varkaanan-swiftfangs": [
   {
    "power": "WOLF PACK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Unique Wolf",
    "terms": {
@@ -3832,6 +5055,9 @@
  "venoc-warlord": [
   {
    "power": "SCOUT LEADERSHIP",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Scout",
    "terms": {
@@ -3840,6 +5066,9 @@
   },
   {
    "power": "FRENZY ENHANCEMENT",
+   "effects": [
+    "Die roll +"
+   ],
    "kind": "units",
    "label": "Frenzy units",
    "ids": [
@@ -3852,6 +5081,9 @@
  "veterans-of-orleans": [
   {
    "power": "A BROTHER'S CALL",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Human Jandar",
    "terms": {
@@ -3863,6 +5095,9 @@
  "warden-816": [
   {
    "power": "GUARD LEADERSHIP",
+   "effects": [
+    "Move boost"
+   ],
    "kind": "terms",
    "label": "Guards",
    "terms": {
@@ -3873,6 +5108,9 @@
  "werewolf-lord": [
   {
    "power": "LYCANTHROPY",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Hybrid",
    "terms": {
@@ -3881,6 +5119,9 @@
   },
   {
    "power": "LYCANTHROPY",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Hunter",
    "terms": {
@@ -3889,6 +5130,9 @@
   },
   {
    "power": "LYCANTHROPY",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Tormented",
    "terms": {
@@ -3897,6 +5141,9 @@
   },
   {
    "power": "LYCANTHROPY",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Construct",
    "terms": {
@@ -3905,6 +5152,9 @@
   },
   {
    "power": "LYCANTHROPY",
+   "effects": [
+    "Support"
+   ],
    "kind": "terms",
    "label": "Soulborg",
    "terms": {
@@ -3913,6 +5163,9 @@
   },
   {
    "power": "MOON FRENZY",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Hybrid Hero",
    "terms": {
@@ -3924,6 +5177,9 @@
  "white-wyrmling": [
   {
    "power": "WYRMLING BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Wyrmling",
    "terms": {
@@ -3934,6 +5190,9 @@
  "wildwood-monarch": [
   {
    "power": "TRUNK OF THE AWAKENED FOREST",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small/medium Wildwood Hero",
    "terms": {
@@ -3947,6 +5206,9 @@
   },
   {
    "power": "SEEDLING",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "small Wildwood Hero",
    "terms": {
@@ -3959,6 +5221,9 @@
   },
   {
    "power": "SEEDLING",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Monarch",
    "terms": {
@@ -3969,6 +5234,10 @@
  "wildwood-runner": [
   {
    "power": "VIGOROUS GROWTH",
+   "effects": [
+    "Healing",
+    "Revive"
+   ],
    "kind": "terms",
    "label": "medium Wildwood Hero",
    "terms": {
@@ -3983,6 +5252,9 @@
  "wildwood-sentinel": [
   {
    "power": "BRANCH OF THE AWAKENED FOREST",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "small Wildwood Hero",
    "terms": {
@@ -3995,6 +5267,10 @@
   },
   {
    "power": "VERDANT GROWTH",
+   "effects": [
+    "Healing",
+    "Revive"
+   ],
    "kind": "terms",
    "label": "large Wildwood Hero",
    "terms": {
@@ -4009,6 +5285,9 @@
  "wolves-of-badru": [
   {
    "power": "DARKLORD BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Darklord",
    "terms": {
@@ -4019,6 +5298,9 @@
  "xiamara-the-kyrie-warrior": [
   {
    "power": "AMULET OF PAIVATAR",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Kyrie Ullar",
    "terms": {
@@ -4030,6 +5312,10 @@
  "xundar": [
   {
    "power": "SHADOW CAST SPECIAL ATTACK",
+   "effects": [
+    "Atk boost",
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Shadow",
    "terms": {
@@ -4038,6 +5324,10 @@
   },
   {
    "power": "SHADOW CAST SPECIAL ATTACK",
+   "effects": [
+    "Atk boost",
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Common Shadow",
    "terms": {
@@ -4047,6 +5337,9 @@
   },
   {
    "power": "MASTER OF SHADOWS",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Common small/medium Shadow Hero",
    "terms": {
@@ -4063,6 +5356,9 @@
  "zaeus": [
   {
    "power": "GORILLINATOR ATTACK BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "units",
    "label": "Gorillinators",
    "ids": [
@@ -4073,6 +5369,9 @@
  "zettian-infantry": [
   {
    "power": "UTGAR SOULBORG BONDING",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Soulborg Utgar",
    "terms": {
@@ -4082,6 +5381,9 @@
   },
   {
    "power": "CIRCUITRY REPLACEMENT",
+   "effects": [
+    "Wound save"
+   ],
    "kind": "terms",
    "label": "Soulborg Utgar",
    "terms": {
@@ -4093,6 +5395,9 @@
  "zombie-hulk": [
   {
    "power": "HORDE SHRIEK",
+   "effects": [
+    "Bonding"
+   ],
    "kind": "terms",
    "label": "Undead Savage Hero",
    "terms": {
@@ -4103,6 +5408,9 @@
   },
   {
    "power": "PARALYZING FEAR",
+   "effects": [
+    "Enemy Def −"
+   ],
    "kind": "terms",
    "label": "Undead",
    "terms": {
@@ -4111,6 +5419,9 @@
   },
   {
    "power": "ZOMBIE RISES AGAIN",
+   "effects": [
+    "Revive"
+   ],
    "kind": "terms",
    "label": "Undead Savage",
    "terms": {

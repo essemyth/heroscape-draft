@@ -1156,3 +1156,82 @@ img.loading {
   gap: 8px;
   align-items: center;
 }
+
+/* How a synergy helps: effect tags */
+
+.effect-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  vertical-align: middle;
+}
+.effect-tag {
+  --tag: #6b7280;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--tag);
+  white-space: nowrap;
+}
+/* Stat boosts reuse the stat block colors. */
+.effect-atk-boost {
+  --tag: #be2026;
+}
+.effect-def-boost {
+  --tag: #2b3f9c;
+}
+.effect-move-boost {
+  --tag: #2c6a2f;
+}
+.effect-range-boost {
+  --tag: #63666b;
+}
+.effect-life-boost {
+  --tag: #8e1515;
+}
+.effect-bonding {
+  --tag: #a77a07;
+}
+.effect-healing,
+.effect-wound-save,
+.effect-revive {
+  --tag: #b8487a;
+}
+.effect-reposition,
+.effect-mobility {
+  --tag: #2a7f86;
+}
+.effect-enemy-def,
+.effect-retaliation {
+  --tag: #7b3f9e;
+}
+.effect-die-roll {
+  --tag: #4b5563;
+}
+
+.syn-helped ul {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 6px;
+  display: grid;
+  gap: 5px;
+}
+.syn-helped li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+.syn-how {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+}
+.syn-power {
+  color: var(--muted);
+  font-weight: 600;
+}

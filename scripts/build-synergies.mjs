@@ -8,6 +8,7 @@
 // (import-units runs this automatically).
 
 import { readFile, writeFile } from 'node:fs/promises'
+import { benefitsSelf, effectsOf } from './power-effects.mjs'
 
 const root = new URL('../', import.meta.url)
 const { units } = JSON.parse(await readFile(new URL('src/data/units.json', root), 'utf8'))
@@ -239,7 +240,7 @@ function referencesIn(unit, power) {
     const terms = Object.fromEntries(g.map((h) => [h.attr, h.value]))
     if (isSelfReference(unit, power.text, terms, g[0].start, g.at(-1).end)) continue
     // "roll Utgar Valkyrie dice", "each Einar symbol rolled" are about dice, not other units.
-    if (/^\s+(?:Valkyrie|symbols?|dice)\b/.test(text.slice(g.at(-1).end, g.at(-1).end + 12))) continue
+    if (/^\s+(?:Valkyrie|symbols?|dice)\b/i.test(text.slice(g.at(-1).end, g.at(-1).end + 12))) continue
     // "Any Soulborg Guards you control with a Range number of 4 or more" only helps long-range ones.
     const from = Math.max(text.lastIndexOf('.', g[0].start), text.lastIndexOf(';', g[0].start)) + 1
     const stop = text.slice(g.at(-1).end).search(/[.;]/)
@@ -284,7 +285,8 @@ function referencesIn(unit, power) {
       const key = `${r.kind}:${r.label}`
       return !seen.has(key) && seen.add(key)
     })
-    .map((r) => ({ power: power.name, ...r }))
+    // When the bonus goes to this unit, the named units are the ones helping.
+    .map((r) => ({ power: power.name, effects: effectsOf(power, own), ...(benefitsSelf(power, own) ? { reverse: true } : {}), ...r }))
 }
 
 // --- Build ------------------------------------------------------------------------------------
@@ -296,6 +298,8 @@ for (const u of units) {
   refs = refs.filter((r) => !overrides.remove.some((o) => o.unit === u.id && (!o.power || o.power === r.power) && (!o.label || o.label === r.label)))
   for (const a of overrides.add.filter((o) => o.unit === u.id)) {
     const ref = a.ids ? { power: a.power, kind: 'units', label: a.label, ids: a.ids } : { power: a.power, kind: 'terms', label: a.label, terms: a.terms }
+    const p = u.powers.find((x) => x.name === a.power)
+    ref.effects = a.effects ?? (p ? effectsOf(p, baseName(u.name)) : ['Support'])
     // "reverse": the named units help this one, rather than the other way round.
     if (a.reverse) ref.reverse = true
     refs.push(ref)

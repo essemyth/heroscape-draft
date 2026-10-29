@@ -13,18 +13,21 @@
   {
    "power": "MARCHING ORDERS",
    "kind": "terms",
-   "label": "Soldier Jandar",
+   "label": "Unique Soldier Jandar",
    "terms": {
     "unitClass": "Soldier",
-    "general": "Jandar"
+    "general": "Jandar",
+    "rarity": "Unique"
    }
   },
   {
    "power": "MARCHING ORDERS",
    "kind": "terms",
-   "label": "Soldier",
+   "label": "Unique Soldier Hero",
    "terms": {
-    "unitClass": "Soldier"
+    "unitClass": "Soldier",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   }
  ],
@@ -50,9 +53,11 @@
   {
    "power": "BLOOD SUMMONING",
    "kind": "terms",
-   "label": "Demon",
+   "label": "Unique Demon Hero",
    "terms": {
-    "species": "Demon"
+    "species": "Demon",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   }
  ],
@@ -94,9 +99,10 @@
   {
    "power": "WARDEN STRATEGIC BONDING",
    "kind": "terms",
-   "label": "Warden",
+   "label": "Warden Hero",
    "terms": {
-    "unitClass": "Warden"
+    "unitClass": "Warden",
+    "type": "Hero"
    }
   },
   {
@@ -149,9 +155,13 @@
   {
    "power": "SKYHOOK",
    "kind": "terms",
-   "label": "Vorid",
+   "label": "small/medium Vorid",
    "terms": {
-    "species": "Vorid"
+    "species": "Vorid",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -159,17 +169,19 @@
   {
    "power": "INSECT STRATEGIC BONDING",
    "kind": "terms",
-   "label": "Insect",
+   "label": "Insect Hero",
    "terms": {
-    "species": "Insect"
+    "species": "Insect",
+    "type": "Hero"
    }
   },
   {
    "power": "SACRIFICIAL STING SPECIAL ATTACK",
    "kind": "terms",
-   "label": "Insect",
+   "label": "Insect Hero",
    "terms": {
-    "species": "Insect"
+    "species": "Insect",
+    "type": "Hero"
    }
   }
  ],
@@ -236,9 +248,10 @@
   {
    "power": "FOLLOW THE PROFIT",
    "kind": "terms",
-   "label": "Profiteer",
+   "label": "Profiteer Hero",
    "terms": {
-    "unitClass": "Profiteer"
+    "unitClass": "Profiteer",
+    "type": "Hero"
    }
   }
  ],
@@ -266,9 +279,10 @@
   {
    "power": "INTELLIGENCE CHIEF",
    "kind": "terms",
-   "label": "Agent",
+   "label": "Agent Hero",
    "terms": {
-    "unitClass": "Agent"
+    "unitClass": "Agent",
+    "type": "Hero"
    }
   }
  ],
@@ -286,9 +300,11 @@
   {
    "power": "UPGRADE",
    "kind": "terms",
-   "label": "Soulborg",
+   "label": "Unique Soulborg Hero",
    "terms": {
-    "species": "Soulborg"
+    "species": "Soulborg",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   }
  ],
@@ -405,9 +421,12 @@
   {
    "power": "EXPENDABLE RABBLE",
    "kind": "terms",
-   "label": "Goblin",
+   "label": "small Goblin",
    "terms": {
-    "species": "Goblin"
+    "species": "Goblin",
+    "sizes": [
+     "small"
+    ]
    }
   },
   {
@@ -444,10 +463,11 @@
   {
    "power": "HUMAN GLADIATOR HERO BONDING",
    "kind": "terms",
-   "label": "Human Gladiator",
+   "label": "Human Gladiator Hero",
    "terms": {
     "species": "Human",
-    "unitClass": "Gladiator"
+    "unitClass": "Gladiator",
+    "type": "Hero"
    }
   },
   {
@@ -518,9 +538,12 @@
   {
    "power": "CLAW GRAB",
    "kind": "terms",
-   "label": "Raptorian",
+   "label": "medium Raptorian",
    "terms": {
-    "species": "Raptorian"
+    "species": "Raptorian",
+    "sizes": [
+     "medium"
+    ]
    }
   }
  ],
@@ -536,19 +559,10 @@
   {
    "power": "SHOOTOUT",
    "kind": "terms",
-   "label": "Lawman",
+   "label": "Lawman Hero",
    "terms": {
-    "unitClass": "Lawman"
-   }
-  }
- ],
- "cobra-flight-pod": [
-  {
-   "power": "BATTLE READY",
-   "kind": "terms",
-   "label": "Cobra",
-   "terms": {
-    "general": "Cobra"
+    "unitClass": "Lawman",
+    "type": "Hero"
    }
   }
  ],
@@ -564,17 +578,19 @@
   {
    "power": "VILLAINOUS BONDING",
    "kind": "terms",
-   "label": "Profiteer",
+   "label": "Profiteer Hero",
    "terms": {
-    "unitClass": "Profiteer"
+    "unitClass": "Profiteer",
+    "type": "Hero"
    }
   },
   {
    "power": "COILS OF COBRA",
    "kind": "terms",
-   "label": "Cobra",
+   "label": "Unique Cobra",
    "terms": {
-    "general": "Cobra"
+    "general": "Cobra",
+    "rarity": "Unique"
    }
   }
  ],
@@ -661,17 +677,27 @@
   {
    "power": "MUTINY",
    "kind": "terms",
-   "label": "Captain",
+   "label": "Unique Captain",
    "terms": {
-    "unitClass": "Captain"
+    "unitClass": "Captain",
+    "rarity": "Unique"
    }
   },
   {
    "power": "MUTINY",
    "kind": "terms",
-   "label": "Pirate",
+   "label": "Pirate Squad",
    "terms": {
-    "unitClass": "Pirate"
+    "unitClass": "Pirate",
+    "type": "Squad"
+   }
+  },
+  {
+   "power": "MUTINY",
+   "kind": "terms",
+   "label": "Captain",
+   "terms": {
+    "unitClass": "Captain"
    }
   }
  ],
@@ -679,17 +705,27 @@
   {
    "power": "EYES IN THE SKY",
    "kind": "terms",
-   "label": "Undead",
+   "label": "Unique Undead",
    "terms": {
-    "species": "Undead"
+    "species": "Undead",
+    "rarity": "Unique"
    }
   },
   {
    "power": "EYES IN THE SKY",
    "kind": "terms",
-   "label": "Wizard",
+   "label": "Wizard Hero",
    "terms": {
-    "unitClass": "Wizard"
+    "unitClass": "Wizard",
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "EYES IN THE SKY",
+   "kind": "terms",
+   "label": "Undead",
+   "terms": {
+    "species": "Undead"
    }
   }
  ],
@@ -715,9 +751,10 @@
   {
    "power": "G.I. JOE IS THERE",
    "kind": "terms",
-   "label": "Soldier",
+   "label": "Soldier Hero",
    "terms": {
-    "unitClass": "Soldier"
+    "unitClass": "Soldier",
+    "type": "Hero"
    }
   },
   {
@@ -770,17 +807,19 @@
   {
    "power": "ROYAL ESCORT",
    "kind": "terms",
-   "label": "Guard",
+   "label": "Guard Hero",
    "terms": {
-    "unitClass": "Guard"
+    "unitClass": "Guard",
+    "type": "Hero"
    }
   },
   {
    "power": "ROYAL ESCORT",
    "kind": "terms",
-   "label": "Queen",
+   "label": "Queen Hero",
    "terms": {
-    "unitClass": "Queen"
+    "unitClass": "Queen",
+    "type": "Hero"
    }
   }
  ],
@@ -808,9 +847,13 @@
   {
    "power": "HEAVY SUPPORT COMMAND BEACON",
    "kind": "terms",
-   "label": "Soulborg",
+   "label": "large Soulborg Hero",
    "terms": {
-    "species": "Soulborg"
+    "species": "Soulborg",
+    "sizes": [
+     "large"
+    ],
+    "type": "Hero"
    }
   },
   {
@@ -852,10 +895,11 @@
   {
    "power": "PLATING OPTIMIZATION",
    "kind": "terms",
-   "label": "Utgar Soulborg",
+   "label": "Unique Utgar Soulborg",
    "terms": {
     "general": "Utgar",
-    "species": "Soulborg"
+    "species": "Soulborg",
+    "rarity": "Unique"
    }
   }
  ],
@@ -927,9 +971,10 @@
   {
    "power": "SCHEMES FROM SPACE",
    "kind": "terms",
-   "label": "Revna",
+   "label": "Unique Revna",
    "terms": {
-    "general": "Revna"
+    "general": "Revna",
+    "rarity": "Unique"
    }
   },
   {
@@ -969,13 +1014,23 @@
   {
    "power": "WILD STRATEGIC BONDING",
    "kind": "terms",
-   "label": "Giant",
+   "label": "Giant Hero",
    "terms": {
-    "species": "Giant"
+    "species": "Giant",
+    "type": "Hero"
    }
   }
  ],
  "dreadnoughts-of-caraway-cavern": [
+  {
+   "power": "THE CAPTAIN'S WAY",
+   "kind": "terms",
+   "label": "Unique Captain",
+   "terms": {
+    "unitClass": "Captain",
+    "rarity": "Unique"
+   }
+  },
   {
    "power": "THE CAPTAIN'S WAY",
    "kind": "terms",
@@ -987,9 +1042,29 @@
   {
    "power": "CAPTAIN'S ORDERS",
    "kind": "terms",
-   "label": "Pirate",
+   "label": "Pirate Hero",
    "terms": {
-    "unitClass": "Pirate"
+    "unitClass": "Pirate",
+    "type": "Hero"
+   }
+  }
+ ],
+ "drow-assassin": [
+  {
+   "power": "DROW AMBUSH",
+   "kind": "terms",
+   "label": "Common Drow",
+   "terms": {
+    "species": "Drow",
+    "rarity": "Common"
+   }
+  },
+  {
+   "power": "SHADOW SHIFT",
+   "kind": "terms",
+   "label": "Drow",
+   "terms": {
+    "species": "Drow"
    }
   }
  ],
@@ -997,9 +1072,10 @@
   {
    "power": "YO, JOE!",
    "kind": "terms",
-   "label": "Soldier",
+   "label": "Soldier Hero",
    "terms": {
-    "unitClass": "Soldier"
+    "unitClass": "Soldier",
+    "type": "Hero"
    }
   },
   {
@@ -1025,9 +1101,10 @@
   {
    "power": "SAVAGE CRY",
    "kind": "terms",
-   "label": "Savage",
+   "label": "Savage Hero",
    "terms": {
-    "unitClass": "Savage"
+    "unitClass": "Savage",
+    "type": "Hero"
    }
   }
  ],
@@ -1035,17 +1112,20 @@
   {
    "power": "ANIMATED MATERIEL",
    "kind": "terms",
-   "label": "Human",
+   "label": "Unique Human",
    "terms": {
-    "species": "Human"
+    "species": "Human",
+    "rarity": "Unique"
    }
   },
   {
    "power": "ETERNAL WAR",
    "kind": "terms",
-   "label": "Human",
+   "label": "Unique Human Hero",
    "terms": {
-    "species": "Human"
+    "species": "Human",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   }
  ],
@@ -1053,10 +1133,11 @@
   {
    "power": "BLADE DANCE",
    "kind": "terms",
-   "label": "Ullar Kyrie",
+   "label": "Unique Ullar Kyrie",
    "terms": {
     "general": "Ullar",
-    "species": "Kyrie"
+    "species": "Kyrie",
+    "rarity": "Unique"
    }
   },
   {
@@ -1122,9 +1203,13 @@
   {
    "power": "COMMAND FAMILIAR",
    "kind": "terms",
-   "label": "Beast",
+   "label": "small/medium Beast",
    "terms": {
-    "unitClass": "Beast"
+    "unitClass": "Beast",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -1239,9 +1324,13 @@
   {
    "power": "COMMAND FAMILIAR",
    "kind": "terms",
-   "label": "Beast",
+   "label": "small/medium Beast",
    "terms": {
-    "unitClass": "Beast"
+    "unitClass": "Beast",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -1287,13 +1376,25 @@
    }
   }
  ],
+ "goblin-slashers": [
+  {
+   "power": "YOU GOT THIS, BOSS!",
+   "kind": "terms",
+   "label": "Goblin Hero",
+   "terms": {
+    "species": "Goblin",
+    "type": "Hero"
+   }
+  }
+ ],
  "gorillitroopers": [
   {
    "power": "PRIMADON STRATEGIC ATTACK BONDING",
    "kind": "terms",
-   "label": "Primadon",
+   "label": "Primadon Hero",
    "terms": {
-    "species": "Primadon"
+    "species": "Primadon",
+    "type": "Hero"
    }
   }
  ],
@@ -1312,9 +1413,14 @@
   {
    "power": "GUIDE OF THE DEAD",
    "kind": "terms",
-   "label": "Undead",
+   "label": "small/medium/large Undead",
    "terms": {
-    "species": "Undead"
+    "species": "Undead",
+    "sizes": [
+     "small",
+     "medium",
+     "large"
+    ]
    }
   },
   {
@@ -1330,33 +1436,25 @@
   {
    "power": "LOYALTY TO THE LIZARD KING",
    "kind": "terms",
-   "label": "Lizardfolk",
+   "label": "Unique Lizardfolk Hero",
    "terms": {
-    "species": "Lizardfolk"
+    "species": "Lizardfolk",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   },
   {
    "power": "LOYALTY TO THE LIZARD KING",
    "kind": "terms",
-   "label": "Dragon",
+   "label": "Unique large/huge Dragon Hero",
    "terms": {
-    "species": "Dragon"
-   }
-  },
-  {
-   "power": "LOYALTY TO THE LIZARD KING",
-   "kind": "terms",
-   "label": "King",
-   "terms": {
-    "unitClass": "King"
-   }
-  },
-  {
-   "power": "LIZARD KING BONDING",
-   "kind": "terms",
-   "label": "King",
-   "terms": {
-    "unitClass": "King"
+    "species": "Dragon",
+    "rarity": "Unique",
+    "sizes": [
+     "large",
+     "huge"
+    ],
+    "type": "Hero"
    }
   }
  ],
@@ -1364,9 +1462,10 @@
   {
    "power": "WHEREVER THERE'S TROUBLE",
    "kind": "terms",
-   "label": "Soldier",
+   "label": "Soldier Hero",
    "terms": {
-    "unitClass": "Soldier"
+    "unitClass": "Soldier",
+    "type": "Hero"
    }
   }
  ],
@@ -1429,9 +1528,11 @@
   {
    "power": "LONG ARM OF THE LAW",
    "kind": "terms",
-   "label": "Lawman",
+   "label": "Unique Lawman Hero",
    "terms": {
-    "unitClass": "Lawman"
+    "unitClass": "Lawman",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   }
  ],
@@ -1458,9 +1559,14 @@
   {
    "power": "COMMAND OF THE WILD",
    "kind": "terms",
-   "label": "Beast",
+   "label": "small/medium/large Beast",
    "terms": {
-    "unitClass": "Beast"
+    "unitClass": "Beast",
+    "sizes": [
+     "small",
+     "medium",
+     "large"
+    ]
    }
   },
   {
@@ -1476,9 +1582,13 @@
   {
    "power": "COMMAND FAMILIAR",
    "kind": "terms",
-   "label": "Beast",
+   "label": "small/medium Beast",
    "terms": {
-    "unitClass": "Beast"
+    "unitClass": "Beast",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -1585,20 +1695,30 @@
  ],
  "hellforge-mandukor": [
   {
-   "power": "FEED THE FORGE 15",
-   "kind": "terms",
-   "label": "Soulborg",
-   "terms": {
-    "species": "Soulborg"
-   }
-  },
-  {
    "power": "EISENEK ADVANCE",
    "kind": "terms",
    "label": "Eisenek",
    "terms": {
     "species": "Eisenek"
    }
+  },
+  {
+   "power": "FEED THE FORGE 15",
+   "kind": "terms",
+   "label": "Eisenek",
+   "terms": {
+    "species": "Eisenek"
+   },
+   "reverse": true
+  },
+  {
+   "power": "FEED THE FORGE 15",
+   "kind": "terms",
+   "label": "Soulborg",
+   "terms": {
+    "species": "Soulborg"
+   },
+   "reverse": true
   }
  ],
  "honor-guard-of-the-blasted-lands": [
@@ -1639,9 +1759,10 @@
   {
    "power": "MELEE SOULBORG BONDING",
    "kind": "terms",
-   "label": "Soulborg",
+   "label": "Soulborg Hero",
    "terms": {
-    "species": "Soulborg"
+    "species": "Soulborg",
+    "type": "Hero"
    }
   }
  ],
@@ -1649,9 +1770,12 @@
   {
    "power": "EXPENDABLE RABBLE",
    "kind": "terms",
-   "label": "Goblin",
+   "label": "small Goblin",
    "terms": {
-    "species": "Goblin"
+    "species": "Goblin",
+    "sizes": [
+     "small"
+    ]
    }
   }
  ],
@@ -1687,9 +1811,11 @@
   {
    "power": "IRONCLAD PUPPETEER",
    "kind": "terms",
-   "label": "Eisenek",
+   "label": "Unique Eisenek Hero",
    "terms": {
-    "species": "Eisenek"
+    "species": "Eisenek",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   }
  ],
@@ -1707,10 +1833,11 @@
   {
    "power": "JEANNE'S COMMAND",
    "kind": "terms",
-   "label": "Human Knight",
+   "label": "Unique Human Knight",
    "terms": {
     "species": "Human",
-    "unitClass": "Knight"
+    "unitClass": "Knight",
+    "rarity": "Unique"
    }
   },
   {
@@ -1752,9 +1879,10 @@
   {
    "power": "LEARN FROM THE MASTER",
    "kind": "terms",
-   "label": "Ninja",
+   "label": "Ninja Hero",
    "terms": {
-    "unitClass": "Ninja"
+    "unitClass": "Ninja",
+    "type": "Hero"
    }
   },
   {
@@ -1791,9 +1919,19 @@
   {
    "power": "DISHONORABLE LEADERSHIP",
    "kind": "terms",
-   "label": "Ninja",
+   "label": "Ninja Squad",
    "terms": {
-    "unitClass": "Ninja"
+    "unitClass": "Ninja",
+    "type": "Squad"
+   }
+  },
+  {
+   "power": "DISHONORABLE LEADERSHIP",
+   "kind": "terms",
+   "label": "Ninja Hero",
+   "terms": {
+    "unitClass": "Ninja",
+    "type": "Hero"
    }
   }
  ],
@@ -1817,9 +1955,19 @@
   {
    "power": "KATO KATSURO'S COMMAND",
    "kind": "terms",
-   "label": "Samurai",
+   "label": "Samurai Hero",
    "terms": {
-    "unitClass": "Samurai"
+    "unitClass": "Samurai",
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "KATO KATSURO'S COMMAND",
+   "kind": "terms",
+   "label": "Samurai Squad",
+   "terms": {
+    "unitClass": "Samurai",
+    "type": "Squad"
    }
   }
  ],
@@ -1827,9 +1975,10 @@
   {
    "power": "DAIMYO'S COMMAND",
    "kind": "terms",
-   "label": "Samurai",
+   "label": "Unique Samurai",
    "terms": {
-    "unitClass": "Samurai"
+    "unitClass": "Samurai",
+    "rarity": "Unique"
    }
   }
  ],
@@ -1865,13 +2014,14 @@
   {
    "power": "THE CAPTAIN'S WAY",
    "kind": "terms",
-   "label": "Captain",
+   "label": "Unique Captain",
    "terms": {
-    "unitClass": "Captain"
+    "unitClass": "Captain",
+    "rarity": "Unique"
    }
   },
   {
-   "power": "CAPTAIN'S ORDERS",
+   "power": "THE CAPTAIN'S WAY",
    "kind": "terms",
    "label": "Captain",
    "terms": {
@@ -1881,9 +2031,18 @@
   {
    "power": "CAPTAIN'S ORDERS",
    "kind": "terms",
-   "label": "Pirate",
+   "label": "Captain",
    "terms": {
-    "unitClass": "Pirate"
+    "unitClass": "Captain"
+   }
+  },
+  {
+   "power": "CAPTAIN'S ORDERS",
+   "kind": "terms",
+   "label": "Pirate Hero",
+   "terms": {
+    "unitClass": "Pirate",
+    "type": "Hero"
    }
   }
  ],
@@ -1901,17 +2060,23 @@
   {
    "power": "DRACONIC STRATEGIC BONDING",
    "kind": "terms",
-   "label": "Dragon",
+   "label": "small/medium/large Dragon",
    "terms": {
-    "species": "Dragon"
+    "species": "Dragon",
+    "sizes": [
+     "small",
+     "medium",
+     "large"
+    ]
    }
   },
   {
    "power": "DRACONIC STRATEGIC BONDING",
    "kind": "terms",
-   "label": "Dragonborn",
+   "label": "Dragonborn Hero",
    "terms": {
-    "species": "Dragonborn"
+    "species": "Dragonborn",
+    "type": "Hero"
    }
   }
  ],
@@ -1948,17 +2113,25 @@
   {
    "power": "SUMMON ELEMENTAL",
    "kind": "terms",
-   "label": "Elemental",
+   "label": "small/medium Elemental",
    "terms": {
-    "species": "Elemental"
+    "species": "Elemental",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   },
   {
    "power": "MASTER OF THE ELEMENTS",
    "kind": "terms",
-   "label": "Elemental",
+   "label": "small/medium Elemental",
    "terms": {
-    "species": "Elemental"
+    "species": "Elemental",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -1966,9 +2139,11 @@
   {
    "power": "INCANTATION OF BOILING BLOOD",
    "kind": "terms",
-   "label": "Orc",
+   "label": "Common Orc Squad",
    "terms": {
-    "species": "Orc"
+    "species": "Orc",
+    "rarity": "Common",
+    "type": "Squad"
    }
   }
  ],
@@ -2006,10 +2181,11 @@
   {
    "power": "DYNASTIC LEADERSHIP",
    "kind": "terms",
-   "label": "Kyrie Utgar",
+   "label": "Unique Kyrie Utgar",
    "terms": {
     "species": "Kyrie",
-    "general": "Utgar"
+    "general": "Utgar",
+    "rarity": "Unique"
    }
   },
   {
@@ -2055,9 +2231,11 @@
   {
    "power": "LIZARDFOLK WAR CRY",
    "kind": "terms",
-   "label": "Lizardfolk",
+   "label": "Unique Lizardfolk Hero",
    "terms": {
-    "species": "Lizardfolk"
+    "species": "Lizardfolk",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   },
   {
@@ -2083,9 +2261,13 @@
   {
    "power": "COMMAND FAMILIAR",
    "kind": "terms",
-   "label": "Beast",
+   "label": "small/medium Beast",
    "terms": {
-    "unitClass": "Beast"
+    "unitClass": "Beast",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -2109,6 +2291,14 @@
  ],
  "mariedian-resistance": [
   {
+   "power": "MARIEDIAN TARGETING",
+   "kind": "terms",
+   "label": "Mariedian",
+   "terms": {
+    "species": "Mariedian"
+   }
+  },
+  {
    "power": "GUERRILLA DEFENSE",
    "kind": "terms",
    "label": "Soldier",
@@ -2124,6 +2314,32 @@
    "label": "Hivelord",
    "terms": {
     "unitClass": "Hivelord"
+   }
+  }
+ ],
+ "marro-hive": [
+  {
+   "power": "HIVE MIND",
+   "kind": "terms",
+   "label": "Common small/medium Marro Squad",
+   "terms": {
+    "species": "Marro",
+    "rarity": "Common",
+    "sizes": [
+     "small",
+     "medium"
+    ],
+    "type": "Squad"
+   }
+  },
+  {
+   "power": "MARRO REBIRTH",
+   "kind": "terms",
+   "label": "Common Marro Squad",
+   "terms": {
+    "species": "Marro",
+    "rarity": "Common",
+    "type": "Squad"
    }
   }
  ],
@@ -2149,9 +2365,19 @@
   {
    "power": "SIFU",
    "kind": "terms",
-   "label": "Monk",
+   "label": "Monk Hero",
    "terms": {
-    "unitClass": "Monk"
+    "unitClass": "Monk",
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "SIFU",
+   "kind": "terms",
+   "label": "Monk Squad",
+   "terms": {
+    "unitClass": "Monk",
+    "type": "Squad"
    }
   }
  ],
@@ -2171,6 +2397,15 @@
   {
    "power": "MASTER'S INFLUENCE",
    "kind": "terms",
+   "label": "Monk Squad",
+   "terms": {
+    "unitClass": "Monk",
+    "type": "Squad"
+   }
+  },
+  {
+   "power": "MASTER'S INFLUENCE",
+   "kind": "terms",
    "label": "Monk",
    "terms": {
     "unitClass": "Monk"
@@ -2181,9 +2416,10 @@
   {
    "power": "FRENZIED SWARM 14",
    "kind": "terms",
-   "label": "Insect",
+   "label": "Common Insect",
    "terms": {
-    "species": "Insect"
+    "species": "Insect",
+    "rarity": "Common"
    }
   }
  ],
@@ -2213,10 +2449,11 @@
   {
    "power": "LIFE DRAIN SPIRIT",
    "kind": "terms",
-   "label": "Warrior Revna",
+   "label": "Unique Warrior Revna",
    "terms": {
     "unitClass": "Warrior",
-    "general": "Revna"
+    "general": "Revna",
+    "rarity": "Unique"
    }
   }
  ],
@@ -2238,6 +2475,16 @@
    }
   },
   {
+   "power": "WAR CRY",
+   "kind": "terms",
+   "label": "Unique Tribesman Hero",
+   "terms": {
+    "unitClass": "Tribesman",
+    "rarity": "Unique",
+    "type": "Hero"
+   }
+  },
+  {
    "power": "CONCEALMENT 19",
    "kind": "terms",
    "label": "Tribesman",
@@ -2247,6 +2494,15 @@
   }
  ],
  "mok": [
+  {
+   "power": "DWARVEN GUNNERS",
+   "kind": "terms",
+   "label": "Dwarf Squad",
+   "terms": {
+    "species": "Dwarf",
+    "type": "Squad"
+   }
+  },
   {
    "power": "DWARVEN GUNNERS",
    "kind": "terms",
@@ -2320,9 +2576,10 @@
   {
    "power": "UNBELIEVABLE RAGE",
    "kind": "terms",
-   "label": "Wizard",
+   "label": "Wizard Hero",
    "terms": {
-    "unitClass": "Wizard"
+    "unitClass": "Wizard",
+    "type": "Hero"
    }
   }
  ],
@@ -2340,17 +2597,23 @@
   {
    "power": "NECROTIC NETWORK",
    "kind": "terms",
-   "label": "Eisenek",
+   "label": "Eisenek Hero",
    "terms": {
-    "species": "Eisenek"
+    "species": "Eisenek",
+    "type": "Hero"
    }
   },
   {
    "power": "SCAVENGED PARTS",
    "kind": "terms",
-   "label": "Eisenek",
+   "label": "Common medium Eisenek Hero",
    "terms": {
-    "species": "Eisenek"
+    "species": "Eisenek",
+    "rarity": "Common",
+    "sizes": [
+     "medium"
+    ],
+    "type": "Hero"
    }
   }
  ],
@@ -2388,17 +2651,19 @@
   {
    "power": "SAMURAI HERO BONDING",
    "kind": "terms",
-   "label": "Samurai",
+   "label": "Samurai Hero",
    "terms": {
-    "unitClass": "Samurai"
+    "unitClass": "Samurai",
+    "type": "Hero"
    }
   },
   {
    "power": "CALL FOR BACKUP",
    "kind": "terms",
-   "label": "Lawman",
+   "label": "Lawman Hero",
    "terms": {
-    "unitClass": "Lawman"
+    "unitClass": "Lawman",
+    "type": "Hero"
    }
   }
  ],
@@ -2406,9 +2671,10 @@
   {
    "power": "ROGUE HERO BONDING",
    "kind": "terms",
-   "label": "Rogue",
+   "label": "Rogue Hero",
    "terms": {
-    "unitClass": "Rogue"
+    "unitClass": "Rogue",
+    "type": "Hero"
    }
   }
  ],
@@ -2416,9 +2682,10 @@
   {
    "power": "SEELIE KING",
    "kind": "terms",
-   "label": "Dwarf",
+   "label": "Unique Dwarf",
    "terms": {
-    "species": "Dwarf"
+    "species": "Dwarf",
+    "rarity": "Unique"
    }
   },
   {
@@ -2475,9 +2742,10 @@
   {
    "power": "DIRECTED FIRE",
    "kind": "terms",
-   "label": "Soulborg",
+   "label": "Soulborg Squad",
    "terms": {
-    "species": "Soulborg"
+    "species": "Soulborg",
+    "type": "Squad"
    }
   },
   {
@@ -2528,9 +2796,10 @@
   {
    "power": "HEIMDALL STATION COORDINATORS",
    "kind": "terms",
-   "label": "Scientist",
+   "label": "Scientist Hero",
    "terms": {
-    "unitClass": "Scientist"
+    "unitClass": "Scientist",
+    "type": "Hero"
    }
   }
  ],
@@ -2635,9 +2904,13 @@
   {
    "power": "COMMAND FAMILIAR",
    "kind": "terms",
-   "label": "Beast",
+   "label": "small/medium Beast",
    "terms": {
-    "unitClass": "Beast"
+    "unitClass": "Beast",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -2778,33 +3051,79 @@
   {
    "power": "CLEAVE TO THE MIGHTY",
    "kind": "terms",
-   "label": "Archmage",
+   "label": "Unique Archmage Hero",
    "terms": {
-    "unitClass": "Archmage"
+    "unitClass": "Archmage",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   },
   {
    "power": "CLEAVE TO THE MIGHTY",
    "kind": "terms",
-   "label": "Dragon",
+   "label": "Unique Dragon Hero",
    "terms": {
-    "species": "Dragon"
+    "species": "Dragon",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   },
   {
    "power": "CLEAVE TO THE MIGHTY",
    "kind": "terms",
-   "label": "King",
+   "label": "Unique King Hero",
    "terms": {
-    "unitClass": "King"
+    "unitClass": "King",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   },
   {
    "power": "CLEAVE TO THE MIGHTY",
    "kind": "terms",
-   "label": "Queen",
+   "label": "Unique Queen Hero",
    "terms": {
-    "unitClass": "Queen"
+    "unitClass": "Queen",
+    "rarity": "Unique",
+    "type": "Hero"
+   }
+  }
+ ],
+ "shadow-fiend": [
+  {
+   "power": "SHADOW SWOOP",
+   "kind": "terms",
+   "label": "Shadow",
+   "terms": {
+    "species": "Shadow"
+   }
+  }
+ ],
+ "shadow-hound": [
+  {
+   "power": "SHADOW HUNTING",
+   "kind": "terms",
+   "label": "Shadow",
+   "terms": {
+    "species": "Shadow"
+   }
+  }
+ ],
+ "shadow-wraith": [
+  {
+   "power": "SHADOW PHASE",
+   "kind": "terms",
+   "label": "Shadow",
+   "terms": {
+    "species": "Shadow"
+   }
+  },
+  {
+   "power": "DEEPENED SHADOWS",
+   "kind": "terms",
+   "label": "Shadow",
+   "terms": {
+    "species": "Shadow"
    }
   }
  ],
@@ -2851,9 +3170,10 @@
   {
    "power": "NECROMANCY",
    "kind": "terms",
-   "label": "Lord",
+   "label": "Unique Lord",
    "terms": {
-    "unitClass": "Lord"
+    "unitClass": "Lord",
+    "rarity": "Unique"
    }
   },
   {
@@ -2877,9 +3197,26 @@
   {
    "power": "PHEROMONE COORDINATION",
    "kind": "terms",
+   "label": "Skordyre",
+   "terms": {
+    "species": "Skordyre"
+   }
+  },
+  {
+   "power": "PHEROMONE COORDINATION",
+   "kind": "terms",
    "label": "Insect",
    "terms": {
     "species": "Insect"
+   }
+  },
+  {
+   "power": "TEEMING",
+   "kind": "terms",
+   "label": "Common Skordyre",
+   "terms": {
+    "species": "Skordyre",
+    "rarity": "Common"
    }
   },
   {
@@ -2893,9 +3230,18 @@
   {
    "power": "TEEMING",
    "kind": "terms",
-   "label": "Soldier",
+   "label": "Skordyre Soldier",
    "terms": {
+    "species": "Skordyre",
     "unitClass": "Soldier"
+   }
+  },
+  {
+   "power": "INSECTOID SWARM",
+   "kind": "terms",
+   "label": "Skordyre",
+   "terms": {
+    "species": "Skordyre"
    }
   },
   {
@@ -2914,16 +3260,6 @@
    "label": "Valkrill",
    "terms": {
     "general": "Valkrill"
-   }
-  }
- ],
- "sonlen-10": [
-  {
-   "power": "DRAGON HEALING",
-   "kind": "terms",
-   "label": "Dragon",
-   "terms": {
-    "species": "Dragon"
    }
   }
  ],
@@ -2995,6 +3331,15 @@
   {
    "power": "QUEEN OF THE CRYPT",
    "kind": "terms",
+   "label": "Eisenek Hero",
+   "terms": {
+    "species": "Eisenek",
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "QUEEN OF THE CRYPT",
+   "kind": "terms",
    "label": "Eisenek",
    "terms": {
     "species": "Eisenek"
@@ -3026,9 +3371,14 @@
   {
    "power": "MASTER OF GREAT CONSTRUCTS",
    "kind": "terms",
-   "label": "Construct",
+   "label": "large/huge Construct Hero",
    "terms": {
-    "unitClass": "Construct"
+    "unitClass": "Construct",
+    "sizes": [
+     "large",
+     "huge"
+    ],
+    "type": "Hero"
    }
   }
  ],
@@ -3036,9 +3386,13 @@
   {
    "power": "TANUKI ARUKI",
    "kind": "terms",
-   "label": "Vorid",
+   "label": "small/medium Vorid",
    "terms": {
-    "species": "Vorid"
+    "species": "Vorid",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   },
   {
@@ -3062,9 +3416,10 @@
   {
    "power": "HUNTING PARTY",
    "kind": "terms",
-   "label": "Tribesman",
+   "label": "Tribesman Hero",
    "terms": {
-    "unitClass": "Tribesman"
+    "unitClass": "Tribesman",
+    "type": "Hero"
    }
   }
  ],
@@ -3072,9 +3427,10 @@
   {
    "power": "OATH OF PROTECTION 9",
    "kind": "terms",
-   "label": "Knight",
+   "label": "Unique Knight",
    "terms": {
-    "unitClass": "Knight"
+    "unitClass": "Knight",
+    "rarity": "Unique"
    }
   },
   {
@@ -3084,15 +3440,24 @@
    "terms": {
     "unitClass": "Fighter"
    }
+  },
+  {
+   "power": "OATH OF PROTECTION 9",
+   "kind": "terms",
+   "label": "Knight",
+   "terms": {
+    "unitClass": "Knight"
+   }
   }
  ],
  "the-axegrinders-of-burning-forge": [
   {
    "power": "DWARVEN STRATEGIC BONDING",
    "kind": "terms",
-   "label": "Dwarf",
+   "label": "Dwarf Hero",
    "terms": {
-    "species": "Dwarf"
+    "species": "Dwarf",
+    "type": "Hero"
    }
   }
  ],
@@ -3118,9 +3483,10 @@
   {
    "power": "EXPEDITIONARY FORCE",
    "kind": "terms",
-   "label": "Scientist",
+   "label": "Scientist Hero",
    "terms": {
-    "unitClass": "Scientist"
+    "unitClass": "Scientist",
+    "type": "Hero"
    }
   }
  ],
@@ -3128,17 +3494,19 @@
   {
    "power": "SUMMON THE KRAKEN",
    "kind": "terms",
-   "label": "Unfathomable",
+   "label": "Unfathomable Hero",
    "terms": {
-    "personality": "Unfathomable"
+    "personality": "Unfathomable",
+    "type": "Hero"
    }
   },
   {
    "power": "COMMAND THE KRAKEN",
    "kind": "terms",
-   "label": "Unfathomable",
+   "label": "Unfathomable Hero",
    "terms": {
-    "personality": "Unfathomable"
+    "personality": "Unfathomable",
+    "type": "Hero"
    }
   }
  ],
@@ -3190,25 +3558,28 @@
   {
    "power": "GALLANT BONDING",
    "kind": "terms",
-   "label": "Dwarf",
+   "label": "Dwarf Hero",
    "terms": {
-    "species": "Dwarf"
+    "species": "Dwarf",
+    "type": "Hero"
    }
   },
   {
    "power": "DWARVEN FURY",
    "kind": "terms",
-   "label": "Dwarf",
+   "label": "Dwarf Hero",
    "terms": {
-    "species": "Dwarf"
+    "species": "Dwarf",
+    "type": "Hero"
    }
   },
   {
    "power": "KNIGHT'S VALOR",
    "kind": "terms",
-   "label": "Knight",
+   "label": "Knight Hero",
    "terms": {
-    "unitClass": "Knight"
+    "unitClass": "Knight",
+    "type": "Hero"
    }
   }
  ],
@@ -3238,21 +3609,45 @@
   {
    "power": "OUTLAW BAND",
    "kind": "terms",
-   "label": "Outlaw",
+   "label": "Unique Outlaw Hero",
    "terms": {
-    "unitClass": "Outlaw"
+    "unitClass": "Outlaw",
+    "rarity": "Unique",
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "OUTLAW BAND",
+   "kind": "terms",
+   "label": "Common Outlaw Hero",
+   "terms": {
+    "unitClass": "Outlaw",
+    "rarity": "Common",
+    "type": "Hero"
    }
   },
   {
    "power": "HIGH NOON",
    "kind": "terms",
-   "label": "Outlaw",
+   "label": "Unique Outlaw Hero",
    "terms": {
-    "unitClass": "Outlaw"
+    "unitClass": "Outlaw",
+    "rarity": "Unique",
+    "type": "Hero"
    }
   }
  ],
  "tomoe-gozen": [
+  {
+   "power": "SAMURAI LIFE DEBT",
+   "kind": "terms",
+   "label": "Unique Samurai Squad",
+   "terms": {
+    "unitClass": "Samurai",
+    "rarity": "Unique",
+    "type": "Squad"
+   }
+  },
   {
    "power": "SAMURAI LIFE DEBT",
    "kind": "terms",
@@ -3274,9 +3669,13 @@
   {
    "power": "EVIL EYE PROTECTION",
    "kind": "terms",
-   "label": "Utgar",
+   "label": "small/medium Utgar",
    "terms": {
-    "general": "Utgar"
+    "general": "Utgar",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -3295,9 +3694,10 @@
   {
    "power": "TELEPORT REINFORCEMENTS",
    "kind": "terms",
-   "label": "Marro",
+   "label": "Marro Squad",
    "terms": {
-    "species": "Marro"
+    "species": "Marro",
+    "type": "Squad"
    }
   }
  ],
@@ -3305,9 +3705,13 @@
   {
    "power": "NINJA CARRY",
    "kind": "terms",
-   "label": "Ninja",
+   "label": "small/medium Ninja",
    "terms": {
-    "unitClass": "Ninja"
+    "unitClass": "Ninja",
+    "sizes": [
+     "small",
+     "medium"
+    ]
    }
   }
  ],
@@ -3336,17 +3740,19 @@
   {
    "power": "MOB SWARM",
    "kind": "terms",
-   "label": "Goblin",
+   "label": "Common Goblin",
    "terms": {
-    "species": "Goblin"
+    "species": "Goblin",
+    "rarity": "Common"
    }
   },
   {
    "power": "GOBLIN SNEAK ATTACK",
    "kind": "terms",
-   "label": "Goblin",
+   "label": "Common Goblin",
    "terms": {
-    "species": "Goblin"
+    "species": "Goblin",
+    "rarity": "Common"
    }
   }
  ],
@@ -3383,9 +3789,10 @@
   {
    "power": "WOLF PACK",
    "kind": "terms",
-   "label": "Wolf",
+   "label": "Unique Wolf",
    "terms": {
-    "species": "Wolf"
+    "species": "Wolf",
+    "rarity": "Unique"
    }
   }
  ],
@@ -3393,9 +3800,10 @@
   {
    "power": "WOLF PACK",
    "kind": "terms",
-   "label": "Wolf",
+   "label": "Unique Wolf",
    "terms": {
-    "species": "Wolf"
+    "species": "Wolf",
+    "rarity": "Unique"
    }
   }
  ],
@@ -3403,9 +3811,10 @@
   {
    "power": "WOLF PACK",
    "kind": "terms",
-   "label": "Wolf",
+   "label": "Unique Wolf",
    "terms": {
-    "species": "Wolf"
+    "species": "Wolf",
+    "rarity": "Unique"
    }
   }
  ],
@@ -3413,9 +3822,10 @@
   {
    "power": "WOLF PACK",
    "kind": "terms",
-   "label": "Wolf",
+   "label": "Unique Wolf",
    "terms": {
-    "species": "Wolf"
+    "species": "Wolf",
+    "rarity": "Unique"
    }
   }
  ],
@@ -3504,9 +3914,10 @@
   {
    "power": "MOON FRENZY",
    "kind": "terms",
-   "label": "Hybrid",
+   "label": "Hybrid Hero",
    "terms": {
-    "species": "Hybrid"
+    "species": "Hybrid",
+    "type": "Hero"
    }
   }
  ],
@@ -3522,11 +3933,76 @@
  ],
  "wildwood-monarch": [
   {
+   "power": "TRUNK OF THE AWAKENED FOREST",
+   "kind": "terms",
+   "label": "small/medium Wildwood Hero",
+   "terms": {
+    "species": "Wildwood",
+    "sizes": [
+     "small",
+     "medium"
+    ],
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "SEEDLING",
+   "kind": "terms",
+   "label": "small Wildwood Hero",
+   "terms": {
+    "species": "Wildwood",
+    "sizes": [
+     "small"
+    ],
+    "type": "Hero"
+   }
+  },
+  {
    "power": "SEEDLING",
    "kind": "terms",
    "label": "Monarch",
    "terms": {
     "unitClass": "Monarch"
+   }
+  }
+ ],
+ "wildwood-runner": [
+  {
+   "power": "VIGOROUS GROWTH",
+   "kind": "terms",
+   "label": "medium Wildwood Hero",
+   "terms": {
+    "species": "Wildwood",
+    "sizes": [
+     "medium"
+    ],
+    "type": "Hero"
+   }
+  }
+ ],
+ "wildwood-sentinel": [
+  {
+   "power": "BRANCH OF THE AWAKENED FOREST",
+   "kind": "terms",
+   "label": "small Wildwood Hero",
+   "terms": {
+    "species": "Wildwood",
+    "sizes": [
+     "small"
+    ],
+    "type": "Hero"
+   }
+  },
+  {
+   "power": "VERDANT GROWTH",
+   "kind": "terms",
+   "label": "large Wildwood Hero",
+   "terms": {
+    "species": "Wildwood",
+    "sizes": [
+     "large"
+    ],
+    "type": "Hero"
    }
   }
  ],
@@ -3561,11 +4037,26 @@
    }
   },
   {
+   "power": "SHADOW CAST SPECIAL ATTACK",
+   "kind": "terms",
+   "label": "Common Shadow",
+   "terms": {
+    "species": "Shadow",
+    "rarity": "Common"
+   }
+  },
+  {
    "power": "MASTER OF SHADOWS",
    "kind": "terms",
-   "label": "Shadow",
+   "label": "Common small/medium Shadow Hero",
    "terms": {
-    "species": "Shadow"
+    "species": "Shadow",
+    "rarity": "Common",
+    "sizes": [
+     "small",
+     "medium"
+    ],
+    "type": "Hero"
    }
   }
  ],
@@ -3603,10 +4094,11 @@
   {
    "power": "HORDE SHRIEK",
    "kind": "terms",
-   "label": "Undead Savage",
+   "label": "Undead Savage Hero",
    "terms": {
     "species": "Undead",
-    "unitClass": "Savage"
+    "unitClass": "Savage",
+    "type": "Hero"
    }
   },
   {

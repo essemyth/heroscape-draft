@@ -145,8 +145,25 @@ function isSelfReference(unit, text, terms, start, end) {
   const before = text.slice(Math.max(0, start - own.length - 2), start)
   if (new RegExp(`(?:${esc(own)}|${esc(singular(own))})\\s+$`, 'i').test(before)) return true
 
+  // "Sonlen's Dragon" is part of Sonlen.
+  const short = own.split(/[\s,]+/)[0]
+  if (new RegExp(`(?:${esc(own)}|${esc(short)})'s\\s+$`, 'i').test(text.slice(0, start))) return true
+  // A hero's own first word on its own is the hero: "Deathwalker can be affected", "adjacent to
+  // Queen Maladrix". Not when it reaches others: "common Marro Squad", "other Shadow figure you control".
+  const usesOwnFirstWord = Object.values(terms).some((v) => typeof v === 'string' && v.toLowerCase() === short.toLowerCase())
+  if (unit.type === 'Hero' && usesOwnFirstWord) {
+    const lead = text.slice(Math.max(0, start - 30), start).split(/[.;:]/).pop()
+    const tail = text.slice(end, end + 30)
+    const reaches = /\b(?:other|another|friendly|any|all|each|every)\s+(?:\w+\s+)?$/i.test(lead) || /^\s*(?:(?:hero|squad|figure|unit)e?s?\s*)?(?:\w+\s+)?you control/i.test(tail) || /^\s+(?:hero|squad|army card)/i.test(tail)
+    if (!reaches) return true
+  }
+  // "those Knights", "these Shadows" point back at the unit.
+  if (/\b(?:those|these)\s+$/i.test(text.slice(Math.max(0, start - 8), start))) return true
+
   // A group the unit belongs to, in a sentence that never looks beyond the unit.
-  const isOwnGroup = Object.entries(terms).every(([attr, value]) => splitValues(unit[attr]).includes(value))
+  const isOwnGroup = Object.entries(terms)
+    .filter(([attr]) => ATTRS.includes(attr))
+    .every(([attr, value]) => splitValues(unit[attr]).includes(value))
   if (!isOwnGroup) return false
   const from = Math.max(text.lastIndexOf('.', start), text.lastIndexOf(';', start)) + 1
   const stop = text.slice(end).search(/[.;]/)
@@ -168,7 +185,10 @@ function referencesIn(unit, power) {
   // Singular forms too: "a Knight of Scaeda" in the Knights of Scaeda's text.
   const ownSingular = own.split(' ').map(singular).join(' ')
   const ownFirstSingular = own.replace(/^(\S+)/, (w) => singular(w))
-  for (const n of new Set([own, singular(own), ownSingular, ownFirstSingular, own.split(/[\s,]+/)[0]])) {
+  // The first word alone only when it's a name ("Raelin"), not a group word ("Marro" in Marro Hive).
+  const ownFirst = own.split(/[\s,]+/)[0]
+  const ownForms = [own, singular(own), ownSingular, ownFirstSingular, ...(vocabWords.has(ownFirst) ? [] : [ownFirst])]
+  for (const n of new Set(ownForms)) {
     if (n.length >= 3) text = text.replace(new RegExp(`(?<![\\w-])${esc(n)}(?:'s)?(?![\\w-])`, 'g'), (m) => ' '.repeat(m.length))
   }
 
@@ -226,6 +246,29 @@ function referencesIn(unit, power) {
     const sentence = text.slice(from, stop < 0 ? undefined : g.at(-1).end + stop)
     const range = sentence.match(/\bwith a range (?:number |value )?of (\d+) or (?:more|higher)/i)
     let label = g.map((h) => h.value).join(' ')
+
+    // Qualifiers around the group: "small or medium common Marro Squad", "a Unique large or
+    // huge Dragon Hero". Sizes and rarity come before it; Hero/Squad comes after.
+    const lead = text.slice(Math.max(0, g[0].start - 60), g[0].start)
+    const sizeMatch = lead.match(/((?:small|medium|large|huge)(?:\s*,?\s*(?:or|and)?\s*(?:small|medium|large|huge))*)\s+(?:(?:unique|common|uncommon)\s+)?$/i)
+    const rarityMatch = lead.match(/\b(unique|common|uncommon)\s+(?:(?:small|medium|large|huge)(?:\s*,?\s*(?:or|and)?\s*(?:small|medium|large|huge))*\s+)?$/i)
+    const typeMatch = text.slice(g.at(-1).end, g.at(-1).end + 12).match(/^\s+(hero|squad)(?:e?s)?\b/i)
+    const words = []
+    if (rarityMatch) {
+      terms.rarity = titleCase(rarityMatch[1])
+      words.push(terms.rarity)
+    }
+    if (sizeMatch) {
+      terms.sizes = [...new Set(sizeMatch[1].toLowerCase().match(/small|medium|large|huge/g))]
+      words.push(terms.sizes.join('/'))
+    }
+    words.push(label)
+    if (typeMatch) {
+      terms.type = titleCase(typeMatch[1])
+      words.push(terms.type)
+    }
+    label = words.join(' ')
+
     if (range) {
       terms.minRange = Number(range[1])
       label += ` (Range ${range[1]}+)`
@@ -252,7 +295,10 @@ for (const u of units) {
   let refs = u.powers.flatMap((p) => referencesIn(u, p))
   refs = refs.filter((r) => !overrides.remove.some((o) => o.unit === u.id && (!o.power || o.power === r.power) && (!o.label || o.label === r.label)))
   for (const a of overrides.add.filter((o) => o.unit === u.id)) {
-    refs.push(a.ids ? { power: a.power, kind: 'units', label: a.label, ids: a.ids } : { power: a.power, kind: 'terms', label: a.label, terms: a.terms })
+    const ref = a.ids ? { power: a.power, kind: 'units', label: a.label, ids: a.ids } : { power: a.power, kind: 'terms', label: a.label, terms: a.terms }
+    // "reverse": the named units help this one, rather than the other way round.
+    if (a.reverse) ref.reverse = true
+    refs.push(ref)
   }
   if (refs.length) {
     out[u.id] = refs

@@ -3,7 +3,7 @@
 import synergyData from '../data/synergies.json'
 import type { Unit } from './types'
 
-type Attr = 'species' | 'unitClass' | 'personality' | 'general' | 'type'
+type Attr = 'species' | 'unitClass' | 'personality' | 'general' | 'type' | 'rarity'
 
 export interface SynergyRef {
   power: string
@@ -11,10 +11,13 @@ export interface SynergyRef {
   /** What the power names, e.g. "Kyrie" or "Deathwalker 9000". */
   label: string
   ids?: string[]
-  terms?: Partial<Record<Attr, string>> & { minRange?: number }
+  terms?: Partial<Record<Attr, string>> & { minRange?: number; sizes?: string[] }
+  /** The named units help this one, rather than the other way round (e.g. Feed the Forge). */
+  reverse?: boolean
 }
 
 const refsByUnit = synergyData as Record<string, SynergyRef[]>
+const refsOf = (unitId: string) => refsByUnit[unitId] ?? []
 
 const values = (v: string) =>
   v
@@ -33,8 +36,9 @@ const norm = (s: string) =>
 
 function refMatches(ref: SynergyRef, target: Unit): boolean {
   if (ref.kind === 'units') return ref.ids!.includes(target.id)
-  const { minRange, ...terms } = ref.terms!
+  const { minRange, sizes, ...terms } = ref.terms!
   if (minRange !== undefined && target.range < minRange) return false
+  if (sizes && !sizes.includes(target.size.toLowerCase())) return false
   return Object.entries(terms).every(([attr, value]) =>
     values(target[attr as Attr] ?? '').some((v) => norm(v) === norm(String(value))),
   )
@@ -55,16 +59,31 @@ export interface BoostedBy {
 export function synergiesFor(unit: Unit, candidates: Unit[]): { boosts: Boost[]; boostedBy: BoostedBy[] } {
   const others = candidates.filter((c) => c.id !== unit.id)
 
-  const boosts = (refsByUnit[unit.id] ?? [])
+  // This unit's powers that help others.
+  const boosts: Boost[] = refsOf(unit.id)
+    .filter((ref) => !ref.reverse)
     .map((ref) => ({ power: ref.power, label: ref.label, units: others.filter((c) => refMatches(ref, c)) }))
     .filter((b) => b.units.length > 0)
-
-  const boostedBy: BoostedBy[] = []
+  // Others' powers that this unit feeds ("Feed the Forge": a destroyed Soulborg heals Hellforge).
   for (const c of others) {
-    const powers = [...new Set((refsByUnit[c.id] ?? []).filter((ref) => refMatches(ref, unit)).map((ref) => ref.power))]
-    if (powers.length) boostedBy.push({ unit: c, powers })
+    for (const ref of refsOf(c.id)) {
+      if (ref.reverse && refMatches(ref, unit)) boosts.push({ power: ref.power, label: c.name, units: [c] })
+    }
   }
-  return { boosts, boostedBy }
+
+  const helpers = new Map<string, BoostedBy>()
+  const add = (u: Unit, power: string) => {
+    const entry = helpers.get(u.id) ?? { unit: u, powers: [] }
+    if (!entry.powers.includes(power)) entry.powers.push(power)
+    helpers.set(u.id, entry)
+  }
+  for (const c of others) {
+    for (const ref of refsOf(c.id)) if (!ref.reverse && refMatches(ref, unit)) add(c, ref.power)
+  }
+  for (const ref of refsOf(unit.id)) {
+    if (ref.reverse) for (const c of others) if (refMatches(ref, c)) add(c, ref.power)
+  }
+  return { boosts, boostedBy: [...helpers.values()] }
 }
 
 /** Distinct units in `army` linked to `unit` in either direction. */
@@ -72,8 +91,8 @@ export function linkedInArmy(unit: Unit, army: Unit[]): Unit[] {
   const linked = new Map<string, Unit>()
   for (const other of army) {
     if (other.id === unit.id) continue
-    const forward = (refsByUnit[unit.id] ?? []).some((ref) => refMatches(ref, other))
-    const backward = (refsByUnit[other.id] ?? []).some((ref) => refMatches(ref, unit))
+    const forward = refsOf(unit.id).some((ref) => refMatches(ref, other))
+    const backward = refsOf(other.id).some((ref) => refMatches(ref, unit))
     if (forward || backward) linked.set(other.id, other)
   }
   return [...linked.values()]

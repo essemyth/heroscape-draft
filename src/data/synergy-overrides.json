@@ -1,12 +1,21 @@
 {
   "remove": [
-    { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING" }
+    { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING" },
+    { "unit": "hellforge-mandukor", "power": "FEED THE FORGE 15" },
+    { "unit": "greenscale-warriors", "label": "King" },
+    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY" }
   ],
   "add": [
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Valiant heroes of Jandar", "terms": { "personality": "Valiant", "general": "Jandar", "type": "Hero" } },
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Valiant heroes of Utgar", "terms": { "personality": "Valiant", "general": "Utgar", "type": "Hero" } },
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Relentless heroes of Jandar", "terms": { "personality": "Relentless", "general": "Jandar", "type": "Hero" } },
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Relentless heroes of Utgar", "terms": { "personality": "Relentless", "general": "Utgar", "type": "Hero" } },
-    { "unit": "nerak-the-glacian-swog-rider", "power": "ORC DEFENSE AURA 1", "label": "Orc", "terms": { "species": "Orc" } }
+    { "unit": "nerak-the-glacian-swog-rider", "power": "ORC DEFENSE AURA 1", "label": "Orc", "terms": { "species": "Orc" } },
+    { "unit": "hellforge-mandukor", "power": "FEED THE FORGE 15", "label": "Eisenek", "terms": { "species": "Eisenek" }, "reverse": true },
+    { "unit": "hellforge-mandukor", "power": "FEED THE FORGE 15", "label": "Soulborg", "terms": { "species": "Soulborg" }, "reverse": true },
+    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique Archmage Hero", "terms": { "unitClass": "Archmage", "rarity": "Unique", "type": "Hero" } },
+    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique Dragon Hero", "terms": { "species": "Dragon", "rarity": "Unique", "type": "Hero" } },
+    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique King Hero", "terms": { "unitClass": "King", "rarity": "Unique", "type": "Hero" } },
+    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique Queen Hero", "terms": { "unitClass": "Queen", "rarity": "Unique", "type": "Hero" } }
   ]
 }

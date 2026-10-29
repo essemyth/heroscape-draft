@@ -65,6 +65,36 @@ describe('synergies from real power text', () => {
     expect(synergiesFor(bok, pirates).boosts.length).toBeGreaterThan(0)
   })
 
+  it('respects size limits ("small or medium Elementals")', () => {
+    const kurrok = byName('Kurrok the Elementalist')
+    const elementals = ['Water Elemental', 'Greater Ice Elemental'].map(byName)
+    for (const b of synergiesFor(kurrok, elementals).boosts) expect(b.units.map((u) => u.name)).toEqual(['Water Elemental'])
+  })
+
+  it('finds Marro Hive squads by size and rarity', () => {
+    const hive = byName('Marro Hive')
+    const marro = ['Marro Drudge', 'Grok Riders', 'Marro Warriors'].map(byName)
+    const byPower = Object.fromEntries(synergiesFor(hive, marro).boosts.map((b) => [b.power, b.units.map((u) => u.name).sort()]))
+    expect(byPower['HIVE MIND']).toEqual(['Marro Drudge']) // Grok Riders are large
+    expect(byPower['MARRO REBIRTH']).toEqual(['Grok Riders', 'Marro Drudge']) // Marro Warriors are unique
+  })
+
+  it('shows reversed links (destroyed Soulborgs feed Hellforge Mandukor)', () => {
+    const hellforge = byName('Hellforge Mandukor')
+    const soulborg = byName('Blastatrons')
+    expect(synergiesFor(hellforge, [soulborg]).boosts).toEqual([])
+    expect(synergiesFor(hellforge, [soulborg]).boostedBy.map((b) => b.unit)).toEqual([soulborg])
+    expect(synergiesFor(soulborg, [hellforge]).boosts.map((b) => b.units)).toEqual([[hellforge]])
+  })
+
+  it('ignores "Sonlen\'s Dragon" and the Lizard King title', () => {
+    expect(synergiesFor(byName('Sonlen (1.0)'), [byName('Mimring')]).boosts).toEqual([])
+    const scions = byName('Scions of Icaria')
+    const greenscale = byName('Greenscale Warriors')
+    expect(synergiesFor(scions, [greenscale]).boosts).toEqual([])
+    expect(synergiesFor(greenscale, [scions]).boosts).toEqual([])
+  })
+
   it('ignores exclusions like "not affected by"', () => {
     const hounds = byName('Marrden Hounds')
     const wulsinu = units.filter((u) => u.species === 'Wulsinu')

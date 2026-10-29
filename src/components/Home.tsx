@@ -68,6 +68,14 @@ export function Home({ me, navigate, onError }: Props) {
       </section>
 
       <section className="panel">
+        <h2>Collection</h2>
+        <p className="muted">Browse every unit you own, with the same filters, stats and synergies as a draft.</p>
+        <button type="button" onClick={() => navigate('/collection')}>
+          📚 View collection
+        </button>
+      </section>
+
+      <section className="panel">
         <h2>Unit photos</h2>
         <p className="muted">See which of your units still need a photo, and take them with your phone.</p>
         <button type="button" onClick={() => navigate('/photos')}>

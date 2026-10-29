@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState, type ReactNode } from 'react'
+import { CollectionPage } from './components/CollectionPage'
 import { DraftBoard } from './components/DraftBoard'
 import { Home } from './components/Home'
 import { Lobby } from './components/Lobby'
@@ -50,6 +51,8 @@ export default function App() {
       )}
       {draftId ? (
         <DraftRoom key={draftId} draftId={draftId} me={me} navigate={navigate} onError={setError} />
+      ) : path.startsWith('/collection') ? (
+        <CollectionPage me={me} navigate={navigate} />
       ) : path.startsWith('/photos') ? (
         <PhotosPage me={me} navigate={navigate} />
       ) : (

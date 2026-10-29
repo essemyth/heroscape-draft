@@ -28,9 +28,11 @@ interface Props {
   onPick: (unitId: string) => void
   /** This device may add and replace unit photos. */
   canEditPhotos: boolean
+  /** Just looking through a collection: no drafting, every unit shown as available. */
+  browse?: boolean
 }
 
-export function Pool({ state, playerId, canPick, onPick, canEditPhotos }: Props) {
+export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse = false }: Props) {
   const photoOf = useUnitPhotos()
   const [search, setSearch] = useState('')
   const [type, setType] = useState('')
@@ -81,7 +83,11 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos }: Props)
       unit,
       cost: costOf(unit, format) ?? 0,
       left: remainingCount(state, unit.id),
-      check: playerId ? checkUnit(state, playerId, unit, unitIndex) : ({ ok: false, reason: '' } as const),
+      check: browse
+        ? ({ ok: true } as const)
+        : playerId
+          ? checkUnit(state, playerId, unit, unitIndex)
+          : ({ ok: false, reason: '' } as const),
       linked: linkedInArmy(unit, myArmy),
     }))
     .filter(({ unit, check, linked }) => {
@@ -147,10 +153,12 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos }: Props)
             {descending ? '↓' : '↑'}
           </button>
         </span>
-        <label className="check" title="Include units you can't afford, already have, or that are all drafted">
-          <input type="checkbox" checked={showUndraftable} onChange={(e) => setShowUndraftable(e.target.checked)} />
-          Show undraftable
-        </label>
+        {!browse && (
+          <label className="check" title="Include units you can't afford, already have, or that are all drafted">
+            <input type="checkbox" checked={showUndraftable} onChange={(e) => setShowUndraftable(e.target.checked)} />
+            Show undraftable
+          </label>
+        )}
         {myArmy.length > 0 && (
           <label className="check" title="Only units whose powers work with units in your army, or the other way round">
             <input type="checkbox" checked={synergyOnly} onChange={(e) => setSynergyOnly(e.target.checked)} />
@@ -162,7 +170,7 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos }: Props)
       <div className="pool-count muted">{rows.length} shown</div>
 
       <ul className="unit-list">
-        {rows.map(({ unit, cost, left, check, linked }) => {
+        {rows.map(({ unit, left, check, linked }) => {
           const open = expanded === unit.id
           // The faded row background uses the small thumbnail; the full photo only loads when expanded.
           const image = photoOf(unit.id)?.thumbUrl
@@ -181,7 +189,7 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos }: Props)
               }
             >
               <button type="button" className="unit-summary" onClick={() => setExpanded(open ? null : unit.id)} aria-expanded={open}>
-                <span className="unit-cost">{cost}</span>
+                <span className="unit-cost">{costOf(unit, format) ?? '—'}</span>
                 <GeneralBadge general={unit.general} />
                 <span className="unit-main">
                   <span className="unit-name">{unit.name}</span>
@@ -202,21 +210,29 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos }: Props)
                   <Stat kind="attack" label="Atk" value={unit.attack} active={sort === 'attack'} />
                   <Stat kind="defense" label="Def" value={unit.defense} active={sort === 'defense'} />
                 </span>
-                <span className="unit-left" title="Copies left in the pool">
-                  {left}/{state.pool[unit.id]}
-                </span>
+                {browse ? (
+                  <span className="unit-left" title="Copies owned">
+                    {state.pool[unit.id] > 1 ? `×${state.pool[unit.id]}` : ''}
+                  </span>
+                ) : (
+                  <span className="unit-left" title="Copies left in the pool">
+                    {left}/{state.pool[unit.id]}
+                  </span>
+                )}
               </button>
-              <button
-                type="button"
-                className="primary draft-btn"
-                disabled={!canPick || !check.ok}
-                title={check.ok ? undefined : check.reason}
-                onClick={() => onPick(unit.id)}
-              >
-                Draft
-              </button>
+              {!browse && (
+                <button
+                  type="button"
+                  className="primary draft-btn"
+                  disabled={!canPick || !check.ok}
+                  title={check.ok ? undefined : check.reason}
+                  onClick={() => onPick(unit.id)}
+                >
+                  Draft
+                </button>
+              )}
               {!check.ok && check.reason && left > 0 && <span className="unit-reason">{check.reason}</span>}
-              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} canEditPhotos={canEditPhotos} />}
+              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} canEditPhotos={canEditPhotos} browse={browse} />}
             </li>
           )
         })}
@@ -250,9 +266,10 @@ interface DetailsProps {
   playerId: string | null
   onJump: (unitId: string) => void
   canEditPhotos?: boolean
+  browse?: boolean
 }
 
-export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = false }: DetailsProps) {
+export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = false, browse = false }: DetailsProps) {
   return (
     <div className="unit-details">
       <UnitPhotoView unit={unit} canEdit={canEditPhotos} />
@@ -266,7 +283,7 @@ export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = fal
           <Stat kind="defense" label="Def" value={unit.defense} active={false} />
         </span>
         <span className="muted">
-          {unit.rarity} {unit.type} · {unit.general} · {unit.figures} fig · {remainingCount(state, unit.id)} of {state.pool[unit.id]} left
+          {unit.rarity} {unit.type} · {unit.general} · {unit.figures} fig · {browse ? `${state.pool[unit.id]} owned` : `${remainingCount(state, unit.id)} of ${state.pool[unit.id]} left`}
         </span>
       </div>
       <p className="muted">
@@ -277,7 +294,7 @@ export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = fal
           <strong>{p.name}</strong> {p.text}
         </p>
       ))}
-      <Synergies unit={unit} state={state} playerId={playerId} onJump={onJump} />
+      <Synergies unit={unit} state={state} playerId={playerId} onJump={onJump} browse={browse} />
       {unit.heroscapersUrl && (
         <a href={unit.heroscapersUrl} target="_blank" rel="noreferrer">
           Heroscapers book →
@@ -290,7 +307,7 @@ export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = fal
 const MAX_CHIPS = 10
 
 /** What this unit's powers help, and whose powers help it, among units in this draft's pool. */
-function Synergies({ unit, state, playerId, onJump }: DetailsProps) {
+function Synergies({ unit, state, playerId, onJump, browse = false }: DetailsProps) {
   const pool = Object.keys(state.pool).map((id) => unitIndex.get(id)!)
   const { boosts, boostedBy } = synergiesFor(unit, pool)
   const mine = new Set(playerId ? armyOf(state, playerId, unitIndex).map((u) => u.id) : [])
@@ -322,7 +339,7 @@ function Synergies({ unit, state, playerId, onJump }: DetailsProps) {
 
   return (
     <div className="synergies">
-      <h4>Synergies in this pool</h4>
+      <h4>{browse ? 'Synergies in this collection' : 'Synergies in this pool'}</h4>
       {boosts.length === 0 && boostedBy.length === 0 && <p className="muted">None found.</p>}
       {boosts.map((b) => (
         <div key={b.power + b.label} className="syn-line">

@@ -481,6 +481,7 @@ export function createApp(opts: ServerOptions): { server: Server; db: Db } {
     '.jpeg': 'image/jpeg',
     '.webp': 'image/webp',
     '.json': 'application/json',
+    '.webmanifest': 'application/manifest+json',
     '.ico': 'image/x-icon',
     '.woff2': 'font/woff2',
   }

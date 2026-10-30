@@ -33,3 +33,6 @@ supabase/functions/_shared/
 # Raw figure photos (large); the resized copies in src/assets/units are committed
 photos/*
 !photos/CHECKLIST.md
+
+# Server data in development (SQLite + photos)
+/data/

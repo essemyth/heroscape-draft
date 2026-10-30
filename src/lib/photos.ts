@@ -1,11 +1,9 @@
-// Unit photos taken in the app, stored in Supabase. Falls back to photos bundled in
-// src/assets/units for units that don't have an uploaded one.
+// Unit photos taken in the app, stored by our server (server/app.ts). Falls back to photos
+// bundled in src/assets/units for units that don't have an uploaded one.
 
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { unitImages } from './data'
-import { supabase } from './supabase'
-
-const BUCKET = 'unit-photos'
+import { api, listen } from './api'
 
 export interface UnitPhoto {
   url: string
@@ -18,7 +16,7 @@ export interface PhotoRow {
   thumb_path: string
 }
 
-const publicUrl = (path: string) => supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl
+const publicUrl = (path: string) => `/photos/${path}`
 
 // --- Shared store: one fetch + one realtime subscription for the whole app -------------------
 
@@ -40,27 +38,29 @@ function emit() {
 }
 
 async function load() {
-  const { data } = await supabase.from('unit_photos').select('unit_id, path, thumb_path')
-  if (data) setRows(data as PhotoRow[])
+  try {
+    setRows(await api<PhotoRow[]>('GET', '/api/photos'))
+  } catch {
+    // Offline for a moment; the live stream reloads when it reconnects.
+  }
 }
 
 function start() {
   if (started) return
   started = true
   load()
-  supabase
-    .channel('unit-photos')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'unit_photos' }, (payload) => {
-      if (payload.eventType === 'DELETE') {
-        const id = (payload.old as Partial<PhotoRow>).unit_id
-        if (id) delete rowsByUnit[id]
-      } else {
-        const row = payload.new as PhotoRow
+  listen(
+    '/api/photos/events',
+    {
+      photo: (data) => {
+        const row = data as PhotoRow
         rowsByUnit[row.unit_id] = row
-      }
-      emit()
-    })
-    .subscribe((status) => status === 'SUBSCRIBED' && load())
+        emit()
+      },
+    },
+    // Catch up on anything missed while (re)connecting.
+    () => load(),
+  )
 }
 
 function subscribe(listener: () => void) {
@@ -82,21 +82,17 @@ export function usePhotoEditor(userId: string | null): [boolean, () => void] {
   const [version, setVersion] = useState(0)
   useEffect(() => {
     if (!userId) return
-    supabase
-      .from('photo_editors')
-      .select('user_id')
-      .eq('user_id', userId)
-      .maybeSingle()
-      .then(({ data }) => setIsEditor(Boolean(data)))
+    api<{ isEditor: boolean }>('GET', '/api/photo-editor')
+      .then((r) => setIsEditor(r.isEditor))
+      .catch(() => setIsEditor(false))
   }, [userId, version])
   return [isEditor, () => setVersion((v) => v + 1)]
 }
 
 /** Unlocks photo editing on this device. Resolves false for a wrong code. */
 export async function claimPhotoEditor(code: string): Promise<boolean> {
-  const { data, error } = await supabase.rpc('claim_photo_editor', { code })
-  if (error) throw error
-  return data === true
+  const { ok } = await api<{ ok: boolean }>('POST', '/api/photo-editor/claim', { code })
+  return ok
 }
 
 // --- Uploading ---------------------------------------------------------------------------------
@@ -150,9 +146,6 @@ async function render(bitmap: Source, size: { width: number; height: number }): 
   return encode(canvas)
 }
 
-const uploadError = (message: string) =>
-  new Error(message.includes('row-level security') ? 'This device is not allowed to change photos' : message)
-
 /** Shrinks a camera photo, uploads it and its thumbnail, and makes it the unit's photo. */
 export async function uploadUnitPhoto(unitId: string, file: File): Promise<void> {
   const source = await decode(file)
@@ -177,32 +170,24 @@ export { publicUrl }
 
 /** Uploads an already-sized photo and thumbnail and makes them the unit's photo, replacing any old one. */
 export async function uploadPhotoFiles(unitId: string, photo: Blob, thumb: Blob): Promise<void> {
-  // A new file name each time, so nobody sees a cached old photo after a replace.
-  const stamp = Date.now()
-  const ext = (b: Blob) => (b.type === 'image/webp' ? 'webp' : 'jpg')
-  const path = `${unitId}/${stamp}.${ext(photo)}`
-  const thumbPath = `${unitId}/${stamp}-thumb.${ext(thumb)}`
-  const storage = supabase.storage.from(BUCKET)
-  for (const [p, blob] of [
-    [path, photo],
-    [thumbPath, thumb],
-  ] as const) {
-    const { error } = await storage.upload(p, blob, { contentType: blob.type, cacheControl: '31536000' })
-    if (error) throw uploadError(error.message)
-  }
-
-  const previous = rowsByUnit[unitId]
-  const { error } = await supabase
-    .from('unit_photos')
-    .upsert({ unit_id: unitId, path, thumb_path: thumbPath, updated_at: new Date().toISOString() })
-  if (error) throw error
-
-  // Show it right away without waiting for the realtime echo.
-  rowsByUnit[unitId] = { unit_id: unitId, path, thumb_path: thumbPath }
+  // The server names the files (new names each time, so nobody sees a cached old photo)
+  // and removes the replaced ones.
+  const row = await api<PhotoRow>('POST', `/api/photos/${unitId}`, {
+    photo: await toBase64(photo),
+    photoType: photo.type,
+    thumb: await toBase64(thumb),
+    thumbType: thumb.type,
+  })
+  // Show it right away without waiting for the live update.
+  rowsByUnit[unitId] = row
   emit()
+}
 
-  // Tidy up the replaced files; harmless if it fails.
-  if (previous) await storage.remove([previous.path, previous.thumb_path])
+async function toBase64(blob: Blob): Promise<string> {
+  const bytes = new Uint8Array(await blob.arrayBuffer())
+  let binary = ''
+  for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000))
+  return btoa(binary)
 }
 
 /** Part of the full photo to use as the thumbnail: center (0–1 across and down) and zoom (1 = whole photo). */
@@ -218,7 +203,7 @@ export async function saveThumbnailCrop(unitId: string, crop: ThumbCrop): Promis
   if (!row) throw new Error('Add a photo first')
 
   const img = new Image()
-  img.crossOrigin = 'anonymous' // storage allows it; needed to read the pixels back out
+  img.crossOrigin = 'anonymous'
   // Its own URL so Safari doesn't reuse a copy cached without CORS, which would block reading pixels.
   img.src = `${publicUrl(row.path)}?crop=1`
   await img.decode()
@@ -233,19 +218,9 @@ export async function saveThumbnailCrop(unitId: string, crop: ThumbCrop): Promis
   g.drawImage(img, crop.cx * img.naturalWidth - sw / 2, crop.cy * img.naturalHeight - sh / 2, sw, sh, 0, 0, canvas.width, canvas.height)
   const thumb = await encode(canvas)
 
-  const thumbPath = `${unitId}/${Date.now()}-thumb.${thumb.type === 'image/webp' ? 'webp' : 'jpg'}`
-  const storage = supabase.storage.from(BUCKET)
-  const { error: upError } = await storage.upload(thumbPath, thumb, { contentType: thumb.type, cacheControl: '31536000' })
-  if (upError) throw uploadError(upError.message)
-  const { error } = await supabase
-    .from('unit_photos')
-    .update({ thumb_path: thumbPath, updated_at: new Date().toISOString() })
-    .eq('unit_id', unitId)
-  if (error) throw error
-
-  rowsByUnit[unitId] = { ...row, thumb_path: thumbPath }
+  const updated = await api<PhotoRow>('PUT', `/api/photos/${unitId}/thumb`, { thumb: await toBase64(thumb), thumbType: thumb.type })
+  rowsByUnit[unitId] = updated
   emit()
-  await storage.remove([row.thumb_path])
 }
 
 /** Whether the unit has a photo uploaded in the app (bundled photos can't be re-cropped). */

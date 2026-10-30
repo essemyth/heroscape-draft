@@ -1,0 +1,52 @@
+# 1. THE REGISTRY: Points Flux to the Zot instance
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: heroscape-repo
+  namespace: flux-system
+spec:
+  image: 192.168.1.196:30500/heroscape-draft
+  interval: 1m
+  insecure: true # Required for HTTP-only registries
+---
+# 2. THE POLICY: Logic to pick the "latest" image
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImagePolicy
+metadata:
+  name: heroscape-policy
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: heroscape-repo
+  policy:
+    numerical:
+      order: asc
+  filterTags:
+    pattern: '^(?P<timestamp>\d+)-[a-f0-9]+$'
+    extract: '$timestamp'
+---
+# 3. THE AUTOMATION: Commits the change back to the Git repo
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageUpdateAutomation
+metadata:
+  name: heroscape-automation
+  namespace: flux-system
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: "update heroscape"
+    push:
+      branch: main
+  update:
+    path: ./apps/heroscape
+    strategy: Setters

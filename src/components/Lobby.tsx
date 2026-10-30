@@ -2,8 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { ALL_GROUPS, collections, unitIndex } from '../lib/data'
 import { buildPool, costOf } from '../lib/draft'
 import type { DraftRow, PlayerRow } from '../lib/online'
-import { saveName, savedName } from '../lib/online'
-import { supabase } from '../lib/supabase'
+import { getWebhook, joinDraft, removePlayer, saveName, savedName, setWebhook, updateSeat, updateSettings } from '../lib/online'
 import { FORMAT_LABELS, type DraftSettings, type Format, type LobbySettings } from '../lib/types'
 
 const CUSTOM_GROUPS = ['C3V', 'SoV']
@@ -51,8 +50,11 @@ export function Lobby({ draft, players, me, onStart, onDelete, onError }: Props)
   const mine = players.find((p) => p.user_id === me)
 
   const update = async (patch: Partial<LobbySettings>) => {
-    const { error } = await supabase.from('drafts').update({ settings: { ...settings, ...patch } }).eq('id', draft.id)
-    if (error) onError(error.message)
+    try {
+      await updateSettings(draft.id, { ...settings, ...patch })
+    } catch (e) {
+      onError(e instanceof Error ? e.message : 'Something went wrong')
+    }
   }
 
   const collection = collections[settings.collectionId] ?? {}
@@ -84,8 +86,11 @@ export function Lobby({ draft, players, me, onStart, onDelete, onError }: Props)
     setOrder(ids)
   }
   const kick = async (userId: string) => {
-    const { error } = await supabase.from('draft_players').delete().eq('draft_id', draft.id).eq('user_id', userId)
-    if (error) onError(error.message)
+    try {
+      await removePlayer(draft.id, userId)
+    } catch (e) {
+      onError(e instanceof Error ? e.message : 'Something went wrong')
+    }
   }
 
   const [starting, setStarting] = useState(false)
@@ -308,10 +313,14 @@ function JoinForm({ draftId, onError }: { draftId: string; onError: (m: string) 
   const [busy, setBusy] = useState(false)
   const join = async () => {
     setBusy(true)
-    const { error } = await supabase.from('draft_players').insert({ draft_id: draftId, name: name.trim() })
-    setBusy(false)
-    if (error) onError(error.code === '23505' ? 'You already joined' : error.message)
-    else saveName(name.trim())
+    try {
+      await joinDraft(draftId, name.trim())
+      saveName(name.trim())
+    } catch (e) {
+      onError(e instanceof Error ? e.message : 'Something went wrong')
+    } finally {
+      setBusy(false)
+    }
   }
   return (
     <section className="panel join">
@@ -333,17 +342,19 @@ function YourSeat({ draft, player, onError }: { draft: DraftRow; player: PlayerR
   const validDiscord = discordId.trim() === '' || /^[0-9]{5,25}$/.test(discordId.trim())
 
   const save = async () => {
-    const { error } = await supabase
-      .from('draft_players')
-      .update({ name: name.trim(), discord_id: discordId.trim() || null })
-      .eq('draft_id', draft.id)
-      .eq('user_id', player.user_id)
-    if (error) onError(error.message)
-    else saveName(name.trim())
+    try {
+      await updateSeat(draft.id, name.trim(), discordId.trim() || null)
+      saveName(name.trim())
+    } catch (e) {
+      onError(e instanceof Error ? e.message : 'Something went wrong')
+    }
   }
   const leave = async () => {
-    const { error } = await supabase.from('draft_players').delete().eq('draft_id', draft.id).eq('user_id', player.user_id)
-    if (error) onError(error.message)
+    try {
+      await removePlayer(draft.id, player.user_id)
+    } catch (e) {
+      onError(e instanceof Error ? e.message : 'Something went wrong')
+    }
   }
 
   return (
@@ -383,22 +394,22 @@ function DiscordWebhook({ draftId, onError }: { draftId: string; onError: (m: st
   const [url, setUrl] = useState('')
   const [saved, setSaved] = useState('')
   useEffect(() => {
-    supabase
-      .from('draft_secrets')
-      .select('discord_webhook')
-      .eq('draft_id', draftId)
-      .maybeSingle()
-      .then(({ data }) => {
-        setUrl(data?.discord_webhook ?? '')
-        setSaved(data?.discord_webhook ?? '')
+    getWebhook(draftId)
+      .then((data) => {
+        setUrl(data.discord_webhook ?? '')
+        setSaved(data.discord_webhook ?? '')
       })
+      .catch(() => {})
   }, [draftId])
 
   const valid = url.trim() === '' || /^https:\/\/(discord\.com|discordapp\.com)\/api\/webhooks\//.test(url.trim())
   const save = async () => {
-    const { error } = await supabase.from('draft_secrets').upsert({ draft_id: draftId, discord_webhook: url.trim() || null })
-    if (error) onError(error.message)
-    else setSaved(url.trim())
+    try {
+      await setWebhook(draftId, url.trim() || null)
+      setSaved(url.trim())
+    } catch (e) {
+      onError(e instanceof Error ? e.message : 'Something went wrong')
+    }
   }
 
   return (

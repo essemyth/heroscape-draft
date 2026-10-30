@@ -1,48 +1,63 @@
 # HeroScape Draft
 
 Live online snake drafts of HeroScape armies with friends, from the host's collection.
-Supports Normal and Delta pricing.
+Supports Normal and Delta pricing. Hosted at **heroscape.botched.tech**.
 
 ## How it works
 
-- **Browser app** (React + Vite): lobby, pool browser, armies. Everyone signs in anonymously and picks a name.
-- **Supabase**: Postgres tables `drafts`, `draft_players`, `draft_secrets` with row-level security, plus
-  Realtime so every screen updates as picks happen.
-- **`draft-action` edge function**: the only thing that can change a draft's state. It checks that the caller
-  is the player whose turn it is and validates the pick with the same rules code the browser uses
-  (`src/lib/draft.ts`), then pings Discord.
+One Node 24 process (`server/`) serves everything:
 
-## Setup
+- **The site**: the React app built by Vite (`dist/`).
+- **The API** (`/api/...`): anonymous cookie sessions, drafts and lobbies, draft actions validated with the
+  same rules code the browser uses (`src/lib/draft.ts`), photo uploads, Discord pings.
+- **Live updates**: Server-Sent Events (`/api/drafts/:id/events`, `/api/photos/events`).
+- **Storage**: SQLite (Node's built-in `node:sqlite`) and photo files, both in `DATA_DIR`.
 
-1. Create a Supabase project. In **Authentication → Sign In / Providers**, turn on **Allow anonymous sign-ins**.
-2. Copy `.env.example` to `.env.local` and fill in the project URL and anon/publishable key.
-3. Deploy the database and function:
+The runtime needs no npm packages; Node runs the TypeScript server directly.
 
-   ```
-   npx supabase login
-   npx supabase link --project-ref YOUR-PROJECT-REF
-   npm run deploy:db
-   npm run deploy:functions
-   ```
+## Development
 
-4. `npm install` then `npm run dev`.
+```
+npm install
+npm run dev:server   # API on :8787 (data in ./data)
+npm run dev          # site on :5173, proxies /api and /photos to :8787
+```
 
-Re-run `npm run deploy:functions` after changing the draft rules or the unit/collection data.
+`npm test` runs the rules, synergy, backup-format and server tests.
+
+## Configuration
+
+| Variable | Default | |
+|---|---|---|
+| `PORT` | `8787` (`8000` in Docker) | |
+| `DATA_DIR` | `./data` (`/data` in Docker) | SQLite database + photos; must persist |
+| `SITE_DIR` | `./dist` | built site |
+| `PHOTO_CODE_HASH` | hash of the original code | SHA-256 hex of the photo code |
+
+## Deployment
+
+`Dockerfile` builds the image (tests run during the build). In the homelab cluster, pushes to `main`
+trigger a Tekton build into the Zot registry and Flux rolls it out; manifests are in
+`deploy/homelab/` (copy `apps/heroscape/` into the homelab repo and add `webhook-trigger.yaml` to its
+Tekton triggers). Run exactly **one replica**: SQLite and photos live on a ReadWriteOnce volume.
+
+## Photo backups
+
+The cluster has no backups. On **Unit photos** (after entering the photo code), use **Download backup**
+to save every photo and thumbnail as a zip, and **Restore from backup** to load one.
 
 ## Unit data
 
 `src/data/units.json` is a snapshot of the unit list from the [heroscape.org](https://heroscape.org/builder/)
-army builder (Chris Perkins' Autoload Builder). Refresh it when Delta costs change:
-
-```
-npm run import-units
-```
+army builder (Chris Perkins' Autoload Builder). Refresh with `npm run import-units` (also rebuilds synergies).
 
 ## Collections
 
 `npm run import-collection -- <heroscapehelper-username>` reads a public HeroScape Helper collection page into
-`src/data/collections/<username>.json`.
+`src/data/collections/<username>.json`. Units HeroScape Helper doesn't list go in
+`src/data/collection-extras/<username>.json`.
 
-## Unit photos
+## Synergies
 
-Put photos in `src/assets/units/<unit-id>.jpg` (or png/webp); see the README there.
+`npm run synergies` rebuilds `src/data/synergies.json` from power text; hand fixes go in
+`src/data/synergy-overrides.json`.

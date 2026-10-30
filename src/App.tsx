@@ -5,7 +5,7 @@ import { Home } from './components/Home'
 import { Lobby } from './components/Lobby'
 import { PhotosPage } from './components/PhotosPage'
 import { deleteDraft, sendAction, useDraftRoom } from './lib/online'
-import { supabaseConfigured, useSession } from './lib/supabase'
+import { useSession } from './lib/api'
 import type { DraftAction } from './lib/types'
 
 function usePath(): [string, (path: string) => void] {
@@ -28,14 +28,6 @@ export default function App() {
   const [path, navigate] = usePath()
   const [error, setError] = useState<string | null>(null)
 
-  if (!supabaseConfigured) {
-    return (
-      <Message title="Not connected">
-        Add <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code> to <code>.env.local</code> and restart the dev
-        server.
-      </Message>
-    )
-  }
   if (authError) return <Message title="Couldn't sign in">{authError}</Message>
   if (!session) return <Message title="Connecting…" />
 

@@ -799,10 +799,6 @@ button.small {
   color: var(--accent-strong);
   text-transform: uppercase;
 }
-.syn-note {
-  font-size: 0.8rem;
-  margin: 4px 0 0;
-}
 button.syn-unit {
   cursor: pointer;
   font: inherit;

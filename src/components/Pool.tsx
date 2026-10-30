@@ -369,7 +369,6 @@ function Synergies({ unit, state, playerId, onJump, browse = false }: DetailsPro
           </ul>
         </div>
       )}
-      <p className="muted syn-note">Found from power text, so a few may be missed or misread.</p>
     </div>
   )
 }

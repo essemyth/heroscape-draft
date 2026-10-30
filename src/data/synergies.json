@@ -3725,6 +3725,7 @@
     "Move boost",
     "Reposition"
    ],
+   "reverse": true,
    "kind": "terms",
    "label": "Tricky",
    "terms": {

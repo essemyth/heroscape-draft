@@ -111,6 +111,13 @@ describe('synergies from real power text', () => {
     expect(synergiesFor(knight, [dupuis]).boosts.map((b) => [b.power, b.effects])).toEqual([["KNIGHT'S COURAGE", ['Atk boost']]])
   })
 
+  it('flips "she may move 4 additional spaces" (Tricky units help Otonashi)', () => {
+    const otonashi = byName('Otonashi')
+    const tricky = byName('Agent Carr (1.0)')
+    expect(synergiesFor(otonashi, [tricky]).boostedBy.map((b) => [b.unit.name, b.powers.map((p) => p.power)])).toEqual([['Agent Carr (1.0)', ['TRICKY SPEED 4']]])
+    expect(synergiesFor(otonashi, [tricky]).boosts.filter((b) => b.power === 'TRICKY SPEED 4')).toEqual([])
+  })
+
   it('ignores exclusions like "not affected by"', () => {
     const hounds = byName('Marrden Hounds')
     const wulsinu = units.filter((u) => u.species === 'Wulsinu')

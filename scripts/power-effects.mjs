@@ -79,6 +79,8 @@ export function benefitsSelf(power, ownName = '') {
     /\bthis unit may add \d+ to (?:his|her|its) (?:move|attack|defen[cs]e)/i, // Sir Orrick
     /\bwhen rolling defen[cs]e dice for this unit, if this unit is adjacent/i, // Hatamoto Taro
     /\bin (?:the )?this unit receives \d+ additional/i, // 4th Massachusetts Line, Sacred Band
+    // "If Otonashi starts her turn adjacent to ... tricky ..., she may move 4 additional spaces."
+    /\bif this unit\b[^.]*,\s*(?:she|he|it) (?:may )?(?:move|moves|add|adds|roll|rolls|receive|receives)\b[^.]*\badditional\b/i,
   ]
   return SELF.some((re) => re.test(text))
 }

@@ -36,10 +36,21 @@ npm run dev          # site on :5173, proxies /api and /photos to :8787
 
 ## Deployment
 
-`Dockerfile` builds the image (tests run during the build). In the homelab cluster, pushes to `main`
-trigger a Tekton build into the Zot registry and Flux rolls it out; manifests are in
-`deploy/homelab/` (copy `apps/heroscape/` into the homelab repo and add `webhook-trigger.yaml` to its
-Tekton triggers). Run exactly **one replica**: SQLite and photos live on a ReadWriteOnce volume.
+`Dockerfile` builds the image (tests run during the build). Manifests are in `deploy/homelab/`
+(copy `apps/heroscape/` into the homelab repo and add `webhook-trigger.yaml` to its Tekton triggers).
+Run exactly **one replica**: SQLite and photos live on a ReadWriteOnce volume.
+
+**Every push to `main` is a production deploy:**
+
+1. GitHub sends a webhook to `ci.botched.tech`.
+2. Tekton in the cluster builds the image from the `Dockerfile` and pushes it to the local registry.
+   A failing test fails the build, so nothing broken ships.
+3. Flux notices the new image, updates the image tag in the homelab repo's manifest, and commits it.
+4. Flux reconciles every minute and rolls out the new pod (a few seconds of downtime; drafts are saved
+   and browsers reconnect on their own).
+
+The domain is mapped once to `heroscape-service.heroscape.svc.cluster.local:8000` with a Cloudflare
+tunnel, which also handles TLS.
 
 ## Photo backups
 

@@ -56,8 +56,7 @@
   {
    "power": "ULLAR'S AMULET",
    "effects": [
-    "Move boost",
-    "Reposition"
+    "Move boost"
    ],
    "kind": "terms",
    "label": "Ullar",
@@ -2346,8 +2345,7 @@
   {
    "power": "ORC MOVEMENT AURA",
    "effects": [
-    "Move boost",
-    "Reposition"
+    "Move boost"
    ],
    "kind": "terms",
    "label": "Orc",
@@ -2360,8 +2358,7 @@
   {
    "power": "ORC MOVEMENT AURA",
    "effects": [
-    "Move boost",
-    "Reposition"
+    "Move boost"
    ],
    "kind": "terms",
    "label": "Orc",
@@ -3722,8 +3719,7 @@
   {
    "power": "TRICKY SPEED 4",
    "effects": [
-    "Move boost",
-    "Reposition"
+    "Move boost"
    ],
    "reverse": true,
    "kind": "terms",
@@ -4335,8 +4331,7 @@
   {
    "power": "MARIEDIAN MOVE ENHANCEMENT",
    "effects": [
-    "Move boost",
-    "Reposition"
+    "Move boost"
    ],
    "kind": "terms",
    "label": "Mariedian",

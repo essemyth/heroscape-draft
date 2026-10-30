@@ -88,9 +88,12 @@ export function benefitsSelf(power, ownName = '') {
 /** `ownName` is the unit's name without version, e.g. "Sir Gilbert": its own turns aren't bonding. */
 export function effectsOf(power, ownName = '') {
   const text = withoutOwnName(power, ownName)
+  // "may move 2 additional spaces" is a Move boost, not moving another figure.
+  const withoutExtraMove = text.replace(/\bmay move (?:\d+|one|two|three|four) additional spaces?\b/gi, '')
   const tags = []
   for (const [tag, nameTest, textTest] of RULES) {
-    if ((nameTest && nameTest.test(power.name)) || (textTest && textTest.test(text))) tags.push(tag)
+    const t = tag === 'Reposition' ? withoutExtraMove : text
+    if ((nameTest && nameTest.test(power.name)) || (textTest && textTest.test(t))) tags.push(tag)
   }
   // Bonding and Revive already cover moving or placing the other unit.
   const result = tags.includes('Bonding') || tags.includes('Revive') ? tags.filter((t) => t !== 'Reposition') : tags

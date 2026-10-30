@@ -1,12 +1,11 @@
 # Add this entry to spec.triggers in apps/tekton/triggers/webhook.yaml.
-# Replace GITHUB_USER with the GitHub account that owns the heroscape-draft repo.
 # The image is named after the repo, so the repo must be called "heroscape-draft".
     - name: heroscape-trigger
       interceptors:
         - ref: {name: "cel"}
           params:
             - name: filter
-              value: "body.repository.full_name == 'GITHUB_USER/heroscape-draft' && body.ref == 'refs/heads/main'"
+              value: "body.repository.full_name == 'essemyth/heroscape-draft' && body.ref == 'refs/heads/main'"
             - name: overlays
               value:
                 - key: image_name

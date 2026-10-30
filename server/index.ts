@@ -2,7 +2,7 @@
 //   PORT             default 8787
 //   DATA_DIR         default ./data (a persistent volume in production)
 //   SITE_DIR         default ./dist (the built site)
-//   PHOTO_CODE_HASH  SHA-256 hex of the photo code (defaults to the original code's hash)
+//   PHOTO_CODE_HASH  SHA-256 hex of the photo code; photo editing is off without it
 
 import { join } from 'node:path'
 import { createApp, projectRoot } from './app.ts'
@@ -12,8 +12,9 @@ const { server } = createApp({
   rootDir: projectRoot,
   dataDir: process.env.DATA_DIR ?? join(projectRoot, 'data'),
   siteDir: process.env.SITE_DIR ?? join(projectRoot, 'dist'),
-  photoCodeHash: process.env.PHOTO_CODE_HASH ?? '7124c95c3cd51e0049878a9f04aa1427530115ae9bdcb2186864208c16919705',
+  photoCodeHash: process.env.PHOTO_CODE_HASH ?? '',
 })
+if (!process.env.PHOTO_CODE_HASH) console.warn('PHOTO_CODE_HASH is not set: no device can unlock photo editing.')
 
 server.listen(port, () => console.log(`HeroScape Draft listening on http://localhost:${port}`))
 

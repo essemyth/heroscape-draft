@@ -430,7 +430,7 @@ export function createApp(opts: ServerOptions): { server: Server; db: Db } {
   route('POST', '/api/photo-editor/claim', async (req, res) => {
     const userId = requireUser(req, res)
     const { code } = await readJson<{ code: unknown }>(req)
-    const ok = typeof code === 'string' && sha256(code.trim()) === opts.photoCodeHash
+    const ok = opts.photoCodeHash !== '' && typeof code === 'string' && sha256(code.trim()) === opts.photoCodeHash
     if (ok) db.prepare('insert into photo_editors (user_id, added_at) values (?, ?) on conflict do nothing').run(userId, now())
     sendJson(res, 200, { ok })
   })

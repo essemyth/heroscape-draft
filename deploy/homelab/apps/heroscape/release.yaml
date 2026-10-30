@@ -49,6 +49,10 @@ spec:
           value: "8000"
         - name: DATA_DIR
           value: /data
+        # SHA-256 of the photo code (the code itself is never stored). To change the code:
+        #   node -e "console.log(require('crypto').createHash('sha256').update('NEW-CODE').digest('hex'))"
+        - name: PHOTO_CODE_HASH
+          value: d310f4bc85f0faf3ab4a184047186389a28cc5fa732eee7ca3c4cdc9a7241c39
         volumeMounts:
         - name: data
           mountPath: /data

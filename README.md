@@ -32,7 +32,7 @@ npm run dev          # site on :5173, proxies /api and /photos to :8787
 | `PORT` | `8787` (`8000` in Docker) | |
 | `DATA_DIR` | `./data` (`/data` in Docker) | SQLite database + photos; must persist |
 | `SITE_DIR` | `./dist` | built site |
-| `PHOTO_CODE_HASH` | hash of the original code | SHA-256 hex of the photo code |
+| `PHOTO_CODE_HASH` | none (photo editing off) | SHA-256 hex of the photo code; set in `deploy/homelab/apps/heroscape/release.yaml` |
 
 ## Deployment
 

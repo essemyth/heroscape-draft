@@ -1235,3 +1235,30 @@ img.loading {
   color: var(--muted);
   font-weight: 600;
 }
+
+/* Photo backup */
+
+.backup-panel {
+  display: grid;
+  gap: 10px;
+}
+.backup-panel p {
+  margin: 0;
+}
+.restore-confirm {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+}
+.backup-progress {
+  display: grid;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+.backup-message {
+  color: var(--turn);
+  font-weight: 600;
+}

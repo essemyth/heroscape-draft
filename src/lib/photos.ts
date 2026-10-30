@@ -12,7 +12,7 @@ export interface UnitPhoto {
   thumbUrl: string
 }
 
-interface PhotoRow {
+export interface PhotoRow {
   unit_id: string
   path: string
   thumb_path: string
@@ -158,7 +158,25 @@ export async function uploadUnitPhoto(unitId: string, file: File): Promise<void>
   const source = await decode(file)
   const [photo, thumb] = await Promise.all([render(source, PHOTO_SIZE), render(source, THUMB_SIZE)])
   source.done()
+  await uploadPhotoFiles(unitId, photo, thumb)
+}
 
+/** Every uploaded photo, for backups. */
+export function photoRows(): PhotoRow[] {
+  return Object.values(rowsByUnit)
+}
+
+/** Waits until the uploaded-photo list has loaded (the store starts lazily). */
+export async function loadPhotoRows(): Promise<PhotoRow[]> {
+  start()
+  await load()
+  return photoRows()
+}
+
+export { publicUrl }
+
+/** Uploads an already-sized photo and thumbnail and makes them the unit's photo, replacing any old one. */
+export async function uploadPhotoFiles(unitId: string, photo: Blob, thumb: Blob): Promise<void> {
   // A new file name each time, so nobody sees a cached old photo after a replace.
   const stamp = Date.now()
   const ext = (b: Blob) => (b.type === 'image/webp' ? 'webp' : 'jpg')

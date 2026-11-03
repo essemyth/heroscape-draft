@@ -1,6 +1,6 @@
 {
   "source": "https://heroscapehelper.com/users/spenceralansmith/collection?ownership=owned",
-  "importedAt": "2026-11-03T20:15:48.752Z",
+  "importedAt": "2026-11-03T20:31:51.458Z",
   "units": {
     "venoc-vipers": 1,
     "marrden-hounds": 1,
@@ -128,8 +128,13 @@
     "crixus": 1,
     "drow-chainfighter": 1,
     "retiarius": 1,
-    "erevan-sunshadow": 1
+    "erevan-sunshadow": 1,
+    "samuel-brown": 1,
+    "necrotech-wraithriders": 1
   },
-  "added": {},
+  "added": {
+    "samuel-brown": "2026-11-03",
+    "necrotech-wraithriders": "2026-11-03"
+  },
   "unmatched": []
 }

@@ -30,9 +30,19 @@ interface Props {
   canEditPhotos: boolean
   /** Just looking through a collection: no drafting, every unit shown as available. */
   browse?: boolean
+  /** Show only these units. Synergies still consider the whole pool. */
+  showOnly?: Set<string>
+  /** Every shown unit stays open with its full details. */
+  alwaysExpanded?: boolean
+  /** A synergy link points at a unit this view doesn't show. */
+  onJumpOutside?: (unitId: string) => void
+  /** Open and highlight this unit when the view first appears. */
+  focusUnit?: string
+  /** Leave out search, filters, sorting and the count (for a short showcase list). */
+  hideFilters?: boolean
 }
 
-export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse = false }: Props) {
+export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse = false, showOnly, alwaysExpanded = false, onJumpOutside, focusUnit, hideFilters = false }: Props) {
   const photoOf = useUnitPhotos()
   const [search, setSearch] = useState('')
   const [type, setType] = useState('')
@@ -50,13 +60,17 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
     setSort(key)
     setDescending(key !== 'name')
   }
-  const [expanded, setExpanded] = useState<string | null>(null)
-  const [flash, setFlash] = useState<string | null>(null)
+  const [expanded, setExpanded] = useState<string | null>(focusUnit ?? null)
+  const [flash, setFlash] = useState<string | null>(focusUnit ?? null)
 
   /** Opens another unit from a synergy link: clears any filter hiding it, expands it and scrolls to it. */
   const jumpTo = (id: string) => {
     const unit = unitIndex.get(id)
     if (!unit) return
+    if (showOnly && !showOnly.has(id)) {
+      onJumpOutside?.(id)
+      return
+    }
     if (q && !matches(unit, q)) setSearch('')
     if (type && unit.type !== type) setType('')
     if (rarity === 'Unique' ? unit.rarity !== 'Unique' : rarity === 'Common' && unit.rarity === 'Unique') setRarity('')
@@ -98,6 +112,7 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
       if (!showUndraftable && !check.ok) return false
       if (synergyOnly && linked.length === 0) return false
       if (newOnly && !newUnits.has(unit.id)) return false
+      if (showOnly && !showOnly.has(unit.id)) return false
       if (type && unit.type !== type) return false
       if (rarity === 'Unique' && unit.rarity !== 'Unique') return false
       if (rarity === 'Common' && unit.rarity === 'Unique') return false
@@ -116,73 +131,77 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
 
   return (
     <section className="panel pool">
-      <div className="pool-filters">
-        <input
-          type="search"
-          placeholder="Search units, powers, classes…"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="search"
-        />
-        <select value={type} onChange={(e) => setType(e.target.value)} aria-label="Type">
-          <option value="">Heroes & squads</option>
-          <option value="Hero">Heroes</option>
-          <option value="Squad">Squads</option>
-        </select>
-        <select value={rarity} onChange={(e) => setRarity(e.target.value)} aria-label="Rarity">
-          <option value="">Any rarity</option>
-          <option value="Unique">Unique</option>
-          <option value="Common">Common / Uncommon</option>
-        </select>
-        <select value={general} onChange={(e) => setGeneral(e.target.value)} aria-label="General">
-          <option value="">All generals</option>
-          {generals.map((g) => (
-            <option key={g}>{g}</option>
-          ))}
-        </select>
-        <span className="sort-control">
-          <select value={sort} onChange={(e) => chooseSort(e.target.value as SortKey)} aria-label="Sort by">
-            {(Object.keys(SORT_LABELS) as SortKey[]).map((k) => (
-              <option key={k} value={k}>
-                Sort: {SORT_LABELS[k]}
-              </option>
-            ))}
-          </select>
-          <button
-            type="button"
-            className="icon-btn"
-            onClick={() => setDescending((d) => !d)}
-            title={sort === 'name' ? (descending ? 'Z to A' : 'A to Z') : descending ? 'Highest first' : 'Lowest first'}
-            aria-label={`Sort direction: ${descending ? 'descending' : 'ascending'}`}
-          >
-            {descending ? '↓' : '↑'}
-          </button>
-        </span>
-        {!browse && (
-          <label className="check" title="Include units you can't afford, already have, or that are all drafted">
-            <input type="checkbox" checked={showUndraftable} onChange={(e) => setShowUndraftable(e.target.checked)} />
-            Show undraftable
-          </label>
-        )}
-        {myArmy.length > 0 && (
-          <label className="check" title="Only units whose powers work with units in your army, or the other way round">
-            <input type="checkbox" checked={synergyOnly} onChange={(e) => setSynergyOnly(e.target.checked)} />
-            Synergy with my army
-          </label>
-        )}
-        {newUnits.size > 0 && (
-          <label className="check" title="Figures added to the collection in the last 30 days">
-            <input type="checkbox" checked={newOnly} onChange={(e) => setNewOnly(e.target.checked)} />
-            New only
-          </label>
-        )}
-      </div>
+      {!hideFilters && (
+        <>
+          <div className="pool-filters">
+            <input
+              type="search"
+              placeholder="Search units, powers, classes…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="search"
+            />
+            <select value={type} onChange={(e) => setType(e.target.value)} aria-label="Type">
+              <option value="">Heroes & squads</option>
+              <option value="Hero">Heroes</option>
+              <option value="Squad">Squads</option>
+            </select>
+            <select value={rarity} onChange={(e) => setRarity(e.target.value)} aria-label="Rarity">
+              <option value="">Any rarity</option>
+              <option value="Unique">Unique</option>
+              <option value="Common">Common / Uncommon</option>
+            </select>
+            <select value={general} onChange={(e) => setGeneral(e.target.value)} aria-label="General">
+              <option value="">All generals</option>
+              {generals.map((g) => (
+                <option key={g}>{g}</option>
+              ))}
+            </select>
+            <span className="sort-control">
+              <select value={sort} onChange={(e) => chooseSort(e.target.value as SortKey)} aria-label="Sort by">
+                {(Object.keys(SORT_LABELS) as SortKey[]).map((k) => (
+                  <option key={k} value={k}>
+                    Sort: {SORT_LABELS[k]}
+                  </option>
+                ))}
+              </select>
+              <button
+                type="button"
+                className="icon-btn"
+                onClick={() => setDescending((d) => !d)}
+                title={sort === 'name' ? (descending ? 'Z to A' : 'A to Z') : descending ? 'Highest first' : 'Lowest first'}
+                aria-label={`Sort direction: ${descending ? 'descending' : 'ascending'}`}
+              >
+                {descending ? '↓' : '↑'}
+              </button>
+            </span>
+            {!browse && (
+              <label className="check" title="Include units you can't afford, already have, or that are all drafted">
+                <input type="checkbox" checked={showUndraftable} onChange={(e) => setShowUndraftable(e.target.checked)} />
+                Show undraftable
+              </label>
+            )}
+            {myArmy.length > 0 && (
+              <label className="check" title="Only units whose powers work with units in your army, or the other way round">
+                <input type="checkbox" checked={synergyOnly} onChange={(e) => setSynergyOnly(e.target.checked)} />
+                Synergy with my army
+              </label>
+            )}
+            {newUnits.size > 0 && !showOnly && (
+              <label className="check" title="Figures added to the collection in the last 30 days">
+                <input type="checkbox" checked={newOnly} onChange={(e) => setNewOnly(e.target.checked)} />
+                New only
+              </label>
+            )}
+          </div>
 
-      <div className="pool-count muted">{rows.length} shown</div>
+          <div className="pool-count muted">{rows.length} shown</div>
+        </>
+      )}
 
       <ul className="unit-list">
         {rows.map(({ unit, left, check, linked }) => {
-          const open = expanded === unit.id
+          const open = alwaysExpanded || expanded === unit.id
           // The faded row background uses the small thumbnail; the full photo only loads when expanded.
           const image = photoOf(unit.id)?.thumbUrl
           const addedOn = newUnits.get(unit.id)
@@ -200,7 +219,7 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
                 } as CSSProperties
               }
             >
-              <button type="button" className="unit-summary" onClick={() => setExpanded(open ? null : unit.id)} aria-expanded={open}>
+              <button type="button" className="unit-summary" onClick={() => !alwaysExpanded && setExpanded(open ? null : unit.id)} aria-expanded={open}>
                 <span className="unit-cost">{costOf(unit, format) ?? '—'}</span>
                 <GeneralBadge general={unit.general} />
                 <span className="unit-main">

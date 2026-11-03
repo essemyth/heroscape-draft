@@ -27,10 +27,10 @@ export function CollectionPage({ me, navigate, tab }: Props) {
   const newUnits = useMemo(() => newUnitsIn(collectionId), [collectionId])
 
   // The pool component works on a draft state, so describe the collection as one that never started.
+  // It always gets the whole collection, so synergies of new figures reach everything you own;
+  // the New tab just shows fewer rows.
   const state = useMemo<DraftState>(() => {
-    const pool = Object.fromEntries(
-      Object.entries(collections[collectionId] ?? {}).filter(([id]) => unitIndex.has(id) && (tab === 'all' || newUnits.has(id))),
-    )
+    const pool = Object.fromEntries(Object.entries(collections[collectionId] ?? {}).filter(([id]) => unitIndex.has(id)))
     return {
       settings: { format, pointsTotal: 0, groups: [], timerSeconds: null, players: [], collectionId },
       pool,
@@ -40,11 +40,15 @@ export function CollectionPage({ me, navigate, tab }: Props) {
       status: 'complete',
       turnStartedAt: 0,
     }
-  }, [collectionId, format, tab, newUnits])
+  }, [collectionId, format])
 
-  const units = Object.keys(state.pool).length
-  const cards = Object.values(state.pool).reduce((a, b) => a + b, 0)
-  const points = Object.entries(state.pool).reduce((sum, [id, qty]) => sum + (costOf(unitIndex.get(id)!, format) ?? 0) * qty, 0)
+  const showOnly = useMemo(() => (tab === 'new' ? new Set(newUnits.keys()) : undefined), [tab, newUnits])
+  const shown = Object.entries(state.pool).filter(([id]) => !showOnly || showOnly.has(id))
+  const units = shown.length
+  const cards = shown.reduce((a, [, qty]) => a + qty, 0)
+  const points = shown.reduce((sum, [id, qty]) => sum + (costOf(unitIndex.get(id)!, format) ?? 0) * qty, 0)
+  // Arriving from a synergy link on the New tab: open that unit (e.g. /collection#grimnak).
+  const focusUnit = tab === 'all' ? window.location.hash.slice(1) || undefined : undefined
 
   return (
     <div className="board">
@@ -87,7 +91,20 @@ export function CollectionPage({ me, navigate, tab }: Props) {
           <p className="muted">No figures have been added in the last {NEW_FOR_DAYS} days.</p>
         </section>
       ) : (
-        <Pool key={tab} state={state} playerId={null} canPick={false} onPick={() => {}} canEditPhotos={canEditPhotos} browse />
+        <Pool
+          key={`${tab}:${focusUnit ?? ''}`}
+          state={state}
+          playerId={null}
+          canPick={false}
+          onPick={() => {}}
+          canEditPhotos={canEditPhotos}
+          browse
+          showOnly={showOnly}
+          alwaysExpanded={tab === 'new'}
+          hideFilters={tab === 'new'}
+          onJumpOutside={(id) => navigate(`/collection#${id}`)}
+          focusUnit={focusUnit}
+        />
       )}
     </div>
   )

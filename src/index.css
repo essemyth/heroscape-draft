@@ -1312,3 +1312,7 @@ button.new-link {
   border-color: #e6b432;
   box-shadow: 0 0 8px rgba(240, 190, 60, 0.35);
 }
+/* On the New figures page every unit stays open; the header isn't a toggle there. */
+.unit-row.is-new .unit-summary[aria-expanded='true'] {
+  cursor: default;
+}

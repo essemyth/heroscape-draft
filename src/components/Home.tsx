@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { collections, newUnitsIn } from '../lib/data'
 import { createDraft, deleteDraft, myDrafts, saveName, savedName, type DraftRow } from '../lib/online'
 import { FORMAT_LABELS } from '../lib/types'
 
@@ -20,6 +21,7 @@ export function Home({ me, navigate, onError }: Props) {
   const [name, setName] = useState(savedName)
   const [busy, setBusy] = useState(false)
   const [drafts, setDrafts] = useState<DraftSummary[] | null>(null)
+  const newCount = newUnitsIn(Object.keys(collections)[0] ?? '').size
 
   useEffect(() => {
     myDrafts(me)
@@ -70,9 +72,16 @@ export function Home({ me, navigate, onError }: Props) {
       <section className="panel">
         <h2>Collection</h2>
         <p className="muted">Browse every unit you own, with the same filters, stats and synergies as a draft.</p>
-        <button type="button" onClick={() => navigate('/collection')}>
-          📚 View collection
-        </button>
+        <div className="button-row">
+          <button type="button" onClick={() => navigate('/collection')}>
+            📚 View collection
+          </button>
+          {newCount > 0 && (
+            <button type="button" className="new-link" onClick={() => navigate('/new')}>
+              ✨ New figures ({newCount})
+            </button>
+          )}
+        </div>
       </section>
 
       <section className="panel">

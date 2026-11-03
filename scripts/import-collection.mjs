@@ -84,11 +84,25 @@ for (const [id, qty] of Object.entries(extras)) {
   collection[id] = (collection[id] ?? 0) + qty
 }
 
+// When each unit first appeared in the collection, so the app can highlight new figures.
+// Units already present before dates were tracked have no date (never shown as new).
+const previous = await readFile(outFile, 'utf8').then(JSON.parse, () => null)
+const today = new Date().toISOString().slice(0, 10)
+const added = {}
+for (const id of Object.keys(collection)) {
+  if (previous?.added?.[id]) added[id] = previous.added[id]
+  else if (!previous || !(id in (previous.units ?? {}))) added[id] = today
+}
+const newToday = Object.keys(added).filter((id) => added[id] === today && !previous?.added?.[id])
+// The very first import has no "before", so nothing counts as new.
+if (!previous) for (const id of Object.keys(added)) delete added[id]
+
 await mkdir(new URL('.', outFile), { recursive: true })
 await writeFile(
   outFile,
-  JSON.stringify({ source: pageUrl, importedAt: new Date().toISOString(), units: collection, unmatched }, null, 2) + '\n',
+  JSON.stringify({ source: pageUrl, importedAt: new Date().toISOString(), units: collection, added, unmatched }, null, 2) + '\n',
 )
+if (previous && newToday.length) console.log(`New since last import (${newToday.length}): ${newToday.join(', ')}`)
 
 const cards = Object.values(collection).reduce((a, b) => a + b, 0)
 console.log(`Matched ${Object.keys(collection).length} units (${cards} cards) -> src/data/collections/${username}.json`)

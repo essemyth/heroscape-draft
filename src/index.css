@@ -1258,3 +1258,57 @@ img.loading {
   color: var(--turn);
   font-weight: 600;
 }
+
+/* New figures (added to the collection in the last 30 days) */
+
+.new-badge {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #f5d36b, #e0a81c);
+  color: #3a2a00;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  vertical-align: 2px;
+  box-shadow: 0 0 6px rgba(240, 190, 60, 0.6);
+}
+.unit-row.is-new {
+  box-shadow:
+    inset 5px 0 0 var(--row-stripe, var(--general)),
+    0 0 0 2px #e6b432,
+    0 0 12px rgba(240, 190, 60, 0.45);
+}
+.unit-row.is-new.blocked {
+  box-shadow: 0 0 0 2px rgba(230, 180, 50, 0.5);
+}
+.new-note {
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: var(--accent-strong);
+}
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tab {
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+.tab.on {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+.tab-count {
+  margin-left: 4px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+button.new-link {
+  border-color: #e6b432;
+  box-shadow: 0 0 8px rgba(240, 190, 60, 0.35);
+}

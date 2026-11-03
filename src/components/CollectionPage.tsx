@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { collections, unitIndex } from '../lib/data'
+import { collections, NEW_FOR_DAYS, newUnitsIn, unitIndex } from '../lib/data'
 import { costOf } from '../lib/draft'
 import { usePhotoEditor } from '../lib/photos'
 import type { DraftState, Format } from '../lib/types'
@@ -10,21 +10,27 @@ const PRICING: { format: Format; label: string }[] = [
   { format: 'deltaClassic', label: 'Delta' },
 ]
 
+export type CollectionTab = 'all' | 'new'
+
 interface Props {
   me: string
   navigate: (path: string) => void
+  tab: CollectionTab
 }
 
 /** Browse a collection with the draft pool's rows, filters and details, minus the drafting. */
-export function CollectionPage({ me, navigate }: Props) {
+export function CollectionPage({ me, navigate, tab }: Props) {
   const ids = Object.keys(collections)
   const [collectionId, setCollectionId] = useState(ids[0] ?? '')
   const [format, setFormat] = useState<Format>('normal')
   const [canEditPhotos] = usePhotoEditor(me)
+  const newUnits = useMemo(() => newUnitsIn(collectionId), [collectionId])
 
   // The pool component works on a draft state, so describe the collection as one that never started.
   const state = useMemo<DraftState>(() => {
-    const pool = Object.fromEntries(Object.entries(collections[collectionId] ?? {}).filter(([id]) => unitIndex.has(id)))
+    const pool = Object.fromEntries(
+      Object.entries(collections[collectionId] ?? {}).filter(([id]) => unitIndex.has(id) && (tab === 'all' || newUnits.has(id))),
+    )
     return {
       settings: { format, pointsTotal: 0, groups: [], timerSeconds: null, players: [], collectionId },
       pool,
@@ -34,7 +40,7 @@ export function CollectionPage({ me, navigate }: Props) {
       status: 'complete',
       turnStartedAt: 0,
     }
-  }, [collectionId, format])
+  }, [collectionId, format, tab, newUnits])
 
   const units = Object.keys(state.pool).length
   const cards = Object.values(state.pool).reduce((a, b) => a + b, 0)
@@ -46,8 +52,17 @@ export function CollectionPage({ me, navigate }: Props) {
         <button type="button" className="link-btn back" onClick={() => navigate('/')}>
           ← Home
         </button>
-        <h1>{collectionId}'s collection</h1>
+        <h1>{tab === 'new' ? 'New figures' : `${collectionId}'s collection`}</h1>
+        <div className="tabs" role="tablist">
+          <button type="button" role="tab" aria-selected={tab === 'all'} className={`tab ${tab === 'all' ? 'on' : ''}`} onClick={() => navigate('/collection')}>
+            All figures
+          </button>
+          <button type="button" role="tab" aria-selected={tab === 'new'} className={`tab ${tab === 'new' ? 'on' : ''}`} onClick={() => navigate('/new')}>
+            ✨ New figures <span className="tab-count">{newUnits.size}</span>
+          </button>
+        </div>
         <p className="muted">
+          {tab === 'new' && <>Added in the last {NEW_FOR_DAYS} days: </>}
           <strong>{units}</strong> units · <strong>{cards}</strong> cards · <strong>{points.toLocaleString()}</strong> points
         </p>
         <div className="collection-controls">
@@ -67,7 +82,13 @@ export function CollectionPage({ me, navigate }: Props) {
           </div>
         </div>
       </header>
-      <Pool state={state} playerId={null} canPick={false} onPick={() => {}} canEditPhotos={canEditPhotos} browse />
+      {tab === 'new' && units === 0 ? (
+        <section className="panel">
+          <p className="muted">No figures have been added in the last {NEW_FOR_DAYS} days.</p>
+        </section>
+      ) : (
+        <Pool key={tab} state={state} playerId={null} canPick={false} onPick={() => {}} canEditPhotos={canEditPhotos} browse />
+      )}
     </div>
   )
 }

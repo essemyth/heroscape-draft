@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
-import { unitIndex } from '../lib/data'
+import { newUnitsIn, unitIndex } from '../lib/data'
 import { useUnitPhotos } from '../lib/photos'
 import { UnitPhotoView, UnitThumb } from './PhotoControls'
 import { armyOf, checkUnit, costOf, remainingCount } from '../lib/draft'
@@ -40,6 +40,9 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
   const [general, setGeneral] = useState('')
   const [showUndraftable, setShowUndraftable] = useState(false)
   const [synergyOnly, setSynergyOnly] = useState(false)
+  const [newOnly, setNewOnly] = useState(false)
+  // Figures added to the collection in the last 30 days get highlighted.
+  const newUnits = useMemo(() => newUnitsIn(state.settings.collectionId), [state.settings.collectionId])
   const [sort, setSort] = useState<SortKey>('name')
   // Names read best A→Z; cost and stats are most useful high→low first.
   const [descending, setDescending] = useState(false)
@@ -59,6 +62,7 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
     if (rarity === 'Unique' ? unit.rarity !== 'Unique' : rarity === 'Common' && unit.rarity === 'Unique') setRarity('')
     if (general && unit.general !== general) setGeneral('')
     if (synergyOnly && linkedInArmy(unit, myArmy).length === 0) setSynergyOnly(false)
+    if (newOnly && !newUnits.has(id)) setNewOnly(false)
     if (!(playerId && checkUnit(state, playerId, unit, unitIndex).ok)) setShowUndraftable(true)
     setExpanded(id)
     setFlash(id)
@@ -93,6 +97,7 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
     .filter(({ unit, check, linked }) => {
       if (!showUndraftable && !check.ok) return false
       if (synergyOnly && linked.length === 0) return false
+      if (newOnly && !newUnits.has(unit.id)) return false
       if (type && unit.type !== type) return false
       if (rarity === 'Unique' && unit.rarity !== 'Unique') return false
       if (rarity === 'Common' && unit.rarity === 'Unique') return false
@@ -165,6 +170,12 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
             Synergy with my army
           </label>
         )}
+        {newUnits.size > 0 && (
+          <label className="check" title="Figures added to the collection in the last 30 days">
+            <input type="checkbox" checked={newOnly} onChange={(e) => setNewOnly(e.target.checked)} />
+            New only
+          </label>
+        )}
       </div>
 
       <div className="pool-count muted">{rows.length} shown</div>
@@ -174,11 +185,12 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
           const open = expanded === unit.id
           // The faded row background uses the small thumbnail; the full photo only loads when expanded.
           const image = photoOf(unit.id)?.thumbUrl
+          const addedOn = newUnits.get(unit.id)
           return (
             <li
               key={unit.id}
               id={`unit-${unit.id}`}
-              className={`unit-row ${check.ok ? '' : 'blocked'} ${left <= 0 ? 'gone' : ''} ${image ? 'has-image' : ''} ${flash === unit.id ? 'flash' : ''}`}
+              className={`unit-row ${check.ok ? '' : 'blocked'} ${left <= 0 ? 'gone' : ''} ${image ? 'has-image' : ''} ${flash === unit.id ? 'flash' : ''} ${addedOn ? 'is-new' : ''}`}
               style={
                 {
                   '--general': generalStyle(unit.general).rowColor,
@@ -192,7 +204,14 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
                 <span className="unit-cost">{costOf(unit, format) ?? '—'}</span>
                 <GeneralBadge general={unit.general} />
                 <span className="unit-main">
-                  <span className="unit-name">{unit.name}</span>
+                  <span className="unit-name">
+                    {addedOn && (
+                      <span className="new-badge" title={`Added ${addedOn.toLocaleDateString()}`}>
+                        NEW
+                      </span>
+                    )}
+                    {unit.name}
+                  </span>
                   <span className="unit-meta">
                     {unit.rarity} {unit.type} · {unit.general} · {unit.figures} fig
                     {linked.length > 0 && (
@@ -232,7 +251,7 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
                 </button>
               )}
               {!check.ok && check.reason && left > 0 && <span className="unit-reason">{check.reason}</span>}
-              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} canEditPhotos={canEditPhotos} browse={browse} />}
+              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} canEditPhotos={canEditPhotos} browse={browse} addedOn={addedOn} />}
             </li>
           )
         })}
@@ -267,12 +286,15 @@ interface DetailsProps {
   onJump: (unitId: string) => void
   canEditPhotos?: boolean
   browse?: boolean
+  /** Set when the unit was added to the collection in the last 30 days. */
+  addedOn?: Date
 }
 
-export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = false, browse = false }: DetailsProps) {
+export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = false, browse = false, addedOn }: DetailsProps) {
   return (
     <div className="unit-details">
       <UnitPhotoView unit={unit} canEdit={canEditPhotos} />
+      {addedOn && <p className="new-note">✨ New to the collection — added {addedOn.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}</p>}
       {/* On phones the row only has room for the essentials, so the rest shows here. */}
       <div className="details-compact">
         <span className="unit-stats">

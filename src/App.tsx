@@ -43,8 +43,8 @@ export default function App() {
       )}
       {draftId ? (
         <DraftRoom key={draftId} draftId={draftId} me={me} navigate={navigate} onError={setError} />
-      ) : path.startsWith('/collection') ? (
-        <CollectionPage me={me} navigate={navigate} />
+      ) : path.startsWith('/collection') || path.startsWith('/new') ? (
+        <CollectionPage me={me} navigate={navigate} tab={path.startsWith('/new') ? 'new' : 'all'} />
       ) : path.startsWith('/photos') ? (
         <PhotosPage me={me} navigate={navigate} />
       ) : (

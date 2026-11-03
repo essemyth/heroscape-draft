@@ -1,6 +1,6 @@
 {
   "source": "https://heroscapehelper.com/users/spenceralansmith/collection?ownership=owned",
-  "importedAt": "2026-10-25T16:42:21.198Z",
+  "importedAt": "2026-11-03T20:15:48.752Z",
   "units": {
     "venoc-vipers": 1,
     "marrden-hounds": 1,
@@ -119,6 +119,7 @@
     "agent-carr-10": 1,
     "fire-elemental": 1,
     "taelord-the-kyrie-warrior-10": 1,
+    "bok-bur-na": 1,
     "greenscale-warriors": 1,
     "sgt-drake-alexander-20": 1,
     "marro-hive": 1,
@@ -127,8 +128,8 @@
     "crixus": 1,
     "drow-chainfighter": 1,
     "retiarius": 1,
-    "erevan-sunshadow": 1,
-    "bok-bur-na": 1
+    "erevan-sunshadow": 1
   },
+  "added": {},
   "unmatched": []
 }

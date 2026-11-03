@@ -102,6 +102,7 @@ export function CollectionPage({ me, navigate, tab }: Props) {
           showOnly={showOnly}
           alwaysExpanded={tab === 'new'}
           hideFilters={tab === 'new'}
+          showNotes={tab === 'new'}
           onJumpOutside={(id) => navigate(`/collection#${id}`)}
           focusUnit={focusUnit}
         />

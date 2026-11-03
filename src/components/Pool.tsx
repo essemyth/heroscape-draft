@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
-import { newUnitsIn, unitIndex } from '../lib/data'
+import { newFigureNotes, newUnitsIn, unitIndex } from '../lib/data'
 import { useUnitPhotos } from '../lib/photos'
 import { UnitPhotoView, UnitThumb } from './PhotoControls'
 import { armyOf, checkUnit, costOf, remainingCount } from '../lib/draft'
@@ -40,9 +40,11 @@ interface Props {
   focusUnit?: string
   /** Leave out search, filters, sorting and the count (for a short showcase list). */
   hideFilters?: boolean
+  /** Show the write-up of what each new figure brings (New figures page). */
+  showNotes?: boolean
 }
 
-export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse = false, showOnly, alwaysExpanded = false, onJumpOutside, focusUnit, hideFilters = false }: Props) {
+export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse = false, showOnly, alwaysExpanded = false, onJumpOutside, focusUnit, hideFilters = false, showNotes = false }: Props) {
   const photoOf = useUnitPhotos()
   const [search, setSearch] = useState('')
   const [type, setType] = useState('')
@@ -270,7 +272,7 @@ export function Pool({ state, playerId, canPick, onPick, canEditPhotos, browse =
                 </button>
               )}
               {!check.ok && check.reason && left > 0 && <span className="unit-reason">{check.reason}</span>}
-              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} canEditPhotos={canEditPhotos} browse={browse} addedOn={addedOn} />}
+              {open && <UnitDetails unit={unit} state={state} playerId={playerId} onJump={jumpTo} canEditPhotos={canEditPhotos} browse={browse} addedOn={addedOn} showNotes={showNotes} />}
             </li>
           )
         })}
@@ -307,13 +309,31 @@ interface DetailsProps {
   browse?: boolean
   /** Set when the unit was added to the collection in the last 30 days. */
   addedOn?: Date
+  showNotes?: boolean
 }
 
-export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = false, browse = false, addedOn }: DetailsProps) {
+export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = false, browse = false, addedOn, showNotes = false }: DetailsProps) {
+  const note = showNotes ? newFigureNotes[unit.id] : undefined
   return (
     <div className="unit-details">
       <UnitPhotoView unit={unit} canEdit={canEditPhotos} />
       {addedOn && <p className="new-note">✨ New to the collection — added {addedOn.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}</p>}
+      {note && (
+        <div className="figure-note">
+          <p className="figure-note-summary">{note.summary}</p>
+          <h4>What it adds to the pool</h4>
+          <ul>
+            {note.brings.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+          {note.watchOut && (
+            <p className="figure-note-watch">
+              <strong>Watch out:</strong> {note.watchOut}
+            </p>
+          )}
+        </div>
+      )}
       {/* On phones the row only has room for the essentials, so the rest shows here. */}
       <div className="details-compact">
         <span className="unit-stats">
@@ -332,7 +352,7 @@ export function UnitDetails({ unit, state, playerId, onJump, canEditPhotos = fal
       </p>
       {unit.powers.map((p) => (
         <p key={p.name}>
-          <strong>{p.name}</strong> {p.text}
+          <strong>{p.name}</strong> <span className="power-text">{powerText(p.text)}</span>
         </p>
       ))}
       <Synergies unit={unit} state={state} playerId={playerId} onJump={onJump} browse={browse} />
@@ -425,4 +445,19 @@ function EffectTags({ effects }: { effects: string[] }) {
       ))}
     </span>
   )
+}
+
+/**
+ * Some cards' text carries bits of HTML from the source data (<br>, <a> links to glyph pages,
+ * <ul><li> lists). Show it as plain text with real line breaks and bullets.
+ */
+function powerText(text: string): string {
+  return text
+    .replace(/<a\b[^>]*>(.*?)<\/a>/gi, '$1')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/ul>/gi, '\n')
+    .replace(/<\/?(?:ul|ol|li|p|span|em|strong|b|i)[^>]*>/gi, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
 }

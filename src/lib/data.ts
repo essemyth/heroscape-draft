@@ -1,3 +1,4 @@
+import notesData from '../data/new-figure-notes.json'
 import unitData from '../data/units.json'
 import type { Unit } from './types'
 import type { UnitIndex } from './draft'
@@ -39,6 +40,18 @@ const addedDates: Record<string, Record<string, string>> = Object.fromEntries(
 
 /** Figures count as new for this long after they're added to a collection. */
 export const NEW_FOR_DAYS = 30
+
+export interface NewFigureNote {
+  writtenAt: string
+  /** One line on what the figure is for. */
+  summary: string
+  /** What it brings that the pool didn't have before. */
+  brings: string[]
+  watchOut?: string
+}
+
+/** Write-ups for newly added figures (src/data/new-figure-notes.json), written when they're imported. */
+export const newFigureNotes = notesData as Record<string, NewFigureNote>
 
 /** Units added to a collection within the last 30 days, with the day each was added. */
 export function newUnitsIn(collectionId: string, now = Date.now()): Map<string, Date> {

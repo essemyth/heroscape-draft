@@ -1,0 +1,22 @@
+{
+  "samuel-brown": {
+    "writtenAt": "2026-11-03",
+    "summary": "A cheap Jandar sharpshooter who can shoot first and then charge in to finish the job.",
+    "brings": [
+      "Fire and Rush is new to the pool: hit something within 5 spaces with 3 dice, and if it takes a wound he can move 5 and attack again with 4 dice. No other figure combines a ranged hit with a follow-up melee rush.",
+      "A second budget Range 7 Jandar hero (60 pts). The only other is Johnny \"Shotgun\" Sullivan, who swings with just 2 attack dice to Samuel's 3.",
+      "Valiant, so he fits all-Valiant armies: 4th Massachusetts Line's defense bonus and Gnarlfur Raiders' Mighty Hero Bonding both count him."
+    ],
+    "watchOut": "Fire and Rush only works if he starts his turn unengaged, and with Life 4 / Defense 3 he can't stay in melee for long."
+  },
+  "necrotech-wraithriders": {
+    "writtenAt": "2026-11-03",
+    "summary": "The fastest squad in the pool, built to drag enemy figures out of position.",
+    "brings": [
+      "Move 8 — no other squad in the pool moves more than 7.",
+      "Chain Grab on every rider: each of the three can try to pull an enemy small or medium figure from up to 3 spaces away (9+ on the d20), with no leaving-engagement attacks. Until now only the 25-point Drow Chainfighter and the Wyvern could reposition enemies like this.",
+      "Revna's third unit (after Hellforge Mandukor and Killian Vane III) and only the second Eisenek, so it feeds Hellforge Mandukor's Feed the Forge and works with its Eisenek Advance."
+    ],
+    "watchOut": "Rolling Movement stops them climbing more than 2 levels at a time, so tall maps slow them down, and Life 2 / Defense 3 riders go down quickly."
+  }
+}

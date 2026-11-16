@@ -933,38 +933,29 @@
  "corvynn-the-rotbeak": [
   {
    "power": "EYES IN THE SKY",
-   "effects": [
-    "Support"
-   ],
    "kind": "terms",
-   "label": "Unique Undead",
+   "label": "Unique Undead Hero",
    "terms": {
     "species": "Undead",
-    "rarity": "Unique"
-   }
+    "rarity": "Unique",
+    "type": "Hero"
+   },
+   "effects": [
+    "Support"
+   ]
   },
   {
    "power": "EYES IN THE SKY",
-   "effects": [
-    "Support"
-   ],
    "kind": "terms",
-   "label": "Wizard Hero",
+   "label": "Unique Wizard Hero",
    "terms": {
     "unitClass": "Wizard",
+    "rarity": "Unique",
     "type": "Hero"
-   }
-  },
-  {
-   "power": "EYES IN THE SKY",
+   },
    "effects": [
     "Support"
-   ],
-   "kind": "terms",
-   "label": "Undead",
-   "terms": {
-    "species": "Undead"
-   }
+   ]
   }
  ],
  "count-raymond": [
@@ -4381,37 +4372,53 @@
  "sudema-20": [
   {
    "power": "QUEEN OF THE CRYPT",
+   "kind": "terms",
+   "label": "Undead Hero",
+   "terms": {
+    "species": "Undead",
+    "type": "Hero"
+   },
    "effects": [
     "Bonding"
-   ],
-   "kind": "terms",
-   "label": "Undead",
-   "terms": {
-    "species": "Undead"
-   }
+   ]
   },
   {
    "power": "QUEEN OF THE CRYPT",
-   "effects": [
-    "Bonding"
-   ],
    "kind": "terms",
    "label": "Eisenek Hero",
    "terms": {
     "species": "Eisenek",
     "type": "Hero"
-   }
+   },
+   "effects": [
+    "Bonding"
+   ]
   },
   {
    "power": "QUEEN OF THE CRYPT",
+   "kind": "terms",
+   "label": "Undead Unique Squad",
+   "terms": {
+    "species": "Undead",
+    "rarity": "Unique",
+    "type": "Squad"
+   },
    "effects": [
     "Bonding"
-   ],
+   ]
+  },
+  {
+   "power": "QUEEN OF THE CRYPT",
    "kind": "terms",
-   "label": "Eisenek",
+   "label": "Eisenek Unique Squad",
    "terms": {
-    "species": "Eisenek"
-   }
+    "species": "Eisenek",
+    "rarity": "Unique",
+    "type": "Squad"
+   },
+   "effects": [
+    "Bonding"
+   ]
   }
  ],
  "swog-rider": [

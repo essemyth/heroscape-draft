@@ -3,7 +3,9 @@
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING" },
     { "unit": "hellforge-mandukor", "power": "FEED THE FORGE 15" },
     { "unit": "greenscale-warriors", "label": "King" },
-    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY" }
+    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY" },
+    { "unit": "sudema-20", "power": "QUEEN OF THE CRYPT" },
+    { "unit": "corvynn-the-rotbeak", "power": "EYES IN THE SKY" }
   ],
   "add": [
     { "unit": "gnarlfur-raiders", "power": "MIGHTY HERO BONDING", "label": "Valiant heroes of Jandar", "terms": { "personality": "Valiant", "general": "Jandar", "type": "Hero" } },
@@ -16,6 +18,12 @@
     { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique Archmage Hero", "terms": { "unitClass": "Archmage", "rarity": "Unique", "type": "Hero" } },
     { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique Dragon Hero", "terms": { "species": "Dragon", "rarity": "Unique", "type": "Hero" } },
     { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique King Hero", "terms": { "unitClass": "King", "rarity": "Unique", "type": "Hero" } },
-    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique Queen Hero", "terms": { "unitClass": "Queen", "rarity": "Unique", "type": "Hero" } }
+    { "unit": "scions-of-icaria", "power": "CLEAVE TO THE MIGHTY", "label": "Unique Queen Hero", "terms": { "unitClass": "Queen", "rarity": "Unique", "type": "Hero" } },
+    { "unit": "sudema-20", "power": "QUEEN OF THE CRYPT", "label": "Undead Hero", "terms": { "species": "Undead", "type": "Hero" }, "effects": ["Bonding"] },
+    { "unit": "sudema-20", "power": "QUEEN OF THE CRYPT", "label": "Eisenek Hero", "terms": { "species": "Eisenek", "type": "Hero" }, "effects": ["Bonding"] },
+    { "unit": "sudema-20", "power": "QUEEN OF THE CRYPT", "label": "Undead Unique Squad", "terms": { "species": "Undead", "rarity": "Unique", "type": "Squad" }, "effects": ["Bonding"] },
+    { "unit": "sudema-20", "power": "QUEEN OF THE CRYPT", "label": "Eisenek Unique Squad", "terms": { "species": "Eisenek", "rarity": "Unique", "type": "Squad" }, "effects": ["Bonding"] },
+    { "unit": "corvynn-the-rotbeak", "power": "EYES IN THE SKY", "label": "Unique Undead Hero", "terms": { "species": "Undead", "rarity": "Unique", "type": "Hero" }, "effects": ["Support"] },
+    { "unit": "corvynn-the-rotbeak", "power": "EYES IN THE SKY", "label": "Unique Wizard Hero", "terms": { "unitClass": "Wizard", "rarity": "Unique", "type": "Hero" }, "effects": ["Support"] }
   ]
 }

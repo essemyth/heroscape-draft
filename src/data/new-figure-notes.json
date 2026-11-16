@@ -18,5 +18,85 @@
       "Revna's third unit (after Hellforge Mandukor and Killian Vane III) and only the second Eisenek, so it feeds Hellforge Mandukor's Feed the Forge and works with its Eisenek Advance."
     ],
     "watchOut": "Rolling Movement stops them climbing more than 2 levels at a time, so tall maps slow them down, and Life 2 / Defense 3 riders go down quickly."
+  },
+  "deathwalker-10000": {
+    "writtenAt": "2026-11-16",
+    "summary": "The toughest figure in the pool, and the last piece of an all-Deathwalker Utgar army.",
+    "brings": [
+      "Defense 10, the highest in the pool. Deathwalker 9000 was the previous top at 9.",
+      "Annihilation Beam is a 10-space line attack, like a longer Mimring Fire Line. It starts with 1 die, adds another for every skull, and then adds 1 automatic skull, so it always does something and sometimes does a lot.",
+      "Plating Optimization makes every Unique Utgar Soulborg you control, including itself, ignore wounds from powers that aren't special attacks: Deathwalkers 7000/8000/9000, Warden 816 and the Zettian Guards. Marrden Hounds' Marro Plague, Sudema's Petrifying Glare, Blink Dawson's Quickdraw and Nishi Souta's Improved Counterstrike all stop working against them."
+    ],
+    "watchOut": "Life 1. The armor is huge, but one unlucky roll removes 120 points. Without the beam it attacks with only 4 dice."
+  },
+  "blink-dawson": {
+    "writtenAt": "2026-11-16",
+    "summary": "A 20-point gunslinger who punishes anyone who shoots at him.",
+    "brings": [
+      "The cheapest Range 7 hero in the pool by a wide margin. Samuel Brown was the next cheapest at 60.",
+      "Quickdraw 7: when a non-adjacent enemy picks him for a normal attack, roll 7+ (70%) to give the attacker a wound and cancel the attack.",
+      "Lawman, so Nishi Souta can call him in with Call for Backup, and when he dies Cainak, Private Eye picks up his order markers and can take an extra turn."
+    ],
+    "watchOut": "Life 2, Defense 2 and only 2 attack dice. Quickdraw does nothing against adjacent attackers or special attacks, so melee figures and blasters take him apart."
+  },
+  "nishi-souta": {
+    "writtenAt": "2026-11-16",
+    "summary": "An Einar duelist who calls in the other Lawmen and punishes anyone who swings at him.",
+    "brings": [
+      "Improved Counterstrike is new to the pool: every extra shield he rolls against an adjacent attacker becomes a wound on that attacker.",
+      "Swordcatcher takes 1 off the Attack and Defense of a lone Small or Medium figure engaged with him, which also makes his counterstrikes more likely.",
+      "Call for Backup gives the pool a Lawman team for the first time: after his turn, if an enemy is within 5 clear sight spaces, another Lawman Hero (Blink Dawson, Cainak, Johnny \"Shotgun\" Sullivan) takes a turn too."
+    ],
+    "watchOut": "Only 2 attack dice. His Samurai Hero Bonding has no partner yet, since he is the only Samurai Hero in the pool (Kato Katsuro can still activate him)."
+  },
+  "agent-si-4x": {
+    "writtenAt": "2026-11-16",
+    "summary": "A Vydar Soulborg who carries his own patch of shadow around, letting Vydar and Revna figures slip through enemy lines.",
+    "brings": [
+      "Obfuscation Matrix turns his space and every space next to him into shadow. That works with Mika Connour (Shadow Ambush, Shadow Dance) and with Sudema's Queen of the Crypt, which reaches Heroes standing on shadow at any distance.",
+      "Phantom Protocols: Revna and Vydar figures that start their move on shadow can move through all figures without leaving-engagement attacks. That covers 22 units in the pool, including the Necrotech Wraithriders, Hellforge Mandukor and all three Majors.",
+      "Shadow Assassin adds 1 skull to every skull he rolls against a Hero or Squad on shadow."
+    ],
+    "watchOut": "Shadow Assassin says shadow *tile* while his matrix makes shadow *spaces*, so decide with your group whether targets inside his own aura count. With Life 3 and 2 attack dice, he is a support piece, not a damage dealer."
+  },
+  "sudema-20": {
+    "writtenAt": "2026-11-16",
+    "summary": "A Vydar undead queen who leads a crypt army of Undead and Eisenek, and wears down enemies with a 60% wound every turn.",
+    "brings": [
+      "Queen of the Crypt gives a bonus turn to an Undead or Eisenek Hero within 5 spaces or on shadow (Corvynn, Isamu 2.0, Hellforge Mandukor), or else to an Undead or Eisenek Unique Squad (Necrotech Wraithriders). Generals don't matter, so a Vydar queen can lead Revna and Utgar figures.",
+      "Petrifying Glare 9: before attacking, roll 9+ (60%) to give 1 wound to any figure within 5 clear sight spaces. That is more reliable than Marro Plague and it can target anyone.",
+      "A Unique Queen Hero, so she can be the Scions of Icaria's Liege."
+    ],
+    "watchOut": "Defense 3 at 110 points. Corvynn and Agent SI-4X can extend her reach, but she needs to stay out of melee."
+  },
+  "twilight-clan-riders": {
+    "writtenAt": "2026-11-16",
+    "summary": "Cheap, fast Utgar ninja cavalry that cuts through the enemy line and hits everything it passes.",
+    "brings": [
+      "Twilight Slash: after riding through a figure, a Rider can make an Attack 3 special attack on it (no range, engagement or sight needed) and then still make its normal attack. That is two attacks per Rider each turn.",
+      "Move 8 with Phantom Ride, the most movement of any squad in the pool, tied with the Necrotech Wraithriders.",
+      "Ninja Carry lets a Rider bring an adjacent Small or Medium Ninja along (Isamu 2.0, Otonashi, Shiori 1.0/2.0, Ninjas of the Northern Wind). Riders are also Tricky, which turns on Otonashi's Tricky Speed."
+    ],
+    "watchOut": "Each Rider has Life 1, and they cannot climb more than 3 levels at once. You own two sets, so both can be drafted at 55 points each."
+  },
+  "cainak-private-eye": {
+    "writtenAt": "2026-11-16",
+    "summary": "A Volarak orc detective who takes over the order markers of your fallen heroes.",
+    "brings": [
+      "Pick Up the Trail is new to the pool: when your Unique Heroes die, their order markers move to Cainak, so the turns you planned for them aren't lost.",
+      "If one of the fallen was a Lawman (Blink Dawson, Johnny \"Shotgun\" Sullivan, Nishi Souta), Cainak takes an extra turn on the spot with his X marker.",
+      "Solid stats on their own: Life 5, Attack 4, Range 5. Volarak now has two figures, Cainak and Blink."
+    ],
+    "watchOut": "His best power needs your own heroes to die first. Pair him with cheap Lawmen such as Blink rather than waiting for an expensive hero to fall."
+  },
+  "corvynn-the-rotbeak": {
+    "writtenAt": "2026-11-16",
+    "summary": "A 30-point undead raven that acts as eyes for undead heroes and spellcasters.",
+    "brings": [
+      "Eyes in the Sky lets Unique Undead and Wizard Heroes use their non-attack powers as if they stood where Corvynn is. In your pool, that mainly means Sudema: Petrifying Glare and Queen of the Crypt can start from Corvynn's position.",
+      "An Undead Hero, so Sudema's Queen of the Crypt can activate him, and a Small Beast, so Ewashia's Command Familiar and the Arrow Gruts' Beast Bonding can too.",
+      "Strong stats for 30 points, with Attack 3, Defense 4, Life 3 and Stealth Flying."
+    ],
+    "watchOut": "Ewashia, Heirloom and Erevan are Wizards, but none of their non-attack powers use clear sight, so for now Eyes in the Sky only does much for Sudema."
   }
 }

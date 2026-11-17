@@ -289,12 +289,23 @@ function referencesIn(unit, power) {
     .map((r) => ({ power: power.name, effects: effectsOf(power, own), ...(benefitsSelf(power, own) ? { reverse: true } : {}), ...r }))
 }
 
+// Powers that turn spaces into shadow (Obfuscation Matrix, Blend into Shadow) help every unit
+// whose powers work better on shadow (Shadow Ambush, Hide in Darkness, Lurk in Shadows).
+const plain = (t) => (t ?? '').replace(/<[^>]+>/g, ' ')
+const makesShadow = (p) => /considered shadow spaces|shadow tiles? (?:on|from) (?:this|her|his|its) Army Card/i.test(plain(p.text))
+const usesShadow = (p) => !makesShadow(p) && /\bon (?:a|any other) shadow (?:space|tile)/i.test(plain(p.text)) && !/attacking a .* on a shadow/i.test(plain(p.text))
+const shadowUsers = units.filter((u) => u.powers.some(usesShadow)).map((u) => u.id)
+
 // --- Build ------------------------------------------------------------------------------------
 
 const out = {}
 let count = 0
 for (const u of units) {
   let refs = u.powers.flatMap((p) => referencesIn(u, p))
+  for (const p of u.powers.filter(makesShadow)) {
+    const ids = shadowUsers.filter((id) => id !== u.id)
+    if (ids.length) refs.push({ power: p.name, effects: ['Shadow'], kind: 'units', label: 'units that use shadow', ids })
+  }
   refs = refs.filter((r) => !overrides.remove.some((o) => o.unit === u.id && (!o.power || o.power === r.power) && (!o.label || o.label === r.label)))
   for (const a of overrides.add.filter((o) => o.unit === u.id)) {
     const ref = a.ids ? { power: a.power, kind: 'units', label: a.label, ids: a.ids } : { power: a.power, kind: 'terms', label: a.label, terms: a.terms }

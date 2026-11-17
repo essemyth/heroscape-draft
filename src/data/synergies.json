@@ -188,6 +188,25 @@
    "terms": {
     "general": "Vydar"
    }
+  },
+  {
+   "power": "OBFUSCATION MATRIX",
+   "effects": [
+    "Shadow"
+   ],
+   "kind": "units",
+   "label": "units that use shadow",
+   "ids": [
+    "cxurggyath",
+    "darrak-ambershard",
+    "deepwyrm-drow",
+    "drow-assassin",
+    "drow-chainfighter",
+    "mika-connour",
+    "pelloth",
+    "sudema-20",
+    "varkaanan-darkclaws"
+   ]
   }
  ],
  "agent-skahen": [
@@ -3177,6 +3196,27 @@
    }
   }
  ],
+ "mika-connour": [
+  {
+   "power": "BLEND INTO SHADOW",
+   "effects": [
+    "Shadow"
+   ],
+   "kind": "units",
+   "label": "units that use shadow",
+   "ids": [
+    "agent-si-4x",
+    "cxurggyath",
+    "darrak-ambershard",
+    "deepwyrm-drow",
+    "drow-assassin",
+    "drow-chainfighter",
+    "pelloth",
+    "sudema-20",
+    "varkaanan-darkclaws"
+   ]
+  }
+ ],
  "millerson": [
   {
    "power": "HONOR AMONG THIEVES",
@@ -4343,6 +4383,28 @@
    "terms": {
     "unitClass": "Gladiator"
    }
+  }
+ ],
+ "storm-shadow-10": [
+  {
+   "power": "NANITE SMOKE GRENADE",
+   "effects": [
+    "Shadow"
+   ],
+   "kind": "units",
+   "label": "units that use shadow",
+   "ids": [
+    "agent-si-4x",
+    "cxurggyath",
+    "darrak-ambershard",
+    "deepwyrm-drow",
+    "drow-assassin",
+    "drow-chainfighter",
+    "mika-connour",
+    "pelloth",
+    "sudema-20",
+    "varkaanan-darkclaws"
+   ]
   }
  ],
  "su-bak-na": [

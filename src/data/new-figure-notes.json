@@ -53,11 +53,11 @@
     "writtenAt": "2026-11-16",
     "summary": "A Vydar Soulborg who carries his own patch of shadow around, letting Vydar and Revna figures slip through enemy lines.",
     "brings": [
-      "Obfuscation Matrix turns his space and every space next to him into shadow. That works with Mika Connour (Shadow Ambush, Shadow Dance) and with Sudema's Queen of the Crypt, which reaches Heroes standing on shadow at any distance.",
+      "Obfuscation Matrix turns his space and every space next to him into shadow. That powers Mika Connour's Shadow Ambush and Shadow Dance, gives the Drow Chainfighter +6 on Hide in Darkness, and lets Sudema's Queen of the Crypt reach Heroes standing on shadow at any distance.",
       "Phantom Protocols: Revna and Vydar figures that start their move on shadow can move through all figures without leaving-engagement attacks. That covers 22 units in the pool, including the Necrotech Wraithriders, Hellforge Mandukor and all three Majors.",
-      "Shadow Assassin adds 1 skull to every skull he rolls against a Hero or Squad on shadow."
+      "Shadow Assassin adds 1 skull to every skull he rolls against a Hero or Squad on shadow, and his own aura counts. Anything standing next to him is on shadow, so every skull he rolls against an adjacent enemy counts double."
     ],
-    "watchOut": "Shadow Assassin says shadow *tile* while his matrix makes shadow *spaces*, so decide with your group whether targets inside his own aura count. With Life 3 and 2 attack dice, he is a support piece, not a damage dealer."
+    "watchOut": "With Life 3, Defense 5 and only 2 attack dice, he has to get adjacent before Shadow Assassin pays off. Enemy figures inside his aura are on shadow too, so watch for opposing shadow powers."
   },
   "sudema-20": {
     "writtenAt": "2026-11-16",

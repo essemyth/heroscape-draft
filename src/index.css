@@ -1204,6 +1204,9 @@ img.loading {
 .effect-retaliation {
   --tag: #7b3f9e;
 }
+.effect-shadow {
+  --tag: #2f2a45;
+}
 .effect-die-roll {
   --tag: #4b5563;
 }
